@@ -1,0 +1,20 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css?family=Gothic+A1:400,500,600,700|Nanum+Gothic:400,700,800|Noto+Sans+KR&display=swap');
+
+body{font-family: 'Noto Sans KR','Nanum Gothic','Gothic A1', sans-serif;}
+html, body, div, span, applet, abject, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, 
+del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form,
+label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, 
+header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	font-family: 'Noto Sans KR','Nanum Gothic','Gothic A1', sans-serif;
+}
+.top_title h3{font-family: 'Gothic A1', sans-serif;}
+h5{font-family: 'Nanum Gothic', sans-serif;}
+/* input[type="button"]{font-family: 'Nanum Gothic', sans-serif;} */
+
+
+/* 
+font-family: 'Nanum Gothic', sans-serif;
+font-family: 'Gothic A1', sans-serif;
+font-family: 'Noto Sans KR', sans-serif;
+*/

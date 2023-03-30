@@ -1,0 +1,478 @@
+* {
+	box-sizing: border-box;
+	font-family: 'Raleway', sans-serif;
+}
+
+html, body {
+	height: 100%;
+}
+
+a, a:hover {
+	text-decoration: none;
+	color: inherit;
+}
+
+.underline {
+	border-bottom: 3px solid rgb(0, 121, 211);
+}
+
+.section p {
+	font-size: 18px;
+}
+
+.about-card {
+	margin-top: 50px;
+	margin-left: 30px;
+	margin-right: 30px;
+	display: inline-block;
+	width: 365px;
+}
+
+.start-card {
+	margin-top: 50px;
+	margin-left: 15px;
+	margin-right: 15px;
+	display: inline-block;
+	width: 365px;
+}
+
+.benefit-card {
+	background-color: white;
+	border-radius: 4px;
+	display: inline-block;
+	height: 290px;
+	margin-top: 50px;
+	margin-left: 35px;
+	margin-right: 35px;
+	margin-bottom: 35px;
+	padding: 20px;
+	width: 360px;
+}
+
+.benefit-card h5 {
+	font-weight: bold;
+}
+
+.benefit-card p {
+	font-size: 16px;
+}
+
+.benefits-section img {
+	position: relative;
+		bottom: 35px;
+	width: 80px;
+}
+
+.right-arrow {
+  position: relative;
+  	bottom: 90px;
+  width: 60px;
+}
+
+.about-card img, .start-card img {
+	margin-bottom: 10px;
+	width: 60px;
+}
+
+.benefits-section img {
+	-webkit-filter: drop-shadow(5px 5px 5px #222);
+  filter: drop-shadow(5px 5px 5px #222);
+}
+
+#packages {
+	font-weight: 500;
+	font-family: 'Raleway', sans-serif;
+	margin-top: 30px;
+	text-align: center;
+}
+
+#package-one {
+	width: 25%;
+}
+
+#package-two {
+	width: 31%;
+}
+
+#package-three {
+	width: 32%;
+}
+
+#package-four {
+	width: 40%;
+}
+
+#package-gpu {
+	width: 30%;
+}
+
+.package-card img {
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+
+.package-section {
+	overflow-x: auto;
+	white-space: nowrap;
+}
+
+.package-section hr {
+	margin-bottom: 50px;
+}
+
+.about-section iframe {
+	margin-top: 20px;
+	margin-bottom: 15px;
+}
+
+.section .about-card p, .start-card p {
+	font-size: 16px;
+}
+
+.blue {
+	color: rgb(0, 121, 211);
+}
+
+.gray {
+	color: rgb(124, 124, 124);
+}
+
+.purple {
+	color: #53407A;
+}
+
+.red {
+	color: #ff6c6c;
+}
+
+.start-section, .benefits-section, footer {
+	background-color: #F5F5F5;
+	text-align: center;
+}
+
+footer {
+	padding: 40px;
+}
+
+.about-section, .package-section, .success-section {
+	text-align: center;
+}
+
+.carousel-caption {
+	bottom: 33%;
+}
+
+.carousel-caption h2 {
+	font-size: 45px;
+	font-weight: bold;
+	text-shadow: 3px 3px 6px black;
+}
+
+.carousel-caption p {
+	font-size: 22px;
+	text-shadow: 3px 3px 6px black;
+}
+
+.carousel-container {
+	position: relative;
+	z-index: 888;
+}
+
+.carousel-hr {
+	border: 1px solid white;
+	width: 175px;
+}
+
+.success-card h5 {
+	font-weight: bold;
+}
+
+.success-card {
+	margin: 0 auto;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.success-card img {
+	margin-bottom: 10px;
+}
+
+.nav-handle {
+	color: white;
+	cursor: pointer;
+	display: none;
+	font-size: 20px;
+	padding: 15px;
+	position: relative;
+	text-align: left;
+	width: 100%;
+}
+
+.nav-handle i {
+	position: absolute;
+		top: 25px;
+		right: 15px;
+}
+
+nav {
+	width: 100%;
+	position: fixed;
+		top: 0;
+		left: 0;
+	transition: all 0.2s linear;
+	z-index: 999;
+}
+
+nav ul {
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+	text-align: center;
+	transition: max-height 0.4s;
+		-webkit-transition: max-height: 0.4s;
+		-ms-transition: max-height: 0.4s;
+		-moz-transition: max-height: 0.4s;
+		-o-transition: max-height: 0.4s;
+}
+
+nav ul li {
+	color: white;
+	display: inline-block;
+	font-size: 20px;
+	padding: 20px;
+}
+
+.nav-scroll {
+	background-color: rgb(0, 0, 0);
+}
+
+.footer-left, .footer-center, .footer-right {
+	display: inline-block;
+	margin-left: 80px;
+	margin-right: 80px;
+	text-align: left;
+}
+
+.footer-left h5, .footer-center h5, .footer-right h5 {
+	font-weight: bolder;
+}
+
+.footer-center p:hover, .footer-right p:hover {
+	color: rgb(0, 121, 211);
+}
+
+.success-section button {
+	border: 1px solid rgb(0, 121, 211);
+	background-color: white;
+	color: rgb(0, 121, 211);
+	cursor: pointer;
+	font-size: 22px;
+	padding: 15px;
+	transition: all 0.2s linear;
+}
+
+.success-section button:hover {
+	background-color: rgb(0, 121, 211);
+	color: white;
+}
+
+.package-card {
+	display: inline-block;
+	margin-left: 25px;
+	margin-right: 25px;
+	width: 246px;
+}
+
+.package-card h5, p {
+	margin: 0;
+}
+
+.package-card button, .start-card p button {
+	background-color: white;
+	border: 1px solid rgb(0, 121, 211);
+	color: rgb(0, 121, 211);
+	cursor: pointer;
+	margin-top: 15px;
+	padding: 10px;
+	transition: all 0.2s linear;
+	width: 160px;
+}
+
+.start-card p button {
+	background-color: transparent;
+}
+
+.begin-mining {
+	position: relative;
+		top: 13px;
+}
+
+.package-card button:hover, .start-card p button:hover {
+	background-color: rgb(0, 121, 211); 
+	color: white;
+}
+
+.register-link, .login-link, .pinnacle-brand {
+	position: absolute;
+}
+
+.register-link {
+	right: 200px;
+}
+
+.login-link {
+	right: 100px;
+}
+
+.pinnacle-brand {
+	left: 100px;
+}
+
+.section {
+	padding: 50px 70px;
+}
+
+.package-section.section {
+	padding-top: 0;
+}
+
+.section hr, .package-hr {
+	border: 1px solid rgb(0, 121, 211);
+	width: 125px;
+}
+
+@media only screen and (max-width: 1455px) {
+	nav ul {
+		background-color: rgb(0, 0, 0);
+		border-bottom: 1px solid white;
+		max-height: 0;
+	}
+
+	.showing {
+		max-height: 35em;
+	}
+
+	nav ul li {
+		color: white;
+		width: 100%;
+	}
+
+	nav ul li:hover, .nav-handle:hover {
+		background-color: rgb(0, 146, 255);
+	}
+
+	.nav-handle {
+		background-color: rgb(0, 0, 0);
+		color: white;
+		cursor: pointer;
+		display: block;
+		height: 70px;
+	}
+
+	.nav-handle span {
+		position: relative;
+			top: 5px;
+	}
+
+	.register-link, .login-link, .pinnacle-brand {
+		position: static;
+	}
+
+	.carousel-container {
+		margin-top: 70px;
+	}
+}
+
+@media only screen and (max-width: 1461px) {
+	.right-arrow {
+		display: none;
+	}
+}
+
+@media only screen and (max-width: 1350px) {
+	.d-none {
+		display: block !important;
+	}
+}
+
+@media only screen and (max-width: 1336px) {
+	.package-card {
+		margin-bottom: 35px;
+	}
+
+	.success-card {
+		width: 90%;
+	}
+}
+
+@media only screen and (max-width: 1172px) {
+	.footer-right {
+		margin-top: 45px;
+	}
+
+	.footer-right br {
+		display: none;
+	}
+}
+
+@media only screen and (max-width: 1075px) {
+	.carousel-caption hr, .carousel-caption p {
+		display: none;
+	}
+}
+
+@media only screen and (max-width: 796px) {
+	.footer-left, .footer-center, .footer-right {
+		display: block;
+		margin: 0 auto;
+	}
+
+	.footer-center, .footer-right {
+		margin-top: 45px;
+	}
+
+	.footer-center br {
+		display: none;
+	}
+}
+
+@media only screen and (max-width: 700px) {
+	.carousel-caption h2 {
+		font-size: 28px;
+	}
+
+	iframe {
+		width: 90%;
+	}
+}
+
+@media only screen and (max-width: 550px) {
+	.section {
+		padding: 25px 35px;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	.carousel-caption h2 {
+		font-size: 22px;
+	}
+
+	.about-card {
+		display: block;
+		width: 90%;
+	}
+
+	.benefit-card {
+		display: block;
+		margin: 0 auto;
+		margin-top: 45px;
+		width: 90%;
+	}
+}
+
+@media only screen and (max-width: 460px) {
+	.start-card {
+		display: block;
+		width: 90%;
+	}
+}

@@ -1,0 +1,64 @@
+.red {
+  color: red;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.sch_last {
+  display: inline-block;
+}
+
+.rank_img {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.btn_submit {
+  width: 100px;
+  height: 30px;
+  margin-left: 20px;
+}
+
+.btn.reset_btn {
+  width: 100px;
+  height: 30px;
+  margin-left: 20px;
+  background: black;
+  border-radius: 0;
+  color: white;
+}
+
+.black_btn {
+  background: #333 !important;
+  border: 1px solid black !important;
+  color: white;
+}
+
+.local_sch .btn_submit {
+  height: 30px;
+}
+
+.selectbox select {
+  width: 150px;
+  height: 30px;
+}
+
+.inline {
+  display: inline-block;
+}
+
+.inline label {
+  font-weight: 600;
+  margin-left: 10px;
+}
+
+.pro {
+  color: red;
+}
+
+.local_ov strong {
+  color: red;
+}

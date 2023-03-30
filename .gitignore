@@ -1,0 +1,6 @@
+/data/*
+test_server.php
+*.bak
+*.tmp
+config.php
+

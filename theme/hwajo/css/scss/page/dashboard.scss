@@ -1,0 +1,106 @@
+@charset "utf-8";
+@import "../include/_variable";
+@import "../include/_mixin";
+
+.dashboard {
+    padding-bottom: 100px;
+
+    .r_card_wrap {
+        margin: 10px 0;
+    }
+
+    .hash_value {
+        width:130px;
+        text-align:left;
+    }
+}
+
+.innerBox +{
+
+    .innerBox{
+        margin-top:20px;
+    }
+}
+
+.innerBox {
+
+    dt {
+        float:left;
+        text-align:left;
+    }
+
+    dd {
+        float:left;
+        text-align:right;
+    }
+}
+
+a {
+
+    &.more {
+        font-size:14px;
+        font-weight:500 ;
+
+        i {
+            font-size:18px;
+            font-weight:500;
+            color:#555;
+            vertical-align: bottom;   
+        }
+    }
+}
+
+.card_title{
+    vertical-align: middle;
+    font-weight: bold;
+    font-size: 16px;
+    color: $main-title-color;
+    margin: 0 0 10px 0;
+}
+
+
+.day{color:$main-point-color;}
+.history_latest{
+    line-height:24px;
+
+    .card_title{
+        margin-bottom:15px;
+    }
+
+    .category{
+        padding:0 10px;
+        font-size:12px;
+    }
+    .price{
+        color:$main-point-color;
+        font-size:13px;
+        font-weight:600
+    }
+}
+
+.regist_latest{
+    line-height:24px;
+    font-size:12px;
+
+    span{vertical-align: middle;}
+
+    .card_title{
+        margin-bottom:15px;
+    }
+
+    .id{font-size:14px;display:inline-block;min-width:80px;font-weight:600;margin:0 10px;}
+    
+    .badge{font-weight: 500;}
+}
+
+.my_btn_wrap {
+    margin: 20px 0;
+
+    button {
+        padding: 15px;
+    }
+}
+
+.f_left {
+    font-size: 15px;
+}

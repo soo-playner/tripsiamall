@@ -1,0 +1,236 @@
+@charset "utf-8";
+@import "./_variable";
+@import "./_mixin";
+
+.breadcrumb {
+    background:transparent;
+    font-size:12px;
+    vertical-align: middle;
+    margin:0;
+    padding:0;
+    width:100%;
+    position: relative;
+    z-index: 1;
+
+    .user-info {
+        background: $breadcrumb-background;
+        width:100%;
+        padding:0 30px;
+        box-shadow:0 4px 2px rgba(0,0,0,0.05);
+
+        .user-content {
+            border-radius:20px;
+            text-align:left;
+            background:$breadcrumb-usercontent-background;
+
+            .userid {
+                display:inline-block;
+                width:50px;
+                height:50px;
+                vertical-align: middle;
+                // background:#f5f5f5;
+                border-radius:20px;
+                margin-right:10px;
+                line-height:42px;
+                font-size:24px;
+                text-align:center;
+
+                + h4 {
+                    display:inline-block;
+                    color: $main-title-color;
+                    vertical-align: text-top;
+                }
+            }
+
+            .mygrade {
+                display:inline-block;
+                vertical-align: text-top;
+                margin:0 10px;
+            }
+            
+        }
+
+        .notice_open {
+            background: $notice-background-color;
+            padding:3px 10px;
+            margin-right: 15px;
+        }
+        
+        .total_view_wrap {
+
+            .row {
+                
+                &.top {
+                    margin:10px 0px;
+                    background:$breadcrumb-usercontent-background;
+                    border-radius:10px;
+                }
+            }
+    
+            .rank_title {
+                width:100%;
+                padding:3px 10px;
+                margin:10px 20px -10px;
+                background:#f0edff;
+                border-radius: 10px;
+            }
+    
+            li {
+                text-align:center;
+                font-weight: bold;
+                padding:15px 0 10px;
+    
+                .title {
+                    color:$main-title-color;
+                    font-size: 12px;
+                    line-height:20px;
+                }
+    
+                .value {
+                    color: $main-point-color;
+                    font-size: 15px;
+                    line-height:24px;
+                }
+            }
+    
+            .collapse {
+    
+                .row {
+                    border-top:1px solid #f3f7ff;
+                }
+            }
+
+            .bonus_state_bg {
+                width:100%;
+                height:14px;
+                margin-top:7px;
+                display:block;
+                background:#eee;
+                border-radius:8px;
+                box-shadow:inset 0px 1px 2px rgba(0,0,0,0.25);
+
+                .bonus_state_bar {
+                    float:left;
+                    position:relative;
+                    height:14px;
+                    display:block;
+                    transition: all .1s;
+                    border-top-left-radius:8px;
+                    border-bottom-left-radius:8px;
+                    box-shadow:inset 0px 1px 2px rgba(0,0,0,0.25);
+
+                    background: linear-gradient(90deg, #23a6d5,#23a6d5);background-size: 300% 300%;
+
+                    &.active {
+                        border:3px solid white; 
+                        box-shadow:0px 0px 5px 2px crimson;
+                    }
+                }
+            }
+
+            .bonus_per {
+
+                &.active {
+                    color:white;
+                    font-size:20px;
+                    transition: all 0.5s;
+                }
+            }
+
+            .exp_per {
+                z-index:10;
+                margin-top:-5px;
+                font-weight:300;
+                position:relative;
+                margin-top:-15px;
+                margin-left:5px;
+                margin-right:5px;
+                width:initial;
+                color:#666;
+                text-shadow: 0px 1px white;
+                
+               
+
+                p {
+                    display:inline;
+                    font-size:10px;
+                    position:absolute;
+                }
+
+                .start {
+                    float:left;
+                    left:0;
+                }
+
+                .end {
+                    float:right;
+                    right:0;
+                }
+
+                &.active{
+                    color:white;text-shadow:none;
+                }
+                &.min{
+                    .start{color:white;text-shadow:none;}
+                }
+            }
+        }
+
+        .fold_wrap {
+            cursor: pointer;
+            width:100%;
+            height:40px;
+            text-align:center;
+            position: relative;
+        
+            .collap {
+                font-weight:bold;
+                color:$main-point-color;
+                font-size:15px;
+                position:relative;
+                height:35px;
+            }
+        
+            .fold_img_wrap {
+                box-shadow:0px 5px 1px rgba(0,0,0,.08);
+                background: $main-point-color; 
+                text-align:center;
+                width:34px;
+                height:34px;
+                margin:0 auto;
+                border-radius:50%;
+                line-height:34px;
+                margin-top: -10px;
+        
+                img {
+                    width:14px;
+                    height:14px;
+                    cursor:pointer;
+                    vertical-align: sub;
+                }
+            }
+        }
+    }
+}
+
+.dash_news {margin-bottom:-10px;}
+.close_news {font-size: 30px;float: right;margin-bottom: 15px;cursor: pointer;}
+.value_no{color:red}
+.last_wrap .col-12 {padding:0 22px;}
+
+.color0 {background: #cacaca !important}
+.color1 {background: $grade_color_0 !important}
+.color2 {background: $grade_color_1 !important;}
+.color3 {background: $grade_color_2 !important;}
+.color4 {background: $grade_color_3 !important;}
+.color5 {background: $grade_color_4 !important;}
+.color6 {background: $grade_color_5 !important;}
+.color9 {background: $grade_color_6 !important;}
+.color10 {background: $grade_color_6 !important;}
+
+// 보너스수당한계 게이지 채움컬러 color
+.deg5{background: linear-gradient(90deg, #23a6d5, #23a6d5)!important; }
+.deg25{background: linear-gradient(90deg,  #23a6d5,#23d5ab)!important;}
+.deg50{background: linear-gradient(90deg,  #23d5ab,#f8a731 )!important;}
+.deg75{background: linear-gradient(90deg,  #f8a731,#e73c7e ) !important;}
+.deg100{background: linear-gradient(90deg, #e73c7e,#e73c7e) !important; border-radius:8px;}

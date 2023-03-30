@@ -1,0 +1,16 @@
+#container body {
+  background: #fff !important;
+}
+
+body {
+  background: #fff !important;
+}
+
+iframe html body {
+  background: #fff !important;
+}
+
+.board_menu {
+  color: blue;
+  font-weight: 600;
+}

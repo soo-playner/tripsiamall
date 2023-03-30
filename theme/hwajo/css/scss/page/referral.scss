@@ -1,0 +1,46 @@
+@charset "utf-8";
+@import "../include/_variable";
+@import "../include/_mixin";
+
+.refer_link_wrap {
+    color:#808080;
+
+    .qr_wrap {
+        width:90%;
+        margin:30px auto;
+        text-align:center;
+        box-sizing: border-box;
+
+        img {
+            max-width: 300px;
+            width:50%;
+            display:block; 
+            margin:0px auto;
+        }
+
+        p {
+            margin-top:20px; 
+            margin-bottom:20px; 
+            font-size:1.05em; 
+            word-break:break-all;
+        }
+
+        input[type=text] {
+            max-width:500px;
+            background:#fff;
+        }
+
+        .url {
+            color: $main-title-color;
+        }
+
+        .title {
+            color: $main-title-color;
+            font-weight: bold;
+        }
+    }
+    
+    .btn_basic_block {
+        line-height: 40px;
+    }
+}

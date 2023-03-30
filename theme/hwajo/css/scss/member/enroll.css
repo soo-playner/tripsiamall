@@ -1,0 +1,233 @@
+@charset "UTF-8";
+@-webkit-keyframes slidein {
+  from {
+    margin-top: 50px;
+    opacity: 0.7;
+  }
+  to {
+    margin-top: 0;
+    opacity: 1;
+  }
+}
+@keyframes slidein {
+  from {
+    margin-top: 50px;
+    opacity: 0.7;
+  }
+  to {
+    margin-top: 0;
+    opacity: 1;
+  }
+}
+.enroll_wrap {
+  width: 100%;
+  margin: 0 auto;
+  font-size: 15px;
+  letter-spacing: -0.3px;
+}
+.enroll_wrap .referzone {
+  background: #fff;
+  margin: 20px 0;
+  border-radius: 5px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+  border: 2px solid #545878;
+}
+.enroll_wrap .referzone input[type=text] {
+  color: black;
+  border-bottom: none;
+  background: transparent;
+  margin-bottom: 0;
+  border-radius: 0;
+  margin-top: 0px;
+}
+.enroll_wrap .referzone input::-moz-placeholder {
+  color: #666;
+}
+.enroll_wrap .referzone input:-ms-input-placeholder {
+  color: #666;
+}
+.enroll_wrap .referzone input::placeholder {
+  color: #666;
+}
+.enroll_wrap .referzone.blue {
+  background: #204f83;
+  color: white;
+}
+.enroll_wrap .pw_ul > li {
+  width: 49%;
+  min-height: 244px;
+  box-sizing: border-box;
+  background: #f2f3f4;
+  padding: 15px;
+  border-radius: 10px;
+}
+.enroll_wrap .pw_ul ul li {
+  padding-left: 20px;
+  font-weight: bold;
+}
+.enroll_wrap .o_li {
+  background: url("../../../_images/okay_icon.gif");
+  background-size: 13px;
+  background-repeat: no-repeat;
+  background-position: center left;
+}
+.enroll_wrap .x_li {
+  background: url("../../../_images/x_icon.gif");
+  background-size: 13px;
+  background-repeat: no-repeat;
+  background-position: center left;
+}
+.enroll_wrap .check_appear_title {
+  color: #006df3;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.enroll_wrap .agreement_btn {
+  text-align: center;
+}
+.enroll_wrap #nation_number {
+  height: 48px;
+  width: 100%;
+  padding-left: 10px;
+  font-size: 0.9em;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+}
+.enroll_wrap .in_btn_ly {
+  position: relative;
+  float: right;
+  margin-right: 10px;
+  margin-top: -52px;
+}
+.enroll_wrap .in_btn_ly2 {
+  position: relative;
+  float: right;
+  margin-top: -35px;
+  margin-right: 10px;
+}
+.enroll_wrap .agreement_ly {
+  background: #fff;
+  padding: 15px;
+  margin: 25px 0;
+  letter-spacing: -1px;
+  font-size: 12px;
+  border-radius: 10px;
+}
+.enroll_wrap .btn_input_wrap {
+  padding: 0px;
+}
+.enroll_wrap #personal {
+  position: relative;
+}
+.enroll_wrap .phone_num {
+  position: absolute;
+  left: 1%;
+  margin-top: 10px;
+  z-index: 2;
+  display: inline;
+}
+.enroll_wrap input + label > i {
+  font-size: 20px;
+}
+
+#reg_mb_hp {
+  padding-left: 40px;
+}
+
+.checkbox_wrap {
+  position: relative;
+  display: inline-block;
+  width: 21px;
+}
+.checkbox_wrap input[type=checkbox] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+.checkbox_wrap input[type=checkbox] + label::before {
+  /* 가짜 체크박스 */
+  content: " ";
+  display: inline-block;
+  width: 15px;
+  /* 체크박스의 너비를 지정 */
+  height: 15px;
+  /* 체크박스의 높이를 지정 */
+  line-height: 15px;
+  /* 세로정렬을 위해 높이값과 일치 */
+  margin: -2px 8px 0 0;
+  text-align: center;
+  vertical-align: middle;
+  background: #fafafa;
+  border: 1px solid #000;
+}
+.checkbox_wrap input[type=checkbox]:checked + label::before {
+  content: "✔";
+  color: #000;
+}
+
+.check {
+  width: 80px;
+  height: 28px;
+  display: inline-block;
+  line-height: 28px;
+}
+
+.term_space {
+  margin: 10px 0;
+}
+
+.term_none {
+  display: none;
+}
+
+.term_textarea {
+  width: 100%;
+  height: 150px;
+  resize: none;
+  font-size: 13px;
+}
+
+#service_checkbox + label, #private_checkbox + label {
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+  background: white;
+  cursor: pointer;
+  border: black solid 1px;
+  border-radius: 3px;
+}
+#service_checkbox + label span, #private_checkbox + label span {
+  position: absolute;
+  display: block;
+  font-weight: bold;
+  transform: translate(22px, -3px);
+}
+#service_checkbox:checked + label, #private_checkbox:checked + label {
+  background: url("/img/check_green.png") no-repeat center/17px 18px;
+  background-repeat: no-repeat;
+}
+
+#wrapper {
+  margin-left: 0;
+}
+
+#reg_mb_id {
+  padding: 15px;
+}
+
+.mb10 {
+  display: block;
+  font-size: 12px;
+}
+
+.btn2_wrap {
+  width: 100%;
+  height: 60px;
+}

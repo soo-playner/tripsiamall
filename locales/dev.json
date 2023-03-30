@@ -1,0 +1,155 @@
+{
+	"nav": {
+		"about": "ABOUT",
+		"how": "HOW TO START",
+		"packages": "PACKAGES",
+		"benefits": "BENEFITS",
+		"plan": "SUCCESS PLAN",
+		"admin": "ADMIN",
+		"office": "MY OFFICE",
+		"logout": "LOGOUT",
+		"login": "LOGIN",
+		"enrollment": "ENROLLMENT",
+		"menu": "MENU",
+		"dashboard": "dashboard"
+	},
+	"carousel": {
+		"item1": {
+			"caption": "DONE FOR YOU BITCOIN MINING",
+			"paragraph": "No need to waste your time or worry about expensive equipment, electricity management, or loud fans. Our mining experts will take care of everything from start to finish."
+		},
+		"item2": {
+			"caption": "ELEVATED MEMBER REWARDS",
+			"paragraph": "Multiply your earnings with the most ambitious and lucrative referral system in the industry. We believe in the principle of collective benefit and that by growing together, everyone earns more."
+		},
+		"item3": {
+			"caption": "EARN BITCOIN EVERY DAY",
+			"paragraph": "FIJI Mining empowers you with an opportunity to profit from an ever-changing financial landscape with innovative blockchain technology and rewarded cryptocurrency mining."
+		}
+	},
+	"about": {
+		"mission": "OUR MISSION",
+		"about": "ABOUT FIJI",
+		"paragraph1": "FIJI Mining is on a mission to make Bitcoin and other cryptocurrencies accessible to every people in the world. The company was formed by a team of forward-thinking cryptocurrency experts, investors, and engineers to revolutionize the cryptocurrency mining industry and is building one of the largest crowdfunded Bitcoin mining pools in North America. Our mining facilities run only the latest in mining hardware and maintain profitability through reliable and cost-efficient energy sources.",
+		"paragraph2": "We are passionate about securing our members with digital assets and have built a simple and intuitive platform for everyone to access the cryptocurrency market. With mining centers located throughout the world including Canada, Ohio, New York, North Carolina, Kyrgyzstan, Republic of Georgia, and Kazakhstan, FIJI Mining is well on its way to surpassing its goal of reaching <span class='underline'>10% of global hash power</span> and <span class='underline'>one million members</span> by the end of 2019.",
+		"card1": {
+			"head": "MINE WITH EASE",
+			"paragraph": "No need to mess with hot and noisy miners at home. Our experts take care of the entire mining process for you."
+		},
+		"card2": {
+			"head": "SUSTAINABLE INCOME",
+			"paragraph": "Multiply your shares with our repurchase program and continue to earn as our facilities expand."
+		},
+		"card3": {
+			"head": "MEMBER BONUSES",
+			"paragraph": "Earn Bitcoin for each and every person that you refer. Plus, receive an additional bonus whenever your referral earns from their mining package."
+		}
+	},
+	"start": {
+		"head1": "JOIN NOW AND GET STARTED",
+		"head2": "HOW TO START MINING TODAY",
+		"main": "Sign up and purchase hash power in one of our mining packages. Your share will then be allocated to purchase equipment, and you'll begin earning daily payments from whatever is mined. To earn even more, share this opportunity with others and you'll receive a commission on everything they purchase.",
+		"strong": "The more you share, the more you earn!",
+		"signup": {
+			"tit": "SIGN UP",
+			"txt": "Create your account with a one-time $99 membership fee. You'll have lifetime access to our platform, exclusive mining packages, and all other future cryptocurrency opportunities."
+		},
+		"wallet": {
+			"tit": "GET A BITCOIN WALLET",
+			"txt": "You'll need a wallet to send and receive Bitcoin with us, and there are plenty to decide from. Choose one with security features that are right for you."
+		},
+		"mining": {
+			"tit": "BEGIN MINING",
+			"txt": "Start earning Bitcoins every day!<button>GET STARTED</button><br><br>"
+		}
+	},
+	"package": {
+		"title": "MINING PACKAGES",
+		"package": "PACKAGE",
+		"bm": "Bitcoin Mining",
+		"days": "1000 Days",
+		"ct": "/ Contract Term",
+		"hp": "Hash Power",
+		"sp": "SELECT PACKAGE"
+	},
+	"benefits": {
+		"subtit":"AN ENTIRELY BETTER WAY TO EARN BITCOIN",
+		"tit": "THE BENEFITS OF FIJI MINING",
+		"s1":{
+			"hd": "NO SETUP REQUIRED",
+			"pg": "As soon as you become a member, you can purchase a mining package and start mining right away. We'll take care of all the heavy lifting."
+		},
+		"s2":{
+			"hd": "SUSTAINABLE INCOME PLAN",
+			"pg": "Our re-purchase program will automatically reinvest in the latest equipment for you to ensure consistent earnings."
+		},
+		"s3":{
+			"hd": "TRANSPARENT UPFRONT COST",
+			"pg": "There are no subscriptions or hidden fees. Your one-time $99 membership payment gives you access to our four exclusive mining packages and all other future crypto projects."
+		},
+		"s4":{
+			"hd": "REFERRAL PROGRAM",
+			"pg": "Earn a commission for each person that you refer. You’ll also receive Bitcoin whenever your referral earns from their package. This will be taken straight from our share so you won’t reduce their profit margin."
+		},
+		"s5":{
+			"hd": "PERSONAL DASHBOARD",
+			"pg": "Keep track of your crypto earnings using our simple real-time dashboard. You can also view your affiliate bonuses and billing history."
+		},
+		"s6":{
+			"hd": "PARTNERSHIP",
+			"pg": "To remain competitive and minimize downtime, we have secured a partnership with a contracted manufacturer specializing in mining hardware.\"VM9087:1 success.hd \"4-STEP SUCCESS PLAN"
+		}
+	},
+	"success": {
+		"hd":"4-STEP SUCCESS PLAN",
+		"c1":{
+			"hd": "1. Cutting-Edge Mining Hardware",
+			"pg": "Cryptocurrency mining is most profitable when done with top-of-the-line, task-specific hardware. FIJI's mining facilities are equipped with thousands of Bitmain S9s and are scheduled to upgrade with (seven times faster) 100 TH/s miners in the 4th quarter of 2018. During the 1st quarter of 2019, we’ll prepare for another expansion with the world’s fastest ASIC miners with 225 TH/s. We will be unrelenting in our vision for the future and will set the industry standard as the market leader."
+		},
+		"c2":{
+			"hd": "2. Ultra-Low-Cost Electricity and Stable Energy Supply",
+			"pg": "Our re-purchase program will automatically reinvest in the latest equipment for you to ensure consistent earnings."
+		},
+		"c3":{
+			"hd": "3. Secure and Reliable Facilities",
+			"pg": "Each FIJI Mining facility is surrounded by surveillance cameras and is also protected by armed guards at all times. Our mining team is also on site 24/7 to maintain, maximize, and ensure mining efficiency."
+		},
+		"c4":{
+			"hd": "4. Top-Notch Experts and Professionals",
+			"pg": "It takes a team of engineers, security and construction experts, and software developers to run even a modest mining center, not to mention centers on the scale FIJI Mining is planning. The FIJI team boasts all of the qualifications and competencies to build, install, and operate industrial-sized mining facilities."
+		},
+		"btn":"START MINING NOW"
+	},
+	"login": {
+		"title": "LOG IN",
+		"enroll": "ENROLLMENT",
+		"user": "Username",
+		"pass": "Password",
+		"forgot": "Forgot username or password?",
+		"click": "Click here.",
+		"not": "Not a member yet?",
+		"sign": "Sign up now",
+		"enjoy": "to enjoy the benefits available only for members.",
+		"reset": "Password Reset",
+		"txt": "Enter the email address on your account to receive instructions on how to reset your password.",
+		"email": "Email"
+	},
+	"register": {
+		"login": "LOG IN",
+		"createAcc": "CREATE ACCOUNT",
+		"user": "Username (At least 4 digits)",
+		"pass": "Password (least 8 uppercase letters, lowercase letters, one number)",
+		"passv": "Verify Password",
+		"fName": "First Name (Actual identity verification must be possible)",
+		"lName": "Last Name (Actual identity verification must be possible)",
+		"email": "Email",
+		"select": "Select Country",
+		"mobile": "Mobile Number",
+		"ref": "Referrer's Username",
+		"sponsor": "Sponsor's Username",
+		"term": "I have read and agree to the <span class='blue tas' data-toggle='modal' data-target='#tac'>Terms and Conditions</span> I fully understood the FIJI business and I know the NO REFUND policy.",
+		"newAcc": "CREATE NEW ACCOUNT",
+		"member": "Aleady a member?",
+		"here": "Log in here"
+	}
+}

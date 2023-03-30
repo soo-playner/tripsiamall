@@ -1,0 +1,94 @@
+.history_box{
+
+	_background-color:lightslategrey;
+	border-radius: 8px;
+	padding: 1em 1em;
+	text-align: left;
+	margin: 0 auto;
+	margin-bottom: 15px;
+	width: 100%;
+	overflow: hidden;
+}
+.history_box .hist_tit{
+	font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 2em;
+    text-align: center;
+}
+
+
+.hist_con{
+	background-color:#333;
+	overflow:hidden;
+	box-sizing: border-box;
+	color:#fff;
+	padding:10px;
+	border-radius:8px;
+    margin-bottom:10px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+
+.hist_con_row1{
+	overflow: hidden;
+	border-bottom: 1px solid rgba(255, 255, 245, 0.1);
+}
+
+.hist_con_row2 {
+	padding: 10px;
+}
+.row1_left{
+	float:left;
+	width:40%;
+	padding:10px 0;
+}
+.row1_right{
+	width:60%;
+	float:right;
+	padding:10px 0;
+}
+.hist_name{
+	font-size:16px;
+	color:white;
+	display:block;
+	margin-bottom: 10px;
+}
+.hist_date{
+	font-size:12px;
+	line-height: 30px;
+	color:white;
+}
+.hist_value{
+	display:block;
+	text-align:right;
+	line-height:24px;
+}
+.hist_value.eth{
+	font-size:0 10px;
+	font-size:11px;
+}
+.hist_th{
+	display:block;
+	text-align:left;
+	font-size: 14px;
+	line-height:30px;
+}
+.hist_td{
+	display:block;
+	text-align:left;
+	font-size: 14px;
+	line-height:30px;
+}
+
+.row2_left{
+	width:30%;
+	float:left;
+	border-right:1px solid #eee;
+}
+.row2_right{
+	width:70%;
+	float:right;
+	padding-left:10px;
+}

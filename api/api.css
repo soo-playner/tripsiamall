@@ -1,0 +1,31 @@
+
+    body{width:100%;}
+    #container{width:100%;}
+    .dual{width:49%;display:inline-block;float:left;}
+    .dual.right{border-left:1px solid #000;padding-left:1%;}
+    .box {border:1px solid #333;background:ghostwhite;padding:10px;margin:10px 0;font-weight:600}
+    /* 검색단 */
+    .inpuset {width:100%;padding:20px 0;}
+    .inpuset .mb_input{padding:5px;line-height:30px;font-size:16px;font-weight:600}
+    .inpuset .mb_input.small{width:100px;}
+    .inpuset .mb_submit{width:100px;height:42px;border:0;background:black;color:white;cursor: pointer;}
+    .mb_name{font-size:20px;font-weight:600;}
+
+    /* 내역 리스트 */
+    li{width:100%;max-width:500px; list-style:none;border-top:1px solid #ccc;line-height:36px;max-width:500px;}
+    
+    li.title{background:ghostwhite;line-height:50px;}
+    li span{display:inline-block;}
+
+    .li_foot{background:ghostwhite;line-height:50px;font-weight:600;text-align:center}
+    .header{width:120px;font-weight:600;color:black;text-align:left;}
+    .layer{width:60px;color:#999;text-align:center;}
+    .price{min-width:150px;text-align:right;}
+    .rate{min-width:150px;text-align:right;}
+
+    /* A링크 */
+    a,a:visited, a:link{color:black;text-decoration:none;}
+    a:hover{text-decoration:underline;}
+
+    .f_red{color:red}
+    .f_blue{color:blue}

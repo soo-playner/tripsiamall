@@ -1,0 +1,119 @@
+.history_box{
+	_background-color:lightslategrey;
+	padding: 1em 1em;
+	text-align: left;
+	margin-bottom: 15px;
+	overflow: hidden;
+	margin-top: 15px;
+	margin-left: -15px;
+	margin-right: -15px;
+}
+.history_box .hist_tit{
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 2em;
+	text-align: left;
+	margin-bottom: 10px;
+	color: #29386b;
+}
+
+
+.hist_con{
+	background-color:#fff;
+	overflow:hidden;
+	box-sizing: border-box;
+	color:#29386b;
+	border-radius:8px;
+	margin-bottom:10px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+
+.hist_con_row1{
+	overflow: hidden;
+	padding: 10px;
+	/* border-bottom:1px solid #eee; */
+}
+.row1_left{
+	float:left;
+	width:40%;
+	padding:10px 0;
+}
+.row1_right{
+	width:60%;
+	float:right;
+	padding:10px 0;
+	margin-top: 40px;
+}
+.hist_name{
+	font-size:16px;
+	color:#29386b;
+	display:block;
+	font-weight: bold;
+}
+
+.hist_date{
+	font-size:12px;
+	line-height: 30px;
+	color:#29386b;
+	font-weight: bold;
+	margin-top: -5px;
+}
+.hist_value{
+	display:block;
+	text-align:right;
+	line-height:24px;
+	font-weight: bold;
+	color: #3b86ff;
+}
+.hist_value.eth{
+	font-size:0 10px;
+	font-size:11px;
+	margin-top: -5px;
+	color: #29386b;
+}
+.hist_th{
+	display:block;
+	text-align:left;
+	font-size: 14px;
+	line-height:30px;
+}
+.hist_td{
+	display:block;
+	text-align:left;
+	font-size: 14px;
+	margin-top: -5px;
+	color: #29386b;
+}
+
+.row2_left{
+	width:30%;
+	float:left;
+	border-right:1px solid #eee;
+}
+.row2_right{
+	width:70%;
+	float:right;
+	padding-left:10px;
+}
+
+#withdraw .title {
+	margin: 5px 0 20px;
+	color: #29386b;
+	font-weight: bold;
+	text-align: left;
+	font-size: 14px;
+}
+
+#pin_open {background: #3b86ff;color: white;font-weight: bold;border-radius: 6px;}
+#Withdrawal_btn {background: #29386b;color: white;font-weight: bold;border-radius: 6px;}
+#withdrawal-address {box-shadow: 1px 2px 5px 0 rgba(0,0,0,.05);border-top: 1px solid rgba(0,0,0,.03);border-bottom: none;}
+#sendCoin {box-shadow: 1px 2px 5px 0 rgba(0,0,0,.05);border-top: 1px solid rgba(0,0,0,.03);border-bottom: none;}
+#pin_auth_with {box-shadow: 1px 2px 5px 0 rgba(0,0,0,.05);border-top: 1px solid rgba(0,0,0,.03);border-bottom: none;}
+.send-button-container .col-5 {padding-right: 0px;}
+.send-button-container .col-7 {padding-left: 5px;}
+@media only screen and (max-width: 414px) {
+	.hist_td {font-size: 12px;}
+	.hist_value.eth {font-size: 10px;}
+}

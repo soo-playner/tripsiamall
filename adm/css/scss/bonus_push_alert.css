@@ -1,0 +1,28 @@
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mb_id {
+  font-size: 13px;
+}
+
+.btn_ly {
+  margin: 30px;
+}
+
+.btn_ly .btn {
+  width: 200px;
+  padding: 15px 0;
+}
+
+.red {
+  color: red;
+}

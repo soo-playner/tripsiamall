@@ -1,0 +1,14 @@
+.local_ov strong {
+  color: red;
+  font-weight: 600;
+}
+
+.local_ov .tit {
+  color: black;
+  font-weight: 600;
+}
+
+.local_ov a {
+  margin-left: 20px;
+  padding-right: 10px;
+}

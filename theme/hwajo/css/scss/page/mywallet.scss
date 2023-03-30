@@ -1,0 +1,308 @@
+@charset "utf-8";
+@import "../include/_variable";
+@import "../include/_mixin";
+
+.mywallet {
+
+    .loadable {
+        display:none;
+
+        .wallet_title {
+            margin:5px 0 20px;
+            color:$main-title-color;
+            font-weight: bold;
+            text-align: left;
+            display:inline-block;
+        }
+
+        .qrBox {
+            margin-bottom: 10px;
+
+            .qr_img {
+                width:100px;
+            }
+        }
+
+        .qrBox_right {
+
+            .wallet_addr {
+                width:100%;
+                text-align:left;
+                border:none!important;
+                outline:0;
+                font-size:10px;
+                color: $main-point-color;
+                padding-bottom: 0px;
+                padding-top: 0px;
+                padding-left: 0px;
+                padding-right: 0px;
+            }
+        }
+
+        .bank_info {
+            font-size:15px;
+            font-weight: 600;
+            background:#f5f5f5;
+            padding:20px 10px;
+            margin:10px 0;    
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
+        }
+
+        .bank_account {
+            background:transparent;
+            border:0;
+            box-shadow:none;
+            display:inline-block;
+            margin:0;
+            padding:0;
+            width:auto;
+            color:$main-point-color;
+            text-align:center;
+            font-size:16px;
+        }
+
+        .sel_price {
+            font-size:16px;
+            background:white;
+            margin:20px 10px 0 10px;
+            padding:10px;
+            border:1px solid #ddd; 
+        }
+
+        &.active {
+            display:block; 
+            animation: slidein 0.5s ease-out; 
+            -webkit-animation:slidein 0.5s ease-out;    
+        }
+    }
+
+    .btn_ly {
+        display:block;
+        width:100%;
+        text-align:center;
+
+        .pre_price {
+            background:white; 
+            color:#333; 
+            padding:10px;
+
+            .deposit_price {
+                display:block;
+                margin-top:-5px; 
+                margin-bottom:5px;
+                padding-bottom:3px; 
+                border-bottom:1px dotted #ccc;
+            }
+        }
+    }
+    
+    .line_btn {
+        border-radius:30px;
+
+        &:hover {
+            background:ghostwhite;
+            box-shadow:0 0 0 2px royalblue;
+        }
+    }
+    
+    .btn {
+
+        span {
+            color: $main-title-color;
+            font-weight: bold;
+        }
+    }
+}
+
+.my_btn_wrap {
+    margin: 20px 0;
+
+    button {
+        padding: 15px;
+    }
+
+    .deposit_btn {
+        background: $deposit-btn-background !important;
+        color: #fff;
+    }
+
+    .withdraw_btn {
+        background: $withdraw-btn-background !important;
+        color: #fff;
+    }
+}
+
+#pin_open {
+    background: $main-point-color;
+    color: white;
+    font-weight: bold;
+    border-radius: 6px;
+}
+#Withdrawal_btn {
+    background: $main-title-color;
+    color: white;
+    font-weight: bold;
+    border-radius: 6px;
+}
+#withdraw {
+
+    .title {
+        float: left;
+    }
+
+    .desc {
+        margin-right:0;
+        line-height:30px;
+    }
+
+    .sub_title{
+        color:$main-point-color;
+    }
+
+    .coin_select_wrap {
+        float: right;
+    }
+
+    .input_shift_value {
+        margin-top:10px;
+
+        .sub_title {
+            height:28px;
+        }
+
+        .max_btn_wrap {
+            float:right;
+        }
+    }
+
+    .comment {
+        font-size: 13px;
+        color: #565656;
+        margin: 3px 0;
+        float: right;
+    }
+} 
+
+#sendCoin {
+    box-shadow: 1px 2px 5px 0 rgba(0,0,0,.05);
+    border-top: 1px solid rgba(0,0,0,.03);
+    border-bottom: none;
+}
+
+#deposit {
+
+    input {
+
+        &.confirm_hash {
+            box-shadow: 1px 2px 5px 0 rgba(0,0,0,.05);
+            border-top: 1px solid rgba(0,0,0,.03);
+            -webkit-border-top: 1px solid rgba(0,0,0,.03); 
+            border-bottom: none;
+        }
+    }
+
+    .deposit_request {
+        background: $main-point-color;
+        border-radius: 5px;
+
+        span {
+            color:white
+        }
+    }
+
+    .row1_right {
+        margin-top: 0px;
+        font-size: 10px;
+        width: 100%;
+    }
+
+    .hist_value {
+        display: inline;
+        width : 50%;
+        &.eth {
+            float: right;
+            font-size: 14px;
+        }
+    }
+}
+
+#usdt {
+
+    .pre_price {
+        border:3px solid #4556ff;
+    }
+
+    .d_price {
+        color:#4556ff;
+    }
+}
+
+#eth {
+
+    .pre_price {
+        border:3px solid dodgerblue;
+    }
+
+    .d_price {
+        color:dodgerblue;
+    }
+}
+
+.fee {
+    display:none;
+    margin-top:-10px;
+    color:#555;
+    height:30px;
+    text-align:right;
+    font-size: small; 
+    margin: -10px -15px 10px;
+    
+    .ri-exchange-fill {
+        font-size:18px;
+        margin-right:3px;
+        color:$main-point-color;
+    }
+    
+    .fees {
+        color:$main-point-color;
+        font-weight:500;
+    }
+
+    .ri-money-dollar-circle-line {
+        font-size:18px;
+        margin-right:-6px;
+    }
+}
+
+#active_amt{color:black;font-weight:600;font-size:13px;}
+.percent{font-size:10px !important;font-weight:300 !important}
+
+#fee_val {
+    margin-left:5px;
+}
+
+.send-button-container {
+
+    .col-5 {
+        padding-right: 0px;
+    }
+
+    .col-7 {
+        padding-left: 5px;
+    }
+}
+
+.ad_deposit {
+    font-style:italic;
+}
+
+.fee_left {padding-right: 0;}
+.fee_right {padding-left: 0;}
+
+@media only screen and (max-width: 414px) {
+	.mywallet .wallet_title {font-size: 14px;}
+	.mywallet .qrBox_right .wallet_addr {font-size: 10px;}
+}
+
+
+

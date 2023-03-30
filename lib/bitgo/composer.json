@@ -1,0 +1,5 @@
+{
+    "require": {
+        "neto737/bitgosdk-php": "*"
+    }
+}

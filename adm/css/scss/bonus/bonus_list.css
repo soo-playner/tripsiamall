@@ -1,0 +1,207 @@
+.date_input {
+  height: 16px;
+  min-width: 80px;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 0 12px;
+  color: red;
+  border: 1px solid black;
+}
+
+.local_ov {
+  height: auto;
+  line-height: 36px;
+}
+
+.local_ov li {
+  list-style: none;
+  margin-right: 10px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.local_ov01 {
+  position: inherit;
+}
+
+.benefit {
+  color: white;
+  border: 0;
+  height: 40px;
+  cursor: pointer;
+  text-align: center;
+  padding: 5px 20px;
+  width: 100%;
+}
+
+.outbox:nth-child(1) .benefit {
+  background: cornflowerblue;
+}
+
+.outbox:nth-child(2) .benefit {
+  background: sienna;
+}
+
+.outbox:nth-child(3) .benefit {
+  background: steelblue;
+}
+
+.outbox:nth-child(4) .benefit {
+  background: slateblue;
+}
+
+.outbox:nth-child(5) .benefit {
+  background: slategray;
+}
+
+.outbox:nth-child(6) .benefit {
+  background: teal;
+}
+
+.outbox:nth-child(7) .benefit {
+  background: royalblue;
+}
+
+.outbox:nth-child(8) .benefit {
+  background: darkmagenta;
+}
+
+.outbox:nth-child(9) .benefit {
+  background: dodgerblue;
+}
+
+.benefit.black {
+  background: black;
+}
+
+.benefit.red {
+  background: #ff3061;
+}
+
+.benefit.rblue {
+  background: royalblue;
+}
+
+.benefit.pink {
+  background: #ff3061;
+}
+
+.benefit.avatar {
+  background: sienna;
+}
+
+.outbox .benefit:hover {
+  background: black;
+}
+
+.frm_input.date {
+  padding-left: 5px;
+  width: 100px;
+}
+
+.view_btn {
+  background: #ccc;
+  border: 0;
+  outline: 0;
+  height: 30px;
+  padding: 5px 20px;
+}
+
+.view_btn:hover {
+  background: rgb(249, 166, 46);
+  cursor: pointer;
+}
+
+.search_item {
+  display: none;
+}
+
+.search_item + .allow_btn {
+  border: 1px solid #666;
+  padding: 12px 10px;
+  margin-right: 10px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.search_item.active + .allow_btn {
+  background: greenyellow;
+  border: 1px solid lightskyblue;
+}
+
+.btn_submit.search {
+  width: 140px;
+  height: 40px;
+}
+
+.btn_submit.excel {
+  width: 80px;
+  background: green;
+  height: 40px;
+}
+
+.sysbtn {
+  background: lightyellow;
+  border-bottom: 1px solid #ccc;
+  display: block;
+  height: 25px;
+  width: 100%;
+  text-align: right;
+  padding-top: 10px;
+  margin-bottom: 15px;
+}
+
+.sysbtn .btn {
+  margin: 10px 0;
+  padding: 6px 10px;
+  background: orange;
+  font-size: 11px;
+  margin-right: 30px;
+}
+
+.sysbtn .btn.btn2 {
+  background: #e4eaec;
+}
+
+.sysbtn .btn.btn3 {
+  background: pink;
+}
+
+.sysbtn .btn:hover {
+  background: black;
+  color: white;
+  text-decoration: none;
+}
+
+.right-border {
+  padding-right: 15px;
+  border-right: 2px solid #333;
+}
+
+.left-border {
+  padding-left: 15px;
+  border-left: 2px solid #333;
+}
+
+.bonus {
+  font-weight: 600;
+  text-align: right;
+  padding-right: 15px !important;
+  color: #0072d1;
+}
+
+.adm, .green {
+  color: green;
+}
+
+.white {
+  background: white;
+}
+
+.red {
+  color: red;
+}
+
+select, .frm_input {
+  height: 36px;
+}

@@ -1,0 +1,8 @@
+[15:44:09] IP : [222.122.229.246] PORT : [30900] MODE : [0]
+[15:44:09] REQUEST MESSAGE :  version[0100] mid[glx_api] serviceCode[1100] command[3000] orderId[2016081915363084] orderDate[20160819153630] numberOfRecord[4] 1017[12345,] 0008[,] 5025[,] 1001[2016081915TT380806,]
+[15:44:09] SERVER CONNECTION SUCCESS!!
+[15:44:09] RESPONSE MESSAGE :  version[0100] mid[null] serviceCode[1100] command[null] orderId[2016081915363084] orderDate[20160819153630] numberOfRecord[0] 1003[통신 에러,] 1002[0920,] 1010[Read timeout 오류,] 1009[02,]
+[15:51:45] IP : [222.122.229.246] PORT : [30900] MODE : [0]
+[15:51:45] REQUEST MESSAGE :  version[0100] mid[glx_api] serviceCode[1100] command[3000] orderId[2016081915512279] orderDate[20160819155122] numberOfRecord[4] 1017[12345,] 0008[,] 5025[,] 1001[2016081915TT380807,]
+[15:51:45] SERVER CONNECTION SUCCESS!!
+[15:51:45] RESPONSE MESSAGE :  version[0100] mid[null] serviceCode[1100] command[null] orderId[2016081915512279] orderDate[20160819155122] numberOfRecord[0] 1003[통신 에러,] 1002[0920,] 1010[Read timeout 오류,] 1009[02,]

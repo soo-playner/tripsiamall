@@ -1,0 +1,582 @@
+<?
+	include_once('./_common.php');
+	include_once(G5_THEME_PATH.'/_include/gnb.php');
+	include_once(G5_THEME_PATH.'/_include/wallet.php');
+
+
+	//매출액
+	$mysales = $member['mb_deposit_point'];
+
+	//보너스/예치금 퍼센트
+	$bonus_per = bonus_state($member['mb_id']);
+    $title = 'Mywallet';
+
+    // 입금 OR 출금
+    if($_GET['view'] == 'withdraw'){
+
+        $view = 'withdraw';
+        $history_target = $g5['withdrawal'];
+
+    }else{
+
+        $view = 'deposit';
+        $history_target = $g5['deposit'];
+    }
+
+    /*날짜선택 기본값 지정*/
+    if (empty($fr_date)) {$fr_date = date("Y-m-d", strtotime(date("Y-m-d")."-3 month"));}
+    if (empty($to_date)) {$to_date =  date("Y-m-d", strtotime(date("Y-m-d")."+1 day"));}
+
+
+    /*날짜계산*/
+    $qstr = "stx=".$stx."&fr_date=".$fr_date."&amp;to_date=".$to_date;
+    $query_string = $qstr ? '?'.$qstr : '';
+
+
+    $sql_search_deposit = " WHERE mb_id = '{$member['mb_id']}' ";
+    $sql_search_deposit .= " AND create_dt between '{$fr_date}' and '{$to_date}' ";
+    $rows = 15; //한페이지 목록수
+
+
+        //입금내역
+        $sql_common_deposit ="FROM {$g5['deposit']}";
+				// $sql_common_deposit ="FROM wallet_deposit_request";
+
+        $sql_deposit = " select count(*) as cnt {$sql_common_deposit} {$sql_search_deposit} ";
+        $row_deposit = sql_fetch($sql_deposit);
+
+        $total_count_deposit = $row_deposit['cnt'];
+        $total_page_deposit  = ceil($total_count_deposit / $rows);
+
+        if ($page < 1) $page = 1; // 페이지가 없으면 첫 페이지
+        $from_record_deposit = ($page - 1) * $rows; // 시작 열
+
+        $sql_deposit = " select * {$sql_common_deposit} {$sql_search_deposit} order by create_dt desc limit {$from_record_deposit}, {$rows} ";
+        $result_deposit = sql_query($sql_deposit);
+
+
+        //출금내역
+        $sql_common ="FROM {$g5['withdrawal']}";
+				// $sql_common ="FROM wallet_withdrawal_request";
+
+				$sql_search = " WHERE mb_id = '{$member['mb_id']}' ";
+				$sql_search .= " AND create_dt between '{$fr_date}' and '{$to_date}' ";
+
+        $sql = " select count(*) as cnt {$sql_common} {$sql_search} ";
+
+        $row = sql_fetch($sql);
+        $total_count = $row['cnt'];
+
+        $total_page  = ceil($total_count / $rows);
+        if ($page < 1) $page = 1; // 페이지가 없으면 첫 페이지
+        $from_record = ($page - 1) * $rows; // 시작 열
+
+        $sql = " select * {$sql_common} {$sql_search} order by create_dt desc limit {$from_record}, {$rows} ";
+        $result_withdraw = sql_query($sql);
+       
+?>
+
+<link rel="stylesheet" href="<?=G5_THEME_CSS_URL?>/withdrawal.css">
+<script type="text/javascript" src="./js/qrcode.js"></script>
+
+    <section class='breadcrumb'>
+        <ol>
+            <li class="active title"><?=$title?></li>
+            <li class='home'><i class="ri-home-4-line"></i><a href="<?php echo G5_URL; ?>">Home</a></li>
+            <li><a href="/page.php?id=<?=$title?>"><?=$title?></a></li>
+        </ol>
+    </section>
+
+
+    <main>
+    <div class='container'>
+    
+        <div class="col-sm-12 col-12 content-box round primary">
+            <div class='user-content'>
+                <li><p class='userid id_<?=$member['mb_level']?>'><?=$user?></p></li>
+                <li>
+                    <h4><?=$member['mb_id']?></h4>
+                    <h6><?=$member['mb_name']?></h6>
+                </li>
+            </div>
+
+            <div class="innerBox round mt20">
+                <dt class='col-5'><span> BONUS <?=ASSETS_CURENCY?></span></dt>
+                <dd class='col-7 '><?=$total_balance_num?> <?=ASSETS_CURENCY?></dd>
+            </div>
+
+            <div class="innerBox round col-sm-12" >
+                <div class='bonus_state_bar' id='total_B_bar'></div>
+                <dt class='col-5'><span class='t_shadow_white'>TOTAL BONUS</span></dt>
+                <dd class='col-7'><?=Number_format($bonus_per,1);?>%</dd>
+            </div>
+            <div class='exp_per'>
+                <p class='start'>0%</p>
+                <p class='end'>100%</p>
+            </div>
+
+            <div class="row mt20">
+			   <article class="col-md-6 col-sm-6"><button type='button' class='btn wd c_btn b_blue' onclick="switch_func_paging('deposit')" data-i18n='deposit.대문자 입금'> DEPOSIT</button></article>
+			   <article class="col-md-6 col-sm-6"><button type='button' class='btn wd c_btn b_red' onclick="switch_func_paging('withdraw')" data-i18n='withdraw.대문자 출금'> WITHDRAW</button></article>
+			</div>
+        </div>
+
+        <hr class='hr_dash'>
+
+        <!-- 입금  -->
+        <section  id='deposit' class='loadable'>
+            <div class="col-sm-12 col-12 content-box round mt20">
+                <h3 class="wallet_title" data-i18n="deposit.deposit_wallet">Deposit USDT  Address</h3>
+
+                <div class="wallet qrBox">
+                    <div class="usdt_qr_img qr_img" id="usdt_qr_img"></div>
+                    <input type="text" id="usdt_wallet_addr" class="wallet_addr" value="" title='my address' disabled/>
+                </div>
+
+                <div class="btn_ly">
+                    <div class='col-sm-12 col-12 '>
+                        <button class="btn wd line_btn" id="accountCopy" onclick="copyURL('usdt_wallet_addr')">
+                            <span data-i18n="deposit.주소복사"> Copy Address </span><i class="ri-file-copy-2-line"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="col-sm-12 col-12 withdraw mt20" >
+                        <input type="text" id='confirm_hash' placeholder="" data-i18n='[placeholder]deposit.입금완료된 Hash를 입력해주세요'>
+                    </div>
+
+                    <div class='col-sm-12 col-12 '>
+                        <button class="btn btn_wd c_btn b_blue font_white" id="deposit_request">
+                            <span data-i18n="deposit.입금확인요청">입금확인요청</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            
+
+            <!-- 입금내역 -->
+            <div class="wallet_box history_box">
+                <h3 class="hist_tit" data-i18n="deposit.입금 내역">Deposit History</h3>
+
+										<?while( $row = sql_fetch_array($result_deposit) ){?>
+												<div class="hist_con">
+												<div class="hist_con_row1">
+														<div class="row1_left">
+														<span class="hist_name" data-i18n='deposit.입금'>Deposit</span><br>
+														<!-- <span class="hist_date"><?=$row['create_dt']?></span> -->
+														</div>
+														<div class="row1_right">
+														<!-- <span class="hist_value"><strong><?=Number_format($row['amt'],5)?></strong> USDT</span> -->
+															<span class="hist_date" style='float:right;'><?=$row['create_dt']?></span>
+														</div>
+												</div>
+
+												<div class="hist_con_row2">
+														<div class="row2_left">
+														<span class="hist_th" data-i18n='deposit.영수증'>Txn Hash</span>
+														<!-- <span class="hist_th" data-i18n='withdraw.메모'>Memo</span> -->
+														<span class="hist_th" data-i18n='withdraw.상태'>Status</span>
+														</div>
+														<div class="row2_right">
+														<span class="hist_td"><?=$row['hash']?></span>
+														<!-- <span class="hist_td addr"><?= $row['addrmemo'] ? $row['addrmemo'] : "-" ?></span> -->
+														<span class="hist_td"><?string_shift_code($row['status'])?></span>
+														</div>
+												</div>
+										</div>
+										<?}?>
+
+										<?php
+										$pagelist = get_paging($config['cf_write_pages'], $page, $total_page_deposit, "{$_SERVER['SCRIPT_NAME']}?id=mywallet&$qstr&view=deposit");
+										echo $pagelist;
+										?>
+
+            </div>
+
+        </section>
+
+
+
+
+        <!-- 출금 -->
+        <section id='withdraw' class='loadable'>
+
+
+            <div class="col-sm-12 col-12 content-box round primary mt20" >
+            <h3 class="title" data-i18n="withdraw.출금 지갑 주소">Withdrawal Address</h3>
+
+                <div class="input_address">
+                  <label class="sub_title" data-i18n="withdraw.출금주소">Account Address</label>
+                  <input type="text" id="withdrawal-address" class="eos_account" placeholder="Enter the Account address." data-i18n='[placeholder]withdraw.출금 주소를 입력해주세요'>
+                  <!-- <p class="account_tit_2" data-i18n="withdraw.memo_address">MEMO Address</p>
+                  <input type="text" id="withdrawal-address-memo" class="eos_account" placeholder="Enter the MEMO address."> -->
+                </div>
+
+
+                <label class="sub_title" data-i18n="withdraw.출금 금액">Withdrawal quantity</label>
+                <div class="input_shift_value">
+                  <input type="text" id="sendCoin" class="send_coin" placeholder="Enter Withdraw quantity" data-i18n='[placeholder]withdraw.출금 금액을 입력해주세요'>
+                </div>
+
+                <hr class="hr_w">
+
+                <div class="otp-auth-code-container">
+                  <div class="verifyContainerOTP">
+                    <label class="sub_title" data-i18n="withdraw.출금 핀코드">Account Pin-code</label>
+                    <input type="password" id="pin_auth_with" class="trans_input " name="pin auth code"
+                    placeholder="Please enter 6-digits pin number" maxlength="6" data-i18n='[placeholder]withdraw.6 자리 핀코드를 입력해주세요'>
+
+                    <div class='text_center'>
+                        <button id="pin_open" class="btn wide yellow form-send-button" data-i18n="withdraw.인증">Authenticate</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="send-button-container">
+                    <button type="button" class="btn btn_wd b_red form-send-button"  id="Withdrawal_btn" data-toggle="modal" data-target="" data-i18n="withdraw.출금 신청" disabled>Withdrawal USDT</button>
+                </div>
+
+            </div>
+
+
+
+        <!-- 출금내역 -->
+        <div class="col-sm-12 col-12 content-box round secondary">
+            <h3 class="hist_tit" data-i18n='withdraw.출금 내역'>Withdrawal History</h3>
+
+            <?while( $row = sql_fetch_array($result_withdraw) ){?>
+                <div class="hist_con">
+                <div class="hist_con_row1">
+                    <div class="row1_left">
+                    <span class="hist_name" data-i18n='withdraw.출금'>Withdraw</span><br>
+                    <span class="hist_date"><?=$row['create_dt']?></span>
+                    </div>
+                    <div class="row1_right">
+                    <span class="hist_value"><strong><?=Number_format($row['amt'],5)?></strong> USDT</span>
+                    </div>
+                </div>
+
+                <div class="hist_con_row2">
+                    <div class="row2_left">
+                    <span class="hist_th" data-i18n='withdraw.출금주소'>Address</span>
+                    <!-- <span class="hist_th" data-i18n='withdraw.메모'>Memo</span> -->
+                    <span class="hist_th" data-i18n='withdraw.상태'>Status</span>
+                    </div>
+                    <div class="row2_right">
+                    <span class="hist_td"><?=$row['addr']?></span>
+                    <!-- <span class="hist_td addr"><?= $row['addrmemo'] ? $row['addrmemo'] : "-" ?></span> -->
+                    <span class="hist_td"><?string_shift_code($row['status'])?></span>
+                    </div>
+                </div>
+            </div>
+            <?}?> 
+
+            <?php
+            $pagelist = get_paging($config['cf_write_pages'], $page, $total_page, "{$_SERVER['SCRIPT_NAME']}?id=mywallet&$qstr&view=withdraw");
+            echo $pagelist;
+            ?>
+          </div>
+        </section>
+    </div>
+    </main>
+
+
+	<div class="gnb_dim"></div>
+</section>
+
+
+
+
+
+
+<!-- 완료 모달 팝업 -->
+
+<div class="modal fade" id="ethereumAddressModalCenter" tabindex="-1" role="dialog"
+aria-labelledby="ethereumAddressModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="ethereumAddressModalLongTitle">USDT WALLET</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <i class="fa fa-check-circle fa-lg"></i>
+      <h4>Your wallet address has been saved.</h4>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<!--출금완료시 메세지-->
+<div class="modal fade" id="withdrawBitcoin" tabindex="-1" role="dialog"
+aria-labelledby="withdrawBitcoinModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="withdrawBitcoinModalLongTitle">USDT Withdraw</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <i class="fa fa-check-circle fa-lg"></i>
+      <h4>Your USDT has been successfully withdrawn.</h4>
+      <p>Please allow up to 72 hours for the transaction to complete.</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<!--입금요청시 메세지-->
+<div class="modal fade" id="request_usdt" tabindex="-1" role="dialog"
+aria-labelledby="withdrawBitcoinModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="requestModalLongTitle">USDT Deposit Confirmation Request</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <i class="fa fa-check-circle fa-lg"></i>
+      	<h4>We will respond as soon as possible</h4>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+<script>
+$(function(){
+    $(".top_title h3").html("<a href='/'><img src='<?=G5_THEME_URL?>/img/title.png' alt='logo'></a>");
+
+    /* 입금 */
+    var usdt_wallet_addr = '<?=USDT_ADDRESS?>';
+    if(usdt_wallet_addr != ''){
+        $('#usdt_wallet_addr').val(usdt_wallet_addr);
+        generateQrCode("usdt_qr_img",usdt_wallet_addr, 150, 150);
+    }
+
+
+
+    /* 출금*/
+    var mb_block = Number("<?=$member['mb_block']?>"); // 차단
+    var mb_id = '<?=$member['mb_id']?>';
+    var auth_mail_code='';
+    var nw_with = '<?=$nw_with?>';
+
+    onlyNumber('sendCoin');
+    onlyNumber('pin_auth_with');
+
+    $('#Withdrawal_btn').on('click', function () {
+      console.log('withdraw click!' + $('#sendCoin').val());
+
+      if($('#sendCoin').val() == ''){
+        commonModal('check field USDT quantity','<strong>please check field and retry.</strong>',80);
+        console.log('금액 없음');
+        return false;
+      }
+
+      if (!mb_block && nw_with != "Y") {
+        $.ajax({
+          type: "POST",
+          url: "./util/withdrawal_proc.php",
+          cache: false,
+          async: false,
+          dataType: "json",
+          data: {
+            func: 'withdraw_usdt',
+            wallet_addr: $('#withdrawal-address').val(),
+            // auth_code: $('#otp_auth_with').val(),
+            // auth_mail_code: auth_mail_code,
+            mb_id: mb_id,
+            amt: $('#sendCoin').val()
+          },
+          success: function (data) {
+            //alert(data.result);
+            if (data.result == "OK") {
+              //console.log(data.result);
+              $('#withdrawBitcoin').modal('show');
+              $('#withdrawBitcoin').click(function(){
+                  location.reload();
+              })
+
+            }else{
+              commonModal('Error', data.result, 80);
+            }
+          }
+        });
+      } else {
+        commonModal('<strong>Not available right now</strong>',
+        '<i class="fa fa-exclamation-triangle red fa-lg" style="font-size:2em;"></i><h4>Not available right now</h4>',120);
+      }
+    });
+
+
+
+    /*핀 입력*/
+    $('#pin_open').on('click', function (e) {
+
+      if($('#pin_auth_with').val()==""){
+          commonModal('USDT Withdraw PIN authentication','<p>Empty!</p>',80);
+          return;
+      }
+
+      $.ajax({
+        url: './util/pin_number_check_proc.php',
+        type: 'POST',
+        cache: false,
+        async: false,
+        data: {
+          "mb_id" : mb_id,
+          "pin": $('#pin_auth_with').val()
+        },
+        dataType: 'json',
+        success: function(result) {
+          if(result.response == "OK"){
+            commonModal('USDT Withdraw PIN authentication','<p>Pin number match</p>',80);
+            $('#Withdrawal_btn').attr('disabled',false);
+            $('#pin_open').attr('disabled',true);
+            $("#pin_auth_with").attr("readonly",true);
+          }else{
+            commonModal('USDT Withdraw PIN authentication','<p>Pin number mismatch</p>',80);
+          }
+        },
+        error: function(e){
+          //console.log(e);
+        }
+      });
+
+    });
+
+
+    /*핀번호 보이기*/
+    $('#show_pwd').on('mouseup mouseleave', function() {
+      $('#pin_auth_with').attr('type',"text");
+    });
+
+
+    function onlyNumber(id){
+      document.getElementById(id).oninput = function(){
+        // if empty
+        if(!this.value) return;
+
+        // if non numeric
+        let isNum = this.value[this.value.length - 1].match(/[0-9]/g);
+        if(!isNum) this.value = this.value.substring(0, this.value.length - 1);
+
+      }
+    }
+
+
+
+		/*입금 확인 요청*/
+    $('#deposit_request').on('click', function (e) {
+
+      if($('#confirm_hash').val()==""){
+          commonModal('USDT Deposit Confirmation Request','<p>Transaction Hash is empty!</p>',80);
+          return;
+      }
+
+      $.ajax({
+        url: './util/request_deposit.php',
+        type: 'POST',
+        cache: false,
+        async: false,
+        data: {
+          "mb_id" : mb_id,
+          "hash": $('#confirm_hash').val()
+        },
+        dataType: 'json',
+        success: function(result) {
+          if(result.response == "OK"){
+						$('#request_usdt').modal('show');
+						$('#request_usdt').click(function(){
+							location.reload();
+						})
+
+
+          }else{
+            commonModal('USDT Deposit Confirmation Request','<p>Please try later</p>',80);
+          }
+        },
+        error: function(e){
+          //console.log(e);
+        }
+      });
+
+    });
+});
+
+
+
+window.onload = function(){
+    move();
+    switch_func("<?=$view?>");
+}
+
+
+function move() {
+   // var total_bonus_point = '<?=$bonus_per?>';
+   var total_bonus_point = '25';
+
+    var elem = document.getElementById("total_B_bar");
+    var width = 1;
+    var id = setInterval(frame, 50);
+    function frame() {
+
+        if (width >= total_bonus_point) {
+            clearInterval(id);
+        } else {
+            width++;
+            elem.style.width = width + '%';
+
+        }
+    }
+}
+
+
+function switch_func(n){
+    $('.loadable').removeClass('active');
+    $('#'+n).toggleClass('active');
+}
+
+function switch_func_paging(n){
+    $('.loadable').removeClass('active');
+    $('#'+n).toggleClass('active');
+		window.location.href=window.location.pathname+"?id=mywallet&'<?=$qstr?>'&page=1&view="+n;
+}
+
+function copyURL(addr){
+    $('#'+addr).select();
+    document.execCommand("copy");
+    alert("지갑 주소가 복사 되었습니다");
+}
+
+function generateQrCode(qrImg, text, width, height){
+    return new QRCode(document.getElementById(qrImg), {
+        text: text,
+        width: width,
+        height: height,
+        colorDark : "#000000",
+        colorLight : "#ffffff",
+        correctLevel : QRCode.CorrectLevel.H
+    });
+}
+</script>

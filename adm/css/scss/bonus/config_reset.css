@@ -1,0 +1,117 @@
+/* xmp {font-family: 'Noto Sans KR', sans-serif; font-size:12px;} */
+.adminWrp {
+  padding: 30px;
+  min-height: 50vh;
+}
+
+input[type=radio] + label {
+  color: #999;
+}
+
+input[type=radio]:checked + label {
+  color: #e50000;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+table.regTb {
+  width: 100%;
+  table-layout: fixed;
+  bdata_test-collapse: collapse;
+}
+
+table.regTb th,
+table.regTb td {
+  line-height: 28px;
+}
+
+table.regTb th {
+  padding: 6px 0;
+  bdata_test: 1px solid #d1dee2;
+  background: #e5ecef;
+  color: #383838;
+  letter-spacing: -0.1em;
+}
+
+table.regTb td {
+  padding: 8px 0;
+  padding-left: 10px;
+  bdata_test-bottom: solid 1px #ddd;
+  bdata_test-right: solid 1px #ddd;
+}
+
+table.regTb input[type=text],
+table.regTb input[type=password] {
+  padding: 0;
+  padding-left: 8px;
+  height: 23px;
+  line-height: 23px;
+  bdata_test: solid 1px #ccc;
+  background-color: #f9f9f9;
+}
+
+table.regTb textarea {
+  padding: 0;
+  padding-left: 8px;
+  line-height: 23px;
+  bdata_test: solid 1px #ccc;
+  background-color: #f9f9f9;
+}
+
+table.regTb label {
+  cursor: pointer;
+}
+
+table.regTb input[type=radio] + label {
+  color: #999;
+}
+
+table.regTb input[type=radio]:checked + label {
+  color: #e50000;
+  font-weight: bold;
+}
+
+tfoot {
+  clear: both;
+  display: table-footer-group;
+  vertical-align: middle;
+  bdata_test-color: inherit;
+}
+
+span.help {
+  font-size: 11px;
+  font-weight: normal;
+  color: rgb(38, 103, 184);
+}
+
+.name {
+  background: #222437;
+  color: white;
+  font-weight: 900;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.currency {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-indent: 20%;
+}
+
+.currency-right {
+  position: relative;
+  float: right;
+  right: 25px;
+}
+
+.btn_ly {
+  width: 50%;
+  min-height: 80px;
+  display: block;
+  margin: 20px auto;
+  text-align: right;
+}

@@ -1,0 +1,436 @@
+* {
+	box-sizing: border-box;
+	font-family:Arial, Helvetica, 'Raleway', sans-serif;
+}
+
+body {
+	width:100%;
+	 	background-color: #3e4452; 
+}
+
+a {
+	text-decoration: none;
+}
+
+.blue {
+	color: rgb(0, 121, 211);
+}
+
+.gray {
+	color: rgb(124, 124, 124);
+}
+
+.purple {
+	color: #53407A;
+}
+
+
+
+.back{
+	width:80%;
+	font-size: 20px;
+		color:#fff;
+		margin:20px auto;
+	}
+	.back a{color:#fff;}
+	
+
+.sign-up-container {
+	margin: 0 auto;
+	margin-top: 100px;
+	/*padding: 30px;
+	width: 650px;*/
+}
+
+.sign-up-container p {
+	text-align: center;
+}
+
+/*
+.sign-up-container p a {
+	color: rgb(0, 121, 211);
+	text-decoration: none;
+}
+*/
+.sign-up-container h2 {
+	font-family: Arial, Helvetica, sans-serif; font-size: 30px; font-weight: bold; margin-top:10px; 	margin-bottom: 20px; 	text-align: left; color:#fff;
+}
+
+.form-brand {
+	margin-bottom: 25px;
+	text-align: center;
+}
+
+form {
+	/*background: white;
+	margin-bottom: 25px;
+	padding: 20px;*/
+	position: relative;
+}
+
+form input, form select {
+	border:0;
+border-bottom:2px solid #787c87;
+background:none;;
+color: #dededf;
+font-size: 14px;
+	display: block;
+	margin-bottom: 15px;
+	padding: 10px;
+	width: 100%;
+	
+}
+
+input:focus {
+	border-bottom: 2px solid #cc8d3a;
+}
+.terms{
+	font-size: 12px;
+	color:#a4a7ad;
+	text-align:center;
+	margin-top:20px;
+}
+.verifyContainer{
+	*position: relative;
+	clear:both;
+	margin-top:10%;
+}
+.verifyContainer p{
+	*position: absolute;
+	font-size: 12px;
+	color:#686d79;
+	right:0;
+	text-align:right;
+}
+form input {
+	margin-top: 5px;
+}
+#verify{
+	margin-top:30px;
+}
+form select {
+	background-color: transparent; 	border-color: #dfdfdf; 	display: inline-block;	height: 48px;	width: 150px;
+}
+
+.mobile-input {
+	display: inline-block;
+	width: 322px;
+}
+
+.submit-button {
+	width:100%;
+	background-color: #21242d;
+	border:0;
+	border-radius: 50px;
+	font-weight: bold;
+	color: #fff;
+	cursor: pointer;
+	/*margin-left: 10px;*/
+	padding: 18px;
+	transition: all 0.2s linear;
+	margin:10px auto;
+}
+
+.submit-button:hover{
+
+	background:#f9a62e;
+}
+
+
+.aleady{
+	font-size:12px;
+	color:#b0b3b7;
+	margin: 20px auto;
+}
+.aleady a{
+	color:#848ebf;
+}
+/*
+.submit-button:hover {
+	background-color: rgb(0, 121, 211);
+	color: white;
+}
+*/
+label {
+	display: block;
+}
+
+.checkbox {
+	display: inline-block;
+	width: auto;
+}
+
+.tas {
+	cursor: pointer;
+}
+
+.input-search {
+	display: inline-block;
+	width: 476px;
+}
+
+.search-button {
+	background: #717b96;
+	border:0;
+	color: white;
+	cursor: pointer;
+	padding: 10px;
+	width: 66%;
+	border-radius:30px;
+	font-size:12px;
+}
+
+.search-button.send_btn{
+	background:cornflowerblue;
+	font-size:12px;
+}
+
+.search-button.send_btn:hover{
+	background:#f9a62e;
+}
+
+.user {
+	border: 1px solid rgb(242, 242, 242);
+	cursor: pointer;
+	margin-bottom: 5px;
+	padding: 10px;
+}
+
+.user:hover {
+	border-color: rgb(0, 121, 211);
+}
+
+.modal-body {
+	height: 500px;
+	overflow: auto
+}
+
+.selected {
+	background: rgb(0, 121, 211);
+	color:white;
+}
+
+.nav-handle {
+	color: white;
+	cursor: pointer;
+	display: none;
+	font-size: 20px;
+	padding: 15px;
+	position: relative;
+	text-align: left;
+	width: 100%;
+}
+
+.nav-handle i {
+	position: absolute;
+	top: 25px;
+	right: 15px;
+}
+
+nav {
+	background: black;
+	height: 70px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	transition: all 0.2s linear;
+	width: 100%;
+	z-index: 999;
+}
+
+nav ul {
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+	text-align: center;
+/*	transition: max-height 0.4s;
+	-webkit-transition: max-height: 0.4s;
+	-ms-transition: max-height: 0.4s;
+	-moz-transition: max-height: 0.4s;
+	-o-transition: max-height: 0.4s;*/
+}
+
+nav ul li {
+	color: white;
+	display: inline-block;
+	font-size: 20px;
+	padding: 20px;
+}
+
+.nav-scroll {
+	background-color: rgb(0, 0, 0);
+}
+
+footer {
+	background: white;
+	padding: 40px;
+	text-align: center;
+}
+
+.footer-left, .footer-center, .footer-right {
+	display: inline-block;
+	margin-left: 80px;
+	margin-right: 80px;
+	text-align: left;
+}
+
+.footer-left h5, .footer-center h5, .footer-right h5 {
+	font-weight: bolder;
+}
+
+.footer-left p, .footer-center p, .footer-right p {
+	margin: 0;
+}
+
+.footer-center p a, .footer-right p a {
+	color: black;
+	text-decoration: none;
+}
+
+.footer-center p:hover, .footer-right p:hover {
+	color: rgb(0, 121, 211);
+}
+
+.register-link, .login-link, .pinnacle-brand {
+	position: absolute;
+}
+
+.register-link {
+	right: 200px;
+}
+
+.login-link {
+	right: 100px;
+}
+
+.pinnacle-brand {
+	left: 100px;
+}
+
+/*190613_by soo*/
+a.loginlink{text-decoration:underline;}
+ 
+.whitebar{
+	width:105%;
+	height:2px;
+	_background:#faa731;
+	background:#fff;
+	display:block;
+}
+.roundbox{
+	clear:both;
+	background:rgba(0,0,0,0.2);
+	border-radius:10px;
+	padding:20px 10px;
+}
+
+.roundbox + .roundbox{
+	margin-top:20px;
+}
+
+.container{width:100%;height:100%;margin:0;padding:0;}
+/* // 190613_by soo*/
+
+
+
+
+
+
+#framewrp {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.6);
+	z-index: 99999;
+	display: none;
+}
+
+#framer {
+	position: absolute;
+	left: 50%;
+	margin-left: -300px;
+	top: 50%;
+	margin-top: -250px;
+	width: 600px;
+	height: 500px;
+	background-color: #fff;
+	border: 0;
+}
+
+.sign-up-container {
+	padding: 0;
+	width: 80%;
+	margin:0 auto;
+}
+form img, form button {
+	display: block;
+	margin: 0 auto;
+	/*margin-bottom: 25px;*/
+	position: static
+}
+form select, .mobile-input, .input-search {
+	width: 100%;
+}
+.submit-button {
+	margin: 0 auto;
+}
+
+@media only screen and (min-width: 767px) {
+	.container{width:767px;margin:0 auto;}
+}
+
+@media only screen and (max-width: 766px) {
+	.container{max-width:inherit}
+}
+
+@media only screen and (max-width: 503px) {
+	label {
+		margin-bottom: 15px;
+	}
+}
+
+@media only screen and (max-width: 550px) {
+	.section {
+		padding: 25px 35px;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	.carousel-caption h2 {
+		font-size: 22px;
+	}
+	.about-card {
+		display: block;
+		width: 90%;
+	}
+	.benefit-card {
+		display: block;
+		margin: 0 auto;
+		margin-top: 45px;
+		width: 90%;
+	}
+}
+
+@media only screen and (max-width: 460px) {
+	.start-card {
+		display: block;
+		width: 90%;
+	}
+}
+
+
+@media screen and (max-width:480px) {
+	#framer {
+		position: absolute;
+		left: 0;
+		margin-left: 0;
+		top: 10%;
+		margin-top: 0;
+		width: 100%;
+		height: 80%;
+	}
+}
+#sendSms:disabled {
+	background-color: #cccccc;
+	border-color: #acacac;
+}

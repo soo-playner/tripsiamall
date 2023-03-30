@@ -1,0 +1,65 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "e629f0e83e2cbc27f8805d12588997b7",
+    "packages": [
+        {
+            "name": "neto737/bitgosdk-php",
+            "version": "1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/neto737/BitGoSDK-PHP.git",
+                "reference": "adb6686f39c03e006ac5e579bfef3128aa2f77f1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/neto737/BitGoSDK-PHP/zipball/adb6686f39c03e006ac5e579bfef3128aa2f77f1",
+                "reference": "adb6686f39c03e006ac5e579bfef3128aa2f77f1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/BitGoSDK.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Neto Melo",
+                    "email": "neto737@live.com"
+                },
+                {
+                    "name": "Wallace Calvet"
+                },
+                {
+                    "name": "Pedro Rodrigues"
+                }
+            ],
+            "description": "A BitGo SDK written in PHP",
+            "keywords": [
+                "bitcoin",
+                "bitgo",
+                "sdk"
+            ],
+            "time": "2017-08-20T17:18:32+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

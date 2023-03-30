@@ -1,0 +1,124 @@
+$breakpoint-mobile: 335px;
+$breakpoint-tablet: 758px;
+$breakpoint-desktop: 1024px;
+$breakpoint-desktop-wide: 1200px;
+
+// 테마 백그라운드 설정
+$main-theme-type: tera-theme; // 테마 모드 설정 
+
+@if $main-theme-type == black-theme {
+    $main-point-color: #492191 !global;// 메인 포인트 컬러
+    $main-button-color:#b1b1b1 !global; // 메인 버튼 배경 1 색상
+    $main-button-color2:#808080 !global; // 메인 버튼 배경 2 색상
+    $main-sub-button-color:#8ddc30 !global; // 메인 서브 버튼 배경 1 색상
+    $main-sub-button-color2:#6eca02 !global; // 메인 서브 버튼 배경 2 색상
+    $deposit-btn-background: #302783 !global;//입금 버튼 배경 색상
+    $deposit2-btn-background: #e30413 !global; // 입금 2(상품구매페이지) 버튼 배경 색상
+    $withdraw-btn-background: #516feb !global; //출금 버튼 배경 색상
+    $purchase-btn-background: #516feb !global; // 구매 버튼 배경 색상
+    $timer-background: #5d96c6 !global; //타이머 배경 색상
+    $main-background-depth1-color:#27282d !global; // 메인 배경 색상
+    $main-background-depth2-color:#3e4048 !global; // 메인 depth2 배경 색상
+    $main-background-depth3-color:#525561 !global; // 메인 depth3 배경 색상
+    $header-background:#3e4048 !global; // header 배경 색상
+    $gnb-background: #27282d !global; // gnb background 배경 색상
+    $gnb-title-color: #eee !global; // gnb title 색상
+    $breadcrumb-background: #3e4048 !global; // breadcrumb 배경 색상
+    $breadcrumb-usercontent-background: #636b73 !global; // breadcrumb 유저 콘텐트 박스 배경 색상
+    $breadcrumb-updown-background: #492191 !global;
+    $badge-background-color: #6eca02 !global; // breadcrumb 뱃지 배경 색상
+    $notice-background-color: #5d96c6 !global; // 공지사항 버튼 배경 색상
+    $main-title-color: #fff !global; // title 폰트 컬러
+    $content-box-background: #3e4048 !global; // content-box 배경 색상
+    $content-box-color: #fff !global; // content-box 폰트 색상
+} @else if($main-theme-type == chia-theme){
+    $main-point-color: #492191 !global;
+    $main-button-color:#04a7a7 !global;
+    $main-button-color2:#008e8e !global;
+    $main-sub-button-color:#8ddc30 !global;
+    $main-sub-button-color2:#6eca02 !global;
+    $deposit-btn-background: #302783 !global;
+    $deposit2-btn-background: #e30413 !global;
+    $withdraw-btn-background: #516feb !global;
+    $purchase-btn-background: #516feb !global;
+    $timer-background: #5d96c6 !global;
+    $main-background-depth1-color:#eff3f9 !global;
+    $main-background-depth2-color:#fff !global;
+    $main-background-depth3-color:#fff !global;
+    $header-background:#fff !global; 
+    $gnb-background: #fff !global; 
+    $gnb-title-color: #29386b !global; 
+    $breadcrumb-background: #fff !global;
+    $breadcrumb-usercontent-background: aliceblue !global;
+    $breadcrumb-updown-background: #492191 !global;
+    $badge-background-color: #6eca02 !global;
+    $notice-background-color: #5d96c6 !global;
+    $main-title-color: #29386b !global;
+    $content-box-background: #ffffff !global;
+    $content-box-color: #000000 !global;
+} @else if($main-theme-type == tera-theme) {
+    $main-point-color: #492191 !global;
+    $main-button-color:#967adb !global;
+    $main-button-color2:#36307d !global;
+    $main-sub-button-color:#4a8ed1 !global;
+    $main-sub-button-color2:#225991 !global;
+    $deposit-btn-background: #302783 !global;
+    $deposit2-btn-background: #516feb !global;
+    $withdraw-btn-background: #ec2b38 !global;
+    $purchase-btn-background: #302783 !global;
+    $timer-background: #5d96c6 !global;
+    $main-background-depth1-color:#eff3f9 !global;
+    $main-background-depth2-color:#fff !global;
+    $main-background-depth3-color:#fff !global;
+    $header-background:#fff !global; 
+    $gnb-background: #fff !global; 
+    $gnb-title-color: #29386b !global; 
+    $breadcrumb-background: #fff !global;
+    $breadcrumb-usercontent-background: aliceblue !global;
+    $breadcrumb-updown-background: #492191 !global;
+    $badge-background-color: #5d96c6 !global;
+    $notice-background-color: #5d96c6 !global;
+    $main-title-color: #29386b !global;
+    $content-box-background: #ffffff !global;
+    $content-box-color: #000000 !global;
+}
+
+// 테마 백그라운드 설정 끝
+
+// 상품 카드 백그라운드 색상
+// $pack_background_0: #b55dccd9;
+// $pack_background_1: #516feb;
+// $pack_background_2: #09c3fd;
+// $pack_background_3: #5ed2dc;
+// $pack_background_4: #373cbc;
+// $pack_background_5: #2b3a6d;
+// $pack_background_6: #6214ab;
+
+// 상품 카드 백그라운드 색상
+$pack_background_0: #6f42c1;
+$pack_background_1: #516feb;
+$pack_background_2: #3b5977;
+$pack_background_3: #03a9f4;
+$pack_background_4: #343a40;
+$pack_background_5: #2b3a6d;
+$pack_background_6: #6214ab;
+
+// 상품 카드 폰트 색상
+$pack_font_0: #6f42c1;
+$pack_font_1: #516feb;
+$pack_font_2: #3b5977;
+$pack_font_3: #03a9f4;
+$pack_font_4: #343a40;
+$pack_font_5: #2b3a6d;
+$pack_font_6: #6214ab;
+
+//회원등급 배경 컬러 색상
+$grade_color_0: #6f42c1;
+$grade_color_1: #516feb;
+$grade_color_2: #3b5977;
+$grade_color_3: #03a9f4;
+$grade_color_4: #343a40;
+$grade_color_5: #2b3a6d;
+$grade_color_6: #6214ab;
+
+

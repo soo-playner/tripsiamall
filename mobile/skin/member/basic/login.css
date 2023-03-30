@@ -1,0 +1,391 @@
+* {
+	box-sizing: border-box;
+	font-family: 'Raleway', sans-serif;
+}
+body { 	background-color: rgb(242, 242, 242); }
+a { 	text-decoration: none; }
+.blue { 	color: rgb(0, 121, 211); }
+.gray { 	color: rgb(124, 124, 124); }
+.purple { 	color: #53407A; }
+.sign-up-container {
+	margin: 0 auto;
+	margin-top: 100px;
+	padding: 30px;
+	width: 650px;
+}
+.sign-up-container p { text-align: center; }
+.sign-up-container p a { 	color: rgb(0, 121, 211);	text-decoration: none; }
+.sign-up-container h2 { 	margin-bottom: 15px; 	text-align: center; }
+.form-brand { 	margin-bottom: 25px; 	text-align: center; }
+form {
+	background: white;
+	padding: 20px;
+	position: relative;
+}
+form input, form select {
+	display: block;
+	margin-bottom: 15px;
+	padding: 10px;
+	width: 100%;
+}
+form input { 	margin-top: 5px; }
+form select { 	background-color: transparent; 	border-color: #dfdfdf; 	display: inline-block;	height: 48px;	width: 150px; }
+
+.mobile-input {
+	display: inline-block;
+	width: 395px;
+}
+
+form img {
+	display: block;
+	margin: 0 auto;
+	margin-bottom: 15px;
+}
+
+.submit-button {
+	background-color: transparent;
+	border: 1px solid rgb(0, 121, 211);
+	border-radius: 4px;
+	color: rgb(0, 121, 211);
+	cursor: pointer;
+	display: block;
+	margin: 0 auto;
+	padding: 22px;
+	transition: all 0.2s linear;
+	width : 100px;
+}
+.submit-button:disabled, .submit-button:disabled:hover {
+	background-color: #ccc;
+	border-color: #aaa;
+	color:black;
+}
+
+.submit-button:hover {
+	background-color: rgb(0, 121, 211);
+	color: white;
+}
+/* 
+form img {
+	width: 275px
+} */
+
+label	{
+	display: block;
+}
+
+.bottom-links {
+	margin-bottom: 30px;
+	text-align: center;
+}
+
+.bottom-links p span {
+	cursor: pointer;
+}
+
+.checkbox {
+	display: inline-block;
+	width: auto;
+}
+
+.tas {
+	cursor: pointer;
+}
+
+.input-search {
+	display: inline-block;
+	width: 476px;
+}
+
+.search-button {
+	background: rgb(0, 121, 211);
+	border: 1px solid rgb(0, 121, 211);
+	color: white;
+	cursor: pointer;
+	padding: 10px;
+}
+
+.user {
+	border: 1px solid rgb(242, 242, 242);
+	cursor: pointer;
+	margin-bottom: 5px;
+	padding: 10px;
+}
+
+.user:hover {
+	border-color: rgb(0, 121, 211);
+}
+
+.selected {
+	border-color: rgb(0, 121, 211);
+}
+
+.nav-handle {
+	color: white;
+	cursor: pointer;
+	display: none;
+	font-size: 20px;
+	padding: 15px;
+	position: relative;
+	text-align: left;
+	width: 100%;
+}
+
+.nav-handle i {
+	position: absolute;
+		top: 25px;
+		right: 15px;
+}
+
+.modal-footer {
+	border-top: none !important;
+	display: block;
+	text-align: center;
+}
+
+nav {
+	background: black;
+	height: 70px;
+	position: fixed;
+		top: 0;
+		left: 0;
+	transition: all 0.2s linear;
+	width: 100%;
+	z-index: 999;
+}
+
+nav ul {
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+	text-align: center;
+	transition: max-height 0.4s;
+		-webkit-transition: max-height: 0.4s;
+		-ms-transition: max-height: 0.4s;
+		-moz-transition: max-height: 0.4s;
+		-o-transition: max-height: 0.4s;
+}
+
+nav ul li {
+	color: white;
+	display: inline-block;
+	font-size: 20px;
+	padding: 20px;
+}
+
+.nav-scroll {
+	background-color: rgb(0, 0, 0);
+}
+
+footer {
+	background: white;
+	padding: 40px;
+	text-align: center;
+}
+
+.footer-left, .footer-center, .footer-right {
+	display: inline-block;
+	margin-left: 80px;
+	margin-right: 80px;
+	text-align: left;
+}
+
+.footer-left h5, .footer-center h5, .footer-right h5 {
+	font-weight: bolder;
+}
+
+.footer-left p, .footer-center p, .footer-right p {
+	margin: 0;
+}
+
+.footer-center p a, .footer-right p a {
+	color: black;
+	text-decoration: none;
+}
+
+.footer-center p:hover, .footer-right p:hover {
+	color: rgb(0, 121, 211);
+}
+
+.register-link, .login-link, .pinnacle-brand {
+	position: absolute;
+}
+
+.register-link {
+	right: 100px;
+}
+
+.login-link {
+	right: 100px;
+}
+
+.pinnacle-brand {
+	left: 100px;
+}
+
+@media only screen and (max-width: 1455px) {
+	nav ul {
+		background-color: rgb(0, 0, 0);
+		border-bottom: 1px solid white;
+		max-height: 0;
+	}
+
+	.showing {
+		max-height: 35em;
+	}
+
+	nav ul li {
+		color: white;
+		width: 100%;
+	}
+
+	nav ul li:hover, .nav-handle:hover {
+		background-color: rgb(0, 146, 255);
+	}
+
+	.nav-handle {
+		background-color: rgb(0, 0, 0);
+		color: white;
+		cursor: pointer;
+		display: block;
+		height: 70px;
+	}
+
+	.nav-handle span {
+		position: relative;
+			top: 5px;
+	}
+
+	.register-link, .login-link, .pinnacle-brand {
+		position: static;
+	}
+
+	.carousel-container {
+		margin-top: 70px;
+	}
+}
+
+@media only screen and (max-width: 1461px) {
+	.right-arrow {
+		display: none;
+	}
+}
+
+@media only screen and (max-width: 1350px) {
+	.d-none {
+		display: block !important;
+	}
+}
+
+@media only screen and (max-width: 1336px) {
+	.package-card {
+		margin-bottom: 35px;
+	}
+
+	.success-card {
+		width: 90%;
+	}
+}
+
+@media only screen and (max-width: 1172px) {
+	.footer-right {
+		margin-top: 45px;
+	}
+
+	.footer-right br {
+		display: none;
+	}
+}
+
+@media only screen and (max-width: 1075px) {
+	.carousel-caption hr, .carousel-caption p {
+		display: none;
+	}
+}
+
+@media only screen and (max-width: 796px) {
+	.footer-left, .footer-center, .footer-right {
+		display: block;
+		margin: 0 auto;
+	}
+
+	.footer-center, .footer-right {
+		margin-top: 45px;
+	}
+
+	.footer-center br {
+		display: none;
+	}
+}
+
+@media only screen and (max-width: 700px) {
+	.carousel-caption h2 {
+		font-size: 28px;
+	}
+
+	iframe {
+		width: 90%;
+	}
+}
+
+@media only screen and (max-width: 650px) {
+	.sign-up-container {
+		padding: 30px 0 0 0;
+		width: 100%;
+	}
+
+	form {
+		margin-bottom: 25px;
+	}
+
+	form img, form button {
+		display: block;
+		margin: 0 auto;
+		margin-bottom: 25px;
+		position: static
+	}
+
+	form select, .mobile-input, .input-search, .search-button {
+		width: 100%;
+	}
+
+	.submit-button {
+		margin: 0 auto;
+	}
+}
+
+@media only screen and (max-width: 503px) {
+	label {
+		margin-bottom: 15px;
+	}
+}
+
+@media only screen and (max-width: 550px) {
+	.section {
+		padding: 25px 35px;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	.carousel-caption h2 {
+		font-size: 22px;
+	}
+
+	.about-card {
+		display: block;
+		width: 90%;
+	}
+
+	.benefit-card {
+		display: block;
+		margin: 0 auto;
+		margin-top: 45px;
+		width: 90%;
+	}
+}
+
+@media only screen and (max-width: 460px) {
+	.start-card {
+		display: block;
+		width: 90%;
+	}
+}

@@ -1,0 +1,321 @@
+@-webkit-keyframes slidein {
+  from {
+    margin-top: 50px;
+    opacity: 0.7;
+  }
+  to {
+    margin-top: 0;
+    opacity: 1;
+  }
+}
+@keyframes slidein {
+  from {
+    margin-top: 50px;
+    opacity: 0.7;
+  }
+  to {
+    margin-top: 0;
+    opacity: 1;
+  }
+}
+.main-container {
+  display: absolute;
+  height: 100%;
+  z-index: 0;
+}
+.main-container .support-container {
+  margin: 0 auto;
+}
+.main-container .support-container .support-panels .support-tabs {
+  margin-bottom: 40px;
+  padding-left: 0;
+  text-align: center;
+  border-radius: 0px;
+}
+.main-container .support-container .support-panels .support-tabs li {
+  border-bottom: 1px solid #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 18px;
+  margin: 0 50px;
+  transition: all 0.3s linear;
+  color: #29386b;
+}
+.main-container .support-container .support-panels .support-tabs li.active {
+  border-color: #000;
+  font-weight: bold;
+  color: #29386b;
+}
+.main-container .support-container .support-panels .panel {
+  display: none;
+}
+.main-container .support-container .support-panels .panel .input-group .input-group-prepend {
+  width: 160px;
+}
+.main-container .support-container .support-panels .panel .input-group .input-group-prepend .input-group-text {
+  width: 160px;
+}
+.main-container .support-container .support-panels .panel .input-group .custom-select {
+  border: 1px solid #ced4da;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  margin-top: 0px;
+  padding: 9px;
+  height: 40px;
+}
+.main-container .support-container .support-panels .panel .input-group .form-control {
+  border: 1px solid #ced4da;
+  background: #fff;
+}
+.main-container .support-container .support-panels .panel .input-group #content {
+  height: 100px;
+}
+.main-container .support-container .support-panels .panel .input-group #addFile {
+  border: 1px solid #a1a1a1;
+  padding: 5px;
+  border-radius: 6px;
+  background: #f5f5f5;
+}
+.main-container .support-container .support-panels .panel:active {
+  display: block;
+}
+.main-container .support-container .support-panels .submit-button {
+  margin-top: 20px;
+  text-align: right;
+}
+.main-container .support-container .support-panels .submit-button #ticket {
+  background: #492191;
+}
+.main-container .support-container .support-panels .email {
+  color: #29386b;
+  font-size: 14px;
+  padding: 15px;
+  border-radius: 5px;
+  text-align: center;
+}
+.main-container .support-container .name {
+  font-size: 0.9em;
+}
+.main-container .support-container .writer {
+  font-size: 0.7em;
+  background: rgba(0, 0, 0, 0.1);
+  padding: 3px 10px;
+  border-radius: 3px;
+  display: inline-block;
+  float: right;
+  color: #333;
+}
+
+.ticket-header {
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 15px;
+  padding: 15px 20px;
+  transition: all 0.2s linear;
+  width: 100%;
+  display: table;
+  color: #29386b;
+}
+.ticket-header .ticket-time {
+  float: right;
+  font-weight: bold;
+}
+.ticket-header.active {
+  background-color: #492191;
+  color: white;
+}
+.ticket-header:hover {
+  background-color: #492191;
+  color: white;
+}
+.ticket-header span {
+  font-size: 18px;
+  margin-bottom: 0;
+}
+.ticket-header.closed {
+  background-color: #ccc;
+}
+.ticket-header.closed:hover {
+  background-color: #ccc;
+}
+.ticket-header.closed::before {
+  font-weight: 700;
+  content: "[Closed]";
+}
+
+.chat-box {
+  height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  margin-bottom: 0;
+  padding: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  margin: 0;
+  border: 0;
+  background: inherit;
+}
+.chat-box .chat {
+  height: auto;
+  margin-bottom: 25px;
+  overflow-x: auto;
+}
+.chat-box .chat-input .btn {
+  margin: 0;
+}
+.chat-box.active {
+  height: auto;
+  transition: all 0.3s ease-in-out;
+  padding: 20px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  margin: 0 1px;
+  margin-bottom: 60px;
+  margin-top: -1px;
+  box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.2);
+  background: white;
+}
+
+.con90_wrap {
+  margin-bottom: 20px;
+}
+.con90_wrap .color_block {
+  width: 90%;
+  margin: auto;
+}
+
+.trans_history {
+  margin: 20px 0px;
+}
+.trans_history li {
+  margin: 0px auto 10px;
+  border-bottom: 2px solid #ddd;
+}
+.trans_history li > div {
+  width: 90%;
+  margin: 0px auto 8px;
+}
+.trans_history li > div:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.member-message {
+  background-color: #e9ecef;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  padding: 20px;
+  position: relative;
+  display: table;
+  width: 100%;
+}
+.member-message p {
+  text-align: right;
+  margin-bottom: 0;
+  margin-top: 10px;
+}
+
+.support-message {
+  background-color: #f3f7ff;
+  color: #29386b;
+  font-weight: bold;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  padding: 20px;
+  position: relative;
+  display: table;
+  width: 100%;
+}
+.support-message a {
+  color: #ccc;
+}
+.support-message p {
+  margin-bottom: 0;
+  margin-top: 10px;
+}
+.support-message .writer {
+  float: right;
+  background: none;
+  color: #492191;
+  font-weight: bold;
+}
+
+.file_addon {
+  background: rgba(255, 255, 255, 0.7);
+  color: #00f !important;
+  text-decoration: underline;
+  width: 100%;
+  display: block;
+  border-radius: 15px;
+  padding: 2px 10px;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.select-label {
+  display: inline-block;
+  width: 15%;
+}
+
+.submit-button {
+  margin-top: 20px;
+  text-align: right;
+}
+
+#dup {
+  display: none;
+}
+
+#dup2 {
+  display: none;
+}
+
+.dup2_wrap {
+  display: none;
+}
+
+.limit_text {
+  font-size: 12px;
+}
+
+@media (max-width: 758px) {
+  .support-tabs li {
+    display: block !important;
+    margin-bottom: 15px !important;
+    text-align: center;
+  }
+}
+@media only screen and (max-width: 814px) {
+  .support-tabs li {
+    display: block;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+}
+@media only screen and (max-width: 450px) {
+  .ticket-title {
+    width: 82%;
+  }
+}
+@media only screen and (max-width: 414px) {
+  .ticket-header span {
+    font-size: 14px;
+  }
+  .ticket-header strong {
+    font-size: 14px;
+  }
+  .support-message .content {
+    font-size: 14px;
+  }
+  #addFile {
+    font-size: 0.9em;
+  }
+  .support-container .input-group-prepend, .support-container .input-group-text {
+    font-size: 0.9em;
+  }
+}

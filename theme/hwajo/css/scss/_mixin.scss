@@ -1,0 +1,78 @@
+@mixin mobile {
+    @media (min-width: #{$breakpoint-mobile}) and (max-width: #{$breakpoint-tablet - 1px}) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: #{$breakpoint-tablet}) and (max-width: #{$breakpoint-desktop - 1px}) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: #{$breakpoint-desktop}) {
+        @content;
+    }
+}
+
+@mixin desktop-wide {
+    @media (min-width: #{$breakpoint-desktop-wide}) {
+        @content;
+    }
+}
+
+// @mixin box-shadow($h:10px,$v:10px,$b:0px,$s:0px,$c:#ccc) {
+//     -webkit-box-shadow:$h $v $b $s $c;
+//     -moz-box-shadow:$h $v $b $s $c;
+//     box-shadow:$h $v $b $s rgba(0,0,0,0.1);
+// }
+
+// @mixin border($size:1px,$color:#000000) {
+//     border: $size solid $color;
+// }
+
+// @mixin margin($top:0,$right:0,$bottom:0,$left:0) {
+//     margin: {
+//         top: $top;
+//         right: $right;
+//         bottom: $bottom;
+//         left: $left;
+//     }
+// }
+
+// @mixin padding($top:0,$right:0,$bottom:0,$left:0) {
+//     padding: {
+//         top: $top;
+//         right: $right;
+//         bottom: $bottom;
+//         left: $left;
+//     }
+// }
+
+// @mixin content_box($h:0,$v:0,$b:0,$s:0,$background_color:#ffffff,$font_color:#000000) {
+//     @include box-shadow($h,$v,$b,$s,#ccc);
+//     border-radius: 5px;
+//     background: $background_color;
+//     color: $font_color;
+// }
+
+// @mixin flexbox($jc: center, $ai: center) {
+//     display: flex;
+//     align-items: $ai;
+//     justify-content: $jc;
+//     min-height: 150px;
+//     font-size: 14px;
+// }
+
+// @keyframes slidein {
+// 	from {
+// 	  margin-top: 50px;
+// 	  opacity: 0.7;
+// 	}
+
+// 	to {
+// 	  margin-top: 0;
+// 	  opacity: 1;
+// 	}
+// }

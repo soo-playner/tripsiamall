@@ -1,0 +1,28 @@
+.notice-red {
+    color: red;
+}
+
+.top_title h3 {
+    line-height: 20px;
+    display: inline-block;
+    width: auto;
+    margin: 0 auto;
+    padding-right: 13px;
+    font-size: 15px !important;
+}
+
+.top_title {
+    color: #000;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 15px 20px;
+    /* box-shadow:0 1px 0px rgba(0,0,0,0.25) */
+}
+
+#notice_phone {
+    display:none;
+}
+
+#notice_password {
+    display:none;
+}

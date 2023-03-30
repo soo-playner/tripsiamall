@@ -1,0 +1,118 @@
+{
+	"nav": {
+		"dashboard": "dashboard",
+		"Profile & Settings": "Profile & Settings",
+		"Crypto Wallets" : "Crypto Wallets",
+		"Business Status" : "Business Status",
+		"Level Structure": "Level Structure",
+		"Binary Structure": "Binary Structure",
+		"Avatar Account": "Avatar Account",
+		"Purchase Packs": "Purchase Packs",
+		"V7 News": "V7 News",
+		"Support Center": "Support Center",
+		"Select Language": "Select Language",
+		"Enroll New Member": "Enroll New Member",
+		"My Referral Link": "My Referral Link",
+		"Logout": "LOGOUT",
+		"login": "LOGIN",
+		"enrollment": "ENROLLMENT",
+		"menu": "MENU"
+	},
+	
+	"dashboard": {
+		"Notification": "Notification",
+		"Service is being prepared": "Service is being prepared.",
+		"Business Status": "Business Status",
+		"My Sponsor" : "My Sponsor"
+	},
+	"wallet": {
+		"Total wallet balance": "Total wallet balance",
+		"Deposited": "Deposited",
+		"Send Bitcoin": "Send Bitcoin",
+		"Amount to deposit": "Amount to deposit",
+		"All deposit" : "All deposit",
+		"warning": {
+			"A": "Warning: This order can't be undone.",
+			"txt": "Create your account with a one-time $99 membership fee. You'll have lifetime access to our platform, exclusive mining packages, and all other future cryptocurrency opportunities."
+		},
+		"wallet": {
+			"tit": "GET A BITCOIN WALLET",
+			"txt": "You'll need a wallet to send and receive Bitcoin with us, and there are plenty to decide from. Choose one with security features that are right for you."
+		},
+		"mining": {
+			"tit": "BEGIN MINING",
+			"txt": "Start earning Bitcoins every day!<button>GET STARTED</button><br><br>"
+		}
+	},
+	
+	"structure": {
+		"Level Structure": "Level Structure",
+		"Due to the amount of data, only 5 steps are shown": "Due to the amount of data, only 5 steps are shown",
+		"Member Search": "Member Search",
+		"Member Stack": "Member Stack",
+		"ct": "/ Contract Term",
+		"hp": "Hash Power",
+		"sp": "SELECT PACKAGE"
+	},
+	
+	"login": {
+		"title": "LOG IN",
+		"enroll": "ENROLLMENT",
+		"Username": "Username",
+		"Password": "Password",
+		"Create new account" : "Create new account",
+		"forgot": "Forgot username or password?",
+		"click": "Click here.",
+		"not": "Not a member yet?",
+		"sign": "Sign up now",
+		"enjoy": "to enjoy the benefits available only for members.",
+		"reset": "Password Reset",
+		"txt": "Enter the email address on your account to receive instructions on how to reset your password.",
+		"email": "Email"
+	},
+	"title": {
+		"Create a new account" : "Create a new account",
+		"Crypto Wallets" : "Crypto Wallets",
+		"Transaction History" : "Transaction History",
+		"Deposit with Bitcoin" : "Deposit with Bitcoin"
+	},
+	"register": {
+		"username": "Username (4 ~ 10 letters. No special character allowed)",
+		"Login Password": "Login Password",
+		"Confirm login password": "Confirm login password",
+		"Your password must contain": "Your password must contain",
+		"8 to 20 characters long": "8 to 20 characters long",
+		"Capital & Small Letter": "Capital & Small Letter",
+		"Digits": "Digits",
+		"Special Characters": "Special Characters",
+		"Transaction Password": "Transaction Password",
+		"Confirm transaction password": "Confirm transaction password",
+		"Personal Information & Authentication" : "Personal Information & Authentication",
+		"First Name" : "First Name (Must match the legal name on file)",
+		"Last Name" : "Last Name (Must match the legal name on file)",
+		"Email address": "Email address",
+		"Enter Email Authtication Code": "Enter Email Authtication Code",
+		"Email code": "Email authentication code",
+		"verification complete" : "Verification Complete",
+		"Phone number": "Phone number",
+		"Search Referrer": "Search Referrer",
+		"Referrers Username": "Referrer's Username",
+		"viewagreement" : "Read Terms and Conditions",
+		"agreement":"I have read and agreed to the Terms and Conditions. I fully understood the V7 business and I know the NO REFUND policy. I know the change of sponsor and upline is NOT POSSIBLE. ",
+		"cancel": "Cancel",
+		"Enroll new member":"Enroll new member"
+	},
+	"popup": {
+		"Email verification": "Email verification",
+		"Security code sent to your email": "Security code sent to your email",
+		"close": "close",
+		"new member signup": "New member signup",
+		"signup completed successfully": "Signup completed successfully",
+		"logout" : "logout",
+		"Are you sure to log out?" : "Are you sure to log out?",
+		"cancel": "Cancel",
+		"yes": "Yes"
+	},
+	"username": "LOG IN1",
+	"Search" : "Search"
+}

@@ -1,0 +1,131 @@
+<!--상위 공통부분 시작-->
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,width=device-width">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title></title>
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+    <link type="text/css" rel="stylesheet" href="css/reset.css">
+    <link type="text/css" rel="stylesheet" href="css/common.css">
+    <link type="text/css" rel="stylesheet" href="css/layout.css">
+</head>
+<body>
+   <div id="header">
+    <div class="hd_subject"><a href="./intro.html"><span><img src="images/logo_white.png"></span></a></div>
+    <div class="navigation">
+        <nav>
+            <a href="javascript:void(0)" class="smobitrigger" style="display:block !important;"><img src="images/icon_tab_02_50x36.png" width="25" height="18" alt=""><span>Menu</span></a>
+            <ul class="mobimenu">
+                <li class="logo">
+                    <img src="images/logo_black.png">
+                </li>
+                <li class="bar_member">
+                    <ol>
+                        <li><a href="./join.html">JOIN</a></li>
+                                <li><a href="./login.html">LOGIN</a></li>
+                    </ol>
+                </li>
+
+                <li class="arco_mn">
+                    <div id="accordian">
+                        <ul>
+                            <li>
+                                <h3>dashboard<span class="arrow"></span></h3>
+                            </li>
+                             <li>
+                                     <a href='./modi.html'><h3>profile&settings<span class="arrow"></span></h3></a>
+                                </li>
+                                <li>
+                                    <a href='./mywallet.html'><h3>my wallet<span class="arrow"></span></h3></a>
+                                </li>
+                            <li>
+                                <h3>purchase<span class="arrow"></span></h3>
+                            </li>
+                            <li>
+                                <h3>bouns histoty<span class="arrow"></span></h3>
+                            </li>
+                            <li>
+                                <h3>level structure<span class="arrow"></span></h3>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<script src="js/menu_slide.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function ($) {
+        $('.smobitrigger').smplmnu();
+    });
+</script>
+<!--상위 공통부분 끝-->
+<!--레이아웃 시작-->
+<span class="title">회원정보수정</span>
+<div id="section">
+    <script>
+        $('.smobitrigger').css('display','none'); // 메뉴삭제
+    </script>
+    <div class="mem_modify">
+        <div class="mem_profile">
+            <img src="images/mem.png" class="mem_img">
+            <input type="text" placeholder="1" class="numb">
+            <ul>
+                <li>
+                    <input type="text" class="mem_id" placeholder="admin">
+                    <input type="text" class="mem_name" placeholder="admin">
+                </li>
+                <li>
+                    <label for="">Nationality : </label>
+                    <span class="national">Republic of Korea</span>
+                </li>
+            </ul>
+        </div>
+        <div class="modify_profile">
+            <p class="pro">Profile</p>
+            <ul>
+                <li>
+                    <label for="" class="base_label">Name</label>
+                    <input type="text" id="" name="" class="modi_input" placeholder="soo SupderAdmin">
+                    <input type="submit" class="modify_submit" value="Change">
+                </li>
+                <li>
+                    <label for="" class="base_label">E-mail</label>
+                    <input type="text" id="" name="" class="modi_input" placeholder="soo@willsoft.kr">
+                    <input type="submit" class="modify_submit" value="Change">
+                </li>
+                <li>
+                    <label for="" class="base_label">Phone Number</label>
+                    <input type="text" id="" name="" class="modi_input" placeholder="01097885852">
+                    <input type="submit" class="modify_submit" value="Change">
+                </li>
+            </ul>
+        </div>
+        <div class="modify_profile">
+            <p class="secu">Security setting</p>
+            <ul>
+                <li>
+                    <label for="" class="base_label">Change login password</label>
+                    <input type="password" class="password">
+                    <input type="submit" class="modify_submit" value="Change">
+                </li>
+                <li>
+                    <label for="" class="base_label">Change Pin-Code</label>
+                    <input type="password" class="password">
+                    <input type="submit" class="modify_submit" value="Change">
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<span class="bottom_logo"><img src="images/intro_img2.png" alt="" width="412" height="69"></span>
+<!--레이아웃 끝-->
+</body>
+
+</html>

@@ -1,0 +1,110 @@
+$breakpoint-mobile: 335px;
+$breakpoint-iphone-678: 413px;
+$breakpoint-tablet: 758px;
+$breakpoint-desktop: 1024px;
+$breakpoint-desktop-wide: 1200px;
+
+$main-color: #6214ab;
+$sub-color: #8734d4;
+$main2-color:#37d2fd;
+$sub2-color:#c73bda;
+$second-color: #f5c97a;
+$third-color: #c47c2e;
+$back-color: #171716;
+
+$navy-color: #1e5ab9;
+$sky-color: #3b86ff;
+
+$main-colors: #ffd965 !global;
+$font-sub-colors: #fff !global;
+
+$main-button: #fbe591 !global;
+$main-button2: #fac707 !global;
+$main-button3: #4c6072 !global;
+$main-button4: #202b38 !global;
+
+$main-background: #212429 !global;
+$main-background2: #17191d !global;
+$main-background3: #2c2f34 !global;
+$gnb-line: #2c3037 !global;
+$user-icon: #363c46 !global;
+$breabcrumb-line: #2c3037 !global;
+$fold-img: #f9d448 !global;
+
+$line: #2c3037 !global;
+$binary-line: #262a31 !global;
+$binary-left1: #5f9eec !global;
+$binary-left1-1: #1d76e4 !global;
+$binary-right1: #445d72 !global;
+$binary-right1-1: #2a3e53 !global;
+
+$r-card0: #736ad0 !global;
+$r-card0-1: #5647ad !global;
+$r-card1: #736ad0 !global;
+$r-card1-1: #5647ad !global;
+$r-card2: #5e7dc6 !global;
+$r-card2-1: #415ba3 !global;
+$r-card3: #4e8ecb !global;
+$r-card3-1: #316ba9 !global;
+$r-card4: #227f9c !global;
+$r-card4-1: #055c7a !global;
+$r-card5: #586875 !global;
+$r-card5-1: #3b4652 !global;
+$r-card6: #2c3f4f !global;
+$r-card6-1: #0f1c2c !global;
+
+// 유저 아이콘
+$user-icon0: #363c46 !global;
+// $user-icon1: 
+
+$withdraw-btn-background: #ffd965 !global;
+$main-point-color: #492191 !global;
+
+// enroll
+$userSelected_background: #cfa831 !global;
+
+// 마이닝
+$mining_withdraw_background: #3d4247 !global;
+$form_send_button: #cfa831 !global;
+
+// mypool
+$from_id_background: #cfa831 !global;
+$total_mining1: #052645 !global;
+$total_mining1_1: #004a95 !global;
+$mega_mining1: #004e99 !global;
+$mega_mining1_1:#2d7dcb !global;
+$zeta_mining1: #034d64 !global;
+$zeta_mining1_1: #287d9b !global;
+$zetaplus_mining1:#252e38 !global;
+$zetaplus_mining1_1:#414d5a !global;
+$super_mining1:#2f568f !global;
+$super_mining1_1:#733f88 !global;
+$super_mining1_2: #9c3284 !global;
+
+// $zeta_mining1: #5677ca !global;
+// $zeta_mining1_1: #274090 !global;
+// $zetaplus_mining1: #6b56db !global;
+// $zetaplus_mining1_1: #473890 !global;
+// $super_mining1: #414d5a !global;
+// $super_mining1_1: #252e38 !global;
+
+// support
+$ticket_header_background: #cfa831 !global;
+
+// structure
+$search_background: #cfa831 !global;
+
+// gnb메뉴 아이콘 
+$white: "../../img/gnb/menu_set_white.svg";
+$white_hover: "../../img/gnb/menu_set_white_hover.svg";
+$dark: "../../img/gnb/menu_set_dark.svg";
+$dark_hover: "../../img/gnb/menu_set_dark_hover.svg";
+
+// 테마 백그라운드 설정
+$main-theme-type: white-theme; // 테마 모드 설정 
+
+@if $main-theme-type == white-theme {
+    $mypool_title: #333 !global;
+} @else if($main-theme-type == dark-theme) {
+    $mypool_title: #fff !global;
+}

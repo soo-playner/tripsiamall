@@ -1,0 +1,167 @@
+@charset "utf-8";
+@import "../include/_variable";
+@import "../include/_mixin";
+
+.profile {
+
+    .person_info {
+        width:100%;
+        display:block;
+
+        .userid {
+            width:40px;
+            height:40px;
+        }
+
+        .myid {
+            margin-left:10px; 
+            vertical-align: top;
+            line-height:40px;
+        }
+
+        .mygrade {
+            vertical-align: top;
+            margin-top:10px;
+        }
+    }
+
+    label {
+        + p {
+            text-indent:10px;
+            margin-top:5px;
+        }
+    }
+}
+
+.profile-box{
+    margin-bottom: 50px;
+    padding: 0 10px;
+
+    ul {
+
+        &:last-child {
+
+            li {
+                border-bottom: 0;
+            }
+        }
+
+        li {
+            display:inline-block;
+            vertical-align:middle;
+            margin:5px 0;
+            font-weight:500;
+            padding-bottom:5px; 
+            border-bottom:1px solid rgba(255,255,255,0.2);
+            color: #7e8fad;
+            margin-bottom: -10px;
+
+            label {
+                font-weight:120;
+                color:$main-point-color;
+                letter-spacing:-0.5px;
+                margin-bottom:5px;
+                font-size:12px;
+                top:-3px;
+                position: relative;
+                float:left;
+                height:10px;
+                margin:2px 0 5px;
+
+                &.switch {
+                    position: relative;
+                    display: inline-block;
+                    width: 60px;
+                    height: 34px;
+                    top:0;
+                    left:0;
+                    vertical-align:middle;
+                    margin:0;
+                    height:inherit;
+                }
+            }
+
+            p {
+                display:inline-block;
+                letter-spacing: 0px;
+                padding-bottom:5px;
+                font-size:16px;
+                float:left;
+                clear:left;
+                color:$main-title-color;
+                font-weight:bold;
+            }
+
+            span {
+                line-height:42px;
+                font-size:14px;
+            }
+        }
+    }
+
+    .btn {
+        font-size:13px !important;
+    }
+
+    .title {
+        font-size: 16px;
+        font-weight: bold;
+        color: $main-title-color;
+        border-bottom: 2px solid #f1f4fb;
+
+        i {
+            vertical-align: sub;
+        }
+
+        img {
+            width: 20px;
+        }
+    }
+
+    .ch_pw_open ,.ch_tpw_open,.ch_wallet_open{
+        font-size: 28px;
+        padding-top: 10px;
+        cursor: pointer;
+    }
+
+}
+
+.switch_box {
+    top:-5px;
+    display:contents;
+
+    p {
+        line-height:30px;
+        font-weight: bold;
+    }
+}
+
+
+/*전화번호변경*/
+.num_pop_div {
+    margin-bottom:15px;
+
+    input{
+        float: left;
+
+        &:first-child {
+            width:30%;
+        }
+
+        &:last-child {
+            width:calc(70% - 15px); 
+            margin-left:15px;
+        }
+    }
+}
+
+
+.deposit_text {
+    padding-left:10px; 
+    font-size:13px;
+    color:red;
+}
+
+@media only screen and (max-width: 414px) {
+	.profile-box ul li p{font-size: 14px;}
+}

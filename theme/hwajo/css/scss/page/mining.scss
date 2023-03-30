@@ -1,0 +1,162 @@
+@charset "utf-8";
+@import "../include/_variable";
+@import "../include/_mixin";
+
+#mining {
+    
+    .myitemform {display: contents;}
+
+    h3.title {
+        margin: 20px 0 0px;
+        vertical-align: middle;
+        font-weight: bold;
+        font-size: 16px;
+        color: $main-title-color;
+        padding-left: 10px;
+        display: inline-block;
+    }
+
+    .all_view {
+        float: right;
+        background:white;
+        margin-top:15px;
+
+        &:hover{
+            background:$main-point-color;
+            color:white;
+        }
+    }
+
+    .mining_wrap {
+        margin: 20px 0 0 0;
+    }
+
+    .mining_ico{
+        height: 40px;
+        width: 40px;
+        display: inline-block;
+        vertical-align: middle;
+        
+        img{width:100%;height:100%;}
+    }
+    
+}
+
+#mymining {
+    .r_card_wrap{
+        margin: 0 0 10px 0;
+    }
+}
+
+#withdraw{
+    background:$withdraw-btn-background;
+
+    .polding_btn{
+        color:white; 
+        div{display:inline-block}
+
+        .wallet_title{font-weight:600;font-size:16px;}
+        .max_with{margin-left:10px;font-size:11px;}
+        .btn_title{line-height:30px;text-align:center;}
+        .caret_box{
+            vertical-align: top;
+            float:right;
+            
+            i{font-size:16px;}
+        }
+    }
+
+    &.open{
+        background:white;
+        .polding_btn{
+            color:black;
+            .caret_box{background:#f4f1f5;border-radius: 5px;}
+        }
+        
+    }
+    .input_shift_value{
+        .button_wrap {float:right;}
+        .currency-right{margin-top:14px;margin-right:10px;}
+        .fee{
+            font-size:13px;margin-bottom:10px;margin-top:-5px;
+            #active_amt,#fee_val{color:$withdraw-btn-background}
+        }
+        .fee i{font-size:18px;color:$withdraw-btn-background}
+    }
+    
+    .hidden{display:none;}
+    
+    .polding{
+        label{}
+        .comment{float:right;font-size:11px;line-height:30px;color:red;}
+    }
+
+    #withdrawal_btn{
+        background:$withdraw-btn-background;
+        color:white;
+    }
+}
+
+
+#mining_history{
+    .mymining_total{
+        float:right;
+        color:$main-point-color;
+    }
+    .hist_tit{color:$main-point-color;}
+
+    ul{
+        margin-top:15px;border-top:1px dashed #e1e1e1;padding: 15px 0;margin:0;
+
+        li{padding:0;}
+    }
+
+    .badge{_background:#eff3f9;color:white;font-weight:300}
+    
+    .hist_td{line-height:30px;}
+    .hist_value{font-size: 12px;}
+    .hist_rec{font-size:11px;color:#767676}
+}
+
+#mining_amt_log{
+    // border-top:1px double #aaa;
+    padding:15px 0;
+
+    .hist_tit{width:100%; color:$withdraw-btn-background;}
+    .mymining_total{color:$withdraw-btn-background;}
+    
+    ul li span{display:inline-block;line-height:26px;float:left;font-size:12px;}
+
+    .amt_total{color:$withdraw-btn-background;font-weight:600;font-size:13px;}
+    .amt{font-size:13px;}
+    .hist_bank{color:black;background:ghostwhite;border-radius:5px;}
+    .result{font-size:15px;}
+
+    
+    i{font-size:18px;margin-right:5px;font-weight:300;vertical-align: sub;color:#333}
+    p{display:inline-block}
+}
+
+.b_orange{background:orangered;}
+.b_pink{background:#ef21fd;}
+.b_purple{background:#6f00ff}
+.b_blue{background:#073a69 !important}
+
+.hist_value{color:#073a69}
+
+.btn.more_record i{font-size:18px;}
+
+.content-box{
+    &.mining_detail{
+        font-size:13px;
+        border-bottom:4px solid #073a69;
+    }
+
+    &.mining_history{
+        font-size:13px;
+        border-left:4px solid #073a69;
+    }
+    
+    .m_hist_exp {font-size:11px;}
+    .hist_value2{font-size:13px;}
+}

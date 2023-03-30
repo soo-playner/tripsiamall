@@ -1,0 +1,340 @@
+{
+
+	"login" : {
+		"로그인 페이지" : "Login Page",
+		"로그인" : "LOG IN",
+		"처음 방문 하시나요" : "First time here?"
+	},
+
+	"signUp" : {
+		"회원가입 페이지" : "Sign Up Page",
+		"회원가입" : "Sign Up",
+		"국가를 선택해주세요" : "Select Country",
+		"센터 이름" : "Center's Username",
+		"검색" : "Search",
+		"일반정보" : "General Information",
+		"아이디" : "ID (8 characters more)",
+		"중복확인" : "ID Check",
+		"8 글자 또는 그 이상" : "8 letters or more",
+		"로그인 비밀번호" : "Login Password",
+		"로그인 비밀번호 확인" : "Confirm Login Password",
+		"핀코드확인" : "Confirm Pin-Code",
+		"강도 높은 비밀번호 설정 조건" : "Password must contain",
+		"4자 이상 20자 이하" : "4 or more and 12 or less",
+		"숫자+영문" : "Digits + Characters",
+		"비밀번호 비교" : "Compare Password",
+		"강도 높은 핀코드 설정 조건" : "Pin-Code must contain",
+		"6 자리" : "6 Digits",
+		"핀코드 비교" : "Compare Pin-Code",
+		"개인 정보 & 인증" : "Personal Information & Authentication",
+		"이름" : "Ethereum Withdraw Wallet Address",
+		"이메일 주소" : "E-mail Address",
+		"이메일 주소 확인" : "e-mail Address Confirm",
+		"이메일 전송" : "send Email",
+		"핸드폰 번호" : "Phone Number",
+		"추천인정보" : "Referrer's Information",
+		"추천인 이름" : "Referrer's Username",
+		"이용약관1" : "-I have read and agreed to the Terms and Conditions.",
+		"이용약관2" : "-I fully understood the this business and I know the NO REFUND policy.",
+		"이용약관3" : "-I know the change of Refferer is NOT POSSIBLE.",
+		"취소" : "Cancel",
+		"신규 회원 등록하기" : "Enroll New Member",
+		"핀코드" : "Pin-Code",
+		"이메일인증번호" : "Email Authentication Code",
+		"인증 완료" : "Verification Complete",
+		"지갑 확인" : "Wallet Check"
+	},
+
+	"dashboard" : {
+		"메인화면" : "Dashboard",
+		"출금가능 잔고" : "Withdrawable balance",
+		"총 보너스 합계" : "Total bonus total",
+		"직급" : "Grade",
+		"직추천인" : "Direct recommender",
+		"추천산하" : "Recommended member",
+		"추천산하매출" : "Recommended member sales",
+		"스폰서" : "Sponsor",
+		"후원산하" : "Sponsored member",
+		"후원산하매출" : "Sponsored member sales",
+		"내 지갑" : "My wallet",
+		"내 마이닝" : "My mining",
+		"공지사항" : "Notice",
+		"오늘하루 열지않기" : "Do not open today",	
+		"홈" : "Home",
+		"준비중" : "Preparing",
+		"새소식" : "News"
+	},
+
+	"profile" : {
+		"정보수정" : "Update My Info",
+		"정보관리" : "Information Management",
+		"로그인 비밀번호" : "Login Password",
+		"현재 비밀번호" : "Current Password",
+		"새로운 이메일 주소" : "New e-mail Address",
+		"이메일로 인증코드 보내기" : "Send confirm code for new e-mail",
+		"지갑주소" : "Ethereum Wallet Address",
+		"저장" : "Save Changes",
+		"인증" : "Authentication",
+		"인증 앱 다운로드" : "Download Authentication App",
+		"2FA 코드" : "Your 2FA Code",
+		"인증코드 복사" : "Copy auth code",
+		"개인정보" : "Profile",
+		"아이디" : "ID",
+		"국가" : "Nationality",
+		"이름" : "Name",
+		"변경" : "Change",
+		"이메일" : "E-mail",
+		"전화번호" : "Phone Number",
+		"보안설정" : "Security Setting",
+		"거래 비밀번호" : "Pin-Code",
+		"추천인 정보" : "Referral Info",
+		"나의 추천" : "My Referral",
+		"나의 센터" : "My Center",
+		"개인정보 & 보안설정" : "Profile & Settings",
+		"로그인 비밀번호 변경" : "Change Login Password",
+		"출금 비밀번호 변경" : "Change Pin-Code",
+		"홈" : "HOME",
+		"나의 후원" : "Sponsor",
+		"알림설정" : "Notification Settings",
+		"알림" : "Notification",
+		"끄기" : "OFF",
+		"켜기" : "ON"
+	},
+
+	"withdraw" : {
+		"입출금" : "Deposit and withdrawal",
+		"입금주소" : "Wallet Address",
+		"출금주소" : "Account",
+		"주소복사" : "Copy Address",
+		"메모주소" : "Memo Address",
+		"내 잔고" : "My Balance",
+		"출금 주소를 입력해주세요" : "Enter the account address",
+		"출금 금액" : "Withdrawal Quantity",
+		"출금 금액을 입력해주세요" : "Enter withdrawal quantity",
+		"또는 이메일 인증 코드를 사용 하실 수 있습니다" : "Or you can use e-mail code",
+		"출금 내역" : "Withdrawal History",
+		"수당 내역" : "Allowance History",
+		"보너스 수입" : "Bonus Earnings",
+		"날짜" : "Date",
+		"제목" : "Subject",
+		"일일 소득" : "Daily Payout",
+		"매칭 보너스" : "Matching Bonus",
+		"A 구역 수당" : "A Zone Allowance",
+		"바이너리 매칭 보너스" : "Binary Matching Bonus",
+		"리더 보너스" : "Leader Bonus",
+
+
+
+		"USDT 입금 지갑 주소" : "USDT Deposit Wallet Address",
+		"메모복사" : "Copy Memo",
+		"총 잔액" : "Total Balance",
+		"출금 지갑 주소" : "Withdrawal Address",
+		"인증" : "Authenticate",
+		"출금 신청" : "Withdrawal Request",
+		"출금" : " Withdrawal",
+		"메모주소를 입력해주세요" : "Enter the memo address",
+		"메모" : "Memo",
+		"상태" : "Status",
+		"투자" : "Purchase",
+		"출금 핀코드" : "Account Pin-Code",
+		"6 자리 핀코드를 입력해주세요" : "Enter 6-digits pin number",
+		"대문자 출금" : "WITHDRAW",
+		"실출 금액" : "ACTUAL WITHDRAWAL :"
+	},
+
+	"upstair" : {
+		"투자 페이지" : "Purchase Page",
+		"투자" : "Purchase",
+		"구매": "Purchase",
+		"예치금 투자" : "Purchase Package",
+		"예치금 리스트" : "Purchase List",
+		"보너스 수당" : "My Bonus For OUT",
+		"투자 내역" : "Purchase History",
+		"추천인 등록" : "Sponsor Register",
+		"추천인 이름" : "Sponsor_Name",
+		"팀 정보" : "Team Info",
+		"레벨 조직도" : "Level Structure",
+		"바이너리 조직도" : "Binary Tree",
+		"조직도 정보" : "Leg Stack",
+		"왼쪽 하단" : "Left Bottom",
+		"위로" : "Back to top",
+		"한 단계 위" : "One Level Up",
+		"오른쪽 하단" : "Right Bottom",
+		"보유 상품" : "Latest My Package",
+		"상품 목록" : "Purchase Package",
+		"입금" : "DEPOSIT",
+		"총 액수" : "Total Balance",
+		"대문자 투자" : "PURCHASE",
+		"홈" : "HOME"
+	},
+
+	"notice" : {
+		"공지사항" : "Notice",
+		"Rocket 소식" : "Rocket News",
+		"날짜 제목 조회" : "Date Title Views"
+	},
+
+	"one_to_one_QA" :{
+		"일대일 문의 게시판" : "One_to_One_Q & A Board",
+		"서비스 지원" : "Support"
+	},
+
+	"deposit" : {
+		"출금가능잔고" : "Withdrawable Balance",
+		"입금" : "Deposit",
+		"대문자 입금" : "DEPOSIT",
+		"입금 내역" : "Deposit History",
+		"USDT 입금 주소" : "Deposit USDT Address",
+		"주소복사" : "Copy Address",
+		"입금확인요청" : "Deposit Confirmation Request",
+		"입금완료된 Hash를 입력해주세요" : "Enter transaction hash",
+		"영수증" : "Txn Hash",
+		"내 지갑" : "My Wallet",
+		"홈" : "HOME",
+		"입금액" : "Amount",
+		"내 전용 입금 주소(이더리움)" : "My Dedicated Deposit Address (Ethereum)"
+	},
+
+	"popup" : {
+		"창닫기" : "Close",
+		"인증번호 전송" : "Email verification",
+		"인증번호가 이메일로 전송되었습니다" : "Security code sent to your email",
+		"비밀번호 재설정" : "Change Password",
+		"이메일이 전송되었습니다" : "Security code sent to your email",
+		"신규 회원등록 완료" : "New member signup",
+		"신규회원등록이 완료되었습니다" : "Signup completed successfully",
+		"거래 승인"  : "Confirm the transaction",
+		"거래 비밀번호를 입력하여 송금을 확인합니다" : "Please enter the Pin-Code to verify the transaction",
+		"취소" : "Cancle",
+		"지갑 잔고 부족" : "Insufficient Funds",
+		"지갑에 잔고가 부족합니다" : "Not enough balance",
+		"사용중인 거래 비밀번호" : "Current pin-code",
+		"새로운 거래 비밀번호" : "New pin-code",
+		"새로운 거래 비밀번호 확인" : "Confirm new pin-code",
+		"로그인 비밀번호" : "Login password for change",
+		"거래 비밀번호 변경" : "Change pin-code",
+		"사용중인 비밀번호" : "Current login password",
+		"새로운 비밀번호" : "New login password",
+		"새로운 비밀번호 확인" : "Confirm new login password",
+		"비밀번호 변경"  : "Change Password",
+		"비밀번호가 성공적으로 변경되었습니다" : "Password changed successfully",
+		"사용중인 이메일 주소" : "Current email",
+		"새로운 이메일 주소" : "New email",
+		"새로운 이메일 주소 확인" : "Confirm new email",
+		"보안코드 입력" : "Enter the security code",
+		"코드요청" : "Request code",
+		"이메일 주소 인증" : "Email verification",
+		"이메일 변경" : "Change Email address",
+		"사용중인 전화번호" : "Current phone number",
+		"새로운 전화번호" : "New phone number",
+		"인증번호가 폰으로 전송되었습니다" : "Verification code has been sent to your phone",
+		"전화번호 변경" : "Change Phone Number",
+		"변경이 성공적으로 완료되었습니다" : "Changes completed successfully",
+		"로그아웃" : "Logout",
+		"로그아웃 하시겠습니까?" : "Are you sure to log out?",
+		"네" : "Yes",
+		"현재 성함" : "Current name",
+		"변경하실 성" : "New last name",
+		"변경하실 이름" : "New first name",
+		"성함 변경" : "Change name",
+		"사용자님 성함이 성공적으로 변경되었습니다" : "Name changed successfully",
+		"국가번호" : "Country",
+		"전화번호(숫자만)" : "Phone Number(Number only)",
+		"새 지갑주소" : "New wallet address",
+		"현재 지갑주소" : "My wallet address"
+
+	},
+
+	"structure" : {
+		"회원찾기" : "Member Search",
+		"검색" : "Search",
+		"추천 계보" : "Member Stack",
+		"조직도" : "Level Structure"
+	},
+
+	"binary" : {
+		"회원선택하기" : "Select Member",
+		"등록하기" :  "Add Member",
+		"왼쪽 맨 아래로" :  "Left bottom",
+		"맨 위로 가기" :  "Back to top",
+		"한 단계 위로 가기" :  "One level up",
+		"오른쪽 맨 아래로" :  "Right bottom",
+		"바이너리 볼륨" :  "Binary Volume",
+		"바이너리조직도" :  "Binary Structure",
+		"회원찾기" :  "Member Search",
+		"검색" :  "Search",
+		"후원계보" :  "Member Stack"
+
+	},
+
+	"news" : {
+		"뉴스" : "NEWS",
+		"날짜" :  "Date",
+		"제목" :  "Title",
+		"조회수" :  "Views",
+		"홈" : "HOME"
+	},
+
+	"support" : {
+		"새 티켓 열기" : "Open New Ticket",
+		"답변 티켓" : "Answered Tickets",
+		"활성화 티켓" : "Active Tickets",
+		"비활성화 티켓" : "Closed Tickets",
+		"주제 선택" : "Select Topic",
+		"일반" : "General Support",
+		"해킹" : "Hacking",
+		"보너스" : "Bonus",
+		"지갑" : "Wallet",
+		"계좌" : "Account",
+		"제목" : "Subject",
+		"무엇을 도와 드릴까요?" : "How can we help?",
+		"5MB 미만 jpg, png, pdf 파일만 첨부 가능합니다" : "5MB limit (jpg, png, pdf only)",
+		"티켓 제출" : "Submit Ticket",
+		"보내기" : "Send",
+		"닫기" : "close",
+		"지원 센터" : "Support Center",
+		"파일 선택 5MB 미만 jpg, png, pdf" : "5MB limit (jpg, png, pdf)",
+		"파일 크기 5MB 이상 jpg, png, pdf" : "5MB over (jpg, png, pdf)",
+		"메시지" : "Message"
+
+
+	},
+
+	"nav" : {
+		"메인화면" : "DASHBOARD",
+		"개인정보 & 보안설정" : "PROFILE & SETTINGS",
+		"내 지갑" : "MY WALLET",
+		"투자" : "PURCHASE",
+		"보너스 내역" : "BONUS HISTORY",
+		"비즈니스 현황" : "BUSINESS STATUS",
+		"추천도 보기" : "LEVEL STRUCTURE",
+		"후원도 보기" : "BINARY STRUCTURE",
+		"뉴스" : "NEWS",
+		"지원 센터" : "SUPPORT CENTER",
+		"내 추천인 링크" : "MY REFERRER LINK",
+		"로그아웃" : "LOGOUT",
+		"구매" : "PACKAGE",
+		"마이닝" : "MINING"
+
+	},
+
+	"bonus" : {
+		"보너스 내역" : "Bonus History",
+		"홈" : "HOME",
+		"검색" : "Search"
+	},
+
+	"referral" : {
+		"내 추천인 링크 공유" : "Share My Referrer Link",
+		"링크 복사" : "Copy Link"
+	},
+
+	"rplan" : {
+		"메인화면" : "R Plan",
+		"홈" : "Home"
+	}
+
+
+
+
+}

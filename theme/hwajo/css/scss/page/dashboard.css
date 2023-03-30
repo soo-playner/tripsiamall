@@ -1,0 +1,114 @@
+@-webkit-keyframes slidein {
+  from {
+    margin-top: 50px;
+    opacity: 0.7;
+  }
+  to {
+    margin-top: 0;
+    opacity: 1;
+  }
+}
+@keyframes slidein {
+  from {
+    margin-top: 50px;
+    opacity: 0.7;
+  }
+  to {
+    margin-top: 0;
+    opacity: 1;
+  }
+}
+.dashboard {
+  padding-bottom: 100px;
+}
+.dashboard .r_card_wrap {
+  margin: 10px 0;
+}
+.dashboard .hash_value {
+  width: 130px;
+  text-align: left;
+}
+
+.innerBox + .innerBox {
+  margin-top: 20px;
+}
+
+.innerBox dt {
+  float: left;
+  text-align: left;
+}
+.innerBox dd {
+  float: left;
+  text-align: right;
+}
+
+a.more {
+  font-size: 14px;
+  font-weight: 500;
+}
+a.more i {
+  font-size: 18px;
+  font-weight: 500;
+  color: #555;
+  vertical-align: bottom;
+}
+
+.card_title {
+  vertical-align: middle;
+  font-weight: bold;
+  font-size: 16px;
+  color: #29386b;
+  margin: 0 0 10px 0;
+}
+
+.day {
+  color: #492191;
+}
+
+.history_latest {
+  line-height: 24px;
+}
+.history_latest .card_title {
+  margin-bottom: 15px;
+}
+.history_latest .category {
+  padding: 0 10px;
+  font-size: 12px;
+}
+.history_latest .price {
+  color: #492191;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.regist_latest {
+  line-height: 24px;
+  font-size: 12px;
+}
+.regist_latest span {
+  vertical-align: middle;
+}
+.regist_latest .card_title {
+  margin-bottom: 15px;
+}
+.regist_latest .id {
+  font-size: 14px;
+  display: inline-block;
+  min-width: 80px;
+  font-weight: 600;
+  margin: 0 10px;
+}
+.regist_latest .badge {
+  font-weight: 500;
+}
+
+.my_btn_wrap {
+  margin: 20px 0;
+}
+.my_btn_wrap button {
+  padding: 15px;
+}
+
+.f_left {
+  font-size: 15px;
+}

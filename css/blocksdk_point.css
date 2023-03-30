@@ -1,0 +1,133 @@
+#point .point_all .full_li {
+    line-height: 25px;
+}
+ul{
+   list-style:none;
+   padding-left:0px;
+}
+
+*{
+	padding:0;
+	margin:0;
+	font-family: 'NanumSquare', sans-serif;
+}
+body{
+	background-color: rgb(245,247,250);
+}
+.logo{
+    position: relative;
+    display: inline-block;
+    margin: 40px 0 40px;
+    width: 220px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.w-container {
+	margin-left: auto;
+	margin-right: auto;
+	width:calc(100% - 30px);
+	max-width: 400px;
+	background-color: #fff;
+	padding: 12px;
+	border-radius: 10px;
+	box-shadow: 0px 5px 20px 0 rgba(0, 0, 0, 0.05);
+	    box-sizing: border-box;
+}
+.cover {
+	display: inline-block;
+	width: 100%;
+	border-radius: 8px;
+	box-shadow: none;
+}
+.form {
+	display: inline-block;
+	width: 100%;
+	margin-top: 6px;
+	padding-right: 0px;
+	padding-left: 0px;
+	border-radius: 4px;
+	background-color: #fff;
+	color: #333;
+	text-align: left;
+}
+.qr-field {
+	display: block;
+	text-align: center;
+	padding : 20px;
+}
+.pay-block {
+	padding: 13px 12px;
+	border-radius: 0px 0px 4px 4px;
+	overflow:hidden;
+}
+
+.row {
+}
+.sc2-label{
+	font-size: 15px;
+	line-height: 17px;
+	margin-bottom: 4px;
+	color: rgb(152,152,152);
+	max-width: 365px;
+	margin: 0 auto 4px;
+}
+
+input[type=text]{
+    border: 1px solid rgba(169,169,169,0.1);
+    font-size: 15px;
+    padding: 12px;
+    background-color: rgb(248,248,248);
+    color: rgb(54,54,54);
+    font-weight: 700;
+    width: 100%;
+    border-radius: 3px;
+    margin-bottom: 4px;
+    outline: 0;
+    box-sizing: border-box;
+    margin-bottom: 14px;
+}
+
+.p0{
+	color: rgb(152,152,152);
+	padding:0 15px;
+	font-size:15px;
+	line-height:17px;
+	margin-bottom:14px;
+}
+
+.p0 font{
+	font-weight:700;
+	color:#333;
+}
+
+.exts{
+	border-radius: 6px;
+	border: 1px solid rgb(231,231,231);
+	border-top: 0;
+}
+.exts li{
+	border-top:1px solid rgb(231,231,231);
+	background-color:rgb(248,248,248);
+	list-style:none;
+}
+.exts li .p1{
+	padding:15px 8px;
+	color:rgb(135,135,135);
+	font-size:14px;
+	line-height:16px;		
+}
+.exts li .p2{
+	max-height:0;
+	padding: 0 12px;
+	font-size: 15px;
+	line-height: 18px;
+	color: #333;
+	word-break: break-all;
+	overflow:hidden;
+	box-sizing: border-box;
+	transition: all 0.3s ease .0s;
+}
+
+.checkout-grey{
+	font-size:15px;
+}

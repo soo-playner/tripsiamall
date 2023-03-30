@@ -1,0 +1,123 @@
+@charset "utf-8";
+@import "../include/_variable";
+@import "../include/_mixin";
+
+.news_wrap {
+
+    .news +.news {
+        margin-top:20px;
+    }
+    
+    .title {
+        font-weight: bold;
+    }
+
+    .sub_title {
+        margin: 10px 0 0 0;
+    }
+
+    .news {
+
+        .question {
+            color:$main-title-color;
+            cursor:pointer;
+            font-weight:200;
+            padding:5px;
+            transition:all .2s linear;
+            height:auto;
+            font-size:12px;
+
+            .left_wrap {
+                padding-left: 0px;
+
+                .tit {
+                    font-size: 14px;
+                    color: $main-point-color;
+                    font-weight: bold;
+                    border: 1px solid $main-point-color;
+                    border-radius: 10px;
+                    text-align: center;
+                    padding-left: 9px;
+                    padding-right: 9px;
+                }
+
+                .date {
+                    text-align: center;
+                    color: #999;
+                    margin-top: 3px;
+                }
+            }
+
+            .mid_wrap {
+                font-size: 14px;
+                font-weight: bold;
+                padding-left: 0px;
+            }
+
+            .right_wrap {
+                padding-left: 0;
+                i {
+                    font-size: 20px;
+                }
+            }
+
+            &.qa-open {
+                color:#000;
+            }
+            
+        }
+
+        .answer {
+            clear:both;
+            font-size:13px;
+            overflow:hidden;
+            transition:all .3s ease;
+            text-align:left;
+            height:0;
+
+            p {
+                margin:15px 0;
+            }
+        }
+
+        &:hover {
+            background:aliceblue;
+        }
+    }
+}
+
+.qa-container {
+    font-size:13px;
+    font-weight:400;
+    text-align:center;   
+
+    .answer {
+
+        .answer-list {
+
+            li {
+                border:none;
+                color:#000;
+                cursor:text;
+                display:block;
+                font-size:18px;
+                margin-left:0;
+            }
+        }
+    }
+
+    .title {
+        width:100%; 
+        background:#0062cc; 
+        color:#fff;
+        padding:5px 0;
+        transition:all .2s linear;
+        margin-bottom:20px;
+    }
+
+    .inner_title {
+        min-width:100px;
+        width:65%;
+        text-align:left;
+    }
+}

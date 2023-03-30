@@ -1,0 +1,169 @@
+/* BlockSDK */
+.subrow {
+	font-size:14px;
+	display:inline-block;
+	margin-bottom:14px;
+	margin-top:7px;
+	margin-left:5px;
+}
+.subrow .sdklink{
+	color:blue;
+}
+.coinimg{
+	margin:12px;
+}
+.submit_pop{
+	display:none;
+}
+.submit_pop .pop_setting{
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+	z-index: 501;
+}
+.submit_pop .pop_setting .popup_head{
+	width: 350px;
+	height: 140px;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	background-color: #7e96c9;
+}
+.submit_pop .pop_setting .popup_head .pop_close{
+    display: inline-block;
+	width: 20px;
+    height: 20px;
+    float: right;
+    cursor: pointer;
+    margin: 10px;
+	background-image:url('/adm/img/pop_close.png');
+	background-size:20px;
+}
+.submit_pop .pop_setting .popup_head h3{
+	font-family: Raleway;
+	font-size: 20px;
+	font-weight: 600;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: 1.2;
+	letter-spacing: normal;
+	text-align: center;
+	color: #ffffff;
+	padding-top:59px;
+}
+.submit_pop .pop_setting .popup_head p{
+	font-family: Raleway;
+	font-size: 15px;
+	font-weight: normal;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: 1.6;
+	letter-spacing: normal;
+	text-align: center;
+	color: #ffffff;
+	margin-top: 10px;
+}
+.submit_pop .pop_setting .popup_content{
+	width: 350px;
+    height: 330px;
+    background-color: #ffffff;
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
+}
+.submit_pop .pop_setting .popup_content p{
+	font-family: Raleway;
+	font-size: 15px;
+	font-weight: normal;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: 1.6;
+	letter-spacing: normal;
+	text-align: center;
+	margin-top: 20px;
+}
+.submit_pop .pop_setting .popup_content .pop_container{
+	padding-top: 20px;
+}
+.submit_pop .pop_setting .popup_content .pop_container .cdkey_btn{
+	display: block;
+    height: 50px;
+    border-radius: 6px;
+    background-color: #ffffff;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.submit_pop .pop_setting .popup_content .pop_container .cdkey_btn input{
+	width: 270px;
+    height: 30px;
+    margin-top: 7px;
+}
+.submit_pop .pop_setting .popup_content .pop_container img{
+    display: inline-block;
+    margin-top: 9px;
+    margin-right: 17px;
+}
+.submit_pop .pop_setting .popup_content .pop_container .bitcoincash_icon{
+	margin-right: 12px;
+	margin-top: 6px;
+	}
+.submit_pop .pop_setting .popup_content .pop_container label{
+	font-family: Raleway;
+	font-size: 18px;
+	font-weight: 500;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: 1.33;
+	letter-spacing: normal;
+	text-align: left;
+	color: #282e3e;
+	display: inline-block;
+	margin-top: 9px;
+}
+.pop_bg{
+	position: absolute;
+	left: 0;
+    top: 0;
+	display:none;
+	width:100%;
+	height:200%;
+	opacity: 0.5;
+	background-color: #000000;
+	z-index: 500;
+}
+.submit_pop .pop_setting .popup_content .btc_icon{}
+.submit_pop .pop_setting .popup_content .bch_icon{}
+.submit_pop .pop_setting .popup_content .ltc_icon{}
+.submit_pop .pop_setting .popup_content .dash_icon{}
+
+.bg0 .tooltip{
+	width: 15px;
+    height: 15px;
+	display:block; 
+	float:right; 
+	margin: 5px;
+	background-image:url('/adm/img/It.png');
+	background-repeat:no-repeat;
+	background-size: 100% 100%;
+}
+.bg0 .tooltip:hover{position:relative;}
+.bg0 .tooltip:hover:after{
+	content: attr(data-tooltip-text);
+	padding:5px;
+	position:absolute;
+	bottom: 100%;
+	left: -0px;
+    transform: translateX(-50%);
+	
+    background-color: rgba(0, 0, 0, 0.8);
+	color: #FFFFFF;
+	font-size: 12px;
+	width: 225px;
+    height: 20px;
+	z-index: 9999;
+}
+.tbl_head03 .wordbreak a{
+	word-break:break-all;
+}
+.tbl_head03 .wordbreak span{
+	word-break:break-all;
+}

@@ -1,0 +1,98 @@
+<!--상위 공통부분 시작-->
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,width=device-width">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title></title>
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+    <link type="text/css" rel="stylesheet" href="css/reset.css">
+    <link type="text/css" rel="stylesheet" href="css/common.css">
+    <link type="text/css" rel="stylesheet" href="css/layout.css"> </head>
+
+    <body>
+        <div id="header">
+            <div class="hd_subject"><a href="./intro.html"><span><img src="images/logo_white.png"></span></a></div>
+            <div class="navigation">
+                <nav>
+                    <a href="javascript:void(0)" class="smobitrigger" style="display:block !important;"><img src="images/icon_tab_02_50x36.png" width="25" height="18" alt=""><span>Menu</span></a>
+                    <ul class="mobimenu">
+                        <li class="logo">
+                            <img src="images/logo_black.png">
+                        </li>
+                        <li class="bar_member">
+                            <ol>
+                                <li><a href="./join.html">JOIN</a></li>
+                                <li><a href="./login.html">LOGIN</a></li>
+                            </ol>
+                        </li>
+
+                        <li class="arco_mn">
+                            <div id="accordian">
+                                <ul>
+                                    <li>
+                                        <h3>dashboard<span class="arrow"></span></h3>
+                                    </li>
+                                    <li>
+                                         <a href='./modi.html'><h3>profile&settings<span class="arrow"></span></h3></a>
+                                    </li>
+                                    <li>
+                                        <a href='./mywallet.html'><h3>my wallet<span class="arrow"></span></h3></a>
+                                    </li>
+                                    <li>
+                                        <h3>purchase<span class="arrow"></span></h3>
+                                    </li>
+                                    <li>
+                                        <h3>bouns histoty<span class="arrow"></span></h3>
+                                    </li>
+                                    <li>
+                                        <h3>level structure<span class="arrow"></span></h3>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <script src="js/menu_slide.js"></script>
+        <script type="text/javascript">
+            jQuery(document).ready(function ($) {
+                $('.smobitrigger').smplmnu();
+            });
+        </script>
+        <!--상위 공통부분 끝-->
+        <!--레이아웃 시작-->
+        <div id="section" class="login">
+           <div class="mem_login">
+            <script>
+                $('.smobitrigger').css('display','none'); // 메뉴삭제
+                $('.mem_login').parent('#section').css('position','relative');
+            </script>
+            <span class="login_logo"> <img src="images/logo_black.png" alt="" width="578" height="206"></span>
+            <div class="login_con">
+                <input type="text" id="" name="" class="base_input" placeholder="아이디">
+                <input type="text" id="" name="" class="base_input" placeholder="비밀번호">
+                <!-- <div class="checks">
+                    <input type="checkbox" id="auto_login">
+                    <label for="auto_login" class="auto_login_txt">자동 로그인</label>
+                </div> -->
+                <input type="submit" value="로그인" class="base_submit">
+                
+
+            </div>
+            <ul class="member_con">
+                <li><p>아직 가입전이신가요?</p><a href="">회원가입</a></li>
+                <li> <span class="id_find"><a href="#">비밀번호 찾기</a></span></li>
+            </ul>
+        </div>
+    </div>
+    <span class="bottom_logo"><img src="images/intro_img2.png" alt="" width="412" height="69"></span>
+    <!--레이아웃 끝-->
+</body>
+
+</html>

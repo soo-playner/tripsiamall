@@ -1,0 +1,45 @@
+@charset "utf-8";
+
+.benefit{color:white;border:0;padding: 5px 15px;height:40px;}
+.benefit.day{background:cornflowerblue}
+.benefit.upstair{background:steelblue}
+.benefit.recom{background:slateblue}
+.benefit.qpack{background:dodgerblue}
+.benefit.level{background:slategray}
+.benefit.bpack{background:teal}
+.benefit.black{background:black}
+.benefit.red{background:red}
+.benefit.hotpink{background:hotpink}
+.benefit:hover{background:black;}
+.red{color:red}
+.text-center{text-align:center}
+.sch_last{display:inline-block;}
+.rank_img{width:20px;height:20px;margin-right:10px;}
+.btn_submit{width:100px;margin-left:20px;}
+.green{background-color:green}
+.black_btn{background:#333 !important; border:1px solid black !important; color:white;}
+.labelM{margin-left:10px;}
+.title{font-size:30px;font-weight:600;padding-left:10px;}
+.title .eng{font-size:15px;}
+a:hover{text-decoration: none;}
+
+.local_sch02 .category_btn{margin-right:10px;padding:5px 20px;border:1px solid #111; font-weight:600;}
+.local_sch02 .category_btn.active{background:#333;color:white;}
+.local_sch02 .con_register_form{position:absolute; background:ghostwhite; border:1px solid #a1a1a1; width:300px; height:250px; z-index:10; padding:15px;display:none}
+.con_register_form .inner_box{border-top:1px solid #e1e1e1;border-bottom:1px solid #e1e1e1;padding:15px 0;margin-bottom:15px}
+.con_register_form .close{float:right;font-size:30px;display:inline-block;cursor:pointer;padding-right:10px;vertical-align: top;}
+.con_register_form.active{display:block}
+.con_register_form .inner_box label{display:inline-block;width:30%;}
+.con_register_form .inner_box .frm_input{line-height:40px;height:40px;width:60%;border:1px solid #a1a1a1;letter-spacing: -1px;padding-left:10px;font-size:16px;}
+.con_register_form .title{width:100%;font-size:20px;}
+.con_register_form .btn_submit{margin:0;width:100%;height:40px;}
+.head_bar{margin-top:30px;}
+.head_bar p {display:inline-block;}
+
+.local_sch02 div{border-bottom:none;}
+
+.local_sch02 div + div{border-top:1px solid #e9e9e9;padding-top:10px;}
+
+.btn{padding:3px 10px;margin: 0;padding: 5px;border: 1px solid #ced9de;background: #f6f9fa;font-size: 12px;cursor: pointer;}
+.sys_btn{margin-left:20px;}
+i{vertical-align: top;}

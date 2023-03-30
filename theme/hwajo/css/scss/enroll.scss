@@ -1,0 +1,62 @@
+@charset "utf-8";
+
+
+.term_space{margin:10px 0;background:white;border-radius: 8px; padding:10px;}
+
+.term_none{display: none;}
+.term_textarea{width:100%; height:250px;resize: none;font-size: 13px;padding:5px 5px;border:1px solid white}
+
+#service_checkbox, #private_checkbox {
+
+    & + label {
+        display: inline-block;
+        width:17px; 
+        height: 17px; 
+        background: white;
+        cursor: pointer; 
+        border:black solid 1px;
+        border-radius: 3px; 
+
+        span {
+            position: absolute;
+            display: block; 
+            font-weight: bold;
+            transform: translate(22px, -3px);
+        }
+    }
+
+    &:checked {
+        & + label {
+            background:url('/img/check_green.png') no-repeat center/17px 18px;
+            background-repeat: no-repeat;
+        }
+    }
+}
+
+#center .user{
+    text-indent: -999px;
+}
+#center .mb_nick{
+    position: absolute;
+    margin-top: -40px;
+    left: 30px;
+    
+}
+.selected + .mb_nick{
+    color: white;
+}
+#wrapper {
+    margin-lefT: 0;
+}
+.enroll_wrap{
+    input[type="text"], input[type="number"], input[type="email"]{
+        margin-bottom:0;margin-top:15px;
+        
+        &:first-child{margin:0;}
+    }
+    .cabinet_inner{width:100%;font-size:11px;padding-left:10px;color:#006df3;display:none}
+
+    .in_btn_ly{
+        margin-top:-42px;
+    }
+}

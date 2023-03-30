@@ -1,0 +1,57 @@
+@charset "utf-8";
+@import "./_variable";
+@import "./_mixin";
+
+.notice_wrap {
+    position: fixed;
+    bottom: 0;
+    width:100%;
+    cursor: pointer;
+    z-index:1;
+
+    .notice_box {
+        margin:0 15px;
+        background: $main-background-depth3-color;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        box-shadow:0px -4px 8px rgba(0,0,0,0.1);
+    }
+
+    p {
+        text-align: center;
+        font-size: 0.75em;
+        font-weight: bold;
+
+        span {
+            color: $main-point-color;
+            border: 1px solid $main-point-color;
+            font-weight: normal;
+            border-radius: 10px;
+            padding: 0px 7px 0px 7px;
+            margin-right: 3px;
+            vertical-align: bottom;
+        }
+    }
+
+    ul {
+        width: 100%;
+        margin: 0 auto;
+
+        li {
+            text-align:center;
+            font-size: 0.75em;
+            font-weight: bold;
+            padding: 20px;
+
+            span {
+                color: $main-point-color;
+                border: 1px solid $main-point-color;
+                font-weight: normal;
+                border-radius: 10px;
+                padding: 0px 7px 0px 7px;
+                margin-right: 3px;
+                vertical-align: bottom;
+            }
+        }
+    }
+}

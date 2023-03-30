@@ -1,0 +1,4 @@
+[09:09:43] IP : [222.122.229.246] PORT : [30900] MODE : [0]
+[09:09:43] REQUEST MESSAGE :  version[0100] mid[glx_api] serviceCode[1000] command[3000] orderId[2016090609044292] orderDate[20160906090442] numberOfRecord[1] 1001[2016090609TT016559,]
+[09:09:43] SERVER CONNECTION SUCCESS!!
+[09:09:43] RESPONSE MESSAGE :  version[0100] mid[null] serviceCode[1000] command[null] orderId[2016090609044292] orderDate[20160906090442] numberOfRecord[0] 1003[통신 에러,] 1002[0920,] 1010[Read timeout 오류,] 1009[02,]

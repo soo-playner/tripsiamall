@@ -1,0 +1,13 @@
+@charset "utf-8";
+
+table {width:100%;}
+table tbody td, table tfoot td{border:0;}
+table tbody td { height:40px;border-bottom:1px solid #f5f5f5} 
+table tbody tr:first-child td{background:#efefef;padding-bottom:20px;border-bottom:2px solid #333;}  
+table tbody tr:nth-child(2) td{padding-top:30px;} 
+tfoot td{background:white}
+.bonus_input{box-shadow:none;text-shadow:none;padding:10px;border:0;background: whitesmoke;width:80%;}
+.btn_ly{text-align:center;}
+.btn_confirm.btn_submit:hover{background:black !important;}
+.bonus_source{height:36px;}
+hr{height:1px;float:left;width:60%;display:block;background:#333;margin:20px 0;}

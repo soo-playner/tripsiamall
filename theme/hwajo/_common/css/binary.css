@@ -1,0 +1,428 @@
+
+/* ==================== BINARY TREE ===================== */
+
+.default-view {
+	margin-right: 15px;
+}
+
+.main-container {
+	background-color: rgb(242, 242, 242);
+	display: absolute;
+	height: 100%;
+	width: 100%;
+	z-index: 0;
+}
+
+.big-container-wrapper {
+	margin: 0 auto;
+	position: relative;
+		top: 150px;
+	width: 1100px;
+}
+
+.binary-card-bottom {
+	margin-top: 5px;
+	margin-bottom: 15px;
+}
+
+.binary-card {
+	background-color: white;
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+	text-align: center;
+	transition: all 0.2s linear;
+	width: 225px;
+}
+
+.binary-card:hover {
+	 box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+}
+
+.binary-card i {
+	color: rgb(124, 124, 124);
+}
+
+.binary-card img {
+	width: 30px;
+}
+
+.leg-name:hover {
+	color: rgb(0, 121, 211);
+	cursor: pointer;
+	transition: all 0.2s linear;
+}
+
+.leg-view-container {
+	_background-color: white;
+	_margin-bottom: 25px;
+	_padding: 15px;
+	line-height:30px;
+	text-align: center;
+}
+
+.bin_top h5{line-height:32px;}
+
+
+.leg-view-container p {
+	margin-bottom: 0;
+}
+.search-view-container {
+	height:auto;
+	background-color: white;
+	margin-bottom: 25px;
+	padding: 15px;
+	text-align: center;
+}
+
+.search-view-container  .leg-name {
+	margin-top:10px;
+}
+.fa-arrow-right {
+	margin-left: 7px;
+	margin-right: 7px;
+}
+
+.stats p {
+	margin-bottom: 0;
+}
+
+.binary-card-name, .empty-binary-card-name {
+	cursor: pointer;
+	font-size: 19px;
+	padding: 10px;
+	transition: all 0.2s linear;
+}
+
+.binary-card-name:hover, .empty-binary-card-name:hover {
+	background-color: rgb(0, 121, 211);
+	color: white;
+}
+
+.binary-card-rank {
+	display: inline-block;
+}
+
+.binary-tree-header-right {
+  position: absolute;
+		top: 8px;
+  	right: 0;
+}
+
+.binary-tree-header-right button, .add-member-button {
+	background-color: rgb(0, 121, 211);
+	border-color: rgb(0, 121, 211);
+	border-radius: 2px;
+	color: white;
+}
+
+.binary-tree-header-right button:hover {
+	cursor: pointer;
+}
+
+.binary-tree-header-right input {
+	background-color: rgb(242, 242, 242);
+	border: none;
+	border-bottom: 1px solid rgb(124, 124, 124);
+	font-size: 18px;
+	margin-right: 15px;
+	width: 180px;
+}
+
+.binary-tree-header-right input:focus {
+	outline: none;
+}
+
+.binary-tree-title {
+	display: inline-block;
+	margin-right: 10px;
+}
+
+.modal-body i {
+	color: rgb(0, 121, 211);
+	font-size: 100px;
+}
+
+.binary-tree-wrapper {
+	padding-top: 30px;
+	position: relative;
+	width: 1100px;
+}
+
+.binary-user-select {
+	border: 1px solid rgb(124, 124, 124);
+	width: 90%;
+}
+
+.card-content, .empty-card-content {
+	max-height: 0;
+	overflow: hidden;
+	transition: all 0.2s linear;
+}
+
+.empty-binary-select {
+	margin-top: 15px;
+}
+
+.empty-binary-select button {
+	margin-top: 15px;
+	font-size: 15px;
+}
+
+.empty-binary-select button:hover {
+	cursor: pointer;
+}
+
+.left-count-total, .right-count-total {
+	display: inline-block;
+	position: relative;
+		bottom: 25px;
+}
+
+.left-count-total {
+	right: 15px;
+}
+
+.right-count-total {
+	left: 15px;
+}
+
+.title-container {
+	display: inline-block;
+}
+
+.to-bottom-left, .up-one-level, .back-to-top, .to-bottom-right {
+	display: inline-block;
+	margin-left: 70px;
+	margin-right: 70px;
+}
+
+.page-scroll {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 15px;
+}
+
+.page-scroll i {
+	background: rgb(0, 121, 211);
+	color: white;
+	cursor: pointer;
+	font-size: 20px;
+	padding: 3px 7px;
+}
+
+.page-scroll span {
+	background: rgb(0, 121, 211);
+	color: white;
+	cursor: pointer;
+	padding: 5px 7px;
+}
+
+.view-options a {
+	color: rgb(0, 121, 211);
+}
+
+.zoom-container {
+	display: inline-block;
+}
+
+.tree-container {
+	background: white;
+	margin-bottom: 50px;
+	padding: 10px;
+	width: 100%;
+}
+
+.tree {
+	width: 100%;
+}
+
+.lvl, .lvl-open {
+	align-items: center;
+	border: 1px solid rgb(124, 124, 124);
+	/* display: flex; */
+	min-height: 70px;
+	justify-content: center;
+	width: 100%;
+	text-align: center;
+	font-size: 1.3em;
+}
+
+.lvl {
+	cursor: pointer;
+	padding: 10px 0 0 0;
+}
+
+.lvl-open {
+	align-content: space-around;
+	flex-direction: column;
+	padding: 15px 0 0 0;
+}
+
+.lvl-open select, .lvl-open button {
+	margin: 0 auto;
+	width: 90%;
+}
+
+.lvl-open button {
+	border: none;
+	background: rgb(0, 121, 211);
+	color: white;
+	cursor: pointer;
+}
+
+.lvl-open select {
+	border: 1px solid gray;
+	margin-bottom: 5px;
+}
+
+.lvl:hover {
+	background: rgb(0, 121, 211);
+	color: white;
+}
+
+.lvl-selected {
+	background: rgb(0, 121, 211);
+	color: white;
+}
+
+.lvl1, .lvl2, .lvl3, .lvl4 {
+	display: flex;
+	justify-content: center;
+}
+
+
+
+.member-info {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-bottom: 50px;
+}
+.member-details .mem_btn{}
+.member-details .mem_btn:hover th, .member-details .mem_btn:hover td{background:gold !important}
+
+.member-details h5{padding:10px 0;}
+.member-details, .member-volume {
+	background: white;
+	padding: 10px;
+	width: 100%;
+	color:#333;
+}
+.member-details .m_id{color:black;font-weight:600;}
+
+.pagination-container {
+	display: flex;
+	justify-content: center;
+}
+
+.page-search-container {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+.page-search-container input {
+	border: 1px solid #dee2e6;
+	padding: 5px 10px;
+	width: 80px;
+}
+
+.page-search-container button {
+	background-color: rgb(0, 121, 211);
+	border-color: rgb(0, 121, 211);
+	color: white;
+	cursor: pointer;
+	padding: 5px 10px;
+}
+
+@media only screen and (max-width: 1100px) {
+	.big-container-wrapper, .binary-tree-wrapper, .title-container {
+		width: 100%;
+	}
+
+	.binary-tree-header-right {
+		display: block;
+		margin: 0 auto;
+		position: static;
+		text-align: center;
+	}
+
+	.view-options {
+		width: 95%;
+	}
+
+	.view-select {
+		margin-top: 15px;
+		text-align: center;
+	}
+
+	.title-container {
+		text-align: center;
+	}
+
+	.to-bottom-left, .up-one-level, .back-to-top, .to-bottom-right {
+		display: none;
+	}
+
+	.zoom {
+		margin-top: 20px;
+	}
+}
+/* binary search result */
+.search_container{position:relative;display:none;z-index:1000;}
+
+.search_result{position:absolute; right:0;top:0;width:250px; height:300px;background-color:#fff;text-align:center;padding:10px;transition:all 2s;overflow:auto;}
+
+.result_btn{width:250px;text-align:center;padding:5px 2px;border-radius: 5px;background-color:rgb(0, 121, 211);color:#fff;position:absolute;top:310px;right:0;cursor:pointer;z-index: 999;}
+.search_container.active{display:block;}
+
+
+.member-volume table thead th{color:#0076ef;font-size:1.2em;}
+
+@media only screen and (max-width: 884px) {
+	.member-info {
+		flex-direction: column;
+	}
+
+	.member-details, .member-volume {
+		width: 100%;
+	}
+}
+
+@media only screen and (max-width: 660px) {
+	.lvl4, .line_3_con{
+		display: none;
+	}
+	.page-scroll span{text-align:center;}
+	.lvl3 .addMem span{
+	font-size:0.9em;
+}
+}
+
+@media only screen and (max-width: 429px) {
+	.pagination-container {
+		justify-content: flex-start;
+		overflow-x: auto;
+	}
+}
+
+.big-container-wrapper.nav-body-shift {
+	margin-left: 300px;
+}
+
+/*line1*/		
+.line_1 .line1-1{float:left;width:50%;height:20px;margin:0 auto;box-sizing:border-box;border-right:2px solid #aaa;}
+.line_1 .line2{width:50%;height:20px;margin:0 auto;border-left:2px solid #aaa;border-right:2px solid #aaa;border-top:2px solid #aaa;  box-sizing:border-box;clear:both;}
+
+/*line2*/
+.line_2_con{width:100%;height:40px;clear:both;}
+.line_2_con .line_2{float:left;width:50%;}		
+.line_2_con .line_2 .line1-1{float:left;width:50%;height:20px;margin:0 auto;box-sizing:border-box;border-right:2px solid #aaa;}
+.line_2_con .line_2 .line2{width:50%;height:20px;margin:0 auto;border-left:2px solid #aaa;border-right:2px solid #aaa;border-top:2px solid #aaa;  box-sizing:border-box;clear:both;}
+
+/*line3*/
+.line_3_con{width:100%;height:40px;clear:both;}
+.line_3_con .line_2{float:left;width:25%;}
+.line_3_con .line_2 .line1-1{float:left;width:50%;height:20px;margin:0 auto;box-sizing:border-box;border-right:2px solid #aaa;}
+.line_3_con .line_2 .line2{width:50%;height:20px;margin:0 auto;border-left:2px solid #aaa;border-right:2px solid #aaa;border-top:2px solid #aaa;  box-sizing:border-box;clear:both;}

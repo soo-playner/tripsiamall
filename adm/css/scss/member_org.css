@@ -1,0 +1,130 @@
+#chart-container {
+  margin: 0px 10px 0px 10px;
+  min-height: 573px;
+  border: 1px solid #d9d9d9;
+  text-align: center !important;
+  position: relative;
+  display: inline-block;
+  width: calc(100% - 24px);
+  overflow: auto;
+  text-align: center;
+}
+
+.orgchart .node {
+  box-sizing: border-box;
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  padding: 3px;
+  /* height:143px; */
+  text-align: center;
+  width: 130px;
+}
+
+.orgchart .node .title {
+  background: #fff;
+  border: 2px solid rgb(95, 95, 95);
+  color: #000;
+  height: 150px;
+  font-weight: normal;
+  line-height: 15px;
+  padding-top: 5px;
+  cursor: pointer;
+}
+
+.orgchart .node .title .symbol {
+  display: none;
+}
+
+.orgchart .node .title .dec {
+  font-size: 11px;
+  line-height: 11px;
+}
+
+.orgchart .node .title .dec.p {
+  margin-top: 5px;
+}
+
+.orgchart .node .title .mb {
+  margin: 3px 0;
+  word-break: break-all;
+  white-space: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 11px;
+  padding: 0;
+  color: orange;
+}
+
+.zoom-btn {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  color: #fff;
+  background-color: #364fa0;
+  border: 1px solid transparent;
+  border-color: #364fa0;
+  border-radius: 4px;
+}
+
+.zoom2-btn {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  color: #fff;
+  background-color: #364fa0;
+  border: 1px solid transparent;
+  border-color: #364fa0;
+  border-radius: 4px;
+}
+
+.my-class {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  color: #fff;
+  background-color: #5cb85c;
+  border: 1px solid transparent;
+  border-color: #4cae4c;
+  border-radius: 4px;
+}
+
+.oc-export-btn {
+  display: none;
+}

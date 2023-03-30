@@ -1,0 +1,283 @@
+@charset "UTF-8";
+
+/* font-face */
+/*adm*/
+
+
+@font-face{
+font-family:robotoM;
+src:local(※), 
+	url('../img/font/Roboto-Medium.woff') format('woff');
+}
+
+@font-face{
+font-family:robotoM;
+src:local(※), 
+	url('../img/font/Roboto-Medium.woff') format('woff');
+}
+
+@font-face{
+font-family:robotoR;
+src:local(※), 
+	url('../img/font/Roboto-Regular.woff') format('woff');
+}
+
+@font-face{
+font-family:ubuntuL;
+src:local(※), 
+	url('../img/font/Ubuntu-L.woff') format('woff');
+}
+
+@font-face{
+font-family:ubuntuR;
+src:local(※), 
+	url('../img/font/Ubuntu-R.woff') format('woff');
+}
+
+@font-face{
+font-family:ubuntuM;
+src:local(※), 
+	url('../img/font/Ubuntu-M.woff') format('woff');
+}
+
+@font-face{
+font-family:ubuntuB;
+src:local(※), 
+	url('../img/font/Ubuntu-B.woff') format('woff');
+}
+
+@font-face{
+font-family:NanumGothic;
+src:local(※), 
+	url('../img/font/NanumGothic.woff') format('woff');
+}
+
+
+
+* {padding: 0; margin: 0; box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;}
+ul,ol {list-style: none;}
+a     {text-decoration: none;}
+img   {border:0;}
+
+body, html {height: 100%;}
+body, html, a {letter-spacing:-0.5px; color:#222;}
+input, textarea {padding: 5px;}
+input[type=file] {padding: 0;}
+input[type=button], button {
+ -webkit-appearance: none;
+-moz-appearance: none;
+appearance: none;
+}
+
+.after:after,
+dl:after,
+ul:after {content:""; clear:both; display:block;}
+
+table {border-collapse:collapse; width: 100%;}
+
+.table {display:table;}
+.table-cell {display:table-cell; vertical-align:middle;}
+
+dt, .flot-left {float:left;}
+dd, .flot-right {float:right;}
+
+span, a, label {display:inline-block;}
+/* 
+input::-webkit-input-placeholder {font-size:12px;}
+
+input:focus::-webkit-input-placeholder{
+    color: transparent!important;
+}
+input:focus::-moz-placeholder{
+    color: transparent!important;
+}
+input:focus:-moz-placeholder{
+    color: transparent!important;
+} */
+
+textarea {width: 100%; resize:none;}
+
+h1,h2,h3,h4,h5,h6 {font-weight:normal;}
+
+header {
+	background:#fff; position:fixed; top: 0; left: 0; right: 0; width: 100%; height: 100px; 
+	border-bottom:2px solid #95c1cd; font-family: 'Ubuntu', sans-serif !important;;
+	z-index: 9999;
+}
+header .inner {margin: auto; width: 1170px; padding-top: 25px;}
+header .menu {padding-top: 20px;}
+header .menu ul {font-size:0;}
+header .menu ul li {display:inline-block; font-size:18px; font-family: 'Ubuntu', sans-serif !important; }
+header .menu ul li.menu-kind {margin-right: 35px;}
+header .menu ul li a {transition:all 0.3s;}
+header .menu ul li.menu-kind a:hover {color:#7069a1;}
+header .menu ul li .menu_btn {
+	width: 160px; text-align:center; color:#fff; border-radius:3px; height: 35px; line-height:35px; font-size:13px;
+	font-family:'Ubuntu', sans-serif !important;
+	
+	vertical-align:middle; margin-top: -10px;
+}
+header .menu ul li .menu_btn.login {background:#0c5487; margin-right: 10px;}
+header .menu ul li .menu_btn.login:hover {background:#07395d;}
+header .menu ul li .menu_btn.signup {background:#7069a1;}
+header .menu ul li .menu_btn.signup:hover {background:#4c476e;}
+
+.mobie_menu {display:none; margin: 10px 10px 0 2.5%; vertical-align:top;}
+.mobie_menu:hover{
+  cursor: pointer;
+}
+
+.mobie_menu .line{
+  width: 25px;
+  height: 3px;
+  background-color: #95c1cd;
+  display: block;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+#mobie_menu{
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+#mobie_menu.is-active{
+  animation: smallbig 0.6s forwards;
+}
+
+@keyframes smallbig{
+  0%, 100%{
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50%{
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    -o-transform: scale(0);
+    transform: scale(0);
+  }
+}
+
+#mobie_menu.is-active .line:nth-child(1),
+#mobie_menu.is-active .line:nth-child(2),
+#mobie_menu.is-active .line:nth-child(3){
+  -webkit-transition-delay: 0.2s;
+  -o-transition-delay: 0.2s;
+  transition-delay: 0.2s;
+}
+
+#mobie_menu.is-active .line:nth-child(2){
+  opacity: 0;
+}
+
+#mobie_menu.is-active .line:nth-child(1){
+  -webkit-transform: translateY(8px) rotate(45deg);
+  -ms-transform: translateY(8px) rotate(45deg);
+  -o-transform: translateY(8px) rotate(45deg);
+  transform: translateY(8px) rotate(45deg);
+}
+
+#mobie_menu.is-active .line:nth-child(3){
+  -webkit-transform: translateY(-8px) rotate(-45deg);
+  -ms-transform: translateY(-8px) rotate(-45deg);
+  -o-transform: translateY(-8px) rotate(-45deg);
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/*footer*/
+footer {background:#002b4a; color:#fff;}
+footer .inner {width:1170px; margin: auto; }
+/*section09*/
+.csec09 {background:url('../img/img_footer.png'); background-size:cover;}
+.csec09 h2 {font-size:50px; line-height:50px; font-family:'Ubuntu', sans-serif !important; }
+.csec09 hr {width: 50px; border-top:2px solid #fff; margin: 30px auto;}
+.csec09 a {
+	width: 280px; text-align:center; color:#fff; padding: 10px 0; border:2px solid #fff; font-size:24px;
+	transition:all 0.3s;
+}
+.csec09 a:hover {background:#fff; color:#8aa3b5;}
+
+footer .footerIn {padding: 30px 0;}
+
+footer .logo_section {width: 280px; padding-top: 5px;}
+footer .logo_section img {width: 100%;}
+footer .footerIn .sns_section {width: 690px; text-align:left;}
+footer .footerIn .sns_section .innering {width: 320px; margin: auto;}
+footer .footerIn .sns_section p {margin-bottom: 25px;}
+footer .footerIn .sns_section img {width: 30px;}
+footer .footerIn .sns_section img.FB {width: 15px;}
+footer .footerIn .sns_section a {margin-right: 40px;}
+footer .footerIn .sns_section a:hover {opacity: 0.7;}
+footer .footerIn .sns_section a.last {margin-right: 0;}
+footer .footerIn .sns_section img.YT {width: 25px;}
+
+footer .signup {width: 200px;}
+footer .signup p {margin-bottom: 10px;}
+footer .signup .menu_btn {width: 100%; text-align:center; color:#fff; 
+	border-radius:3px; height: 35px; line-height:35px; font-size:13px; font-family:NanumGothic;}
+footer .signup .menu_btn.login {background:#0c5487; margin-bottom: 10px;}
+footer .signup .menu_btn.login:hover {background:#07395d;}
+footer .signup .menu_btn.signup {background:#7069a1;}
+footer .signup .menu_btn.signup:hover {background:#4c476e;}
+
+/*backtop*/
+.backtop {position:fixed; bottom: 10px; right: -50px; cursor:pointer; transition:all 0.3s; opacity: 0;}
+.backtop.show {right: 10px; opacity: 1;}
+
+
+/*=====================================미디어쿼리==========================================*/
+@media(max-width:1199px) {
+	header .inner, footer .inner {width:95%;}
+	header .menu ul li .menu_btn {width: 120px;}
+	footer .logo_section, footer .signup {width: 20%;}
+	footer .footerIn .sns_section {width: 60%;}
+	footer .logo_section {padding-top: 15px;}
+}
+
+@media(min-width:993px) {
+	header .menu {display:block;}
+	
+}
+
+@media(max-width:992px) {
+	.mobie_menu {display:inline-block;}
+	header .inner {width: 100%; padding-top: 0;}
+	header .logo_section, header .menu {float:none; width: 100%;}
+	header .logo_section {height: 98px; padding-top: 25px;}
+	header .menu {background:#fff; padding: 0; border-bottom:1px solid #95c1cd; display:none;}
+	header .menu ul li {
+		display:block; padding: 10px; border-bottom:1px solid #ecf0f1; margin: 0!important;
+	}
+	header .menu ul li .menu_btn {margin-top: 0;} 
+	header .menu ul li.m-menu {display:inline-block; border-bottom:0px;}
+	
+	footer .signup {display:none;}
+	footer .logo_section {width: 210px;}
+	footer .footerIn .sns_section {width: auto; float:right;}
+	
+}
+
+@media(max-width:610px) {
+	header, header .logo_section {height: 70px;}
+	header .logo_section {padding-top: 15px;}
+	.mobie_menu {margin-top: 5px;}
+	header .logo_section img, footer .logo_section img {width: 200px;}
+
+	footer .logo_section {margin-bottom: 15px; padding: 0 0 15px 0; border-bottom:2px dotted #fff;}
+
+	footer .logo_section, 
+	footer .footerIn .sns_section {width: 100%; float:none; text-align:center;}
+	
+	footer .footerIn .sns_section a {margin-right: 20px;}
+	
+	.backtop img {width: 45px;}
+}

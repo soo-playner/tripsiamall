@@ -1,0 +1,53 @@
+.week_dividend .radio_btn {
+  width: 40px;
+  height: 40px;
+}
+.week_dividend .divide {
+  display: inline-block;
+  margin: 0 15px;
+}
+.week_dividend label {
+  cursor: pointer;
+}
+
+.t_white {
+  color: white;
+  font-weight: 600;
+  font-size: 11px;
+}
+
+.color0 {
+  background: #cacaca !important;
+}
+
+.color1 {
+  background: rgba(181, 93, 204, 0.8509803922) !important;
+}
+
+.color2 {
+  background: #516feb !important;
+}
+
+.color3 {
+  background: #09c3fd !important;
+}
+
+.color4 {
+  background: #5ed2dc !important;
+}
+
+.color5 {
+  background: #373cbc !important;
+}
+
+.color6 {
+  background: #2b3a6d !important;
+}
+
+.color9 {
+  background: #6214ab !important;
+}
+
+.color10 {
+  background: #6214ab !important;
+}

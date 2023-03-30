@@ -1,0 +1,233 @@
+
+@import "../css/scss/_variable.scss";
+
+#wrapper.black {
+  background: #343E59 !important;
+  color: #777;
+  font-family: Montserrat, Arial, sans-serif;
+}
+#wrapper.black .content-box{
+  background:#2B2D3E;
+}  
+
+.body-bg {
+  background: #F3F4FA !important;
+}
+
+/*   h1, h2, h3, h4, h5, h6, strong {
+  font-weight: 600;
+  font-family: Montserrat, Arial, sans-serif;
+} */
+
+body {
+  /*background: linear-gradient(45deg,#3a3a60,#5f5f8e);
+  min-height: 100vh;*/
+}
+
+
+.content-area {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.box {
+  background-color: #2B2D3E;
+  padding: 25px 20px;
+  margin: 5px 0;
+}
+
+.box ul{display:flex}
+.box ul li{border-right:1px solid rgba(255,255,255,0.25)}
+.box ul li:last-child{border-right:none;}
+.box h3{padding:5px 0;font-weight:900;}
+
+.sparkboxes .box.white {
+  padding: 25px 20px;
+  margin: 5px 0;
+}
+
+.shadow {
+  box-shadow: 0px 1px 15px 1px rgba(69, 65, 78, 0.08);
+}
+.sparkboxes .box {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-shadow: 0 1px 1px 1px #666;
+  box-shadow: 0px 1px 15px 1px rgba(69, 65, 78, 0.08);
+  position: relative;
+  border-radius: 5px;
+  color: #fff;
+  
+}
+
+.sparkboxes .box .details {
+  position: absolute;
+  transform: scale(0.9) translate(-14px, 20px);
+  position:absolute;
+  z-index:100;
+  font-weight: 600;
+  font-family: Montserrat, Arial, sans-serif;
+}
+
+.sparkboxes .box  h2{
+  font-weight: 600;
+  font-family: Montserrat, Arial, sans-serif;
+}
+
+.sparkboxes .box  h3{
+  letter-spacing:1px;
+  font-weight: 600;
+  font-family: Montserrat, Arial, sans-serif;
+  letter-spacing: -0.5px;
+  color: #fff;
+}
+.sparkboxes .box  h4{
+  font-weight: 600;
+  font-family: Montserrat, Arial, sans-serif;
+}
+.sparkboxes .box  h5{
+  font-weight: 600;
+  font-family: Montserrat, Arial, sans-serif;
+}
+.sparkboxes strong {
+  position: relative;
+  z-index: 3;
+  top: -8px;
+  color: #fff;
+}
+
+.sparkboxes .box1 {
+  background-image: linear-gradient( 135deg, #f8b874 10%, #FD6585 100%);
+}
+
+.sparkboxes .box2 {
+  background-image: linear-gradient( 135deg, #EE9AE5 10%, #8959f9 100%);
+}
+
+.sparkboxes .box3 {
+  background-image: linear-gradient( 135deg, #8959f9 10%, #4C83FF 100%);
+}
+
+.sparkboxes .box4 {
+  background-image: linear-gradient( 135deg, #2ad0fa 10%, #0c51cf 100%);
+}
+
+.sparkboxes .box5 {
+  background-image: linear-gradient( 135deg, #1fcf77 10%, #26d4bd 100%);
+}
+
+#megachart,#zetachart,#zetapluschart,#superchart {
+  position: relative;
+}
+
+.apexcharts-canvas {
+  position: absolute;
+}
+
+// 다크모드
+.dark {
+    #wrapper.black {
+        background: #343E59 !important;
+        color: #777;
+        font-family: Montserrat, Arial, sans-serif;
+      }
+      #wrapper.black .content-box{
+        background:#2B2D3E;
+      }  
+      
+      .body-bg {
+        background: #F3F4FA !important;
+      }
+      
+      .content-area {
+        max-width: 1280px;
+        margin: 0 auto;
+      }
+      
+      .box {
+        background-color: #2B2D3E;
+        padding: 25px 20px;
+        margin: 5px 0;
+      }
+      
+      .box ul{display:flex}
+      .box ul li{border-right:1px solid rgba(255,255,255,0.25)}
+      .box ul li:last-child{border-right:none;}
+      .box h3{padding:5px 0;font-weight:900;}
+      
+      .sparkboxes .box.white {
+        background-color: $main-background2;
+        padding: 25px 20px;
+        margin: 5px 0;
+      }
+      
+      .shadow {
+        box-shadow: 0px 1px 15px 1px rgba(69, 65, 78, 0.08);
+      }
+      .sparkboxes .box {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-shadow: 0 1px 1px 1px #666;
+        box-shadow: 0px 1px 15px 1px rgba(69, 65, 78, 0.08);
+        position: relative;
+        border-radius: 5px;
+        color: #fff;
+        
+      }
+      
+      .sparkboxes .box .details {
+        position: absolute;
+        transform: scale(0.9) translate(-14px, 20px);
+        position:absolute;
+        z-index:100;
+        font-weight: 600;
+        font-family: Montserrat, Arial, sans-serif;
+      }
+      
+      .sparkboxes .box  h2{
+        font-weight: 600;
+        font-family: Montserrat, Arial, sans-serif;
+      }
+      
+      .sparkboxes .box  h3{
+        letter-spacing:1px;
+        font-weight: 600;
+        font-family: Montserrat, Arial, sans-serif;
+        letter-spacing: -0.5px;
+        color: #fff;
+      }
+      .sparkboxes .box  h4{
+        font-weight: 600;
+        font-family: Montserrat, Arial, sans-serif;
+      }
+      .sparkboxes .box  h5{
+        font-weight: 600;
+        font-family: Montserrat, Arial, sans-serif;
+      }
+      .sparkboxes strong {
+        position: relative;
+        z-index: 3;
+        top: -8px;
+        color: #fff;
+      }
+      
+      .sparkboxes .box1 {
+        background-image: linear-gradient( 135deg, $mega_mining1_1 10%, $mega_mining1 100%);
+      }
+      
+      .sparkboxes .box2 {
+        background-image: linear-gradient( 135deg, $zeta_mining1_1 10%, $zeta_mining1 100%);
+      }
+      
+      .sparkboxes .box3 {
+        background-image: linear-gradient( 135deg, $zetaplus_mining1_1 10%, $zetaplus_mining1 100%);
+      }
+      
+      .sparkboxes .box4 {
+        background-image: linear-gradient( 135deg, $super_mining1_2 20%, $super_mining1_1 ,$super_mining1 70%);
+      }
+      
+      .sparkboxes .box5 {
+        background-image: linear-gradient( 135deg, $total_mining1_1 10%, $total_mining1 100%);
+      }
+}
