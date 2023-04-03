@@ -460,6 +460,38 @@ $stats_result = sql_fetch($stats_sql); */
 	.comp.minus {
 		color: blue;
 	}
+
+	.bonus_eth {
+		background: #0062cc !important;
+		color: white !important;
+	}
+
+	.bonus_eth a {
+		color: white !important
+	}
+
+	.bonus_calc {
+		background: #3e1f9c !important;
+	}
+
+	.bonus_calc a {
+		color: white !important;
+		font-weight: 400
+	}
+
+	.bonus_usdt {
+		background: crimson !important;
+		color: white !important;
+	}
+
+	.bonus_usdt a {
+		color: white !important;
+		font-weight: 300
+	}
+
+	.bonus_aa {
+		background: yellowgreen !important
+	}
 </style>
 
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
@@ -561,13 +593,13 @@ $stats_result = sql_fetch($stats_sql); */
 					<th scope="col" rowspan="2" id="" class="center"><?= subject_sort_link('mb_name') ?>이름</a></th>
 					<th scope="col" rowspan="2" id="mb_list_mobile" class="center"><?php echo subject_sort_link('mb_recommend') ?>추천인</th>
 					<th scope="col" rowspan="2" id="mb_list_mobile" class="center"><?php echo subject_sort_link('mb_habu_sum') ?>직추천</th>
-					<th scope="col" rowspan="2" id="" class="gold"><?= subject_sort_link('mb_balance') ?>현재잔고</th>
-					<th scope="col" rowspan="2" id="" class="green"><?= subject_sort_link('mining') ?>총입금액</th>
-					<th scope="col" rowspan="2" id="" class=""><?= subject_sort_link('mb_rate') ?>사용금액<br>(출금포함)<br></th>
-					<th scope="col" rowspan="2" id="" class="orange"><?= subject_sort_link('mb_bonus_total') ?>출금총액<br>(+수수료)<br></th>
-					<th scope="col" rowspan="2" id="" class="pink"><?= subject_sort_link('mb_bonus_total') ?>수당합계</th>
-					<th scope="col" rowspan="2" id="" class="purple"><?= subject_sort_link('mb_bonus_total') ?>누적매출<br>(PV)</th>
-					<th scope="col" rowspan="2" id="" class="blue"><?= subject_sort_link('mb_bonus_total') ?>상위보유패키지</th>
+					<th scope="col" rowspan="2" id="" class="bonus_eth"><?= subject_sort_link('mb_balance') ?>현재잔고</th>
+					<th scope="col" rowspan="2" id="" class="bonus_calc"><?= subject_sort_link('mining') ?>총입금액</th>
+					<th scope="col" rowspan="2" id="" class="" style="background: skyblue"><?= subject_sort_link('mb_rate') ?>사용금액<br>(출금포함)<br></th>
+					<th scope="col" rowspan="2" id="" class="bonus_usdt"><?= subject_sort_link('mb_bonus_total') ?>출금총액<br>(+수수료)<br></th>
+					<th scope="col" rowspan="2" id="" class="gold"><?= subject_sort_link('mb_bonus_total') ?>수당합계</th>
+					<th scope="col" rowspan="2" id="" class="bonus_aa"><?= subject_sort_link('mb_bonus_total') ?>누적매출<br>(PV)</th>
+					<th scope="col" rowspan="2" id="" class=""><?= subject_sort_link('mb_bonus_total') ?>상위보유패키지</th>
 					<th scope="col" id="mb_list_member"><?php echo subject_sort_link('mb_today_login', '', 'desc') ?>최종접속</a></th>
 					<th scope="col" rowspan="2" id="" class=''><?= subject_sort_link('fcm_token', '', 'desc') ?>앱설치/푸쉬</a></th>
 					<th scope="col" rowspan="2" id="mb_list_mng">관리</th>

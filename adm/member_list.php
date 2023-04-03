@@ -683,7 +683,7 @@ while ($l_row = sql_fetch_array($get_lc)) {
 					<th scope="col" id="mb_list_auth2" class="bonus_bb green font_white" rowspan="2"> <?php echo subject_sort_link('mining') ?> <span style='color:white'>마이닝보유<br>(<?= $minings[$now_mining_coin] ?>)</span></th>
 					<th scope="col" id="mb_list_auth2" class="bonus_aa" style='background:white !important' rowspan="2"><?php echo subject_sort_link('mb_bonus_total') ?>마이닝<br>총보너스 (mh/s)</th>
 					<th scope="col" id="mb_list_auth2" class="bonus_aa" style='background:white !important' rowspan="2"><?php echo subject_sort_link('mb_bonus_total_rate') ?>마이닝<br>보너스율 (%)</th> -->
-					<th scope="col" rowspan="2" id="" class="item_title" style='min-width:50px;'><?php echo subject_sort_link('rank') ?>상위보유패키지</th>
+					<th scope="col" rowspan="2" id="" class="item_title" style='min-width:60px;'><?php echo subject_sort_link('rank') ?>상위보유패키지</th>
 					
 					<th scope="col" id="mb_list_member"><?php echo subject_sort_link('mb_today_login', '', 'desc') ?>최종접속</a></th>
 					<th scope="col" rowspan="3" id="mb_list_mng">관리</th>
