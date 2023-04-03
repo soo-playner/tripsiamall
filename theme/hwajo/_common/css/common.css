@@ -1597,7 +1597,7 @@ a.more i {
 	background: white;
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
-	box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.1);
+	box-shadow: 0px 0px 20px 0 rgba(0, 0, 0, 0.04);
 }
 .notice_wrap p span {
 	font-weight: normal;
