@@ -179,7 +179,7 @@ $(document).ready(function(){
 					</div>
 				</a>
 			</li>
-			<li class="question_icon <? if($_GET['id'] === 'support_center') {echo 'active';}?>">
+			<li class="question_icon <? if($_GET['id'] === 'support_center' || $_GET['id'] === 'support_center.admin') {echo 'active';}?>">
 				<a href="/page.php?id=support_center">
 					<div class="gnb_img_wrap"></div>
 					<div class="gnb_title_Wrap">
