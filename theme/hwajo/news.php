@@ -98,29 +98,25 @@ $title = 'News';
 		<div class="news_wrap content-box6">
 			<h3 class="title">공지사항</h3>
 			<p class="sub_title"><?=$config['cf_title']?>에서 전하는 새로운 소식을 확인하세요.</p>
-			<div class="b_line3"></div>
 				<?if($cnt == 0){?>
 					<div class="no_data box_on">공지사항이 존재하지 않습니다</div>
 				<?}?>
 			<?for($i; $row = sql_fetch_array($list); $i++){?>
-			<div class="col-sm-12 col-12 news"'>
+			<div class="col-sm-12 col-12 news">
 				<ul class="row question" no="<?echo $row['wr_id']?>">
-					<li class="left_wrap col-sm-3 col-3">
+					<li class="left_wrap">
 						<div class="tit">새소식</div>
-						<div class="date"><?echo date("d-m-Y", strtotime($row['wr_last']))?></div>
+						<div class="date"><?echo date("Y-m-d", strtotime($row['wr_last']))?></div>
 					</li>
-					<li class="mid_wrap col-sm-8 col-8"><?echo $row['wr_subject']?></li>
-					<li class="right_wrap col-sm-1 col-1" style="padding-left: 0px;">
-						<i class="ri-arrow-right-s-line"></i>
+					<li class="mid_wrap col"><?echo $row['wr_subject']?></li>
+					<li class="right_wrap">
+						<i class="ri-arrow-down-s-line"></i>
 					</li>
 				</ul>
 				<div class="answer">
 					<p class="writing"></p>
-				</div>		
-
-		
+				</div>
 			</div>
-			
 			<?}?>
 		</div>
 	</div>
@@ -129,7 +125,7 @@ $title = 'News';
 </script>
 <script>
 	$(function(){
-		$(".top_title h3").html("<span >공지사항</span>")
+		$(".top_title h3").html("<span >공지사항</span>");
 	});
 </script>
 <? include_once(G5_THEME_PATH.'/_include/tail.php'); ?>

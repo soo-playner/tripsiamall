@@ -104,7 +104,7 @@ $bonus_data = [remain_bonus($member['recom_mining'], 3), remain_bonus($member['b
 <main>
     <div class='container mypool'>
 
-        <div class="row sparkboxes mt-4">
+        <div class="row sparkboxes mt-5">
             <div class="col-md-12">
                 <div class="box box5">
 
@@ -165,15 +165,15 @@ $bonus_data = [remain_bonus($member['recom_mining'], 3), remain_bonus($member['b
         </div>
 
         <div class='container'>
-            <div class="row">
-                <div class='r_card_wrap content-box round mt30 col-md-6'>
+            <div class="row half">
+                <div class='r_card_wrap content-box round mt30 col-lg-6'>
                     <p class='title'> 총 마이닝 보너스 구성 및 상한 </p>
                     <div style='max-width:400px;width:100%;text-align:center;margin:0 auto;'>
                         <div id="circleChart"></div>
                     </div>
                 </div>
 
-                <div class='r_card_wrap content-box round mt30 col-md-6' id="myminings">
+                <div class='r_card_wrap content-box round col-lg-6' id="myminings" style="margin-top: 30px;">
                     <p class='title'> 데일리 마이닝 보너스</p>
                     <div style='max-width:400px;width:100%;text-align:center;margin:0 auto;'>
                         <div id="mychart"></div>
@@ -249,7 +249,7 @@ $bonus_data = [remain_bonus($member['recom_mining'], 3), remain_bonus($member['b
 
                 <div class="box-body mt20"></div>
 
-                <div><button type="button" class="btn wd more_btn">더보기</button></div>
+                <div><button type="button" class="btn wd more_btn mt20">더보기</button></div>
 
             </div>
 
@@ -313,7 +313,7 @@ $bonus_data = [remain_bonus($member['recom_mining'], 3), remain_bonus($member['b
 
                 <div class="box-body mt20"></div>
 
-                <div><button type="button" class="btn wd more_btn">더보기</button></div>
+                <div><button type="button" class="btn wd more_btn mt20">더보기</button></div>
             </div>
 
 
@@ -375,7 +375,7 @@ $bonus_data = [remain_bonus($member['recom_mining'], 3), remain_bonus($member['b
 
                 <div class="box-body mt20"></div>
 
-                <div><button type="button" class="btn wd more_btn">더보기</button></div>
+                <div><button type="button" class="btn wd more_btn mt20">더보기</button></div>
             </div>
 
             <!-- 슈퍼 마이닝 -->
@@ -430,7 +430,7 @@ $bonus_data = [remain_bonus($member['recom_mining'], 3), remain_bonus($member['b
 
                 <div class="box-body mt20"></div>
 
-                <div><button type="button" class="btn wd more_btn">더보기</button></div>
+                <div><button type="button" class="btn wd more_btn mt20">더보기</button></div>
             </div>
 
             <!-- 마이 마이닝 -->
@@ -485,7 +485,7 @@ $bonus_data = [remain_bonus($member['recom_mining'], 3), remain_bonus($member['b
 
                 <div class="box-body mt20"></div>
 
-                <div><button type="button" class="btn wd more_btn">더보기</button></div>
+                <div><button type="button" class="btn wd more_btn mt20">더보기</button></div>
             </div>
         </div>
 

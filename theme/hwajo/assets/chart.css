@@ -33,6 +33,8 @@ body {
 }
 
 .box ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -55,14 +57,16 @@ body {
 }
 
 .shadow {
-  box-shadow: 0px 1px 15px 1px rgba(69, 65, 78, 0.08);
+  -webkit-box-shadow: 0px 1px 15px 1px rgba(69, 65, 78, 0.08);
+          box-shadow: 0px 1px 15px 1px rgba(69, 65, 78, 0.08);
 }
 
 .sparkboxes .box {
   padding-top: 10px;
   padding-bottom: 10px;
   text-shadow: 0 1px 1px 1px #666;
-  box-shadow: 0px 1px 15px 1px rgba(69, 65, 78, 0.08);
+  -webkit-box-shadow: 0px 1px 15px 1px rgba(69, 65, 78, 0.08);
+          box-shadow: 0px 1px 15px 1px rgba(69, 65, 78, 0.08);
   position: relative;
   border-radius: 5px;
   color: #fff;
@@ -70,7 +74,8 @@ body {
 
 .sparkboxes .box .details {
   position: absolute;
-  transform: scale(0.9) translate(-14px, 20px);
+  -webkit-transform: scale(0.9) translate(-14px, 20px);
+          transform: scale(0.9) translate(-14px, 20px);
   position: absolute;
   z-index: 100;
   font-weight: 600;
@@ -156,6 +161,8 @@ body {
   margin: 5px 0;
 }
 .dark .box ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 .dark .box ul li {
@@ -174,20 +181,23 @@ body {
   margin: 5px 0;
 }
 .dark .shadow {
-  box-shadow: 0px 1px 15px 1px rgba(69, 65, 78, 0.08);
+  -webkit-box-shadow: 0px 1px 15px 1px rgba(69, 65, 78, 0.08);
+          box-shadow: 0px 1px 15px 1px rgba(69, 65, 78, 0.08);
 }
 .dark .sparkboxes .box {
   padding-top: 10px;
   padding-bottom: 10px;
   text-shadow: 0 1px 1px 1px #666;
-  box-shadow: 0px 1px 15px 1px rgba(69, 65, 78, 0.08);
+  -webkit-box-shadow: 0px 1px 15px 1px rgba(69, 65, 78, 0.08);
+          box-shadow: 0px 1px 15px 1px rgba(69, 65, 78, 0.08);
   position: relative;
   border-radius: 5px;
   color: #fff;
 }
 .dark .sparkboxes .box .details {
   position: absolute;
-  transform: scale(0.9) translate(-14px, 20px);
+  -webkit-transform: scale(0.9) translate(-14px, 20px);
+          transform: scale(0.9) translate(-14px, 20px);
   position: absolute;
   z-index: 100;
   font-weight: 600;

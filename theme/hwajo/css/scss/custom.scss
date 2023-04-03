@@ -20,29 +20,13 @@ header {
         li {
             display: block;
 
-            &:hover {
+            &:hover a,
+            &.active a {
                 background: aliceblue;
-            }
-    
-            &:hover .gnb_title_Wrap a {
-                color: #3b86ff;
-            }
 
-            &:hover .gnb_img_wrap {
-                transition: all .5s;
-                transform: rotateX(360deg)
-            }
-
-            &:hover .gnb_title_Wrap {
-                transition: all .5s;
-                transform: rotateX(360deg)
-            }
-
-            a {
-                text-overflow: ellipsis;
-                overflow: hidden;
-                white-space: nowrap;
-                width: 71%;
+                .gnb_title_Wrap a {
+                    color: #3b86ff;
+                }
             }
         }
     
@@ -52,7 +36,7 @@ header {
             background-size: 227px;
             width: 38px;
             height: 38px;
-            float: left;
+            flex: 0 0 auto;
         }
         
         .gnb_title_Wrap {
@@ -61,13 +45,14 @@ header {
 
         .dashboard_icon {
             .gnb_img_wrap {
-                background-position: -161px 11px;
+                background-position: -159px 8px;
             }
-            &:hover .gnb_img_wrap {
+            &:hover .gnb_img_wrap,
+            &.active .gnb_img_wrap {
                 background: url($white_hover);
                 background-repeat: no-repeat;
                 background-size: 227px;
-                background-position: -161px 11px;
+                background-position: -159px 8px;
                 width: 38px;
                 height: 38px;
             }
@@ -75,13 +60,14 @@ header {
         
         .profile_icon {
             .gnb_img_wrap {
-                background-position: 7px 11px;
+                background-position: 7px 8px;
             }
-            &:hover .gnb_img_wrap {
+            &:hover .gnb_img_wrap,
+            &.active .gnb_img_wrap {
                 background: url($white_hover);
                 background-repeat: no-repeat;
                 background-size: 227px;
-                background-position: 7px 11px;
+                background-position: 7px 8px;
                 width: 38px;
                 height: 38px;
             }
@@ -89,14 +75,15 @@ header {
         
         .mywallet_icon {
             .gnb_img_wrap {
-                background-position: -27px 11px;
+                background-position: -27px 8px;
             }
         
-            &:hover .gnb_img_wrap {
+            &:hover .gnb_img_wrap,
+            &.active .gnb_img_wrap {
                 background: url($white_hover);
                 background-repeat: no-repeat;
                 background-size: 227px;
-                background-position: -27px 11px;
+                background-position: -27px 8px;
                 width: 38px;
                 height: 38px;
             }
@@ -104,14 +91,15 @@ header {
         
         .mining_icon {
             .gnb_img_wrap {
-                background-position: -196px 11px;
+                background-position: -196px 8px;
             }
         
-            &:hover .gnb_img_wrap {
+            &:hover .gnb_img_wrap,
+            &.active .gnb_img_wrap {
                 background: url($white_hover);
                 background-repeat: no-repeat;
                 background-size: 227px;
-                background-position: -196px 11px;
+                background-position: -196px 8px;
                 width: 38px;
                 height: 38px;
             }
@@ -122,7 +110,8 @@ header {
                 background-position: -196px -27px;
             }
         
-            &:hover .gnb_img_wrap {
+            &:hover .gnb_img_wrap,
+            &.active .gnb_img_wrap {
                 background: url($white_hover);
                 background-repeat: no-repeat;
                 background-size: 227px;
@@ -134,14 +123,15 @@ header {
         
         .upstairs_icon {
             .gnb_img_wrap {
-                background-position: -61px 11px;
+                background-position: -61px 8px;
             }
         
-            &:hover .gnb_img_wrap {
+            &:hover .gnb_img_wrap,
+            &.active .gnb_img_wrap {
                 background: url($white_hover);
                 background-repeat: no-repeat;
                 background-size: 227px;
-                background-position: -61px 11px;
+                background-position: -61px 8px;
                 width: 38px;
                 height: 38px;
             }
@@ -149,14 +139,15 @@ header {
         
         .bonus_history_icon {
             .gnb_img_wrap {
-                background-position: -95px 11px;
+                background-position: -95px 8px;
             }
         
-            &:hover .gnb_img_wrap {
+            &:hover .gnb_img_wrap,
+            &.active .gnb_img_wrap {
                 background: url($white_hover);
                 background-repeat: no-repeat;
                 background-size: 227px;
-                background-position: -95px 11px;
+                background-position: -95px 8px;
                 width: 38px;
                 height: 38px;
             }
@@ -164,14 +155,15 @@ header {
         
         .center_page_icon {
             .gnb_img_wrap {
-                background-position: -161px -26px;
+                background-position: -161px -27px;
             }
         
-            &:hover .gnb_img_wrap {
+            &:hover .gnb_img_wrap,
+            &.active .gnb_img_wrap {
                 background: url($white_hover);
                 background-repeat: no-repeat;
                 background-size: 227px;
-                background-position: -161px -26px;
+                background-position: -161px -27px;
                 width: 38px;
                 height: 38px;
             }
@@ -182,7 +174,8 @@ header {
                 background-position: -128px 8px;
             }
         
-            &:hover .gnb_img_wrap {
+            &:hover .gnb_img_wrap,
+            &.active .gnb_img_wrap {
                 background: url($white_hover);
                 background-repeat: no-repeat;
                 background-size: 227px;
@@ -197,7 +190,8 @@ header {
                 background-position: 7px -27px;
             }
         
-            &:hover .gnb_img_wrap {
+            &:hover .gnb_img_wrap,
+            &.active .gnb_img_wrap {
                 background: url($white_hover);
                 background-repeat: no-repeat;
                 background-size: 227px;
@@ -209,14 +203,15 @@ header {
         
         .notice_icon {
             .gnb_img_wrap {
-                background-position: -26px -26px;
+                background-position: -26px -27px;
             }
         
-            &:hover .gnb_img_wrap {
+            &:hover .gnb_img_wrap,
+            &.active .gnb_img_wrap {
                 background: url($white_hover);
                 background-repeat: no-repeat;
                 background-size: 227px;
-                background-position: -26px -26px;
+                background-position: -26px -27px;
                 width: 38px;
                 height: 38px;
             }
@@ -224,14 +219,15 @@ header {
         
         .question_icon {
             .gnb_img_wrap {
-                background-position: -60px -28px;
+                background-position: -60px -27px;
             }
         
-            &:hover .gnb_img_wrap {
+            &:hover .gnb_img_wrap,
+            &.active .gnb_img_wrap {
                 background: url($white_hover);
                 background-repeat: no-repeat;
                 background-size: 227px;
-                background-position: -60px -28px;
+                background-position: -60px -27px;
                 width: 38px;
                 height: 38px;
             }
@@ -242,7 +238,8 @@ header {
                 background-position: -94px -27px;
             }
         
-            &:hover .gnb_img_wrap {
+            &:hover .gnb_img_wrap,
+            &.active .gnb_img_wrap {
                 background: url($white_hover);
                 background-repeat: no-repeat;
                 background-size: 227px;
@@ -258,7 +255,8 @@ header {
                     background-position: -127px -27px;
                 }
             
-                &:hover .gnb_img_wrap {
+                &:hover .gnb_img_wrap,
+                &.active .gnb_img_wrap {
                     background: url($white_hover);
                     background-repeat: no-repeat;
                     background-size: 227px;
@@ -281,13 +279,6 @@ header {
         }
         .shopping_mall_icon:hover {
             background: #eff3f9 url("../../img/gnb/shopping_mall_blue.png");
-        }
-    }
-
-    .close {
-        &:hover {
-            transform: rotate(360deg);
-            transition: all .5s;
         }
     }
 
@@ -319,22 +310,26 @@ header {
 #myBar {background-color: $main-color;}
 
 .b_main{
-    background:linear-gradient(0deg, $main-color,$sub-color) !important; 
+    // background:linear-gradient(0deg, $main-color,$sub-color) !important; 
+    background: $sub-color !important;
     color: #fff !important;
 
     &:hover {
-        background: linear-gradient(180deg, $main-color, $main-color) !important;
-        box-shadow:0 0 1px 2px $main-color;
+        // background: linear-gradient(180deg, $main-color, $main-color) !important;
+        background: $main-color !important;
+        // box-shadow:0 0 1px 2px $main-color;
     }
 }
 
 .b_sub{
-    background:linear-gradient(0deg, $navy-color,$sky-color) !important; 
+    // background:linear-gradient(0deg, $navy-color,$sky-color) !important; 
+    background: $sky-color !important;
     color: #fff !important;
 
     &:hover {
-        background: linear-gradient(0deg, $navy-color, $navy-color) !important;
-        box-shadow:0 0 1px 2px $navy-color;
+        background: $navy-color !important;
+        // background: linear-gradient(0deg, $navy-color, $navy-color) !important;
+        // box-shadow:0 0 1px 2px $navy-color;
     }
 }
 
@@ -345,14 +340,11 @@ header {
 
 .btn, a.btn{border-radius:3px;}
 a.btn_secondary, .btn_secondary{
-    color:black;
-    background:linear-gradient(to left, rgba(255,255,255,0.6),rgba(255,255,255,1));
+    background: #e6ecf3;
     border-radius: 8px;
-    box-shadow: 0px 1px 2px rgba(0,0,0,0.25);
 
-    &:hover{
-        color:black;
-        background:linear-gradient(to left, #fff,#fff);;
+    &:hover {
+        background: #d7e2f1;
     }
 }
 
@@ -360,27 +352,17 @@ a.btn_primary, .btn_primary, .btn.btn_primary{
     border:none;
     color:white;
     border-radius: 8px;
-    box-shadow: 0px 1px 2px rgba(0,0,0,0.25);
     background:linear-gradient(90deg, $main2-color,$sub2-color);
-    transition:all 1s;
+    transition: all .6s;
 
     &:hover{
-        color:white;
-        background:linear-gradient(90deg, $main2-color,$main2-color);
+        background: $main2-color;
     }
 }
 
 a.btn_cancle, .btn_cancle{
-    box-shadow: 0px 1px 2px rgba(0,0,0,0.25);
     color:black;
     border-radius: 8px;
-    background:#ccc;
-
-    &:hover{
-        color:$sub-color;
-        background:white;
-        
-    }
 }
 
 .user.selected{background:$sub-color}
@@ -390,7 +372,6 @@ a.btn_cancle, .btn_cancle{
     background: #29386b !important;
     color: #fff;
     &:hover {
-        box-shadow:0 0 1px 1px #25335f;
         background: #202c52 !important;
     }
 }
@@ -399,7 +380,6 @@ a.btn_cancle, .btn_cancle{
     background: #3b86ff !important;
     color: #fff;
     &:hover {
-        box-shadow:0 0 1px 1px #162d55;
         background: #224d93 !important; 
     }
 }
@@ -452,7 +432,6 @@ a.btn_cancle, .btn_cancle{
 .red {
     color:red;
 }
-strong{color:red;}
 
 /* @media screen and (min-width:768px) {
 	body{background:#fff;color:white;}
@@ -474,7 +453,7 @@ strong{color:red;}
 	background:#cbd2de;width:100%;height:100%;
 	text-align:center;display:block;border-radius:50%;
 
-	i{font-weight: 300;vertical-align: top;}
+	i{font-weight: 300; vertical-align: sub;}
 
 	&.lv0{
 		color:white;
@@ -518,7 +497,7 @@ strong{color:red;}
         border-radius:0;
         padding:10px 20px 20px;
         background:whitesmoke;
-        box-shadow:0 5px 5px 2px #ccc;
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.04);
         display:none;
         
         h5 {
@@ -526,7 +505,7 @@ strong{color:red;}
             font-weight:800;
             line-height:40px;
             margin-bottom: 10px;
-            border-bottom: 2px solid white;
+            border-bottom: 2px solid #333;
             padding-bottom: 5px;
 
             i {
@@ -656,7 +635,7 @@ strong{color:red;}
     }
 
     .mining_wrap {
-        margin: 20px 0 0 0;
+        margin: 20px 0 10px;
     }
 
     .mining_ico{
@@ -667,7 +646,10 @@ strong{color:red;}
         
         img{width:100%;height:100%;}
     }
-    
+    .refresh_btn .btn,
+    .caret_box .btn {
+        background-color: #fff;
+    }
 }
 
 #mymining {
@@ -679,8 +661,6 @@ strong{color:red;}
 #mining_swap{
     background: #FECE00;
     cursor: pointer;
-    border:1px solid #fdeda5;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
 
     .pop_btn{
         display: flex;
@@ -699,7 +679,7 @@ strong{color:red;}
             vertical-align: top;
             text-align: right;
             
-            i{font-size:16px;}
+            i{font-size:18px; color: #333;}
         }
     }
 }
@@ -726,7 +706,7 @@ strong{color:red;}
             vertical-align: top;
             text-align: right;
             
-            i{font-size:16px;}
+            i{font-size:18px; color: #333;}
         }
     }
 
@@ -766,12 +746,10 @@ strong{color:red;}
     .mymining_total{
         float:right;
         text-align:right;
-        color:#29386b;
     }
-    .hist_tit{color:#29386b;}
 
     ul{
-        margin-top:15px;border-top:1px dashed #e1e1e1;padding: 15px 0;margin:0;
+        margin:30px 0 0; padding: 15px 0;
 
         li{padding:0;}
     }
@@ -947,9 +925,23 @@ strong{color:red;}
             i {
                 vertical-align: middle;
             }
+        }
+    }
+    
+    .row.half {
+        flex-wrap: nowrap;
+        justify-content: space-between;
 
-            &:hover  {
-                
+        .r_card_wrap {
+            width: 49%;
+            flex-basis: auto;
+        }
+
+        @media all and (max-width: 991px) {
+            flex-direction: column;
+
+            .r_card_wrap {
+                width: 100%;
             }
         }
     }
@@ -999,7 +991,7 @@ strong{color:red;}
 
 	&:checked + .checkbox-tile {
 		border-color: #2260ff;
-		box-shadow: 0 5px 10px rgba(#000, 0.1);
+		box-shadow: 0 0 20px 0 rgba(0,0,0,0.04); 
 		color: #2260ff;
 		&:before {
 			transform: scale(1);
@@ -1035,7 +1027,7 @@ strong{color:red;}
 	border-radius: 0.5rem;
 	border: 2px solid #b5bfd9;
 	background-color: #fff;
-	box-shadow: 0 5px 10px rgba(#000, 0.1);
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.04); 
 	transition: 0.15s ease;
 	cursor: pointer;
 	position: relative;
@@ -1098,9 +1090,64 @@ strong{color:red;}
 
 .dark .pre_loading img{color:white;}
 
+// 20230330 추가
+// 로그인
+.login_wrap {
+    width: 100%;
+    max-width: 680px;
+    padding: 10vh 15px;
 
+    input {
+        border-bottom: none;
+    }
 
+    @media screen and (max-width: 414px) {
+        padding-top: 0;
+    }
+}
+// 모달
+.modal-content {
+    width: 95%;
+    margin: 0 auto;
+    .modal-header {
+        border-bottom: none;
+    }
+    .modal-body {
+        font-size: 14px;
+        max-height: 400px;
+        overflow-y: auto;
+    }
+    .modal-footer {
+        border-top: none;
+    }
+}
+#commonModal {
+    .btn-secondary {
+        width: 100%;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        color: #333;
+    }
+    .modal-body {
+        text-align: center;
+        margin-top: 20px;
+    }
 
+    &.agree {
+        .modal-body {
+            text-align: left;
+            margin-top: 0;
+        }
+    }
+}
+
+.structure_wrap {
+    .user_search_wrap {
+        #now_id {
+            border-radius: 20px;
+        }
+    }
+}
 
 
 
@@ -1168,24 +1215,26 @@ strong{color:red;}
 
     // 버튼
     .b_main {
-        background: linear-gradient(to right, $main-button3, $main-button4) !important;
+        // background: linear-gradient(to right, $main-button3, $main-button4) !important;
+        background: $main-button3 !important;
         color: #fff !important;
         font-weight: bold;
 
         &:hover {
-            background: linear-gradient(to right, $main-button3, $main-button3) !important;
-            box-shadow:0 0 1px 2px $main-button3;
+            // background: linear-gradient(to right, $main-button3, $main-button3) !important;
+            background: $main-button4 !important;
         }
     }
 
     .b_sub {
-        background: linear-gradient(to right, $main-button, $main-button2) !important;
+        // background: linear-gradient(to right, $main-button, $main-button2) !important;
+        background: $main-button2 !important;
         color: #15171b !important;
         font-weight: bold;
 
         &:hover {
-            background: linear-gradient(to right, $main-button, $main-button) !important;
-            box-shadow:0 0 1px 2px $main-button;
+            // background: linear-gradient(to right, $main-button, $main-button) !important;
+            background: $main-button !important;
         }
     }
 
@@ -1193,7 +1242,6 @@ strong{color:red;}
         background: $main-button !important;
         color: #fff;
         &:hover {
-            box-shadow:0 0 1px 1px #25335f;
             background: $main-button2 !important;
         }
     }
@@ -1202,7 +1250,6 @@ strong{color:red;}
         background: $main-button3 !important;
         color: #fff;
         &:hover {
-            box-shadow:0 0 1px 1px #162d55;
             background: $main-button4 !important; 
         }
     }
@@ -1223,7 +1270,7 @@ strong{color:red;}
         background:$user-icon;width:100%;height:100%;
         text-align:center;display:block;border-radius:50%;
 
-        i{font-weight: 300;}
+        i{font-weight: 300; vertical-align: sub;}
 
         &.lv0{
             color:black;
@@ -1383,15 +1430,14 @@ strong{color:red;}
             background: $main-background;
 
             .user-content {
-                background: $main-background2;
-
                 .user_wrap {
 
                     .userid {
                         background: none;
                     }
 
-                    .user_id {
+                    .user_id,
+                    .user_name {
                         color: #fff;
                     }
                 }
@@ -1403,23 +1449,13 @@ strong{color:red;}
                         color: #fff;
                     }
 
-                    &:hover {
+                    &:hover a,
+                    &.active a {
                         background: $main-background2;
-                        
                     }
-
-                    &:hover .gnb_img_wrap {
-                        transition: all .5s;
-                        transform: rotateX(360deg)
-                    }
-
-                    &:hover .gnb_title_Wrap a{
+                    &:hover .gnb_title_Wrap,
+                    &.active .gnb_title_Wrap {
                         color: $main-colors;
-                    }
-
-                    &:hover .gnb_title_Wrap {
-                        transition: all .5s;
-                        transform: rotateX(360deg)
                     }
                 }
 
@@ -1429,24 +1465,17 @@ strong{color:red;}
                     background-size: 227px;
                     width: 38px;
                     height: 38px;
-                    float: left;
-                }
-                
-                .gnb_title_Wrap {
-                    flex-grow: 2;
-
-                    
-                }
-        
+                }        
                 .dashboard_icon {
                     .gnb_img_wrap {
-                        background-position: -161px 11px;
+                        background-position: -159px 8px;
                     }
-                    &:hover .gnb_img_wrap {
+                    &:hover .gnb_img_wrap,
+                    &.active .gnb_img_wrap  {
                         background: url($dark_hover);
                         background-repeat: no-repeat;
                         background-size: 227px;
-                        background-position: -161px 11px;
+                        background-position: -159px 8px;
                         width: 38px;
                         height: 38px;
                     }
@@ -1454,13 +1483,14 @@ strong{color:red;}
                 
                 .profile_icon {
                     .gnb_img_wrap {
-                        background-position: 7px 11px;
+                        background-position: 7px 8px;
                     }
-                    &:hover .gnb_img_wrap {
+                    &:hover .gnb_img_wrap,
+                    &.active .gnb_img_wrap  {
                         background: url($dark_hover);
                         background-repeat: no-repeat;
                         background-size: 227px;
-                        background-position: 7px 11px;
+                        background-position: 7px 8px;
                         width: 38px;
                         height: 38px;
                     }
@@ -1468,14 +1498,15 @@ strong{color:red;}
                 
                 .mywallet_icon {
                     .gnb_img_wrap {
-                        background-position: -27px 11px;
+                        background-position: -27px 8px;
                     }
                 
-                    &:hover .gnb_img_wrap {
+                    &:hover .gnb_img_wrap,
+                    &.active .gnb_img_wrap  {
                         background: url($dark_hover);
                         background-repeat: no-repeat;
                         background-size: 227px;
-                        background-position: -27px 11px;
+                        background-position: -27px 8px;
                         width: 38px;
                         height: 38px;
                     }
@@ -1483,14 +1514,15 @@ strong{color:red;}
                 
                 .mining_icon {
                     .gnb_img_wrap {
-                        background-position: -196px 11px;
+                        background-position: -196px 8px;
                     }
                 
-                    &:hover .gnb_img_wrap {
+                    &:hover .gnb_img_wrap,
+                    &.active .gnb_img_wrap  {
                         background: url($dark_hover);
                         background-repeat: no-repeat;
                         background-size: 227px;
-                        background-position: -196px 11px;
+                        background-position: -196px 8px;
                         width: 38px;
                         height: 38px;
                     }
@@ -1501,7 +1533,8 @@ strong{color:red;}
                         background-position: -196px -27px;
                     }
                 
-                    &:hover .gnb_img_wrap {
+                    &:hover .gnb_img_wrap,
+                    &.active .gnb_img_wrap  {
                         background: url($dark_hover);
                         background-repeat: no-repeat;
                         background-size: 227px;
@@ -1513,14 +1546,15 @@ strong{color:red;}
                 
                 .upstairs_icon {
                     .gnb_img_wrap {
-                        background-position: -61px 11px;
+                        background-position: -61px 8px;
                     }
                 
-                    &:hover .gnb_img_wrap {
+                    &:hover .gnb_img_wrap,
+                    &.active .gnb_img_wrap  {
                         background: url($dark_hover);
                         background-repeat: no-repeat;
                         background-size: 227px;
-                        background-position: -61px 11px;
+                        background-position: -61px 8px;
                         width: 38px;
                         height: 38px;
                     }
@@ -1528,14 +1562,15 @@ strong{color:red;}
                 
                 .bonus_history_icon {
                     .gnb_img_wrap {
-                        background-position: -95px 11px;
+                        background-position: -95px 8px;
                     }
                 
-                    &:hover .gnb_img_wrap {
+                    &:hover .gnb_img_wrap,
+                    &.active .gnb_img_wrap  {
                         background: url($dark_hover);
                         background-repeat: no-repeat;
                         background-size: 227px;
-                        background-position: -95px 11px;
+                        background-position: -95px 8px;
                         width: 38px;
                         height: 38px;
                     }
@@ -1543,14 +1578,15 @@ strong{color:red;}
                 
                 .center_page_icon {
                     .gnb_img_wrap {
-                        background-position: -161px -26px;
+                        background-position: -161px -27px;
                     }
                 
-                    &:hover .gnb_img_wrap {
+                    &:hover .gnb_img_wrap,
+                    &.active .gnb_img_wrap  {
                         background: url($dark_hover);
                         background-repeat: no-repeat;
                         background-size: 227px;
-                        background-position: -161px -26px;
+                        background-position: -161px -27px;
                         width: 38px;
                         height: 38px;
                     }
@@ -1561,7 +1597,8 @@ strong{color:red;}
                         background-position: -128px 8px;
                     }
                 
-                    &:hover .gnb_img_wrap {
+                    &:hover .gnb_img_wrap,
+                    &.active .gnb_img_wrap  {
                         background: url($dark_hover);
                         background-repeat: no-repeat;
                         background-size: 227px;
@@ -1576,7 +1613,8 @@ strong{color:red;}
                         background-position: 7px -27px;
                     }
                 
-                    &:hover .gnb_img_wrap {
+                    &:hover .gnb_img_wrap,
+                    &.active .gnb_img_wrap  {
                         background: url($dark_hover);
                         background-repeat: no-repeat;
                         background-size: 227px;
@@ -1588,14 +1626,15 @@ strong{color:red;}
                 
                 .notice_icon {
                     .gnb_img_wrap {
-                        background-position: -26px -26px;
+                        background-position: -26px -27px;
                     }
                 
-                    &:hover .gnb_img_wrap {
+                    &:hover .gnb_img_wrap,
+                    &.active .gnb_img_wrap  {
                         background: url($dark_hover);
                         background-repeat: no-repeat;
                         background-size: 227px;
-                        background-position: -26px -26px;
+                        background-position: -26px -27px;
                         width: 38px;
                         height: 38px;
                     }
@@ -1603,14 +1642,15 @@ strong{color:red;}
                 
                 .question_icon {
                     .gnb_img_wrap {
-                        background-position: -60px -28px;
+                        background-position: -60px -27px;
                     }
                 
-                    &:hover .gnb_img_wrap {
+                    &:hover .gnb_img_wrap,
+                    &.active .gnb_img_wrap  {
                         background: url($dark_hover);
                         background-repeat: no-repeat;
                         background-size: 227px;
-                        background-position: -60px -28px;
+                        background-position: -60px -27px;
                         width: 38px;
                         height: 38px;
                     }
@@ -1621,7 +1661,8 @@ strong{color:red;}
                         background-position: -94px -27px;
                     }
                 
-                    &:hover .gnb_img_wrap {
+                    &:hover .gnb_img_wrap,
+                    &.active .gnb_img_wrap  {
                         background: url($dark_hover);
                         background-repeat: no-repeat;
                         background-size: 227px;
@@ -1638,7 +1679,8 @@ strong{color:red;}
                             background-position: -127px -27px;
                         }
                     
-                        &:hover .gnb_img_wrap {
+                        &:hover .gnb_img_wrap,
+                        &.active .gnb_img_wrap {
                             background: url($dark_hover);
                             background-repeat: no-repeat;
                             background-size: 227px;
@@ -1671,19 +1713,12 @@ strong{color:red;}
                 }
             }
 
-            .close {
-                &:hover {
-                    transform: rotate(360deg);
-                    transition: all .5s;
-                }
-            }
-
             .ri-arrow-down-s-line {
                 color: #fff;
             }
 
-            #gnb_language{background:#17191d;color:#f1f1f1;border-top:1px solid #333;}
-            .logout_wrap{color:white;}
+            #gnb_language, 
+            .logout_wrap{background:#17191d;color:#fff;}
         }
 
         .top_title {
@@ -1837,6 +1872,9 @@ strong{color:red;}
 
     // profile
     .profile {
+        .person_info .myid .name {
+            color: #fff;
+        }
         .profile-box {
             .title {
                 color: #fff;
@@ -2019,23 +2057,25 @@ strong{color:red;}
         }
 
         .b_darkblue {
-            background: linear-gradient(to right, $main-button, $main-button2) !important;
+            // background: linear-gradient(to right, $main-button, $main-button2) !important;
+            background: $main-button2 !important;
             color: #000 !important;
             font-weight: bold;
 
             &:hover {
-                background: linear-gradient(to right, $main-button, $main-button) !important;
-                box-shadow:0 0 1px 1px $main-button;
+                // background: linear-gradient(to right, $main-button, $main-button) !important;
+                background: $main-button !important;
             }
         }
 
         .b_skyblue {
-            background: linear-gradient(to right, $main-button3, $main-button4) !important;
+            // background: linear-gradient(to right, $main-button3, $main-button4) !important;
+            background: $main-button3 !important;
             font-weight: bold;
 
             &:hover {
-                background: linear-gradient(to right, $main-button3, $main-button3) !important;
-                box-shadow:0 0 1px 1px $main-button3;
+                // background: linear-gradient(to right, $main-button3, $main-button3) !important;
+                background: $main-button4 !important;
             }
         }
 
@@ -2140,22 +2180,24 @@ strong{color:red;}
         }
 
         .b_darkblue {
-            background: linear-gradient(to right, $main-button, $main-button2) !important;
+            // background: linear-gradient(to right, $main-button, $main-button2) !important;
+            background: $main-button2 !important;
             color: #000 !important;
             font-weight: bold;
 
             &:hover {
-                background: linear-gradient(to right, $main-button, $main-button) !important;
-                box-shadow:0 0 1px 1px $main-button;
+                // background: linear-gradient(to right, $main-button, $main-button) !important;
+                background: $main-button !important;
             }
         }
 
         .b_skyblue {
-            background: linear-gradient(to right, $main-button3, $main-button4) !important;
+            // background: linear-gradient(to right, $main-button3, $main-button4) !important;
+            background: $main-button3 !important;
             font-weight: bold;
             &:hover {
-                background: linear-gradient(to right, $main-button3, $main-button3) !important;
-                box-shadow:0 0 1px 1px $main-button3;
+                // background: linear-gradient(to right, $main-button3, $main-button3) !important;
+                background: $main-button4 !important;
             }
         }
     }
@@ -2243,10 +2285,8 @@ strong{color:red;}
 
         .b_skyblue_round {
             background: $main-colors;
-            border-radius: 20px;
 
             &:hover {
-                box-shadow:0 0 1px 1px #f9d448;
                 background: #ebbd13 !important; 
             }
 
@@ -2294,7 +2334,7 @@ strong{color:red;}
         }
     
         .mining_wrap {
-            margin: 20px 0 0 0;
+            margin: 20px 0 10px;
         }
     
         .mining_ico{
@@ -2314,7 +2354,6 @@ strong{color:red;}
         }
 
         #mining_swap{
-            border: 1px solid #ffeda1;
 
             .pop_btn{
                 // color:white; 
@@ -2326,7 +2365,7 @@ strong{color:red;}
                 .btn_title{text-align: center;}
                 .caret_box{
                     
-                    i{font-size:16px;}
+                    i{font-size:18px; color: #333;}
                 }
             }
         }
@@ -2341,9 +2380,8 @@ strong{color:red;}
                 .wallet_title{font-weight:600;font-size:16px;color: #fff;}
                 .max_with{margin-left:10px;font-size:11px;color: #fff;}
                 .btn_title{}
-                .caret_box{
-                    
-                    i{font-size:16px;}
+                .caret_box{                    
+                    i{font-size:18px; color: #333;}
                 }
             }
         
@@ -2400,6 +2438,15 @@ strong{color:red;}
             &:hover {
                 background: $main-background3;
             }
+        }
+
+        .refresh_btn .btn,
+        .caret_box .btn {
+            background-color: #2c2f34;
+        }
+        .refresh_btn .btn i,
+        .caret_box .btn i {
+            color: #fff !important;
         }
     }
 
@@ -2493,6 +2540,8 @@ strong{color:red;}
     .btn.more_record i{font-size:18px;}
     
     .content-box{
+        box-shadow: 0px 0px 20px 0 rgba(0, 0, 0, 0.04);
+
         &.mining_detail{
             font-size:13px;
             border-bottom:none;
@@ -2650,11 +2699,6 @@ strong{color:red;}
             background: $main-background !important;
         }
 
-        .user_search_wrap {
-            #now_id {
-                border-radius: 20px;
-            }
-        }
 
         .search_btn_wrap {
             .b_skyblue {
@@ -2887,10 +2931,22 @@ strong{color:red;}
                 color: #fff;
 
                 .left_wrap {
-                    .tit {
-                        color: $main-colors;
-                        border: 1px solid $main-colors;
-                    }
+                    // padding-left: 0;
+                    // width: 80px;
+                    // .tit {
+                    //     color: $main-colors;
+                    //     border: 1px solid $main-colors;
+                    //     border-radius: 10px;
+                    //     text-align: center;
+                    //     padding-left: 9px;
+                    //     padding-right: 9px;
+                    //     width: 65px;
+                    // }
+                    // .date {
+                    //     color: #999;
+                    //     margin-top: 3px;
+                    //     font-size: 12px;
+                    // }
                 }
                 
                 .right_wrap {
@@ -3037,13 +3093,13 @@ strong{color:red;}
 
         .qr_wrap {
             input {
-                background: linear-gradient(to right, $main-button, $main-button2) !important;
+                // background: linear-gradient(to right, $main-button, $main-button2) !important;
+                background: $main-button2 !important;
                 color: #000;
-                border-radius: 30px;
 
                 &:hover {
-                    background: linear-gradient(to right, $main-button, $main-button) !important;
-                    box-shadow:0 0 1px 2px $main-button;
+                    // background: linear-gradient(to right, $main-button, $main-button) !important;
+                    background: $main-button !important;
                 }
             }
         }
@@ -3263,9 +3319,10 @@ strong{color:red;}
         .save {
             background: $main-button2;
             color: #000;
+            border: none;
+
             &:hover {
-                background: #ddb112;
-                box-shadow:0 0 1px 2px $main-button2;
+                background: $main-button;
             }
         }
 
@@ -3349,10 +3406,10 @@ strong{color:red;}
         background: $main-background2;
     }
 
-    input:-webkit-autofill { -webkit-box-shadow: 0 0 0 30px $main-background inset ; -webkit-text-fill-color: #fff; }
+    input:-webkit-autofill {-webkit-text-fill-color: #fff; }
 }
 
-input:-webkit-autofill { -webkit-box-shadow: 0 0 0 30px #fff inset ; -webkit-text-fill-color: #000; }
+input:-webkit-autofill { -webkit-text-fill-color: #000; }
 input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active { transition: background-color 5000s ease-in-out 0s; }
 
 

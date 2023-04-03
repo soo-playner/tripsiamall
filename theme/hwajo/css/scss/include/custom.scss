@@ -37,11 +37,6 @@ a.btn_primary, .btn_primary, .btn.btn_primary{
     box-shadow: 0px 1px 2px rgba(0,0,0,0.25);
     background:linear-gradient(90deg, $main-point-color,$main-sub-button);
     transition:all 1s;
-
-    &:hover{
-        color:white;
-        background:linear-gradient(90deg, $main-point-color,$main-point-color);
-    }
 }
 
 a.btn_cancle, .btn_cancle{

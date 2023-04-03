@@ -57,7 +57,8 @@
   border: 1px solid #ccc;
   padding: 3px 5px;
   margin: 2px;
-  box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.25);
+          box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.25);
   cursor: pointer;
   font-size: 11px;
 }
@@ -116,9 +117,14 @@ table.regTb .admin_memo {
 }
 
 .checkbox-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 90%;
   margin-left: auto;
   margin-right: auto;
@@ -144,11 +150,13 @@ table.regTb .admin_memo {
 }
 .checkbox-input:checked + .checkbox-tile {
   border-color: #2260ff;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   color: #2260ff;
 }
 .checkbox-input:checked + .checkbox-tile:before {
-  transform: scale(1);
+  -webkit-transform: scale(1);
+          transform: scale(1);
   opacity: 1;
   background-color: #2260ff;
   border-color: #2260ff;
@@ -158,23 +166,36 @@ table.regTb .admin_memo {
 }
 .checkbox-input:focus + .checkbox-tile {
   border-color: #2260ff;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1), 0 0 0 4px #b5c9fc;
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1), 0 0 0 4px #b5c9fc;
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1), 0 0 0 4px #b5c9fc;
 }
 .checkbox-input:focus + .checkbox-tile:before {
-  transform: scale(1);
+  -webkit-transform: scale(1);
+          transform: scale(1);
   opacity: 1;
 }
 
 .checkbox-tile {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   padding: 10px 16px 10px 16px;
   border-radius: 0.5rem;
   border: 2px solid #b5bfd9;
   background-color: #fff;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  -webkit-transition: 0.15s ease;
   transition: 0.15s ease;
   cursor: pointer;
   position: relative;
@@ -194,7 +215,9 @@ table.regTb .admin_memo {
   top: 0.25rem;
   left: 0.25rem;
   opacity: 0;
-  transform: scale(0);
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-transition: 0.25s ease;
   transition: 0.25s ease;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='192' height='192' fill='%23FFFFFF' viewBox='0 0 256 256'%3E%3Crect width='256' height='256' fill='none'%3E%3C/rect%3E%3Cpolyline points='216 72.005 104 184 48 128.005' fill='none' stroke='%23FFFFFF' stroke-linecap='round' stroke-linejoin='round' stroke-width='32'%3E%3C/polyline%3E%3C/svg%3E");
   background-size: 12px;
@@ -205,11 +228,13 @@ table.regTb .admin_memo {
   border-color: #2260ff;
 }
 .checkbox-tile:hover:before {
-  transform: scale(1);
+  -webkit-transform: scale(1);
+          transform: scale(1);
   opacity: 1;
 }
 
 .checkbox-icon {
+  -webkit-transition: 0.375s ease;
   transition: 0.375s ease;
   color: #494949;
 }
@@ -220,6 +245,7 @@ table.regTb .admin_memo {
 
 .checkbox-label {
   color: #555;
+  -webkit-transition: 0.375s ease;
   transition: 0.375s ease;
   text-align: center;
 }

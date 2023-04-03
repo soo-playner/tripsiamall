@@ -77,26 +77,14 @@
 
 ?>
 	<style>
-		.reg_btn{
-			line-height:50px;
-			margin-right:10px;
-			font-size:15px;
-			border-bottom:1px solid rgba(255,255,255,0.3);
-			cursor:pointer;
-		}
 		.half{width:calc(50% - 10px);display: inline-block;}
 		.half + .half{width:calc(50% - 10px);}
 		.half + .half ::after{clear: both;}
-		
-
-		#ch_tax{}
 		#ch_tax [type="checkbox"]{width:auto;width:20px;height:20px;vertical-align:middle}
 		.person_agree_view{font-size:11px;border:1px solid gray;color:gray;border-radius:5px;padding:1px 5px 2px;vertical-align:middle;}
 		.dark .person_agree_view{color:white;border:1px solid rgba(255,255,255,0.3);}
-
-
 		.b_line{padding-bottom:10px;}
-		.profile-box{margin-bottom:65px;}
+		.profile-box{margin-bottom:45px;}
 		.textbox{width:100%;min-height:200px;text-align:left;font-size:11px;}
 		.preclose{display:none;}
 		.open{display:block;}
@@ -130,25 +118,23 @@
 					</h3>
 
 					<ul class='row person_info'>
-						<li class='col-12 inline user_box' style='background:ghostwhite;padding:10px;'>
+						<li class='col-12 inline user_box'>
 							<span class='userid user_level inline' ><?=$user_icon?></span>
-							<h4 class='myid bold inline'>
-								<span style='font-size:18px;'><?=$member['mb_name']?>님</span>
-								<span style='font-size:14px;line-height:15px;'>[ <?=$member['mb_id']?> ]</span>
+							<h4 class='myid inline'>
+								<span class="name bold"><?=$member['mb_name']?>님</span>
+								<span class="id"><?=$member['mb_id']?></span>
 							</h4>
-							<h4 class='mygrade badge inline'><?=$user_level?></h4>
+							<!-- <h4 class='mygrade badge inline'><?=$user_level?></h4> -->
 						</li>
 					</ul>
 
-					<ul class='row person_info' style='margin-top:20px;'>
+					<ul class='row person_info'>
 						<li class='col-12'>
 							<label>모바일</label>  
-
-							<div class='row mt20 mb10 '>
-								<div class='col-8' style='padding-left:25px;'><p><?=format_phone($member['mb_hp'])?></p></div>
-
+							<div class='row'>
+								<div class='col-8'><p><?=format_phone($member['mb_hp'])?></p></div>
 								<?if($member['mb_hp'] == '' || $member['mb_certify'] != 1){?>
-									<div class='col-4 text-right'><input type="button" value="수정/변경" class="btn inline white num_pop_open pop_open" ></div>
+									<div class='col-4 text-right'><input type="button" value="수정/변경" class="btn inline num_pop_open pop_open" ></div>
 								<?}?>
 							</div>
 						</li>
@@ -221,7 +207,7 @@
 							</p>
 						</li>
 						<li class='col-sm-3 col-4 text-right'>
-							<span class="reg_btn" data-name="ch_tax"> 등록/변경</span>
+							<button class="reg_btn btn" data-name="ch_tax"> 등록/변경</button>
 						</li>
 					</ul>
 
@@ -299,16 +285,21 @@
 		$('.reg_btn').click(function(){
 			var target = $(this).data("name");
 			dimShow();
-			$('#'+target).css("top","5%");
 			$('#'+target).css("display","block");
 			
 		});
 
 		$('.person_agree_view').on('click',function(){
 			// $(this).next('div').slideToggle()
+			$('#commonModal').addClass('agree');
 			commonModal("고유식별정보 처리방침",agree_content.html(),"confirm");
 		})
-		
+
+			$('.modal-footer .btn').on('click', function(){
+				if($('#commonModal').hasClass('agree')) {
+					$('#commonModal').removeClass('agree');
+				}
+			});	
 
 	});
 </script>
@@ -345,8 +336,8 @@
 				-->
 
 				<div class="btn2_btm_wrap">
-					<input type="button" value="Close" class="btn btn_double default_btn cancel pop_close" >
-					<input type="button" value="Save" class="btn btn_double blue save go_tpw3">
+					<input type="button" value="취소" class="btn btn_double default_btn cancel pop_close" >
+					<input type="button" value="저장" class="btn btn_double blue save go_tpw3">
 				</div>
 			</form>
 		</div>
@@ -466,8 +457,8 @@ $(function() {
 			<input type="text" style="margin-bottom:25px;">
 			-->
 			<div class="btn2_btm_wrap">
-				<input type="button" value="Close" class="btn btn_double default_btn cancel pop_close" >
-				<input type="button" value="Save" class="btn btn_double default_btn blue save go_ch_pw3">
+				<input type="button" value="취소" class="btn btn_double default_btn cancel pop_close" >
+				<input type="button" value="저장" class="btn btn_double default_btn blue save go_ch_pw3">
 			</div>
 		</form>
 	</div>
@@ -564,8 +555,8 @@ $(function() {
 			<input type="password" id="auth_pwd" minlength='4' maxlength="20">
 
 			<div class="btn2_btm_wrap">
-				<input type="button" value="Close" class="btn btn_double deault_btn cancel pop_close" >
-				<input type="button" value="Save" class="btn btn_double blue save">
+				<input type="button" value="취소" class="btn btn_double deault_btn cancel pop_close" >
+				<input type="button" value="저장" class="btn btn_double blue save">
 			</div>
 		</form>
 	</div>
@@ -684,8 +675,8 @@ $(function() {
 
 
 			<div class="btn2_btm_wrap" >
-				<input type="button" value="Close" class="btn btn_double default_btn cancel pop_close" >
-				<input type="button" value="Save" class="btn btn_double blue save proceed">
+				<input type="button" value="취소" class="btn btn_double default_btn cancel pop_close" >
+				<input type="button" value="저장" class="btn btn_double blue save proceed">
 			</div>
 
 		</form>
@@ -774,8 +765,8 @@ $(function() {
 
 
 		<div class="btn2_btm_wrap">
-			<input type="button" value="Close" class="btn btn_double default_btn cancel pop_close" >
-			<input type="button" value="Save" class="btn btn_double blue save go_ch_name">
+			<input type="button" value="취소" class="btn btn_double default_btn cancel pop_close" >
+			<input type="button" value="저장" class="btn btn_double blue save go_ch_name">
 		</div>
 	</form>
 	</div>
@@ -883,7 +874,7 @@ $(function() {
 		<input type="hidden" id="tax_person_number_3" maxlength="7" class="half" >
 
 		<div class='box'>
-		<label style="display:inline;">KYC신분증 첨부 </label>
+		<label>KYC신분증 첨부 </label>
 			<input type="file" accept="image/*" class='filebox' name="bf_file[1]"  >
 			<label for="bf_file[1]" class='kyc_label' style="font-size:11px;margin:3px;font-weight:300;">신분확인 가능한 주민등록증, 운전면허증 사진을 첨부해주세요.</label>
 		</div>
@@ -891,7 +882,7 @@ $(function() {
 		<hr class="hr_dash">
 
 		<div class='box'>
-		<label style="display:inline;" class="mt20">출금지갑주소 첨부 </label>
+		<label class="mt20">출금지갑주소 첨부 </label>
 			<input type="file"  accept="image/*" class='filebox' name="bf_file[2]">
 			<label for="bf_file[2]" class='kyc_label' style="font-size:11px;margin:5px;font-weight:300;">출금 지갑주소가 확인되는 캡쳐이미지,사진을 첨부해주세요.</label>
 		</div>
@@ -903,7 +894,7 @@ $(function() {
 		</div> -->
 
 		<div class='box'>
-		<label style="display:inline;" class="mt30">출금지갑 종류선택 </label>
+		<label class="mt30">출금지갑 종류선택 </label>
 			<div class="radio_set">
 				<label>
 					<input type="radio" id="wallet_type1" name="wallet_type" class="selector-item_radio" value=1>
@@ -935,7 +926,7 @@ $(function() {
 		</div>
 
 		<div class="btn2_btm_wrap">
-			<input type="button" value="닫기" class="btn btn_double default_btn cancel pop_close" >
+			<input type="button" value="취소" class="btn btn_double default_btn cancel pop_close" >
 			<input type="button" value="등록" class="btn btn_double blue save" id="kyc_rec_btn">
 		</div>
 	</form>

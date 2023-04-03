@@ -303,8 +303,8 @@ if($is_admin){
 				<div class="input-group mb-3">
 					<input type="text" class="form-control message" placeholder="Message" aria-label="Message" aria-describedby="basic-addon2" data-i18n="[placeholder]support.메시지">
 					<div class="input-group-append">
-						<button class="btn btn-primary send" type="button" data-i18n='support.보내기'>Send</button>
-						<button class="btn btn-danger cl" type="button" data-i18n='support.닫기'>close</button>
+						<button class="btn btn-primary send" type="button" data-i18n='support.보내기'>보내기</button>
+						<button class="btn btn-danger cl" type="button" data-i18n='support.닫기'>닫기</button>
 					</div>
 				</div>
 				<div class="custom-file">

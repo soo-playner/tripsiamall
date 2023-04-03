@@ -30,7 +30,8 @@
   background: #fff;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.1);
 }
 .notice_wrap p {
   text-align: center;

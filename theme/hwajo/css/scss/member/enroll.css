@@ -29,7 +29,8 @@
   background: #fff;
   margin: 20px 0;
   border-radius: 5px;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
   border: 2px solid #545878;
 }
 .enroll_wrap .referzone input[type=text] {
@@ -40,10 +41,16 @@
   border-radius: 0;
   margin-top: 0px;
 }
+.enroll_wrap .referzone input::-webkit-input-placeholder {
+  color: #666;
+}
 .enroll_wrap .referzone input::-moz-placeholder {
   color: #666;
 }
 .enroll_wrap .referzone input:-ms-input-placeholder {
+  color: #666;
+}
+.enroll_wrap .referzone input::-ms-input-placeholder {
   color: #666;
 }
 .enroll_wrap .referzone input::placeholder {
@@ -56,7 +63,8 @@
 .enroll_wrap .pw_ul > li {
   width: 49%;
   min-height: 244px;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   background: #f2f3f4;
   padding: 15px;
   border-radius: 10px;
@@ -207,7 +215,8 @@
   position: absolute;
   display: block;
   font-weight: bold;
-  transform: translate(22px, -3px);
+  -webkit-transform: translate(22px, -3px);
+          transform: translate(22px, -3px);
 }
 #service_checkbox:checked + label, #private_checkbox:checked + label {
   background: url("/img/check_green.png") no-repeat center/17px 18px;

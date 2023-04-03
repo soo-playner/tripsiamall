@@ -47,7 +47,7 @@ include_once('./_common.php');
 			</div>
 			<div class="modal-body"></div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary " data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-secondary " data-dismiss="modal">닫기</button>
 			</div>
 		</div>
 	</div>

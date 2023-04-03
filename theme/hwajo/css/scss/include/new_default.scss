@@ -105,11 +105,6 @@ a.btn_primary, .btn_primary, .btn.btn_primary{
     box-shadow: 0px 1px 2px rgba(0,0,0,0.25);
     background:linear-gradient(90deg, $main-button-color,$main-button-color2);
     transition:all 1s;
-
-    &:hover{
-        color:white;
-        background:linear-gradient(90deg, $main-button-color,$main-button-color);
-    }
 }
 
 a.btn_secondary, .btn_secondary .btn.btn_secondary{
@@ -857,7 +852,7 @@ a.btn_admin:focus, a.btn_admin:hover {text-decoration:none}
 	}
 	.r_card_box + .r_card_box {
 		margin-top:15px;
-	}--
+	}
 }
 
 // 상품 카드 컬러

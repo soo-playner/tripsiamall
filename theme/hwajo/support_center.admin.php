@@ -179,9 +179,9 @@ if(!$is_admin){
 				<div class="support-container">
 					<div class="support-panels">
 						<ul class="support-tabs content-box">
-						<li rel="active-tickets" data-i18n='support.활성화 티켓'>Active Tickets</li>
-							<li rel="answered-tickets" data-i18n='support.답변 티켓'>Answered Tickets</li>
-							<li rel="closed-tickets" data-i18n='support.비활성화 티켓'>Closed Tickets</li>
+						<li rel="active-tickets" data-i18n='support.활성화 티켓'>활성화 티켓</li>
+							<li rel="answered-tickets" data-i18n='support.답변 티켓'>답변 티켓</li>
+							<li rel="closed-tickets" data-i18n='support.비활성화 티켓'>비활성화 티켓</li>
 						</ul>
 						<div id="active-tickets" class="container panel active"></div>
 						<div id="answered-tickets" class="container panel">
@@ -211,8 +211,8 @@ if(!$is_admin){
 					<div class="input-group mb-3">
 						<input type="text" class="form-control message" placeholder="Message" aria-label="Message" aria-describedby="basic-addon2" >
 						<div class="input-group-append">
-							<button class="btn btn-primary send" type="button">Send</button>
-							<button class="btn btn-danger cl" type="button">close</button>
+							<button class="btn btn-primary send" type="button" data-i18n='support.보내기'>보내기</button>
+							<button class="btn btn-danger cl" type="button" data-i18n='support.닫기'>닫기</button>
 						</div>
 					</div>
 					<div class="custom-file">

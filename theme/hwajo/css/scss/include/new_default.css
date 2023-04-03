@@ -395,11 +395,6 @@ a.btn_primary, .btn_primary, .btn.btn_primary {
   -webkit-transition: all 1s;
   transition: all 1s;
 }
-a.btn_primary:hover, .btn_primary:hover, .btn.btn_primary:hover {
-  color: white;
-  background: -webkit-gradient(linear, left top, right top, from(#967adb), to(#967adb));
-  background: linear-gradient(90deg, #967adb, #967adb);
-}
 
 a.btn_secondary, .btn_secondary .btn.btn_secondary {
   color: black;
@@ -879,7 +874,7 @@ h6 {
 }
 
 .t_shadow_white {
-  text-shadow: 0px 1px 0px white;
+  text-shadow: 0px 1px 0px rgb(255, 255, 255);
 }
 
 .t_shadow_black {
@@ -974,15 +969,11 @@ main {
   font-size: 0.7em;
   font-weight: 300;
   margin-right: 5px;
-}
-
-/* 소수점표시*/
+} /* 소수점표시*/
 i {
   font-style: italic;
   vertical-align: middle;
-}
-
-/*아이콘*/
+} /*아이콘*/
 .round {
   border-radius: 8px;
 }
@@ -1400,23 +1391,23 @@ input:checked + .slider:before {
 
 /*추천인/후원인 등록 팝업*/
 .user {
-  border: 1px solid #f2f2f2;
+  border: 1px solid rgb(242, 242, 242);
   cursor: pointer;
   margin-bottom: 5px;
   padding: 10px;
 }
 
 .user:hover {
-  border-color: #0079d3;
+  border-color: rgb(0, 121, 211);
 }
 
 .user.selected {
-  background: #0079d3;
+  background: rgb(0, 121, 211);
   color: white;
 }
 
 .non_user {
-  border: 1px solid #f2f2f2;
+  border: 1px solid rgb(242, 242, 242);
   cursor: pointer;
   margin-bottom: 5px;
   padding: 10px;
@@ -1841,19 +1832,6 @@ a.gray_close {
   overflow: hidden !important;
 }
 
-.sound_only {
-  display: inline-block !important;
-  position: absolute;
-  top: 0;
-  left: 0;
-  margin: 0 !important;
-  padding: 0 !important;
-  font-size: 0;
-  line-height: 0;
-  border: 0 !important;
-  overflow: hidden !important;
-}
-
 /* 본문 바로가기 */
 #skip_to_container a {
   z-index: 100000;
@@ -1935,11 +1913,9 @@ a.gray_close {
   .hd_pops_con img {
     width: 100%;
   }
-
   .hd_pops {
     width: calc(100% - 25px);
   }
-
   .hd_pops .hd_pops_con {
     width: 100% !important;
     height: auto !important;
@@ -2207,9 +2183,7 @@ button.btn02 {
 
 .btn_confirm {
   text-align: center;
-}
-
-/* 서식단계 진행 */
+} /* 서식단계 진행 */
 .btn_submit {
   padding: 8px;
   border: 0;
@@ -2255,9 +2229,7 @@ a.btn_frmline, button.btn_frmline {
   letter-spacing: -0.1em;
   text-decoration: none;
   vertical-align: top;
-}
-
-/* 우편번호검색버튼 등 */
+} /* 우편번호검색버튼 등 */
 a.btn_frmline {
   line-height: 24px;
 }
@@ -2303,9 +2275,7 @@ a.btn_admin {
   color: #fff;
   text-decoration: none;
   vertical-align: middle;
-}
-
-/* 관리자 전용 버튼 */
+} /* 관리자 전용 버튼 */
 a.btn_admin:focus, a.btn_admin:hover {
   text-decoration: none;
 }
@@ -2358,9 +2328,7 @@ a.btn_admin:focus, a.btn_admin:hover {
 
 .tbl_head01 thead th input {
   vertical-align: top;
-}
-
-/* middle 로 하면 게시판 읽기에서 목록 사용시 체크박스 라인 깨짐 */
+} /* middle 로 하면 게시판 읽기에서 목록 사용시 체크박스 라인 깨짐 */
 .tbl_head01 tfoot th, .tbl_head01 tfoot td {
   padding: 10px 0;
   border-top: 1px solid #c1d1d5;
@@ -2411,9 +2379,7 @@ a.btn_admin:focus, a.btn_admin:hover {
 
 .tbl_head02 thead th input {
   vertical-align: top;
-}
-
-/* middle 로 하면 게시판 읽기에서 목록 사용시 체크박스 라인 깨짐 */
+} /* middle 로 하면 게시판 읽기에서 목록 사용시 체크박스 라인 깨짐 */
 .tbl_head02 tfoot th, .tbl_head02 tfoot td {
   padding: 10px 0;
   border-top: 1px solid #c1d1d5;
@@ -2656,9 +2622,7 @@ a.btn_admin:focus, a.btn_admin:hover {
   clear: both;
   padding: 20px;
   text-align: center;
-}
-
-/* 새창용 */
+} /* 새창용 */
 .new_win .win_btn button {
   display: inline-block;
   padding: 0 10px;
@@ -3223,13 +3187,9 @@ a.btn_admin:focus, a.btn_admin:hover {
   text-decoration: none;
 }
 
-.pg_start, .pg_prev {
-  /* 이전 */
-}
+.pg_start, .pg_prev { /* 이전 */ }
 
-.pg_end, .pg_next {
-  /* 다음 */
-}
+.pg_end, .pg_next { /* 다음 */ }
 
 .pg_current {
   display: inline-block;
@@ -3290,15 +3250,12 @@ a.btn_admin:focus, a.btn_admin:hover {
   .r_card_wrap .r_card .text_wrap {
     font-size: 12px;
   }
-
   .r_card_wrap .r_card .text_wrap .value1 {
     font-size: 12px;
   }
-
   .r_card_wrap .r_card .text_wrap .value2 {
     font-size: 12px;
   }
-
   .fold_wrap .fold_img_wrap {
     -webkit-box-shadow: 0px 5px 1px rgba(0, 0, 0, 0.08);
             box-shadow: 0px 5px 1px rgba(0, 0, 0, 0.08);
@@ -3311,24 +3268,19 @@ a.btn_admin:focus, a.btn_admin:hover {
     line-height: 34px;
     margin-top: -10px;
   }
-
   .upstairs_buy_wrap .package_wrap .box-body .pack_maker {
     height: 20px;
   }
-
   .slick-active {
     width: 10vw;
   }
-
   .slick-current {
     width: 90vw !important;
     position: relative;
   }
-
   .slick-dots .slick-active {
     width: auto;
   }
-
   .slick-list {
     height: 110px;
   }
@@ -3337,7 +3289,6 @@ a.btn_admin:focus, a.btn_admin:hover {
   .hist_td {
     font-size: 12px;
   }
-
   .hist_value.eth {
     font-size: 10px;
   }
@@ -3348,283 +3299,218 @@ a.btn_admin:focus, a.btn_admin:hover {
     line-height: 18px;
     height: 66px;
   }
-
   .pakage_list .col-4:nth-of-type(3n-2) {
     padding-left: 0px;
   }
-
   .pack_btn i {
     display: block;
   }
-
   .m_br {
     display: block;
   }
-
   .pop_wrap {
     top: 13vh;
   }
-
   .kyc_pop, .kyc_eng_pop {
     font-size: 0.95em;
   }
-
   .opt_cancel_wrap {
     font-size: 14px;
   }
-
   .logo_login_div img {
     _width: 64%;
   }
-
   #u_name {
     margin-bottom: 5px;
   }
-
   .logo_login_div {
     width: 100%;
     margin: auto;
   }
-
   .login_wrap {
     padding-top: 0;
   }
-
   .login_wrap a.btn_basic_block {
     margin-top: 20px;
   }
-
   .login_btn_bottom {
     margin-top: 2vh;
   }
-
   .enroll_wrap {
     font-size: 14px;
   }
-
   input[type=password] {
     font-size: 12px;
   }
-
   .pw_ul ul li {
     font-size: 12px;
     font-weight: 500;
   }
-
   .pw_ul strong {
     font-size: 13px;
   }
-
   .id_file_wrap span {
     display: inline-block;
     margin-bottom: 3px;
     font-size: 15px;
   }
-
   .filebox {
     width: 100%;
   }
-
   .filebox .upload-name {
     width: calc(100% - 105px);
   }
-
   .filebox label {
     max-width: 100px;
     padding-left: 31px;
   }
-
   .bottom_menu img {
     height: 20px;
   }
-
   .dash_price div {
     font-size: 13px;
   }
-
   .dash_business div {
     font-size: 11px;
   }
-
   .wallet_wrap {
     font-size: 13px;
   }
-
   .trans_history li {
     font-size: 12px;
   }
-
   .send_con {
     padding-bottom: 15px;
   }
-
   .send_chk_wrap .send_con {
     font-size: 13px;
     padding-bottom: 20px;
   }
-
   .send_chk_wrap > div {
     padding-bottom: 50px;
   }
-
   .refer_link_wrap {
     font-size: 13px;
   }
-
   .profile_wrap .id_file_wrap {
     font-size: 13px;
   }
-
   .bin_wrap {
     margin: 20px 0px;
   }
-
   .bin_wrap table {
     font-size: 10px;
   }
-
   .bin_wrap img {
     width: 10px;
     vertical-align: bottom;
   }
-
   .bin_wrap select {
     letter-spacing: -1px;
   }
-
   .ui-accordion .ui-accordion-header {
     padding: 0.5em 0em;
   }
-
   .news_wrap {
     font-size: 13px;
   }
-
   .news_wrap.content-box {
     border-radius: 0;
   }
-
   .span1 {
     width: 22%;
   }
-
   .span3 {
     width: 18%;
   }
-
   .dash_contents .support_wrap > div {
     padding: 15px 10px;
   }
-
   .support_wrap {
     font-size: 13px;
   }
-
   .ui-tabs .ui-tabs-nav .ui-tabs-anchor {
     padding: 0px;
   }
-
   .round_div label {
     width: 60px;
     height: 30px;
   }
-
   .ticket_ul {
     margin-bottom: 30px;
   }
-
   .qa_title {
     padding: 10px;
     padding-bottom: 20px;
   }
-
   .qa_title > span {
     position: static;
     float: right;
   }
-
   .qa_answer {
     padding: 10px;
   }
-
   .qa_ques {
     padding: 10px;
   }
-
   #tabs-2 .round_div input[type=text] {
     width: calc(100% - 90px);
     padding: 6px 8px;
   }
-
   #tabs-2 .round_div input[type=button] {
     width: 45px;
     height: 30px;
     height: 33px;
     padding: 0;
   }
-
   .accordion_wrap dt div {
     font-size: 11px;
     float: none;
   }
-
   .accordion_wrap dd > div {
     font-size: 13px;
     float: none;
   }
-
   .purchase_wrap th {
     font-size: 13px;
   }
-
   .purchase_wrap > div > p {
     font-size: 13px;
   }
-
   .pay_coin li {
     font-size: 14px;
   }
-
   .avatar_wrap {
     font-size: 14px;
   }
-
   .ava_title {
     margin-bottom: 16px;
   }
-
   .ava_title img {
     width: 22px;
   }
-
   .ava_title {
     font-size: 1.1em;
   }
-
   .exc_pop_wrap {
     padding: 13px 5px;
     width: 68%;
     left: 16%;
   }
-
   .exc_pop_wrap .pop_title {
     padding-left: 0px;
   }
-
   .purchase_1wrap {
     font-size: 15px;
   }
-
   .p1_ul strong {
     font-size: 1.5em;
   }
-
   .pay_coin_ul li {
     float: none;
     width: 100%;
     padding-bottom: 10px;
   }
-
   /* input[type="text"]+.currency-right {font-size: 10px;margin-top: -58px;}
   .select_box .shift_dollor {font-size: 12px;}
   .select_box .trade_money {font-size: 12px;} */
@@ -3632,7 +3518,6 @@ a.btn_admin:focus, a.btn_admin:hover {
     font-size: 9px;
     padding-left: 8px;
   }
-
   #mining .m_wrap .view_wrap .date_wrap .form-group span {
     padding-left: 8px;
   }
@@ -3642,26 +3527,21 @@ a.btn_admin:focus, a.btn_admin:hover {
   .login_wrap {
     padding-top: 2vh;
   }
-
   /*.login_btn_bottom{bottom:10px;}*/
   .login_wrap a.btn_basic_block {
     margin-bottom: 0;
   }
-
   .support_a {
     margin-top: 0;
   }
-
   .pay_coin li:nth-child(2) {
     width: 95%;
   }
-
   .pay_coin li:last-child {
     float: none;
     position: relative;
     width: 100%;
   }
-
   .pay_coin li:last-child input {
     width: 110px;
     margin-left: calc(100% - 110px);
@@ -3671,19 +3551,15 @@ a.btn_admin:focus, a.btn_admin:hover {
   .pop_wrap {
     font-size: 13px;
   }
-
   .opt_cancel_wrap {
     font-size: 12px;
   }
-
   .news_wrap {
     font-size: 10px;
   }
-
   .support_wrap {
     font-size: 12px;
   }
-
   .purchase_1wrap {
     font-size: 15px;
   }
@@ -3693,15 +3569,12 @@ a.btn_admin:focus, a.btn_admin:hover {
   .login_wrap {
     padding-top: 10vh;
   }
-
   .logo_login_div img {
     margin-bottom: 3vh;
   }
-
   .fp_img {
     margin-top: 4vh;
   }
-
   .login_wrap input.btn_basic_block {
     margin-top: 4vh;
   }
@@ -3711,7 +3584,6 @@ a.btn_admin:focus, a.btn_admin:hover {
   .binary_wrap {
     font-size: 12px;
   }
-
   .mywallet .bank_account {
     width: 100%;
   }

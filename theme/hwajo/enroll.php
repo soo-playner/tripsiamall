@@ -696,24 +696,24 @@ if ($_GET['recom_referral']){
 						</div>
 					</div>
 				</section>
-				<i style="color:rgba(255,255,255,0.4)">※센터정보 검색후 선택해주세요.</i>
+				<em>※센터정보 검색후 선택해주세요.</ㅇ>
 
 
 			<!-- <p class="check_appear_title mt40"><span data-i18n='signUp.일반정보'>General Information</span></p> -->
-			<p class="check_appear_title mt40"><span>개인 정보 & 인증</span></p>
+			<p class="check_appear_title mt30"><span>개인 정보 & 인증</span></p>
 			<div>
-				<input type="text" minlength="5" maxlength="20" name="mb_name" style='padding:15px' id="reg_mb_name" required placeholder="이름"  />
+				<input type="text" minlength="5" maxlength="20" name="mb_name" id="reg_mb_name" required placeholder="이름"  />
 				<!-- <div class='in_btn_ly'><input type="button" id='name_check' class='btn_round check' value="중복확인"></div> -->
 
-				<input type="text" minlength="5" maxlength="20" name="mb_id" class='cabinet' style='padding:15px' id="reg_mb_id" required placeholder="아이디"/>
+				<input type="text" minlength="5" maxlength="20" name="mb_id" class='cabinet' id="reg_mb_id" required placeholder="아이디"/>
 				<span class='cabinet_inner' style=''>※영문+숫자조합 6자리 이상 입력해주세요</span>
 				<div class='in_btn_ly'><input type="button" id='id_check' class='btn_round check' value="중복확인"></div>
 
-				<input type="email"  id="reg_mb_email" name="mb_email" class='cabinet' style='padding:15px' required placeholder="이메일 주소" />
+				<input type="email"  id="reg_mb_email" name="mb_email" class='cabinet' required placeholder="이메일 주소" />
 				<span class='cabinet_inner' style=''>※수신가능한 이메일주소를 직접 입력해주세요</span>
 				<div class='in_btn_ly'><input type="button" id='EmailChcek' class='btn_round check' value="이메일 전송"></div>
 				
-				<input type="text" name="mb_hp"  id="reg_mb_hp" class='cabinet'  pattern="[0-9]*" style='padding:15px' required  placeholder="휴대폰번호"/>
+				<input type="text" name="mb_hp"  id="reg_mb_hp" class='cabinet'  pattern="[0-9]*" required  placeholder="휴대폰번호"/>
 				<span class='cabinet_inner' style=''>※'-'를 제외한 숫자만 입력해주세요</span>
 				<!-- <label class='prev_icon'><i class="ri-smartphone-line"></i></label> -->
 				
@@ -726,7 +726,7 @@ if ($_GET['recom_referral']){
 					<input type="password" name="mb_password" id="reg_mb_password" minlength="4" placeholder="로그인 비밀번호" />
 					<input type="password" name="mb_password_re" id="reg_mb_password_re" minlength="4" placeholder="로그인 비밀번호 확인" />
 
-					<strong><span class='mb10' style='display:block;font-size:13px;'>강도 높은 비밀번호 설정 조건</span></strong>
+					<strong><span class='mb10' style='display:block;font-size:13px;'>비밀번호 설정 조건</span></strong>
 					<ul>
 						<li class="x_li" id="pm_1" >4자 이상 20자 이하</li>
 						<li class="x_li" id="pm_3" >숫자+영문</li>
@@ -737,7 +737,7 @@ if ($_GET['recom_referral']){
 					<input type="password" minlength="6" maxlength="6" id="reg_tr_password" name="reg_tr_password" placeholder="출금비밀번호(핀코드)" />
 					<input type="password" minlength="6" maxlength="6" id="reg_tr_password_re" name="reg_tr_password_re" placeholder="출금비밀번호(핀코드) 확인" />
 
-					<strong><span class='mb10' style='display:block;font-size:13px;' >강도 높은 핀코드 설정 조건</span></strong>
+					<strong><span class='mb10' style='display:block;font-size:13px;' >핀코드 설정 조건</span></strong>
 					<ul>
 						<li class="x_li" id="pt_1" >6 자리</li>
 						<li class="x_li" id="pt_3" >숫자</li>
@@ -777,8 +777,8 @@ if ($_GET['recom_referral']){
 			<div class="mt20">
 				<div class="term_space">
 					<input type="checkbox" id="service_checkbox" class="term_none" name="term" >
-					<label for="service_checkbox" style="width:25px;height:25px;">
-						<span style='margin-left:10px;line-height:30px;'><?= $service_term['wr_subject'] ?> 및 서약서 동의</span>
+					<label for="service_checkbox">
+						<span><?= $service_term['wr_subject'] ?> 및 서약서 동의</span>
 						<a id="service" href="javascript:collapse('#service');"  style="width:25px;height:25px;position:absolute;right:25px;"><i class="fas fa-angle-down" style="width:25px;height:25px;"></i></a>
 					</label>
 				</div>
@@ -787,8 +787,8 @@ if ($_GET['recom_referral']){
 
 				<div class="term_space">
 					<input type="checkbox" id="private_checkbox" class="term_none" name="term" >
-					<label for="private_checkbox" style="width:25px;height:25px;">
-						<span style='margin-left:10px;line-height:30px;'><?= $private_term['wr_subject'] ?> 동의</span>
+					<label for="private_checkbox">
+						<span><?= $private_term['wr_subject'] ?> 동의</span>
 						<a id="private" href="javascript:collapse('#private');"  style="width:25px;height:25px;position:absolute;right:25px;"><i class="fas fa-angle-down" style="width:25px;height:25px;"></i></a>
 					</label>
 				</div>
@@ -809,7 +809,7 @@ if ($_GET['recom_referral']){
 
 <div class='footer' style="position:relative;bottom:25px;">
 		<p class='company mb10'> 제타랩스 주식회사 | 사업자등록번호 356-87-02523 <br> 통신판매업 신고번호 : 제 2022-서울강남-00711호<br>고객센터 : 02-6205-1112 | 이메일 : <?=$config['cf_admin_email']?></p>
-		<p class='copyright'>Copyright ⓒ 2021. LOGCOMPANY Co. ALL right reserved.</p>
+		<p class='copyright'>Copyright ⓒ 2021. WIZCLASS Co. ALL right reserved.</p>
 	</div>
 </section>
 

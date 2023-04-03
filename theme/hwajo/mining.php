@@ -184,7 +184,6 @@ if(strpos($member['withdraw_wallet'],'0x')){
         border-radius: 0.5rem;
         border: 2px solid #b5bfd9;
         background-color: #fff;
-        box-shadow: 0 5px 10px rgb(0 0 0 / 10%);
         transition: 0.15s ease;
         cursor: pointer;
         position: relative;
@@ -217,7 +216,7 @@ if(strpos($member['withdraw_wallet'],'0x')){
         text-align: center;
     }
 
-    .icon {
+    .modal-icon {
         font-size: 32px;
         color: #1261c4;
         vertical-align: baseline;
@@ -281,6 +280,7 @@ if(strpos($member['withdraw_wallet'],'0x')){
 
     .refresh_btn{flex:auto;text-align:right;line-height:24px;}
     #coin_refresh{line-height:30px;}
+    .dark #coin_refresh {color: #333;}
     .dark #coin_refresh:hover i{color:#FECE00}
 </style>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap">
@@ -423,98 +423,94 @@ if(strpos($member['withdraw_wallet'],'0x')){
                 </div>
             </div>
         </section>
+        <section id='mining_history'>
+            <div class="history_box content-box mt20">
+                <div>
+                    <h3 class="hist_tit">내 마이닝 내역 <span class='mymining_total'><?= shift_coin($mining_acc) ?> <?= strtoupper($minings[$now_mining_coin]) ?></span></h3>
 
-    </div> <!-- mining end-->
-
-    <section id='mining_history'>
-
-        <div class="history_box content-box mt20">
-            <div>
-                <h3 class="hist_tit">내 마이닝 내역 <span class='mymining_total'><?= shift_coin($mining_acc) ?> <?= strtoupper($minings[$now_mining_coin]) ?></span></h3>
-
-                <? if ($mining_history_cnt < 1) { ?>
-                    <ul class="row">
-                        <li class="no_data">내 마이닝 내역이 존재하지 않습니다</li>
-                    </ul>
-                <? } else { ?>
-                    <? while ($row = sql_fetch_array($mining_history)) { ?>
-                        <? if($row['no'] != ''){?>
+                    <? if ($mining_history_cnt < 1) { ?>
                         <ul class="row">
-                            <li class="col-3 hist_date"><?= $row['day'] ?></li>
-                            <li class="col-5 hist_td"><?= category_badge($row['allowance_name']) ?>
-                                <? if ($row['allowance_name'] == 'super_mining') {
-                                    echo "<a href='/dialog.php?id=mining_detail&day={$row['day']}' class='btn more_record' style='margin:0' data-day='" . $row['day'] . "'>
-                                <i class='ri-menu-add-line'></i></a>";
-                                } ?>
-                            </li>
-                            <li class="col-4 hist_value">
-                                <?= overcharge(shift_coin($row['mining']), $row['allowance_name']) ?> <?= strtoupper($row['currency']) ?></li>
-                            <li class="col-12 hist_rec">
-                                <?
-                                if ($row['allowance_name'] != 'super_mining') {
-                                    echo $row['rec'];
-                                    if ($row['allowance_name'] == 'coin swap') {
-                                        echo "<br>Swap rate : [ 1 ".strtoupper($minings[$before_mining_coin])." / ".$row['rate']." ".strtoupper($row['currency'])."]";
+                            <li class="no_data">내 마이닝 내역이 존재하지 않습니다</li>
+                        </ul>
+                    <? } else { ?>
+                        <? while ($row = sql_fetch_array($mining_history)) { ?>
+                            <? if($row['no'] != ''){?>
+                            <ul class="row">
+                                <li class="col-3 hist_date"><?= $row['day'] ?></li>
+                                <li class="col-5 hist_td"><?= category_badge($row['allowance_name']) ?>
+                                    <? if ($row['allowance_name'] == 'super_mining') {
+                                        echo "<a href='/dialog.php?id=mining_detail&day={$row['day']}' class='btn more_record' style='margin:0' data-day='" . $row['day'] . "'>
+                                    <i class='ri-menu-add-line'></i></a>";
+                                    } ?>
+                                </li>
+                                <li class="col-4 hist_value">
+                                    <?= overcharge(shift_coin($row['mining']), $row['allowance_name']) ?> <?= strtoupper($row['currency']) ?></li>
+                                <li class="col-12 hist_rec">
+                                    <?
+                                    if ($row['allowance_name'] != 'super_mining') {
+                                        echo $row['rec'];
+                                        if ($row['allowance_name'] == 'coin swap') {
+                                            echo "<br>Swap rate : [ 1 ".strtoupper($minings[$before_mining_coin])." / ".$row['rate']." ".strtoupper($row['currency'])."]";
+                                        }
+                                    } else {
+                                        echo "click more btn";
                                     }
-                                } else {
-                                    echo "click more btn";
-                                }
-                                ?>
-                            </li>
-                        </ul>
-                    <? }} ?>
+                                    ?>
+                                </li>
+                            </ul>
+                        <? }} ?>
 
-                    <div><button type='button' id="mining_history_more" class="btn wd"><?= $mining_history_limit_text ?></button></div>
+                        <div><button type='button' id="mining_history_more" class="btn wd"><?= $mining_history_limit_text ?></button></div>
 
-                <? } ?>
-            </div>
-
-            <? if ($mining_amt_cnt > 0) { ?>
-                <div class="b_line6"></div>
-                <div id='mining_amt_log' class='mt20'>
-
-                    <h3 class="hist_tit">마이닝 출금 내역 
-                        <span class='mymining_total'> <?= shift_coin($mining_amt) ?> <?= strtoupper($minings[$now_mining_coin]) ?>
-                        <?if($member['swaped'] > 0 && $member[$before_mining_amt_target] > 0){
-                            echo "<br><span class='before_fund'>".calculate_math($member[$before_mining_amt_target],8).' '.strtoupper($minings[$before_mining_coin])."</span>";
-                        }?>
-                        </span>
-                    </h3>
-                    <? while ($row = sql_fetch_array($mining_amt_log)) { 
-                        if($row['create_dt'] > '2023-01-09'){
-                            $with_addr = Decrypt($row['addr'], $secret_key, $secret_iv);
-                        }else{
-                            $with_addr = $row['addr'];
-                        }
-                        
-                        ?>
-                        <ul class='row'>
-                            <li class="col-12">
-                                <span class="col-8 nopadding"><i class="ri-calendar-check-fill"></i><?= $row['create_dt'] ?></span>
-                                <span class="col-4 nopadding text-right amt_total"><?= shift_coin($row['amt_total']) ?> <?= $row['coin'] ?></span>
-                            </li>
-
-                            <li class="col-12">
-                                <span class="col-8 nopadding amt"><i class="ri-coins-line"></i>수수료 : - <?= shift_coin($row['fee'])  ?> <?= $row['coin'] ?>
-                                </span>
-                                <span class="col-4 nopadding text-right amt"><i class="ri-refund-2-line"></i><?= shift_coin($row['out_amt']) ?> <?= $row['coin'] ?></span>
-                            </li>
-
-                            <li class="col-12 "><span class='hist_bank'><i class="ri-wallet-2-fill"></i><?= $with_addr ?></span></li>
-
-                            <li class="col-12 mt10">
-                                <span class="col-6 nopadding amt"><i class="ri-survey-line"></i>처리결과</span>
-                                <span class="col-6 nopadding text-right result "><? string_shift_code($row['status']) ?></span>
-                            </li>
-                        </ul>
                     <? } ?>
-                    <div><button type='button' id="mining_amt_more" class="btn wd"><?= $mining_amt_limit_text ?></button></div>
                 </div>
-            <? } ?>
 
-        </div>
-    </section>
+                <? if ($mining_amt_cnt > 0) { ?>
+                    <div class="b_line6"></div>
+                    <div id='mining_amt_log' class='mt20'>
 
+                        <h3 class="hist_tit">마이닝 출금 내역 
+                            <span class='mymining_total'> <?= shift_coin($mining_amt) ?> <?= strtoupper($minings[$now_mining_coin]) ?>
+                            <?if($member['swaped'] > 0 && $member[$before_mining_amt_target] > 0){
+                                echo "<br><span class='before_fund'>".calculate_math($member[$before_mining_amt_target],8).' '.strtoupper($minings[$before_mining_coin])."</span>";
+                            }?>
+                            </span>
+                        </h3>
+                        <? while ($row = sql_fetch_array($mining_amt_log)) { 
+                            if($row['create_dt'] > '2023-01-09'){
+                                $with_addr = Decrypt($row['addr'], $secret_key, $secret_iv);
+                            }else{
+                                $with_addr = $row['addr'];
+                            }
+                            
+                            ?>
+                            <ul class='row'>
+                                <li class="col-12">
+                                    <span class="col-8 nopadding"><i class="ri-calendar-check-fill"></i><?= $row['create_dt'] ?></span>
+                                    <span class="col-4 nopadding text-right amt_total"><?= shift_coin($row['amt_total']) ?> <?= $row['coin'] ?></span>
+                                </li>
+
+                                <li class="col-12">
+                                    <span class="col-8 nopadding amt"><i class="ri-coins-line"></i>수수료 : - <?= shift_coin($row['fee'])  ?> <?= $row['coin'] ?>
+                                    </span>
+                                    <span class="col-4 nopadding text-right amt"><i class="ri-refund-2-line"></i><?= shift_coin($row['out_amt']) ?> <?= $row['coin'] ?></span>
+                                </li>
+
+                                <li class="col-12 "><span class='hist_bank'><i class="ri-wallet-2-fill"></i><?= $with_addr ?></span></li>
+
+                                <li class="col-12 mt10">
+                                    <span class="col-6 nopadding amt"><i class="ri-survey-line"></i>처리결과</span>
+                                    <span class="col-6 nopadding text-right result "><? string_shift_code($row['status']) ?></span>
+                                </li>
+                            </ul>
+                        <? } ?>
+                        <div><button type='button' id="mining_amt_more" class="btn wd"><?= $mining_amt_limit_text ?></button></div>
+                    </div>
+                <? } ?>
+
+            </div>
+        </section>
+    </div> <!-- mining end-->
 </main>
 <div class="gnb_dim"></div>
 
@@ -555,7 +551,7 @@ if(strpos($member['withdraw_wallet'],'0x')){
                     <span class="checkbox-label2 prices color-down" data-val=""></span>
                 </div>
 
-                <div class='changer_ly'><i class="ri-swap-fill icon"></i></div>
+                <div class='changer_ly'><i class="ri-swap-fill modal-icon"></i></div>
 
                 <div class='line_card item' id='select_curency'>
                     <span class="checkbox-icon"><img src="" /></span>
@@ -566,7 +562,7 @@ if(strpos($member['withdraw_wallet'],'0x')){
 
                 <div class='line_card' id='result_curency'>
                     <span class="checkbox-label2 prices shift_price" data-val=""></span>
-                    <span class="changer_ly2"><i class="ri-arrow-right-circle-line icon"></i></span>
+                    <span class="changer_ly2"><i class="ri-arrow-right-circle-line modal-icon"></i></span>
                     <span class="checkbox-label2 prices result-price" data-val=""></span>
                 </div>
 

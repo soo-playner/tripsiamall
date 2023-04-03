@@ -144,7 +144,7 @@ $(function() {
 <div class="pop_wrap notice_img_pop enroll_cancel_pop">
 	<p class="pop_title">Member registration failed</p>
 	<div>
-		<img src="<?=G5_URL?>/img/notice.png" alt="이미지">
+		<img src="<?=G5_URL?>/img/notice.svg" alt="이미지">
 		<span>Member registration failed</span>
 	</div>
 	<div class="pop_close_wrap">
@@ -240,12 +240,12 @@ $(function() {
 <div class="pop_wrap notice_img_pop logout_pop" style="z-index:9999;">
 	<p class="pop_title"  data-i18n="popup.로그 아웃">Logout</p>
 	<div>
-		<img src="<?=G5_URL?>/img/notice.png" alt="이미지">
+		<img src="<?=G5_URL?>/img/notice.svg" alt="이미지">
 		<span >로그아웃 하시겠습니까?</span>
 	</div>
 	<div class="pop_close_wrap">
 		<a href="javascript:void(0);" class="btn inline wd btn_default pop_close">취소</a>
-		<a href="/bbs/logout.php" class="btn inline wd btn_default btn_primary" style='margin-top:10px;'>로그아웃</a>
+		<a href="/bbs/logout.php" class="btn inline wd btn_default black" style='margin-top:10px;'>로그아웃</a>
 	</div>
 </div>
 
@@ -254,6 +254,7 @@ $(function() {
 	$(function() {
 		$('.logout_pop_open').click(function(){
 			$('.logout_pop').css("display","block");
+			$('.dim').show();
 		});
 	});
 </script>

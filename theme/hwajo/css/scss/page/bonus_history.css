@@ -45,6 +45,8 @@
 }
 
 .bonus_history .box-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   vertical-align: top;
   line-height: 40px;

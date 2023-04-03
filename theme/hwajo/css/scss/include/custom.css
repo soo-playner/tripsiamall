@@ -5,6 +5,7 @@
 }
 
 .b_main {
+  background: -webkit-gradient(linear, left bottom, left top, from(#3b86ff), to(#8ddc30)) !important;
   background: linear-gradient(0deg, #3b86ff, #8ddc30) !important;
   color: #fff !important;
 }
@@ -14,6 +15,7 @@
 }
 
 .b_sub {
+  background: -webkit-gradient(linear, left bottom, left top, from(#1e5ab9), to(#3b86ff)) !important;
   background: linear-gradient(0deg, #1e5ab9, #3b86ff) !important;
   color: #fff !important;
 }
@@ -27,7 +29,8 @@ a.btn_secondary, .btn_secondary {
   background: rgba(255, 255, 255, 0.8);
   border: 1px solid white;
   border-radius: 8px;
-  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
 }
 a.btn_secondary:hover, .btn_secondary:hover {
   color: black;
@@ -38,17 +41,17 @@ a.btn_primary, .btn_primary, .btn.btn_primary {
   border: 1px solid #3b86ff;
   color: white;
   border-radius: 8px;
-  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+  background: -webkit-gradient(linear, left top, right top, from(#3b86ff), to(#8ddc30));
   background: linear-gradient(90deg, #3b86ff, #8ddc30);
+  -webkit-transition: all 1s;
   transition: all 1s;
-}
-a.btn_primary:hover, .btn_primary:hover, .btn.btn_primary:hover {
-  color: white;
-  background: linear-gradient(90deg, #3b86ff, #3b86ff);
 }
 
 a.btn_cancle, .btn_cancle {
-  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
   color: black;
   border-radius: 8px;
   background: #ccc;

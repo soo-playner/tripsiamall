@@ -170,7 +170,8 @@
   color: #ff0000;
 }
 .pakage_sale .active .trade_money {
-  box-shadow: 0 0 0px 4px #492191;
+  -webkit-box-shadow: 0 0 0px 4px #492191;
+          box-shadow: 0 0 0px 4px #492191;
 }
 
 #go_wallet_btn {

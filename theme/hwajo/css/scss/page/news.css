@@ -32,6 +32,7 @@
   cursor: pointer;
   font-weight: 200;
   padding: 5px;
+  -webkit-transition: all 0.2s linear;
   transition: all 0.2s linear;
   height: auto;
   font-size: 12px;
@@ -72,6 +73,7 @@
   clear: both;
   font-size: 13px;
   overflow: hidden;
+  -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   text-align: left;
   height: 0;
@@ -101,6 +103,7 @@
   background: #0062cc;
   color: #fff;
   padding: 5px 0;
+  -webkit-transition: all 0.2s linear;
   transition: all 0.2s linear;
   margin-bottom: 20px;
 }

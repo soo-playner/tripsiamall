@@ -345,22 +345,22 @@ function dialogModal(title, htmlBody, category,dim = true){
 
 	if(category == 'success'){
 		$('#dialogModal .modal-body').html("<div class=chkimg><img src='"+g5_url+"/img/check_green.png'></div>" + htmlBody);
-		$('#dialogModal .modal-footer').html("<button type='button' class='btn wd btn_defualt closed' data-dismiss='modal' id='modal_return_url' onclick='"+dimhide+"'>Close</button>");
+		$('#dialogModal .modal-footer').html("<button type='button' class='btn wd btn_defualt closed' data-dismiss='modal' id='modal_return_url' onclick='"+dimhide+"'>닫기</button>");
 	}
 	else if(category == 'confirm'){
-		$('#dialogModal .modal-body').html("<div class=chkimg><img src='"+g5_url+"/img/notice.png'></div>" + htmlBody);
-		$('#dialogModal .modal-footer').html("<button type='button' class='btn btn-secondary cancle' data-dismiss='modal' onclick='"+dimhide+"'>Cancle</button> <button type='button' class='btn btn-primary confirm' id='modal_confirm' data-dismiss='modal' >OK</button>");
+		$('#dialogModal .modal-body').html("<div class=chkimg><img src='"+g5_url+"/img/notice.svg'></div>" + htmlBody);
+		$('#dialogModal .modal-footer').html("<button type='button' class='btn btn-secondary cancle' data-dismiss='modal' onclick='"+dimhide+"'>취소</button> <button type='button' class='btn btn-primary confirm' id='modal_confirm' data-dismiss='modal' >확인</button>");
 		
 	}else if(category == 'warning'){
-		$('#dialogModal .modal-body').html("<div class=chkimg><img src='"+g5_url+"/img/notice.png'></div>" + htmlBody);
-		$('#dialogModal .modal-footer').html("<button type='button' class='btn wd btn_defualt closed' data-dismiss='modal' id='modal_return_url' onclick='"+dimhide+"'>Close</button>");
+		$('#dialogModal .modal-body').html("<div class=chkimg><img src='"+g5_url+"/img/notice.svg'></div>" + htmlBody);
+		$('#dialogModal .modal-footer').html("<button type='button' class='btn wd btn_defualt closed' data-dismiss='modal' id='modal_return_url' onclick='"+dimhide+"'>닫기</button>");
 	}else if(category == 'input_confirm'){
-		$('#dialogModal .modal-body').html("<div class=chkimg><img src='"+g5_url+"/img/notice.png'></div>" + htmlBody);
-		$('#dialogModal .modal-footer').html("<button type='button' class='btn btn-secondary cancle' data-dismiss='modal' onclick='"+dimhide+"'>Cancle</button> <button type='button' class='btn btn-primary confirm' id='modal_confirm' data-dismiss='modal' >OK</button>");
+		$('#dialogModal .modal-body').html("<div class=chkimg><img src='"+g5_url+"/img/notice.svg'></div>" + htmlBody);
+		$('#dialogModal .modal-footer').html("<button type='button' class='btn btn-secondary cancle' data-dismiss='modal' onclick='"+dimhide+"'>취소</button> <button type='button' class='btn btn-primary confirm' id='modal_confirm' data-dismiss='modal' >확인</button>");
 	}
 	else if(category == 'failed'){
-		$('#dialogModal .modal-body').html("<div class=chkimg><img src='"+g5_url+"/img/notice.png'></div>" + htmlBody);
-		$('#dialogModal .modal-footer').html("<button type='button' class='btn wd btn_defualt closed' data-dismiss='modal' id='modal_return_back' onclick='"+dimhide+"'>Close</button>");
+		$('#dialogModal .modal-body').html("<div class=chkimg><img src='"+g5_url+"/img/notice.svg'></div>" + htmlBody);
+		$('#dialogModal .modal-footer').html("<button type='button' class='btn wd btn_defualt closed' data-dismiss='modal' id='modal_return_back' onclick='"+dimhide+"'>닫기</button>");
 	}
 
 	$('#dialogModal').focus();

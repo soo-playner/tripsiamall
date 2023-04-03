@@ -1,9 +1,8 @@
 <? include_once(G5_THEME_PATH.'/_include/head.php'); ?>
 <style>
-#wrapper{background:#f5f5f5 ;}
-@media screen and (min-width:768px) {
-	body{background:#393244;}
-	#wrapper{max-width:767px;margin:0 auto;}
+#wrapper{
+	background:#f8fbff;
+	margin: 0 auto;
 }
 </style>
 <section id="wrapper">
@@ -20,7 +19,6 @@
 				<div>
 					<label for="u_name"><span>아이디</span></label>
 					<input type="text" name="mb_id" id=" u_name" placeholder="아이디 입력" />
-
 				</div>
 				<div>
 					<label for="u_pw"><span >비밀번호</span></label>
@@ -55,7 +53,7 @@
 	</div>
 
 	<div class='footer'>
-		<p class='copyright'>Copyright ⓒ 2021. LOGCOMPANY Co. ALL right reserved.</p>
+		<p class='copyright'>Copyright ⓒ 2021. WIZCLASS Co. ALL right reserved.</p>
 	</div>
 	
 </section>

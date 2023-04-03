@@ -1,8 +1,10 @@
+@charset "UTF-8";
 .term_space {
   margin: 10px 0;
   background: white;
   border-radius: 8px;
   padding: 10px;
+  position: relative;
 }
 
 .term_none {
@@ -18,24 +20,48 @@
   border: 1px solid white;
 }
 
+#service,
+#private {
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
 #service_checkbox + label, #private_checkbox + label {
   display: inline-block;
-  width: 17px;
-  height: 17px;
+  width: 20px;
+  height: 20px;
   background: white;
   cursor: pointer;
   border: black solid 1px;
   border-radius: 3px;
+  margin-top: 3px;
 }
 #service_checkbox + label span, #private_checkbox + label span {
   position: absolute;
   display: block;
   font-weight: bold;
-  transform: translate(22px, -3px);
+  margin: -2px 0 0 28px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+#service_checkbox + label span::before, #private_checkbox + label span::before {
+  content: "✔";
+  position: absolute;
+  left: -22px;
+  top: 3px;
+  font-size: 10px;
+  color: #fff;
+  font-weight: normal;
+  display: none;
 }
 #service_checkbox:checked + label, #private_checkbox:checked + label {
-  background: url("/img/check_green.png") no-repeat center/17px 18px;
-  background-repeat: no-repeat;
+  background: #565656;
+  border: none;
+}
+#service_checkbox:checked + label span::before, #private_checkbox:checked + label span::before {
+  display: block;
 }
 
 #center .user {
@@ -71,5 +97,5 @@
   display: none;
 }
 .enroll_wrap .in_btn_ly {
-  margin-top: -42px;
+  margin-top: -36px;
 }
