@@ -547,29 +547,29 @@ if ($_GET['recom_referral']){
 		}
 		*/
 
-		console.log(`센터검색 : ${center_search}\n센터: ${f.mb_center.value}`);
+		/* console.log(`센터검색 : ${center_search}\n센터: ${f.mb_center.value}`); */
 		
 
 		//추천인 검사
 		if (f.mb_recommend.value == '' || f.mb_recommend.value == 'undefined') {
-			dialogModal('추천인정보 확인', "<strong>추천인 아이디 검색하여 목록에서 선택해주세요.</strong>", 'warring');
+			dialogModal('추천인정보 확인', "<strong>추천인 아이디 검색하여 목록에서 선택해주세요.</strong>", 'warning');
 			return false;
 		}
 		if (!recommend_search) {
-			dialogModal('추천인정보 확인', "<strong>추천인 아이디 검색하여 목록에서 선택해주세요.</strong>", 'warring');
+			dialogModal('추천인정보 확인', "<strong>추천인 아이디 검색하여 목록에서 선택해주세요.</strong>", 'warning');
 			return false;
 		}
 
 
 		//센터멤버 검사
-		if (f.mb_center.value == '' || f.mb_center.value == 'undefined') {
+		/* if (f.mb_center.value == '' || f.mb_center.value == 'undefined') {
 			dialogModal('센터정보 확인', "<strong>센터명 또는 센터 아이디를 검색하여 목록에서 선택해주세요.</strong>", 'warring');
 			return false;
 		}
 		if (!center_search) {
 			commonModal('센터정보 확인', '<strong>센터정보를 검색하여 선택해 주세요.</strong>', 80);
 			return false;
-		}
+		} */
 		
 		//추천인이 본인인지 확인
 		if (f.mb_id.value == f.mb_recommend.value) {
@@ -596,8 +596,6 @@ if ($_GET['recom_referral']){
 			return false;
 		}
 
-		
-
 		// 패스워드
 		if (!chkPwd_1($('#reg_mb_password').val(), $('#reg_mb_password_re').val())) {
 			commonModal('비밀번호 규칙 확인', '<strong> 로그인 패스워드가 일치하지 않습니다.</strong>', 80);
@@ -611,12 +609,11 @@ if ($_GET['recom_referral']){
 		}
 
 		/*이용약관 체크*/
-		for (var i = 0; i < $("input[name=term]:checkbox").length; i++) {
-			if ($("input[name=term]:checkbox")[i].checked == false) {
-				commonModal('이용약관 동의', '<strong>이용약관과 개인정보 수집처리방침에 동의해주세요.</strong>', 80);
+		for (var i = 0; i < $("input[name=term_required]:checkbox").length; i++) {
+			if ($("input[name=term_required]:checkbox")[i].checked == false) {
+				dialogModal('이용약관 동의', '이용약관과 개인정보 수집처리방침에 동의해주세요', 'warning');
 				return false;
 			}
-
 		}
 
 		// 메일인증 체크
@@ -644,9 +641,6 @@ if ($_GET['recom_referral']){
 				console.log(e)
 			}
 		});
-		
-		// f.submit();
-
 	}
 </script>
 
@@ -684,7 +678,7 @@ if ($_GET['recom_referral']){
 			</section>
 
 			<!-- 센터 정보 -->
-			<p class="check_appear_title mt20"><span >센터정보</span></p>
+			<!-- <p class="check_appear_title mt20"><span >센터정보</span></p>
 				<section class='referzone'>
 					<div class="btn_input_wrap">
 						<input type="hidden" name="mb_center_nick" id="reg_mb_center_nick" value=""  required  />
@@ -696,6 +690,7 @@ if ($_GET['recom_referral']){
 						</div>
 					</div>
 				</section>
+				<i style="color:rgba(255,255,255,0.4)">※센터정보 검색후 선택해주세요.</i> -->
 				<em>※센터정보 검색후 선택해주세요.</ㅇ>
 
 
@@ -776,9 +771,9 @@ if ($_GET['recom_referral']){
 			<p class="check_appear_title mt40"><span >회원가입 약관동의 </span></p>
 			<div class="mt20">
 				<div class="term_space">
-					<input type="checkbox" id="service_checkbox" class="term_none" name="term" >
-					<label for="service_checkbox">
-						<span><?= $service_term['wr_subject'] ?> 및 서약서 동의</span>
+					<input type="checkbox" id="service_checkbox" class="term_none" name="term_required" >
+					<label for="service_checkbox" style="width:25px;height:25px;">
+						<span style='margin-left:10px;line-height:30px;'><?= $service_term['wr_subject'] ?> 및 서약서 동의 (필수)</span>
 						<a id="service" href="javascript:collapse('#service');"  style="width:25px;height:25px;position:absolute;right:25px;"><i class="fas fa-angle-down" style="width:25px;height:25px;"></i></a>
 					</label>
 				</div>
@@ -786,9 +781,9 @@ if ($_GET['recom_referral']){
 				<textarea id="service_term" class="term_textarea term_none"><?= $service_term['wr_content'] ?></textarea>
 
 				<div class="term_space">
-					<input type="checkbox" id="private_checkbox" class="term_none" name="term" >
-					<label for="private_checkbox">
-						<span><?= $private_term['wr_subject'] ?> 동의</span>
+					<input type="checkbox" id="private_checkbox" class="term_none" name="mb_sms" value="1">
+					<label for="private_checkbox" style="width:25px;height:25px;">
+						<span style='margin-left:10px;line-height:30px;'><?= $private_term['wr_subject'] ?> 동의 (선택)</span>
 						<a id="private" href="javascript:collapse('#private');"  style="width:25px;height:25px;position:absolute;right:25px;"><i class="fas fa-angle-down" style="width:25px;height:25px;"></i></a>
 					</label>
 				</div>

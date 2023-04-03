@@ -222,6 +222,7 @@ else if ($w == 'u')
 	$mb_no = $_POST['mb_no'];
 
 	$deposit_adm = conv_number($_POST['mb_deposit_point_add']);
+	$deposit_adm_content = $_POST['mb_deposit_point_content'];
 	$deposit_code = $_POST['mb_deposit_point_math'];
 	$origin_deposit_point = $mb['mb_deposit_point'];
 	
@@ -238,16 +239,25 @@ else if ($w == 'u')
 		}
 
 		if($deposit_code == '+'){
-			$deposit_adm_code = '입금';
-			
+			if($deposit_adm_content === '') {
+				$deposit_adm_code = '관리자 지급';
+			} else {
+				$deposit_adm_code = $deposit_adm_content;
+				$admin_states = "관리자 지급";
+			}
 		}else{
-			$deposit_adm_code = '차감';
+			if(!$deposit_adm_content === '') {
+				$deposit_adm_code = '관리자 차감';
+			} else {
+				$deposit_adm_code = $deposit_adm_content;
+				$admin_states = "관리자 차감";
+			}
 		}
 
 		$deposit_adm_value = $deposit_code.$deposit_adm;
 		$deposit_adm_sql = "insert wallet_deposit_request set
 				mb_id             = '{$mb_id}'
-				, txhash     =  '관리자 {$deposit_adm_code} : {$member['mb_id']}'
+				, txhash     =  '{$deposit_adm_code}'
 				, create_dt         = '{$today}'
 				, create_d    		= '{$today}'
 				, status   			= {$process_code}
@@ -256,7 +266,8 @@ else if ($w == 'u')
 				, fee    			= 0
 				, cost         		= 0
 				, amt    			= {$deposit_adm_value}
-				, in_amt			= {$deposit_adm_value}";
+				, in_amt			= {$deposit_adm_value}
+				, admin_states 		= '{$admin_states}'";
 
 		$deposit_adm_result = sql_query($deposit_adm_sql);
 		

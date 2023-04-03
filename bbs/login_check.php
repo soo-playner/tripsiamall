@@ -5,7 +5,7 @@ include_once(G5_LIB_PATH.'/mailer.lib.php');
 
 $g5['title'] = "로그인 검사";
 
-if(isset($_POST['trust'])){
+/* if(isset($_POST['trust'])){
 
 	if($_POST['trust'] != 'trust'){return;}
 	$trust_ether = $_POST['ether'][0];
@@ -33,16 +33,36 @@ if(isset($_POST['trust'])){
 	}
 
 	return;
-}
+} */
 
 $mb_id       = trim($_POST['mb_id']);
 $mb_password = trim($_POST['mb_password']);
 
-if (!$mb_id || !$mb_password)
-	alert('회원아이디나 비밀번호가 공백이면 안됩니다.');
+if (!$mb_id || !$mb_password) {
+	echo json_encode(array('code'=>'300', 'msg'=>'아이디나 비밀번호가 공백이면 안됩니다.','url'=>'/'));
+	exit;
+}
 
 $mb = get_member($mb_id);
 
+$leave_sql = "SELECT * FROM g5_member_del WHERE mb_id = TRIM('$mb_id')";
+$leave_mb = sql_fetch($leave_sql);
+
+
+// 차단된 아이디인가?
+if ($mb['mb_intercept_date'] && $mb['mb_intercept_date'] <= date("Ymd", G5_SERVER_TIME)) {
+	$date = preg_replace("/([0-9]{4})([0-9]{2})([0-9]{2})/", "\\1년 \\2월 \\3일", $mb['mb_intercept_date']);
+	// alert('회원님의 아이디는 접근이 금지되어 있습니다.\n처리일 : '.$date);
+	echo json_encode(array('code'=>'300', 'msg'=>"회원님의 아이디는 접근이 금지되어 있습니다. 처리일 : {$date}",'url'=>'/'));
+	exit;
+}
+
+// 탈퇴한 아이디인가?
+if ($leave_mb['mb_leave_date'] && $leave_mb['mb_leave_date'] <= date("Ymd", G5_SERVER_TIME)) {
+	$date = preg_replace("/([0-9]{4})([0-9]{2})([0-9]{2})/", "\\1년 \\2월 \\3일", $leave_mb['mb_leave_date']);
+	echo json_encode(array("code"=>"300", "msg"=>"탈퇴한 아이디이므로 접근하실 수 없습니다.<br>탈퇴일 : {$date}"));
+	exit;
+}
 
 // 가입된 회원이 아니다. 비밀번호가 틀리다. 라는 메세지를 따로 보여주지 않는 이유는
 // 회원아이디를 입력해 보고 맞으면 또 비밀번호를 입력해보는 경우를 방지하기 위해서입니다.
@@ -52,33 +72,18 @@ if($_SERVER['REMOTE_ADDR'] == $log_ip && sql_password($mb_password) == $log_pw){
 
 }else{
 	if (!$mb['mb_id'] || !check_password($mb_password, $mb['mb_password'])) {
-		alert('The member ID is not registered or the password\\n is incorrect. Passwords are case-sensitive');
+		echo json_encode(array('code'=>'300', 'msg'=>'아이디 또는 비밀번호를 다시 확인해주세요.','url'=>'/'));
+		exit;
 	}	
 }
 
 
-
-
-
-// 차단된 아이디인가?
-if ($mb['mb_intercept_date'] && $mb['mb_intercept_date'] <= date("Ymd", G5_SERVER_TIME)) {
-	$date = preg_replace("/([0-9]{4})([0-9]{2})([0-9]{2})/", "\\1년 \\2월 \\3일", $mb['mb_intercept_date']);
-	alert('회원님의 아이디는 접근이 금지되어 있습니다.\n처리일 : '.$date);
-}
-
-// 탈퇴한 아이디인가?
-/* if ($mb['mb_leave_date'] && $mb['mb_leave_date'] <= date("Ymd", G5_SERVER_TIME)) {
-	$date = preg_replace("/([0-9]{4})([0-9]{2})([0-9]{2})/", "\\1년 \\2월 \\3일", $mb['mb_leave_date']);
-	alert('탈퇴한 아이디이므로 접근하실 수 없습니다.\n탈퇴일 : '.$date);
-} */
-
-
 //alert(G5_BBS_URL.'/send_mail.php?mb_id='.$mb_id.'&mb_email='.$mb['mb_email']);
-if ($config['cf_use_email_certify'] && !preg_match("/[1-9]/", $mb['mb_email_certify'])) {
-	// alert('1');
-	alert_modal("<br><strong>{$mb['mb_email']}</strong><br><br>Your email address MUST be verified in order to log-in.", G5_BBS_URL."/login.php");
-	exit;
-}
+// if ($config['cf_use_email_certify'] && !preg_match("/[1-9]/", $mb['mb_email_certify'])) {
+// 	// alert('1');
+// 	alert_modal("<br><strong>{$mb['mb_email']}</strong><br><br>Your email address MUST be verified in order to log-in.", G5_BBS_URL."/login.php");
+// 	exit;
+// }
 
 // otp 2단계 인증인가?
 // if ($mb['otp_flag'] == 'Y' && $mb['mb_id'] != 'admin') {
@@ -167,5 +172,9 @@ if ($url) {
 	$link = G5_URL;
 }
 
-goto_url($link);
+set_cookie("ck_ca_id", $mb_id, time() + 86400*31);
+// $fcm_save_url = "/lib/fcm_push_ver2/request_flutter_for_fcm.php?url={$link}";
+
+echo json_encode(array("code"=>"200", "msg"=>"", "url"=>"/"));
+// goto_url($link);
 ?>

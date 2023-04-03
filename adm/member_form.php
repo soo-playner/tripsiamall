@@ -343,7 +343,7 @@ $rank_result = sql_fetch($rank_sql);
 
 	<div class="local_desc01 local_desc">
 		<p>
-			- 센터지정시 체크시 센터명 등록 : 회원레벨 자동변경 (체크해제시 회원레벨은 수동)<br>
+			<!-- - 센터지정시 체크시 센터명 등록 : 회원레벨 자동변경 (체크해제시 회원레벨은 수동)<br> -->
 			- 별도관리지정은 <strong>마이닝,보너스 출금요청이 불가</strong>하며 아이디가 <strong>구분표시(아이디 붉은색 처리)</strong> 처리되며 회원차단은 로그인불가 처리됩니다. (각 해제시 입력된 날짜제거후 저장)
 		</p>
 	</div>
@@ -403,18 +403,7 @@ $rank_result = sql_fetch($rank_sql);
 		<? } ?>
 		-->
 					</td>
-					<th scope="row"><label for="mb_hp">휴대폰번호</label></th>
-					<td>
-						<!-- <input type="text" name="nation_number" value="<?php echo $mb['nation_number'] ?>" id="nation_number" class="frm_input" style="height:36px;text-align:center" size="5" maxlength="50"> -->
-						<input type="text" name="mb_hp" value="<?php echo $mb['mb_hp'] ?>" id="mb_hp" class="frm_input  wide" size="15" maxlength="20">
-
-						<!-- <? if ($member['mb_certify'] == 1) { ?>
-				<img src="<?= G5_THEME_URL ?>/_images/okay_icon.gif" alt="인증됨" style="width:15px;"> 인증됨
-			<? } else { ?>
-				<img src="<?= G5_THEME_URL ?>/_images/x_icon.gif" alt="인증안됨" style="width:15px;"> 인증안됨
-			<? } ?> -->
-
-					</td>
+				
 				</tr>
 
 				<tr>
@@ -457,7 +446,7 @@ $rank_result = sql_fetch($rank_sql);
 		</tr>
 	<?php } ?>
 
-	<tr>
+	<!-- <tr>
 		<th scope="row">센터지정</th>
 		<td colspan="1">
 			<input type="checkbox" style='width:24px;height:24px' name="center_use" id="center_use" value=" <?= $mb['center_use'] ?> " class="frm_input" <? if ($mb['center_use'] == '1') {
@@ -480,7 +469,7 @@ $rank_result = sql_fetch($rank_sql);
 		<td colspan="1">
 			<input type="text" name="mb_center" id="mb_center" value="<?= $mb['mb_center'] ?>" class="frm_input wide" />
 		</td>
-	</tr>
+	</tr> -->
 
 
 
@@ -563,66 +552,55 @@ $rank_result = sql_fetch($rank_sql);
 			width: auto;
 		}
 	</style>
-
+  
 	<tr class="ly_up padding-box fund">
 		<th scope="row">보유 잔고</th>
 
 		<td colspan="1">
 			<strong><?= Number_format($mb['mb_deposit_point'] + $mb['mb_deposit_calc'] + $mb['mb_balance']) ?></strong> 원 &nbsp&nbsp (총 입금액 : <?= Number_format($mb['mb_deposit_point']) ?>)
 		</td>
-		<th>수동입금 </th>
+		<th></th>
 		<!-- <td>
 			<input type="text" name="mb_deposit_point" value="<?= Number_format($mb['mb_deposit_point']) ?>" id="field_upstair" class="frm_input wide" size="15" style="min-width:100px !important;" inputmode=numeric>
 			차액: + 
 			<input type="text" class="be_to" name="be_to" id="be_to" value="0" readonly> 	
 		</td> -->
 
-		<td>
-			<input type="hidden" name="mb_deposit_point_math" id="math_code" value="">
+		<td></td>
+	</tr>
+
+  <tr class="ly_up padding-box fund">
+		<th scope="row">잔고 수동지급/차감</th>
+
+		<td colspan="1">
+      <input type="hidden" name="mb_deposit_point_math" id="math_code" value="">
 			<input type="button" value="+" class='math_btn plus'>
 			<input type="button" value="-" class='math_btn minus'>
 			<input type="text" name="mb_deposit_point_add" value="" id="field_upstair" class="frm_input wide" size="15" style="max-width:60%" inputmode=price>
 		</td>
+		<th>지급/차감 내용</th>
+		<td colspan="1">
+			<input type="text" name="mb_deposit_point_content" value="" id="field_upstair" class="frm_input wide field_upstair" size="15" style="max-width:60%">
+		</td>
 
+		<td></td>
 	</tr>
+
 
 	<tr class="ly_up padding-box fund">
 
 		<th scope="row">누적 매출 합계 (PV)</th>
-		<td colspan="1"><span class='strong soodang'><?= Number_format($mb['mb_save_point']) ?> 원</span></td>
+		<td colspan="1"><span class='strong soodang'><?= number_format($mb['mb_save_point']) ?> 원</span></td>
 
 		<th scope="row">총 받은보너스(수당)</th>
 		<td colspan="1"><span class='strong bonus'>
-				<input type="hidden" class='no-input' name="mb_balance" value="<?= Number_format($mb['mb_balance']) ?>" readonly> <?= Number_format($mb['mb_balance']) ?> 원</td>
+				<input type="hidden" class='no-input' name="mb_balance" value="<?= number_format($mb['mb_balance']) ?>" readonly> <?= number_format($mb['mb_balance']) ?> 원</td>
 
-	</tr>
-
-	<tr class="ly_up padding-box fund">
-		<th scope="row">보유마이닝해쉬 (MH/S)</th>
-		<td colspan="1"><span class='strong mining'><?= number_format($mb['mb_rate']) ?> MH/s</span></td>
-
-		<th scope="row">총 받은마이닝보너스</th>
-		<td colspan="1"><span class='strong mining_soodang'>
-			<?= shift_auto($mb[$mining_target], COIN_NUMBER_POINT) ?> <?=strtoupper($minings[$now_mining_coin])?></span>
-			<?
-			if($mb['swaped'] == 0){
-				echo "( ".shift_auto($mb[$before_mining_target], COIN_NUMBER_POINT).' '.strtoupper($minings[$before_mining_coin])." )";
-			}else if($mb['swaped'] == 1){
-				echo "<span style='margin-left:20px;color:gray'>코인변경(스왑)일 : " .$mb['swap_date']."</span>";
-			}
-			?>
-		</td>
 	</tr>
 
 	<tr class="ly_up padding-box fund">
 		<th scope="row">출금총액</th>
 		<td colspan="1"><span class='strong amt'><?= number_format($mb['mb_shift_amt']) ?> 원</span></td>
-
-		<th scope="row">마이닝출금액</th>
-		<td colspan="1"><span class='strong amt'>
-			<?= shift_auto($mb[$mining_amt_target], COIN_NUMBER_POINT) ?> <?=strtoupper($minings[$now_mining_coin])?></span>
-			<?if($mb['swaped'] == 0){echo "( ".shift_auto($mb[$before_mining_amt_target], COIN_NUMBER_POINT).' '.strtoupper($minings[$before_mining_coin])." )";}?>
-		</td>
 	</tr>
 
 
