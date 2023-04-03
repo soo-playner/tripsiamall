@@ -3534,6 +3534,7 @@ input.input_price {
 	margin-bottom: 40px;
 	padding-left: 0;
 	text-align: center;
+	box-shadow: 0px 6px 8px rgba(49, 104, 116, 0.03);
 }
 .support-tabs li {
 	border-bottom: 2px solid #fff;
