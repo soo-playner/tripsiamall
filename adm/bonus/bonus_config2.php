@@ -18,8 +18,9 @@ $token = get_token();
     <p>
         - 마케팅수당설정 - 관리자외 설정금지<br>
         - 수당한계 : 0 또는 값이 없으면 제한없음.<br>
-        - 마이닝 : ( 수당비율 * 회원별 보유해쉬량 ) 지급 <strong>[ <?=strtoupper($minings[$now_mining_coin])?> ] </strong><br>
-        - 마이닝매칭 : 마이닝지급량의 % 입력
+        - 데일리 : ( 수당비율 * 회원별 보유상품수익률) 지급 <strong>[ <?=strtoupper($minings[$now_mining_coin])?> ] </strong><br>
+        - 부스터 : (직추천수 = 지급대수) 일때 대상의 (데일리보너스의 50% * 지급율)
+        - 승급 및 직급 보너스: 산하매출 & 직급유지 & 조건 달성시 승급
 	</p>
 </div>
 
@@ -32,14 +33,14 @@ $token = get_token();
         <th scope="col" width="30px">No</th>
         <th scope="col" width="40px">사용설정</th>
         <th scope="col" width="120px">수당명</th>	
-        <th scope="col" width="100px">수당코드</th>
+        <th scope="col" width="60px">수당코드</th>
         <th scope="col" width="80px">수당지급수단</th>
-        <th scope="col" width="80px">수당한계</th>
-		<th scope="col" width="100px">수당비율 (%)<br>( 콤마로 구분)</th>
-		<th scope="col" width="100px">지급한계(대수/%)<br>( 콤마로 구분)</th>
+        <th scope="col" width="40px">수당한계</th>
+		<th scope="col" width="120px">수당비율 (%)<br>( 콤마로 구분)</th>
+		<th scope="col" width="120px">지급한계(대수/%)<br>( 콤마로 구분)</th>
         <th scope="col" width="80px">수당지급방식</th>
-        <th scope="col" width="120px">수당조건</th>
-        <th scope="col" width="180px">수당설명</th>
+        <th scope="col" width="80px">수당조건</th>
+        <th scope="col" width="280px">수당설명</th>
     </tr>
     </thead>
 
@@ -92,12 +93,11 @@ $token = get_token();
 </style>
 
 <div id='mining_log'>
-    마이닝 지급량 기록 (최근 10일)
+    데일리 지급량 기록 (최근 10일)
     <div class='head'>
         <dt>지급일</dt>
-        <dd>마이닝지급량<br>(<?=$mining_hash[0]?>)</dd>
-        <dd class="blue" style='color:white'>마이닝보너스지급총량<br>(<?=$minings[$now_mining_coin]?>)</dd>
-        <dd style="background:gold">코인스왑량<br>(<?=$minings[$now_mining_coin]?>)</dd>
+        <dd>데일리보너스지급량</dd>
+        <dd class="blue" style='color:white'>데일리보너스지급총량<br>(<?=$minings[$now_mining_coin]?>)</dd>
     </div>
 
     <?

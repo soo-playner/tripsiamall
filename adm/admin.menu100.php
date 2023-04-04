@@ -1,8 +1,7 @@
 <?php
 if($member['mb_id'] == 'admin'){
 $menu['menu100'] = array (
-    //array('100000', '환경설정', G5_ADMIN_URL.'/pk.site.php',   'config'),
-    array('100100', '홈페이지설정', G5_ADMIN_URL.'/pk.site.php',   'pk_site'),
+    array('100000', '환경설정', G5_ADMIN_URL.'/config_form.php',   'config'),
 	array('', '기본환경설정', G5_ADMIN_URL.'/config_form.php',   'cf_basic'),
     array('', '관리권한설정', G5_ADMIN_URL.'/auth_list.php',     'cf_auth'),
     array('', '테마설정', G5_ADMIN_URL.'/theme.php',     'cf_theme', 1),

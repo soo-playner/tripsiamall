@@ -345,7 +345,7 @@ $rank_result = sql_fetch($rank_sql);
 	<div class="local_desc01 local_desc">
 		<p>
 			<!-- - 센터지정시 체크시 센터명 등록 : 회원레벨 자동변경 (체크해제시 회원레벨은 수동)<br> -->
-			- 별도관리지정은 <strong>마이닝,보너스 출금요청이 불가</strong>하며 아이디가 <strong>구분표시(아이디 붉은색 처리)</strong> 처리되며 회원차단은 로그인불가 처리됩니다. (각 해제시 입력된 날짜제거후 저장)
+			- 별도관리지정은 <strong>보너스 출금요청이 불가</strong>하며 아이디가 <strong>구분표시(아이디 붉은색 처리)</strong> 처리되며 회원차단은 로그인불가 처리됩니다. (각 해제시 입력된 날짜제거후 저장)
 		</p>
 	</div>
 
@@ -557,7 +557,7 @@ $rank_result = sql_fetch($rank_sql);
 		<th scope="row">보유 잔고</th>
 
 		<td colspan="1">
-			<strong><?= Number_format($mb['mb_deposit_point'] + $mb['mb_deposit_calc'] + $mb['mb_balance']) ?></strong> 원 &nbsp&nbsp (총 입금액 : <?= Number_format($mb['mb_deposit_point']) ?>)
+			<strong><?= Number_format($mb['mb_deposit_point'] + $mb['mb_deposit_calc'] + $mb['mb_balance']) ?></strong> <?=$curencys[1]?> &nbsp&nbsp (총 입금액 : <?= Number_format($mb['mb_deposit_point']) ?> <?=$curencys[0]?>)
 		</td>
 		<th></th>
 		<!-- <td>
@@ -590,11 +590,11 @@ $rank_result = sql_fetch($rank_sql);
 	<tr class="ly_up padding-box fund">
 
 		<th scope="row">누적 매출 합계 (PV)</th>
-		<td colspan="1"><span class='strong soodang'><?= number_format($mb['mb_save_point']) ?> 원</span></td>
+		<td colspan="1"><span class='strong soodang'><?= number_format($mb['mb_save_point']) ?> </span><?=$curencys[1]?></td>
 
 		<th scope="row">총 받은보너스(수당)</th>
 		<td colspan="1"><span class='strong bonus'>
-				<input type="hidden" class='no-input' name="mb_balance" value="<?= number_format($mb['mb_balance']) ?>" readonly> <?= number_format($mb['mb_balance']) ?> 원</td>
+				<input type="hidden" class='no-input' name="mb_balance" value="<?= number_format($mb['mb_balance']) ?>" readonly> <?= number_format($mb['mb_balance']) ?> </span><?=$curencys[1]?></td>
 
 	</tr>
 
@@ -787,11 +787,19 @@ $rank_result = sql_fetch($rank_sql);
 	</script>
 	<tr class='divide-bottom'>
 		<th scope="row">출금계좌정보</th>
+		
+		<?if(USE_WALLET === false){?>
 		<td colspan="3">
+			
 			은행 :<input type="text" name="bank_name" value="<?php echo $mb['bank_name'] ?>" id="bank_name" class="frm_input wide" size="15" style="" ;>
 			&nbsp 계좌번호 : &nbsp<input type="text" name="bank_account" value="<?php echo $mb['bank_account'] ?>" id="bank_account" class="frm_input wide" size="15" style="width:300px;" ;>
 			&nbsp 예금주 : &nbsp<input type="text" name="account_name" value="<?php echo $mb['account_name'] ?>" id="account_name" class="frm_input wide" size="15" style="" ;>
 		</td>
+		<?}else{?>
+		<td colspan="3">
+			지갑주소 : &nbsp<input type="text" name="bank_account" value="<?php echo $mb['bank_account'] ?>" id="bank_account" class="frm_input wide" size="15" style="width:300px;" ;>
+		</td>
+		<?}?>
 	</tr>
 
 	<!-- <tr>

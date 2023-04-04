@@ -156,7 +156,7 @@ $res = sql_query($coin_price_sql);
 
         <tbody>
 			<? 
-			$coin_price_sql = "select * from {$g5['wallet_config']} WHERE used = 1 AND idx = 4";
+			$coin_price_sql = "select * from {$g5['wallet_config']} WHERE used = 1 AND no = 4";
 			$res_bank = sql_query($coin_price_sql);
 
 			while($row = sql_fetch_array($res_bank)){ ?>

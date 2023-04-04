@@ -153,8 +153,8 @@ $listall = '<a href="'.$_SERVER['SCRIPT_NAME'].'" class="ov_listall">전체목�
         <!-- <th scope="col" id="th_img">이미지</th> -->
         <th scope="col" id="th_pc_title"><?php echo subject_sort_link('it_name', 'sca='.$sca); ?>지급상품명</a></th>
         <th scope="col" id="th_pc_title"><?php echo subject_sort_link('it_option_subject', 'sca='.$sca); ?>노출상품명</a></th>
-        <th scope="col" id="th_amt" style='width:100px;'><?php echo subject_sort_link('it_price', 'sca='.$sca); ?>상품가격(￦)</a></th>
-        <th scope="col" id="th_pt" style='width:140px;'><?php echo subject_sort_link('it_cust_price', 'sca='.$sca); ?>판매가격(￦)</a></th>
+        <th scope="col" id="th_amt" style='width:100px;'><?php echo subject_sort_link('it_price', 'sca='.$sca); ?>상품가격($)</a></th>
+        <th scope="col" id="th_pt" style='width:140px;'><?php echo subject_sort_link('it_cust_price', 'sca='.$sca); ?>판매가격($)</a></th>
         <th scope="col" id="th_pt" style='width:100px;'><?php echo subject_sort_link('it_point', 'sca='.$sca); ?>실적(PV)</a></th>
         <th scope="col" id="th_pt" style='width:100px;'><?php echo subject_sort_link('it_supply_point', 'sca='.$sca); ?>MP(mining)</a></th>
         <th scope="col" style='width:30px;'><?php echo subject_sort_link('it_order', 'sca='.$sca); ?>노출순서</a></th>
@@ -218,14 +218,14 @@ $listall = '<a href="'.$_SERVER['SCRIPT_NAME'].'" class="ov_listall">전체목�
         <!--상품가격-->
         <td headers="th_amt" class="td_numbig td_input">
             <label for="price_<?php echo $i; ?>" class="sound_only">상품가격</label>
-            <input type="text" name="it_price[<?php echo $i; ?>]" value="<?=shift_auto($row['it_price']) ?>" id="price_<?php echo $i; ?>" class="frm_input sit_amt" size="7" style="width:100px;padding-right:10px;" inputmode = "numeric"> 원
+            <input type="text" name="it_price[<?php echo $i; ?>]" value="<?=shift_auto($row['it_price']) ?>" id="price_<?php echo $i; ?>" class="frm_input sit_amt" size="7" style="width:100px;padding-right:5px;" inputmode = "numeric"> 
         </td>
 
         <!--판매가격-->
         <td headers="th_pt" class="td_numbig td_input" id="it_cust_price">
             <label for="it_cust_price" class="sound_only">판매가격</label>
             <button type='button' class='vat_calc' data-num = '<?=$i?>' >vat</button>
-            <input type="text" name="it_cust_price[<?php echo $i; ?>]" value="<?=shift_auto($row['it_cust_price']) ?>" id="cust_price_<?php echo $i; ?>" class="frm_input sit_amt" size="5" style="width:100px;padding-right:5px;" inputmode = "numeric"> 원
+            <input type="text" name="it_cust_price[<?php echo $i; ?>]" value="<?=shift_auto($row['it_cust_price']) ?>" id="cust_price_<?php echo $i; ?>" class="frm_input sit_amt" size="5" style="width:100px;padding-right:5px;" inputmode = "numeric">
         </td>
         
 
