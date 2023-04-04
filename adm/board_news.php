@@ -71,7 +71,7 @@ $colspan = 15;
     | <a href="/adm/board_support.php" class="board_menu">Support center</a>
 </div> -->
 
-<iframe src="/bbs/board.php?bo_table=news" width="100%" height="1000px;" scrolling="auto" style="border:0;background:white;"></iframe>
+<iframe src="/adm/bbs/board.php?bo_table=news" width="100%" height="1000px;" scrolling="auto" style="border:0;background:white;"></iframe>
 
 <?php
 include_once('./admin.tail.php');
