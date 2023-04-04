@@ -1,6 +1,7 @@
 <?php
 include_once('./_common.php');
 $g5['title'] = strtoupper($bo_table).' 관리';
+if($bo_table == "news")  $sub_menu = "300200";
 if($bo_table == "notice")  $sub_menu = "300250";
 if($bo_table == "kyc")  $sub_menu = "300400";
 if($bo_table == "agreement")  $sub_menu = "300500";

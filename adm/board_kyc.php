@@ -73,9 +73,9 @@ $colspan = 15;
 </div>
 
 <?if($_GET['wr_id']){?>
-    <iframe src="/bbs/board.php?bo_table=kyc&wr_id=<?=$_GET['wr_id']?>" width="100%" height="700px;" scrolling="auto" style="border:0;background:white;"></iframe>
+    <iframe src="/adm/bbs/board.php?bo_table=kyc&wr_id=<?=$_GET['wr_id']?>" width="100%" height="700px;" scrolling="auto" style="border:0;background:white;"></iframe>
 <?}else{?>
-    <iframe src="/bbs/board.php?bo_table=kyc" width="100%" height="700px;" scrolling="auto" style="border:0;background:white;"></iframe>
+    <iframe src="/adm/bbs/board.php?bo_table=kyc" width="100%" height="700px;" scrolling="auto" style="border:0;background:white;"></iframe>
 <?}?>
 
 
