@@ -600,7 +600,7 @@ $rank_result = sql_fetch($rank_sql);
 
 	<tr class="ly_up padding-box fund">
 		<th scope="row">출금총액</th>
-		<td colspan="1"><span class='strong amt'><?= number_format($mb['mb_shift_amt']) ?> 원</span></td>
+		<td colspan="1"><span class='strong amt'><?= number_format($mb['mb_shift_amt']) . " " . $curencys[1]?></span></td>
 	</tr>
 
 
@@ -738,7 +738,7 @@ $rank_result = sql_fetch($rank_sql);
 					return false;
 				}
 
-				if (confirm("해당 회원에게 " + item.it_name + " 패키지를 지급하시겠습니까?\n회원 잔고에서 ￦" + Price(item.it_cust_price) + " 원 (이)가 차감됩니다.")) {} else {
+				if (confirm("해당 회원에게 " + item.it_name + " 패키지를 지급하시겠습니까?\n회원 잔고에서 " + Price(item.it_cust_price) + " <?= $curencys[1] ?> (이)가 차감됩니다.")) {} else {
 					return false;
 				}
 
