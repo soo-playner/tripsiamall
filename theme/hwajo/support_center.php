@@ -262,22 +262,28 @@ if($is_admin){
 							</div>
 							<div class="input-group mb-3">
 								<div class="input-group-prepend">
-									<span class="input-group-text" >무엇을 도와 드릴까요</span>
+									<span class="input-group-text">무엇을<br> 도와 드릴까요</span>
 								</div>
 								<textarea class="form-control" aria-label="With textarea" name="content" id="content" ></textarea>
 							</div>
-							<span style='font-size:12px;'>5MB 미만 jpg, png, pdf 파일만 첨부 가능합니다</span>
+							<!-- <span style='font-size:12px;'>5MB 미만 jpg, png, pdf 파일만 첨부 가능합니다</span>
 							<div class="input-group ">
 								<input type="file" multiple class="form-control-file" onChange="FileSizeChk('addFile');"  id="addFile" name="bf_file[]" accept=".jpg, .png, .pdf" accept="image/*;capture=camera">
+							</div> -->
+							<div class="input-group">
+								<input class="upload-name1" placeholder="선택된 파일 없음" readonly>
+								<input type="file" multiple id="addFile" name="bf_file[]" onChange="FileSizeChk('addFile')" accept=".jpg, .png, .pdf" accept="image/*;capture=camera">
+								<label class="file_label2" for="addFile">파일선택</label> 
+								<button type="button" class="btn_del del1">&times;</button>
 							</div>
-
+							<span class="guide_text">5MB 미만 jpg, png, pdf 파일만 첨부 가능합니다</span>
 							<div class="submit-button">
-								<div class="btn wd blue font_white" id="ticket"> 티켓 제출</div>
+								<div class="btn wd btn_send font_white" id="ticket"> 티켓 제출</div>
 							</div>
-							<div class="email">
+							<!-- <div class="email">
 								<span> 파일 크기 5MB 이상 파일은 아래 이메일로 보내주세요.</span>
 								<br> <a href="mailto:<?=$config['cf_admin_email']?>"><?=$config['cf_admin_email']?></a>
-							</div>
+							</div> -->
 						</form>
 					</div>
 					<div id="active-tickets" class="panel"></div>
@@ -289,17 +295,15 @@ if($is_admin){
 
 	<div style="display:none;" id="dup">
 		<div class="ticket-header">
-			<strong class="topic"></strong>
-			<span class="ticket-title subject" ></span>
+			<div class="dp-flex">
+				<strong class="topic"></strong>
+				<span class="ticket-title subject" ></span>
+			</div>
 			<span class="ticket-time create_date"></span>
 		</div>
-
 		<div class="chat-box">
-			<div class="chat">
-
-			</div>
-
-			<div class="chat-input">
+			<div class="chat"></div>
+			<!-- <div class="chat-input">
 				<div class="input-group mb-3">
 					<input type="text" class="form-control message" placeholder="Message" aria-label="Message" aria-describedby="basic-addon2" data-i18n="[placeholder]support.메시지">
 					<div class="input-group-append">
@@ -311,7 +315,26 @@ if($is_admin){
 					<input type="file" class="custom-file-input messageFile"  multiplename="bf_file[]" onChange="FileSizeChk('add_messageFile');" id="add_messageFile" accept=".jpg, .png, .pdf" accept="image/*;capture=camera">
 					<label class="custom-file-label" for="customFile" data-i18n="support.파일 선택 5MB 미만 jpg, png, pdf">Choose file ( 5MB limit, .jpg, .png, .pdf )</label>
 				</div>
-			</div>
+			</div> -->
+			<div class="chat-input">
+					<div class="input-group mb-2">
+						<input type="text" class="form-control message" placeholder="내용입력" aria-label="Message" aria-describedby="basic-addon2" data-i18n="[placeholder]support.메시지">
+					</div>
+					<div class="custom-file mb-2">
+						<input class="upload-name2" placeholder="선택된 파일 없음" readonly>
+						<input type="file" id="" class="messageFile" name="bf_file[]" onChange="" accept=".jpg, .png, .pdf" accept="image/*;capture=camera">
+						<label class="file_label" for="">파일선택</label> 
+						<button type="button" class="btn_del del2">&times;</button>
+					</div>
+					<div class="input-group mb-2 noborder">
+						<div class="input-group-append" style="flex-grow: 1">
+							<button class="btn wd btn-primary send main_btn" type="button" data-i18n='support.보내기'>티켓제출</button>
+						</div>
+					</div>
+					<div>
+						<button class="btn wd cl" type="button">티켓비활성화</button>
+					</div>
+				</div>
 		</div>
 	</div>
 
@@ -339,6 +362,33 @@ if($is_admin){
 	<script>
 		$(function(){
 			$(".top_title h3").html("<span >1:1문의사항</span>")
+		});
+
+		let btnDel1 = $('.btn_del.del1');
+
+		$('#addFile').on('change', function(e) {
+			if(e.target.files.length > 0) {
+				$('.upload-name1').val(e.target.files[0].name);
+				btnDel1.show();
+			}
+		});
+		btnDel1.on('click', function(){
+			$('.upload-name1').val('');
+			btnDel1.hide();
+		})
+
+		$(document).on('change','.messageFile',function(e) {
+			let btnDel2 = $('.btn_del.del2');
+
+			if(e.target.files.length > 0) {
+				$(this).siblings('.upload-name2').val(e.target.files[0].name);
+				$(this).siblings(btnDel2).show();
+			}
+
+			btnDel2.on('click', function(){
+				$(this).hide();
+				$(this).siblings('.upload-name2').val('');
+			});
 		});
 	</script>
 

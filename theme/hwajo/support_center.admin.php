@@ -111,6 +111,22 @@ if(!$is_admin){
 				row.find('.subject').append(ticket.subject);
 				row.find('.create_date').text(ticket.create_date);
 
+				if(tabId == '#active-tickets') {
+					row.find('.custom-file input[name="bf_file[]"]').attr({
+						id: 'customFile' + ticket.idx,
+						onchange: `FileSizeChk('customFile${ticket.idx}')`
+					});
+					row.find('.file_label').attr('for', 'customFile' + ticket.idx);
+				}
+
+				if(tabId == '#answered-tickets > .list') {
+					row.find('.custom-file input[name="bf_file[]"]').attr({
+						id: 'answeredCustomFile' + ticket.idx,
+						onchange: `FileSizeChk('answeredCustomFile${ticket.idx}')`
+					});
+					row.find('.file_label').attr('for', 'answeredCustomFile' + ticket.idx);
+				}
+
 				if(Number(ticket.is_closed)){
 					row.find('.ticket-header').addClass('closed');
 					row.find('.chat-input').remove();
@@ -174,8 +190,7 @@ if(!$is_admin){
 	<section class="con90_wrap">
 
 		<div class="main-container dash_contents">
-			<div id="body-wrapper" >
-
+			<div id="body-wrapper">
 				<div class="support-container">
 					<div class="support-panels">
 						<ul class="support-tabs content-box">
@@ -192,21 +207,45 @@ if(!$is_admin){
 				</div>
 			</div>
 		</div>
-
 		<div style="display:none;" id="dup">
 			<div class="ticket-header">
+					<div class="dp-flex">
+						<strong class="topic"></strong>
+						<span class="ticket-title subject" ></span>
+					</div>
+					<span class="ticket-time create_date">12:34 PM</span>
+				</div>
+				<div class="chat-box">
+					<div class="chat"></div>
+					<div class="chat-input">
+						<div class="input-group mb-2">
+							<input type="text" class="form-control message" placeholder="내용입력" aria-label="Message" aria-describedby="basic-addon2" >
+						</div>
+						<div class="custom-file mb-2">
+							<input class="upload-name2" placeholder="선택된 파일 없음" readonly>
+							<input type="file" id="" class="messageFile" name="bf_file[]" onChange="" accept=".jpg, .png, .pdf" accept="image/*;capture=camera">
+							<label class="file_label" for="">파일선택</label> 
+							<button type="button" class="btn_del">&times;</button>
+						</div>				
+						<div class="input-group mb-2 noborder">
+							<div class="input-group-append" style="flex-grow: 1">
+								<button class="btn wd btn-primary send main_btn" type="button">티켓전송</button>
+							</div>
+						</div>
+						<div>
+							<button class="btn wd cl" type="button">티켓비활성화</button>
+						</div>
+					</div>
+				</div>
+			<!-- <div class="ticket-header">
 				<div>
 					<strong class="topic"></strong>
 					<span class="ticket-title subject" ></span>
 				</div>
 				<span class="ticket-time create_date">12:34 PM</span>
 			</div>
-
 			<div class="chat-box">
-				<div class="chat">
-
-				</div>
-
+				<div class="chat"></div>
 				<div class="chat-input">
 					<div class="input-group mb-3">
 						<input type="text" class="form-control message" placeholder="Message" aria-label="Message" aria-describedby="basic-addon2" >
@@ -220,7 +259,7 @@ if(!$is_admin){
 						<label style="font-size: 12px;" class="custom-file-label" for="customFile">Choose file ( 5MB limit, .jpg, .png, .pdf )</label>
 					</div>
 				</div>
-			</div>
+			</div> -->
 		</div>
 
 		<div style="display:none;" id="dup2" >
@@ -247,6 +286,27 @@ if(!$is_admin){
 		$(function(){
 			$(".top_title h3").html("<span >1:1문의사항</span>")
 		});
+
+		function FileSizeChk(param) {		
+			var File_Size = document.getElementById(param).files[0].size;
+
+			if( Number(File_Size) >= 5242880){
+				alert("첨부파일이 5MB 이상입니다. <?=$config['cf_admin_email']?> 로 보내주세요.");
+				$("#"+param).val("");
+			}
+		}
+		
+		$(document).on('change','.messageFile',function(e) {
+			if(e.target.files.length > 0) {
+				$(this).siblings('.upload-name2').val(e.target.files[0].name);
+				$(this).siblings('.btn_del').show();
+			}
+
+			$('.btn_del').on('click', function(){
+				$(this).hide();
+				$(this).siblings('.upload-name2').val('');
+			});
+		});		
 	</script>
 
 <? include_once(G5_THEME_PATH.'/_include/tail.php'); ?>

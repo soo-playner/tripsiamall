@@ -2,10 +2,24 @@
 @import "./_variable";
 @import "./_mixin";
 
+html {
+    &::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+    &::-webkit-scrollbar-track {
+        background-color: #e4e4e4;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: #708AD4;
+        box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
+    }
+}
+
 ::selection {
     background-color: $main-colors;
     color: #000;
-  }
+}
 // header 
 
 header {
@@ -45,14 +59,14 @@ header {
 
         .dashboard_icon {
             .gnb_img_wrap {
-                background-position: -159px 8px;
+                background-position: -159px 6px;
             }
             &:hover .gnb_img_wrap,
             &.active .gnb_img_wrap {
                 background: url($white_hover);
                 background-repeat: no-repeat;
                 background-size: 227px;
-                background-position: -159px 8px;
+                background-position: -159px 6px;
                 width: 38px;
                 height: 38px;
             }
@@ -60,14 +74,14 @@ header {
         
         .profile_icon {
             .gnb_img_wrap {
-                background-position: 7px 8px;
+                background-position: 7px 6px;
             }
             &:hover .gnb_img_wrap,
             &.active .gnb_img_wrap {
                 background: url($white_hover);
                 background-repeat: no-repeat;
                 background-size: 227px;
-                background-position: 7px 8px;
+                background-position: 7px 6px;
                 width: 38px;
                 height: 38px;
             }
@@ -75,7 +89,7 @@ header {
         
         .mywallet_icon {
             .gnb_img_wrap {
-                background-position: -27px 8px;
+                background-position: -27px 6px;
             }
         
             &:hover .gnb_img_wrap,
@@ -83,7 +97,7 @@ header {
                 background: url($white_hover);
                 background-repeat: no-repeat;
                 background-size: 227px;
-                background-position: -27px 8px;
+                background-position: -27px 6px;
                 width: 38px;
                 height: 38px;
             }
@@ -91,7 +105,7 @@ header {
         
         .mining_icon {
             .gnb_img_wrap {
-                background-position: -196px 8px;
+                background-position: -196px 6px;
             }
         
             &:hover .gnb_img_wrap,
@@ -99,7 +113,7 @@ header {
                 background: url($white_hover);
                 background-repeat: no-repeat;
                 background-size: 227px;
-                background-position: -196px 8px;
+                background-position: -196px 6px;
                 width: 38px;
                 height: 38px;
             }
@@ -107,7 +121,7 @@ header {
         
         .mypool_icon {
             .gnb_img_wrap {
-                background-position: -196px -27px;
+                background-position: -196px -30px;
             }
         
             &:hover .gnb_img_wrap,
@@ -115,7 +129,7 @@ header {
                 background: url($white_hover);
                 background-repeat: no-repeat;
                 background-size: 227px;
-                background-position: -196px -27px;
+                background-position: -196px -30px;
                 width: 38px;
                 height: 38px;
             }
@@ -123,7 +137,7 @@ header {
         
         .upstairs_icon {
             .gnb_img_wrap {
-                background-position: -61px 8px;
+                background-position: -61px 6px;
             }
         
             &:hover .gnb_img_wrap,
@@ -131,7 +145,7 @@ header {
                 background: url($white_hover);
                 background-repeat: no-repeat;
                 background-size: 227px;
-                background-position: -61px 8px;
+                background-position: -61px 6px;
                 width: 38px;
                 height: 38px;
             }
@@ -139,7 +153,7 @@ header {
         
         .bonus_history_icon {
             .gnb_img_wrap {
-                background-position: -95px 8px;
+                background-position: -95px 6px;
             }
         
             &:hover .gnb_img_wrap,
@@ -147,7 +161,7 @@ header {
                 background: url($white_hover);
                 background-repeat: no-repeat;
                 background-size: 227px;
-                background-position: -95px 8px;
+                background-position: -95px 6px;
                 width: 38px;
                 height: 38px;
             }
@@ -155,7 +169,7 @@ header {
         
         .center_page_icon {
             .gnb_img_wrap {
-                background-position: -161px -27px;
+                background-position: -161px -30px;
             }
         
             &:hover .gnb_img_wrap,
@@ -163,7 +177,7 @@ header {
                 background: url($white_hover);
                 background-repeat: no-repeat;
                 background-size: 227px;
-                background-position: -161px -27px;
+                background-position: -161px -30px;
                 width: 38px;
                 height: 38px;
             }
@@ -171,7 +185,7 @@ header {
         
         .recommend_icon {
             .gnb_img_wrap {
-                background-position: -128px 8px;
+                background-position: -128px 6px;
             }
         
             &:hover .gnb_img_wrap,
@@ -179,7 +193,7 @@ header {
                 background: url($white_hover);
                 background-repeat: no-repeat;
                 background-size: 227px;
-                background-position: -128px 8px;
+                background-position: -128px 6px;
                 width: 38px;
                 height: 38px;
             }
@@ -187,7 +201,7 @@ header {
         
         .support_icon {
             .gnb_img_wrap {
-                background-position: 7px -27px;
+                background-position: 7px -30px;
             }
         
             &:hover .gnb_img_wrap,
@@ -195,7 +209,7 @@ header {
                 background: url($white_hover);
                 background-repeat: no-repeat;
                 background-size: 227px;
-                background-position: 7px -27px;
+                background-position: 7px -30px;
                 width: 38px;
                 height: 38px;
             }
@@ -203,7 +217,7 @@ header {
         
         .notice_icon {
             .gnb_img_wrap {
-                background-position: -26px -27px;
+                background-position: -26px -30px;
             }
         
             &:hover .gnb_img_wrap,
@@ -211,7 +225,7 @@ header {
                 background: url($white_hover);
                 background-repeat: no-repeat;
                 background-size: 227px;
-                background-position: -26px -27px;
+                background-position: -26px -30px;
                 width: 38px;
                 height: 38px;
             }
@@ -219,7 +233,7 @@ header {
         
         .question_icon {
             .gnb_img_wrap {
-                background-position: -60px -27px;
+                background-position: -60px -30px;
             }
         
             &:hover .gnb_img_wrap,
@@ -227,7 +241,7 @@ header {
                 background: url($white_hover);
                 background-repeat: no-repeat;
                 background-size: 227px;
-                background-position: -60px -27px;
+                background-position: -60px -30px;
                 width: 38px;
                 height: 38px;
             }
@@ -235,7 +249,7 @@ header {
         
         .reffer_icon {
             .gnb_img_wrap {
-                background-position: -94px -27px;
+                background-position: -94px -30px;
             }
         
             &:hover .gnb_img_wrap,
@@ -243,7 +257,7 @@ header {
                 background: url($white_hover);
                 background-repeat: no-repeat;
                 background-size: 227px;
-                background-position: -94px -27px;
+                background-position: -94px -30px;
                 width: 38px;
                 height: 38px;
             }
@@ -252,7 +266,7 @@ header {
         .logout_wrap {
             .logout_icon {
                 .gnb_img_wrap {
-                    background-position: -127px -27px;
+                    background-position: -127px -30px;
                 }
             
                 &:hover .gnb_img_wrap,
@@ -260,7 +274,7 @@ header {
                     background: url($white_hover);
                     background-repeat: no-repeat;
                     background-size: 227px;
-                    background-position: -127px -27px;
+                    background-position: -127px -30px;
                     width: 38px;
                     height: 38px;
                 }
@@ -294,8 +308,8 @@ header {
 
         #mode_select {
             border: 1px solid $gnb-line;
-            background: #fff url('../../img/select_arrow_dark.png') no-repeat 93% 50%;
-            background-size: 10%;
+            background: #fff url('../../img/select_arrow_dark.png') no-repeat right 10px center;
+            background-size: 10px;
             appearance: none;
             border-radius: 25px;
             padding: 0;
@@ -393,9 +407,6 @@ a.btn_cancle, .btn_cancle{
     border-radius: 8px;
 }
 
-.user.selected{background:$sub-color}
-.btn-primary{background:$sub-color;color:white;}
-
 .b_darkblue {
     background: #29386b !important;
     color: #fff;
@@ -409,6 +420,16 @@ a.btn_cancle, .btn_cancle{
     color: #fff;
     &:hover {
         background: #224d93 !important; 
+    }
+}
+// 추천인 모달
+#referral {
+    .modal-footer .btn {
+        width: 100%;
+
+        &.btn-secondary {
+            color: #333;
+        }
     }
 }
 
@@ -1485,14 +1506,14 @@ a.btn_cancle, .btn_cancle{
                 }        
                 .dashboard_icon {
                     .gnb_img_wrap {
-                        background-position: -159px 8px;
+                        background-position: -159px 6px;
                     }
                     &:hover .gnb_img_wrap,
                     &.active .gnb_img_wrap  {
                         background: url($dark_hover);
                         background-repeat: no-repeat;
                         background-size: 227px;
-                        background-position: -159px 8px;
+                        background-position: -159px 6px;
                         width: 38px;
                         height: 38px;
                     }
@@ -1500,14 +1521,14 @@ a.btn_cancle, .btn_cancle{
                 
                 .profile_icon {
                     .gnb_img_wrap {
-                        background-position: 7px 8px;
+                        background-position: 7px 6px;
                     }
                     &:hover .gnb_img_wrap,
                     &.active .gnb_img_wrap  {
                         background: url($dark_hover);
                         background-repeat: no-repeat;
                         background-size: 227px;
-                        background-position: 7px 8px;
+                        background-position: 7px 6px;
                         width: 38px;
                         height: 38px;
                     }
@@ -1515,7 +1536,7 @@ a.btn_cancle, .btn_cancle{
                 
                 .mywallet_icon {
                     .gnb_img_wrap {
-                        background-position: -27px 8px;
+                        background-position: -27px 6px;
                     }
                 
                     &:hover .gnb_img_wrap,
@@ -1523,7 +1544,7 @@ a.btn_cancle, .btn_cancle{
                         background: url($dark_hover);
                         background-repeat: no-repeat;
                         background-size: 227px;
-                        background-position: -27px 8px;
+                        background-position: -27px 6px;
                         width: 38px;
                         height: 38px;
                     }
@@ -1531,7 +1552,7 @@ a.btn_cancle, .btn_cancle{
                 
                 .mining_icon {
                     .gnb_img_wrap {
-                        background-position: -196px 8px;
+                        background-position: -196px 6px;
                     }
                 
                     &:hover .gnb_img_wrap,
@@ -1539,7 +1560,7 @@ a.btn_cancle, .btn_cancle{
                         background: url($dark_hover);
                         background-repeat: no-repeat;
                         background-size: 227px;
-                        background-position: -196px 8px;
+                        background-position: -196px 6px;
                         width: 38px;
                         height: 38px;
                     }
@@ -1547,7 +1568,7 @@ a.btn_cancle, .btn_cancle{
                 
                 .mypool_icon {
                     .gnb_img_wrap {
-                        background-position: -196px -27px;
+                        background-position: -196px -30px;
                     }
                 
                     &:hover .gnb_img_wrap,
@@ -1555,7 +1576,7 @@ a.btn_cancle, .btn_cancle{
                         background: url($dark_hover);
                         background-repeat: no-repeat;
                         background-size: 227px;
-                        background-position: -196px -27px;
+                        background-position: -196px -30px;
                         width: 38px;
                         height: 38px;
                     }
@@ -1563,7 +1584,7 @@ a.btn_cancle, .btn_cancle{
                 
                 .upstairs_icon {
                     .gnb_img_wrap {
-                        background-position: -61px 8px;
+                        background-position: -61px 6px;
                     }
                 
                     &:hover .gnb_img_wrap,
@@ -1571,7 +1592,7 @@ a.btn_cancle, .btn_cancle{
                         background: url($dark_hover);
                         background-repeat: no-repeat;
                         background-size: 227px;
-                        background-position: -61px 8px;
+                        background-position: -61px 6px;
                         width: 38px;
                         height: 38px;
                     }
@@ -1579,7 +1600,7 @@ a.btn_cancle, .btn_cancle{
                 
                 .bonus_history_icon {
                     .gnb_img_wrap {
-                        background-position: -95px 8px;
+                        background-position: -95px 6px;
                     }
                 
                     &:hover .gnb_img_wrap,
@@ -1587,7 +1608,7 @@ a.btn_cancle, .btn_cancle{
                         background: url($dark_hover);
                         background-repeat: no-repeat;
                         background-size: 227px;
-                        background-position: -95px 8px;
+                        background-position: -95px 6px;
                         width: 38px;
                         height: 38px;
                     }
@@ -1595,7 +1616,7 @@ a.btn_cancle, .btn_cancle{
                 
                 .center_page_icon {
                     .gnb_img_wrap {
-                        background-position: -161px -27px;
+                        background-position: -161px -30px;
                     }
                 
                     &:hover .gnb_img_wrap,
@@ -1603,7 +1624,7 @@ a.btn_cancle, .btn_cancle{
                         background: url($dark_hover);
                         background-repeat: no-repeat;
                         background-size: 227px;
-                        background-position: -161px -27px;
+                        background-position: -161px -30px;
                         width: 38px;
                         height: 38px;
                     }
@@ -1611,7 +1632,7 @@ a.btn_cancle, .btn_cancle{
                 
                 .recommend_icon {
                     .gnb_img_wrap {
-                        background-position: -128px 8px;
+                        background-position: -128px 6px;
                     }
                 
                     &:hover .gnb_img_wrap,
@@ -1619,7 +1640,7 @@ a.btn_cancle, .btn_cancle{
                         background: url($dark_hover);
                         background-repeat: no-repeat;
                         background-size: 227px;
-                        background-position: -128px 8px;
+                        background-position: -128px 6px;
                         width: 38px;
                         height: 38px;
                     }
@@ -1627,7 +1648,7 @@ a.btn_cancle, .btn_cancle{
                 
                 .support_icon {
                     .gnb_img_wrap {
-                        background-position: 7px -27px;
+                        background-position: 7px -30px;
                     }
                 
                     &:hover .gnb_img_wrap,
@@ -1635,7 +1656,7 @@ a.btn_cancle, .btn_cancle{
                         background: url($dark_hover);
                         background-repeat: no-repeat;
                         background-size: 227px;
-                        background-position: 7px -27px;
+                        background-position: 7px -30px;
                         width: 38px;
                         height: 38px;
                     }
@@ -1643,7 +1664,7 @@ a.btn_cancle, .btn_cancle{
                 
                 .notice_icon {
                     .gnb_img_wrap {
-                        background-position: -26px -27px;
+                        background-position: -26px -30px;
                     }
                 
                     &:hover .gnb_img_wrap,
@@ -1651,7 +1672,7 @@ a.btn_cancle, .btn_cancle{
                         background: url($dark_hover);
                         background-repeat: no-repeat;
                         background-size: 227px;
-                        background-position: -26px -27px;
+                        background-position: -26px -30px;
                         width: 38px;
                         height: 38px;
                     }
@@ -1659,7 +1680,7 @@ a.btn_cancle, .btn_cancle{
                 
                 .question_icon {
                     .gnb_img_wrap {
-                        background-position: -60px -27px;
+                        background-position: -60px -30px;
                     }
                 
                     &:hover .gnb_img_wrap,
@@ -1667,7 +1688,7 @@ a.btn_cancle, .btn_cancle{
                         background: url($dark_hover);
                         background-repeat: no-repeat;
                         background-size: 227px;
-                        background-position: -60px -27px;
+                        background-position: -60px -30px;
                         width: 38px;
                         height: 38px;
                     }
@@ -1675,7 +1696,7 @@ a.btn_cancle, .btn_cancle{
                 
                 .reffer_icon {
                     .gnb_img_wrap {
-                        background-position: -94px -27px;
+                        background-position: -94px -30px;
                     }
                 
                     &:hover .gnb_img_wrap,
@@ -1683,7 +1704,7 @@ a.btn_cancle, .btn_cancle{
                         background: url($dark_hover);
                         background-repeat: no-repeat;
                         background-size: 227px;
-                        background-position: -94px -27px;
+                        background-position: -94px -30px;
                         width: 38px;
                         height: 38px;
                     }
@@ -1693,7 +1714,7 @@ a.btn_cancle, .btn_cancle{
                     .logout_icon {
                         border-top: none;
                         .gnb_img_wrap {
-                            background-position: -127px -27px;
+                            background-position: -127px -30px;
                         }
                     
                         &:hover .gnb_img_wrap,
@@ -1701,7 +1722,7 @@ a.btn_cancle, .btn_cancle{
                             background: url($dark_hover);
                             background-repeat: no-repeat;
                             background-size: 227px;
-                            background-position: -127px -27px;
+                            background-position: -127px -30px;
                             width: 38px;
                             height: 38px;
                         }
@@ -1742,16 +1763,9 @@ a.btn_cancle, .btn_cancle{
             background: $main-background;
 
             #mode_select {
-                border: 1px solid #2c3037;
-                background: $main-background3 url("../../img/select_arrow_white.png") no-repeat 93% 50%;
-                background-size: 10%;
-                appearance: none;
-                border-radius: 25px;
-                padding: 0;
-                width: 100px;
-                height: 40px;
+                background: $main-background3 url("../../img/select_arrow_white.png") no-repeat right 10px center;
+                background-size: 10px;
                 color: #fff;
-                padding-left: 20px;
             }
 
             h3 {
@@ -3209,15 +3223,9 @@ a.btn_cancle, .btn_cancle{
     }
 
     #mode_select {
-        border: 1px solid $gnb-line;
-        background: $main-background3 url('../../img/select_arrow_white.png') no-repeat 93% 50%;
-        background-size: 10%;
-        appearance: none;
-        border-radius: 25px;
-        padding: 0;
-        width: 100px;
-        height: 32px;
-        padding-left: 20px;
+        background: $main-background3 url('../../img/select_arrow_white.png') no-repeat right 10px center;
+        background-size: 10px;
+        color: #fff;
     }
     
     .r_card.r_card_1,
