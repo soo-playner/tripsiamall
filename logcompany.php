@@ -11,12 +11,17 @@ define('CONFIG_MAIL_PW','izmvwaprbjxgftme');
 define('CONFIG_MAIL_ADDR','wizclass.inc@gmail.com');
 
 // 기준통화설정
-define('ASSETS_CURENCY','원');
-define('BALANCE_CURENCY','원');
-define('WITHDRAW_CURENCY','원');
+define('ASSETS_CURENCY','ETH');
+define('BALANCE_CURENCY','USDT');
+define('WITHDRAW_CURENCY','TMP');
+define('KRW_CURENCY','KRW');
 
+define('ASSETS_NUMBER_POINT',8); // 입금 단위
+define('BONUS_NUMBER_POINT',8); // 수당계산,정산기준단위
+define('COIN_NUMBER_POINT',8); // 코인 단위
+define('KRW_NUMBER_POINT',0);
 
-$minings = ['원','eth','etc','fil'];
+$minings = ['원','eth','usdt','fil'];
 $mining_hash = ['mh/s','mh/s'];
 
 $before_mining_coin = 1;
@@ -30,9 +35,8 @@ $mining_amt_target = $mining_target.'_amt';
 $secret_key = "wizclass0780";
 $version_date = '2022-09-20';
 
-define('ASSETS_NUMBER_POINT',0); // 입금 단위
-define('BONUS_NUMBER_POINT',0); // 수당계산,정산기준단위
-define('COIN_NUMBER_POINT',4); // 코인 단위
+// 회사지갑 설정
+define('ETH_ADDRESS','123123123');
 
 // 텔레그램 설정
 define('TELEGRAM_ALERT_USE',true);
@@ -41,10 +45,8 @@ $log_ip = '61.74.205.8';
 $log_pw = "*CB664B173EFE2124B8A144F5FE88D06D07B1EAB1";
 
 
-// 이더사용 및 회사지갑 설정
 // False 설정시 현금사용
 define('USE_WALLET',FALSE);
-define('ETH_ADDRESS','');
 
 
 //영카트 로그인체크 주소

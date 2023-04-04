@@ -174,7 +174,7 @@ $result = sql_query($sql);
             var _target = $(this).parent().parent();
 
             var coin = _target.find('.coin').text();
-            var amt = _target.find('.input_amt_val').val().replace(/,/g,'');
+            var amt = _target.find('.input_amt_val').val().replace(',','');
 
 			if (confirm('상태값을 변경하시겠습니까?')) {
 			} else {
@@ -266,7 +266,7 @@ $result = sql_query($sql);
 
 
 <div class="local_ov01 local_ov">
-	<a href="./adm.deposit_request.php?<?=$qstr?>" class="ov_listall"> 결과통계 <?=$total_count?> 건 = <strong><?=number_format($total_hap,ASSETS_NUMBER_POINT)?></strong></a> 
+	<a href="./adm.deposit_request.php?<?=$qstr?>" class="ov_listall"> 결과통계 <?=$total_count?> 건 = <strong><?=shift_auto($total_hap,ASSETS_NUMBER_POINT)?></strong></a> 
 	<?
 		// 현재 통계치
 		$stats_sql = "SELECT status, sum(in_amt) as hap, count(in_amt) as cnt from {$g5['deposit']} as A WHERE 1=1 ".$sql_condition. " GROUP BY status";
@@ -279,7 +279,7 @@ $result = sql_query($sql);
 			echo "<a href='./adm.deposit_request.php?".$qstr."&status=".$stats['status']."'><span class='tit'>";
 			echo status($stats['status']);
 			echo "</span> : ".$stats['cnt'];
-			echo "건 = <strong>".Number_format($stats['hap'],ASSETS_NUMBER_POINT)."</strong></a>";
+			echo "건 = <strong>".shift_auto($stats['hap'],ASSETS_NUMBER_POINT)."</strong></a>";
 		}
 	?>
 </div>
@@ -299,10 +299,10 @@ $result = sql_query($sql);
         <th scope="col" width='5%'>no</th>
         <th scope="col" width='8%'>아이디</th>
         <th scope="col" width='8%'>추천인</th>
-        <th scope="col" width='5%'>센터</th>
-        <th scope="col" width='5%'>입금자명</th>
-        <th scope="col" width='10%'>입금요청금액</th>
-        <th scope="col" width='12%'>입금처리금액</th>
+        <!-- <th scope="col" width='5%'>센터</th> -->
+        <th scope="col" width='12%'>TX ID</th>
+        <th scope="col" width='5%'>입금요청금액</th>
+        <th scope="col" width='10%'>입금처리금액</th>
         <th scope="col" width='4%'>입금종류</th>
         <th scope="col" width='10%'>승인여부</th>
         <th scope="col" width='8%'>요청시간</th>
@@ -327,17 +327,17 @@ $result = sql_query($sql);
         $member_binary_sql = sql_fetch("SELECT A.mb_brecommend,B.mb_id FROM g5_member A  LEFT JOIN g5_member_binary B ON A.mb_id = B.mb_id WHERE A.mb_id ='{$row['mb_id']}' ");
         $member_binary = $member_binary_sql['mb_brecommend'];
         $member_binary2 = $member_binary_sql['mb_id'];
-        
+        $in_amt = shift_auto($row['in_amt']);
     ?>
    
     <tr class=" <?=$row_dup?>">
         <td ><?php echo $row['uid'] ?></td>
         <td class='td_id'><a href='/adm/member_form.php?sst=&sod=&sfl=&stx=&page=&w=u&mb_id=<?=$row['mb_id']?>' target='_blank'><?=$row['mb_id'] ?></a></td>
         <td style='color:#666'><?=$member_result['mb_recommend']?></td>
-        <td style='color:#666'><?=$member_result['mb_center']?></td>
+        <!-- <td style='color:#666'><?=$member_result['mb_center']?></td> -->
         <td style='color:#666'><?=$row['txhash']?></td>
-        <td><?=Number_format($row['in_amt'],ASSETS_NUMBER_POINT)?></td>
-        <td><input type='text' class='reg_text input_amt_val' style='font-weight:600;color:blue;text-align:right' value='<?=Number_format($row['in_amt'],ASSETS_NUMBER_POINT)?>' inputmode="numeric"></td>
+        <td><?=shift_auto($row['amt'])?></td>
+        <td><input type='text' class='reg_text input_amt_val' style='font-weight:600;color:blue;text-align:right' value='<?=shift_auto($row['in_amt'],BALANCE_CURENCY)?>'></td>
         <td class='coin'><?=strtoupper($row['coin']);?></td>
         <td>
             <!-- <?=status($row['status'])?> -->

@@ -103,7 +103,7 @@ $(document).ready(function(){
 				</a>
 			</li> 
 			<?}?>
-			<li class="mining_icon <? if($_GET['id'] === 'mining') {echo 'active';}?>">
+			<!-- <li class="mining_icon <? if($_GET['id'] === 'mining') {echo 'active';}?>">
 				<a href="/page.php?id=mining">
 					<div class="gnb_img_wrap"></div>
 					<div class="gnb_title_Wrap">
@@ -118,7 +118,7 @@ $(document).ready(function(){
 						<span >마이풀</span>
 					</div>
 				</a>
-			</li>
+			</li> -->
 			<?if($nw['nw_purchase'] == 'Y'){?>
 			<li class="upstairs_icon <? if($_GET['id'] === 'upstairs') {echo 'active';}?>">
 				<a href="/page.php?id=upstairs">

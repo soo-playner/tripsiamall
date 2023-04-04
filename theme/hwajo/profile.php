@@ -133,9 +133,9 @@
 							<label>모바일</label>  
 							<div class='row'>
 								<div class='col-8'><p><?=format_phone($member['mb_hp'])?></p></div>
-								<?if($member['mb_hp'] == '' || $member['mb_certify'] != 1){?>
+								<!-- <?if($member['mb_hp'] == '' || $member['mb_certify'] != 1){?>
 									<div class='col-4 text-right'><input type="button" value="수정/변경" class="btn inline num_pop_open pop_open" ></div>
-								<?}?>
+								<?}?> -->
 							</div>
 						</li>
 					
@@ -258,12 +258,12 @@
 						</li>
 					</ul>
 
-					<ul class='row'>
+					<!-- <ul class='row'>
 						<li class='col-sm-12 col-12'>
 							<label >나의 센터</label>
 							<p ><?=get_name($member['mb_center'])?></p>
 						</li>
-					</ul>
+					</ul> -->
 
 				</div>
 
@@ -317,13 +317,13 @@
 
 		<div class="pop_wrap chage_tpw_pop1 input_pop_css">
 			<form action="">
-				<label for="" >사용중인 거래 비밀번호</label>
+				<label for="" >사용중인 출금 비밀번호</label>
 				<input type="password" id="current_tpw" maxlength="6">
 				<hr class="hr_dash">
 
-				<label for="" >새로운 거래 비밀번호</label>
+				<label for="" >새로운 출금 비밀번호</label>
 				<input type="password" id="new_tpw" maxlength="6">
-				<label for="" >새로운 거래 비밀번호 확인</label>
+				<label for="" >새로운 출금 비밀번호 확인</label>
 				<input type="password" id="new_tpw_re" maxlength="6">
 				<label for="" >로그인 비밀번호</label>
 				<input type="password" id="auth_pwd" minlength='4' maxlength="20">
