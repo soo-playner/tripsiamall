@@ -2639,15 +2639,14 @@ a.btn_cancle, .btn_cancle {
 .dark .support-container #ticketForm span:not(.input-group-text) {
   color: #fff;
 }
-.dark .support-container #ticketForm .input-group .custom-select {
-  background: #fff;
-}
 .dark .support-container #ticketForm .submit-button .btn {
-  background: -webkit-gradient(linear, left top, right top, from(#fbe591), to(#fac707)) !important;
-  background: linear-gradient(to right, #fbe591, #fac707) !important;
+  background: #fac707;
 }
 .dark .support-container #ticketForm .submit-button .btn.font_white {
   color: #000 !important;
+}
+.dark .support-container #ticketForm .submit-button .btn:hover {
+  background: #fbe591;
 }
 .dark .support-container #ticketForm .email {
   color: #fff;
@@ -2679,14 +2678,6 @@ a.btn_cancle, .btn_cancle {
   background: none;
   color: #eee;
 }
-.dark .chat-box .chat-input .send {
-  background: #92caff;
-  color: #fff;
-}
-.dark .chat-box .chat-input .cl {
-  background: #5394ff;
-  color: #fff;
-}
 .dark .member-message {
   background: #2c2f34;
 }
@@ -2708,9 +2699,6 @@ a.btn_cancle, .btn_cancle {
 }
 .dark .ticket-time {
   color: #fff !important;
-}
-.dark .support-panels .form-control {
-  border: 1px solid #939393;
 }
 .dark .custom-file-label {
   background: none;

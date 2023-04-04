@@ -2992,18 +2992,16 @@ a.btn_cancle, .btn_cancle{
                 color: #fff;
             }
 
-            .input-group {
-                .custom-select {
-                    background: #fff;
-                }
-            }
-
             .submit-button {
                 .btn {
-                    background: linear-gradient(to right, $main-button, $main-button2) !important;
+                    background: $main-button2;
     
                     &.font_white {
                         color: #000 !important;
+                    }
+
+                    &:hover {
+                        background: $main-button;
                     }
                 }
             }
@@ -3053,14 +3051,14 @@ a.btn_cancle, .btn_cancle{
                 color: #eee;
             }
 
-            .send {
-                background: #92caff;
-                color: #fff;
-            }
-            .cl {
-                background: #5394ff;
-                color: #fff;
-            }
+            // .send {
+            //     background: #92caff;
+            //     color: #fff;
+            // }
+            // .cl {
+            //     background: #5394ff;
+            //     color: #fff;
+            // }
         }
     }
 
@@ -3090,12 +3088,6 @@ a.btn_cancle, .btn_cancle{
 
     .ticket-time {
         color: #fff !important;
-    }
-
-    .support-panels {
-        .form-control {
-            border: 1px solid #939393;
-        }
     }
 
     .custom-file-label {

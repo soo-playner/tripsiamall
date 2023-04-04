@@ -3456,7 +3456,7 @@ input.input_price {
 	display: inline-block;
 	width: 100%;
 	height: 38px;
-	padding: 0 10px 0 100px;
+	padding: 0 10px 0 120px;
 	vertical-align: middle;
 	border: none;
 	color: #fff;
@@ -3471,11 +3471,16 @@ input.input_price {
 	font-size: 14px;
 	color: #c7ccd5;
 }
+.dark .upload-name1,
+.dark .upload-name2 {
+	background: none;
+}
 .file_label,
 .file_label2 {
 	position: absolute;
 	top: 18%;
-	width: 82px;
+	width: 100px;
+	text-align: center;
 	left: 0;
 	padding: 4px 20px;
 	color: #fff !important;
@@ -3491,6 +3496,10 @@ input.input_price {
 .file_label2:hover {
 	background-color: #a9a9a9;
 }
+.dark .file_label,
+.dark .file_label2 {
+	background: #2c2f34;
+}
 /* 새 티켓 열기 */
 #open-new-ticket {
 	margin: 30px 15px 15px;
@@ -3499,13 +3508,24 @@ input.input_price {
 	border-radius: 10px;
 	box-shadow: 0 2px 3px 0 rgba(49, 104, 116, 0.03);
 }
+.dark #open-new-ticket {
+	background: #212429;
+}
 #open-new-ticket .custom-select {
 	border: none;
 	background: url(../../img/angle-down-solid_gray.svg) no-repeat right 10px center / 15px;
 }
+.dark #open-new-ticket .custom-select {
+	color: #fff;
+	background-color: #212429;
+}
 .support-panels .input-group {
 	border: 1px solid #dfe4ec;
 	border-radius: 5px;
+}
+.dark .support-panels .input-group {
+	border-color: #939393;
+	overflow: hidden;
 }
 .support-panels .input-group-text {
 	background-color: #f8fbff;
@@ -3513,6 +3533,11 @@ input.input_price {
 	font-size: 0.9rem;
 	text-align: left;
 	flex-basis: 120px;
+}
+.dark .support-container .input-group-prepend,
+.dark .support-container .input-group-text {
+	background-color: #2c2f34;
+	color: #fff;
 }
 .support-panels .btn.send,
 .support-panels .btn_send {
@@ -3577,6 +3602,10 @@ input.input_price {
 	background-color: #f3f7ff;
 	color: #29386b;
 }
+.dark .support-message {
+	background: #2c2f34;
+	color: #fff;
+}
 .support-message a {
 	color: #ccc;
 }
@@ -3618,6 +3647,9 @@ input.input_price {
 	font-size: 0.9rem;
 	line-height: 38px;
 	background: #fff;
+}
+.dark .support-panels .form-control {
+	background: none;
 }
 .support-panels .form-control::placeholder {
 	color: #c7ccd5;
