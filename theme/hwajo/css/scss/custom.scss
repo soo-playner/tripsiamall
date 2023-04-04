@@ -354,17 +354,22 @@ a.btn_secondary,
     font-weight: bold; 
     border-radius: 8px;
     border: none;
+    transition: all .3s;
 
     &:hover {
         background: #3e3e3e !important; 
         border: none;
     }
 }
-.btn.btn_primary {
+
+a.btn_primary,
+.btn_primary {
     background:linear-gradient(90deg,#847c6d, #5f5644); 
     border-radius: 8px;
     border: none;
-    
+    color: #fff;
+    transition: all .3s;
+
     &:hover {
         background:#5f5644 !important; 
         border: none; 
@@ -1326,12 +1331,6 @@ a.btn_cancle, .btn_cancle{
 
         span {
             color: #fff;
-        }
-
-        .btn_secondary {
-            span {
-                color: #000;
-            }
         }
 
         .auto_login {

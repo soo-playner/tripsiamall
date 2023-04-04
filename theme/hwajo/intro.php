@@ -34,11 +34,6 @@ body{overflow-y: hidden;}
   width: 1%;
   height: 2px;
 }
-a.btn_secondary,
-.btn_secondary {background:linear-gradient(90deg, #545454, #3e3e3e); color: #fff; font-weight: bold;}
-a.btn_secondary:hover {background: #3e3e3e !important; border: none; transition: background-color .4s;}
-.btn.btn_primary{background:linear-gradient(90deg,#847c6d, #5f5644);}
-.btn.btn_primary:hover{background:#5f5644 !important; border: none; transition: background-color .4s;}
 
 .animate-bottom {
   position: relative;

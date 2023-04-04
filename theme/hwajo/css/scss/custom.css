@@ -274,6 +274,8 @@ a.btn_secondary,
   font-weight: bold;
   border-radius: 8px;
   border: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 a.btn_secondary:hover,
 .btn_secondary:hover {
@@ -281,13 +283,18 @@ a.btn_secondary:hover,
   border: none;
 }
 
-.btn.btn_primary {
+a.btn_primary,
+.btn_primary {
   background: -webkit-gradient(linear, left top, right top, from(#847c6d), to(#5f5644));
   background: linear-gradient(90deg, #847c6d, #5f5644);
   border-radius: 8px;
   border: none;
+  color: #fff;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
-.btn.btn_primary:hover {
+a.btn_primary:hover,
+.btn_primary:hover {
   background: #5f5644 !important;
   border: none;
 }
@@ -1388,9 +1395,6 @@ a.btn_cancle, .btn_cancle {
 }
 .dark .login_wrap span {
   color: #fff;
-}
-.dark .login_wrap .btn_secondary span {
-  color: #000;
 }
 .dark .login_wrap .auto_login {
   color: #fff;
