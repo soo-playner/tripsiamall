@@ -26,15 +26,15 @@ $total_deposit = $member['mb_deposit_point'] + $member['mb_deposit_calc'];
 $total_bonus = $member['mb_balance']; 
 $total_shift_amt = $member['mb_shift_amt'];
 
-$total_fund = $total_bonus;
+$total_fund = shift_auto($total_bonus,BALANCE_CURENCY);
 
 // $shop_point = $total_bonus*0.1;
 
 // 출금가능금액 :: 총보너스 - 기출금
-$total_withraw = $total_bonus - $total_shift_amt ;
+$total_withraw = shift_auto($total_bonus - $total_shift_amt,BALANCE_CURENCY) ;
 
 // 구매가능잔고 :: 입금액 - 구매금액 = 남은금액
-$available_fund = $total_deposit+$member['mb_shift_amt'];
+$available_fund = shift_auto($total_deposit,BALANCE_CURENCY);
 
 // 마이닝합계
 $mining_acc = $member[$mining_target];
@@ -418,31 +418,102 @@ function expire_date($start){
 	return $expire_date;
 }
 
-// 원 표시
-function shift_kor($val){
-	return Number_format($val, 0);
-}
+// // 원 표시
+// function shift_kor($val){
+// 	return Number_format($val, 0);
+// }
 
-// 달러 표시
-function shift_doller($val){
-	return Number_format($val, 2);
-}
+// // 달러 표시
+// function shift_doller($val){
+// 	return Number_format($val, 2);
+// }
 
+// // 코인 표시
+// function shift_coin($val){
+// 	return Number_format($val, COIN_NUMBER_POINT);
+// }
+
+
+// // 달러 , ETH 코인 표시
+// function shift_auto($val,$coin = '원'){
+// 	if($coin == '$'){
+// 		return shift_doller($val);
+// 	}else if($coin == '원'){
+// 		return shift_kor($val);
+// 	}else{
+// 		return shift_coin($val);
+// 	}
+// }
 // 코인 표시
-function shift_coin($val){
-	return Number_format($val, COIN_NUMBER_POINT);
+function shift_coin($val, $decimal = ASSETS_NUMBER_POINT){
+	$_num = (int)str_pad("1",$decimal+1,"0",STR_PAD_RIGHT);
+	return floor($val*$_num)/$_num;
 }
 
+function clean_number_format($val, $decimal = ASSETS_NUMBER_POINT){
+	$_decimal = $decimal <= 0 ? 1 : $decimal;
+	$_num = number_format(shift_coin($val,$decimal), $_decimal);
+    $_num = rtrim($_num, 0);
+    $_num= rtrim($_num, '.');
 
-// 달러 , ETH 코인 표시
-function shift_auto($val,$coin = '원'){
-	if($coin == '$'){
-		return shift_doller($val);
-	}else if($coin == '원'){
-		return shift_kor($val);
+    return $_num;
+}
+
+function shift_auto($val,$type = 'ETH'){
+	if($type == 'ETH'){
+		$decimal = ASSETS_NUMBER_POINT;
+	}else if($type == 'KRW'){
+		$decimal = KRW_NUMBER_POINT;
+	}else if($type == 'USDT'){
+		$decimal = BONUS_NUMBER_POINT;
 	}else{
-		return shift_coin($val);
+		$decimal = COIN_NUMBER_POINT;
 	}
+	return clean_number_format($val,$decimal);
+}
+
+function get_coins_price(){
+	$result = array();
+	$url_list = array(
+		'https://api.upbit.com/v1/ticker?markets=KRW-ETH&markets=USDT-ETH'
+		);
+
+	$data = multi_curl($url_list);
+	
+	$eth_krw = $data[0][0]['trade_price'];
+	$usdt_eth = $data[0][1]['trade_price'];
+
+	$result['usdt_krw'] = $eth_krw / $usdt_eth;
+	$result['usdt_eth'] = $usdt_eth;
+	$result['eth_krw'] = $eth_krw;
+
+	return $result;
+}
+
+function multi_curl($url){
+	$ch = array();
+	$response = array();
+	$curl_init = curl_multi_init();
+	foreach($url as $key => $value){
+		$ch[$key] = curl_init($value);
+		curl_setopt($ch[$key], CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch[$key], CURLOPT_SSL_VERIFYPEER, false);
+		curl_setopt($ch[$key], CURLOPT_SSL_VERIFYHOST, false);
+		curl_multi_add_handle($curl_init,$ch[$key]);
+	}
+	
+	do {
+		curl_multi_exec($curl_init, $running);
+		curl_multi_select($curl_init);
+	} while ($running > 0);
+	
+	foreach(array_keys($ch) as $key){
+		$response[$key] = json_decode(curl_multi_getcontent($ch[$key]),true); 
+		curl_multi_remove_handle($curl_init, $ch[$key]);
+	}
+	
+	curl_multi_close($curl_init);
+	return $response;
 }
 
 

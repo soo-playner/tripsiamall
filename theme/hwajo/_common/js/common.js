@@ -201,7 +201,12 @@ function Price(x){
 
 // 숫자에 콤마 제거
 function conv_number(val) {
-	number = val.replace(/,/g,'');
+	let reg = /,/g;
+	let number = val;
+	if(reg.test(val)){
+		number = val.replace(reg,'');
+	}
+
 	return number;
 }
 

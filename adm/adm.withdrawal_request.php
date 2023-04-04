@@ -2,8 +2,9 @@
 $sub_menu = "700300";
 include_once('./_common.php');
 include_once(G5_THEME_PATH . '/_include/wallet.php');
+include_once(G5_PLUGIN_PATH.'/Encrypt/rule.php');
 
-$g5['title'] = "수당(원화) 출금 요청 내역";
+$g5['title'] = "수당 출금 요청 내역";
 include_once('./adm.header.php');
 
 function short_code($string, $char = 8)
@@ -11,7 +12,7 @@ function short_code($string, $char = 8)
 	return substr($string, 0, $char) . " ... " . substr($string, -8);
 }
 
-$sql_condition = "and coin = '원' ";
+$sql_condition = "";
 
 if ($_GET['fr_id']) {
 	$sql_condition .= " and A.mb_id = '{$_GET['fr_id']}' ";
@@ -39,16 +40,18 @@ if ($_GET['ord'] != null && $_GET['ord_word'] != null) {
 	$sql_ord = "order by " . $_GET['ord_word'] . " " . $_GET['ord'];
 }
 
-$sql = " select count(*) as cnt, sum(amt) as hap, sum(amt_total) as amt_total, sum(fee) as feehap, sum(out_amt) as outamt from {$g5['withdrawal']} A WHERE 1=1 AND DATE_FORMAT(A.create_dt, '%Y-%m-%d') between '{$fr_date}' and '{$to_date}'	 ";
+$sql = " select coin,count(*) as cnt, sum(amt) as hap, sum(amt_total) as amt_total, sum(fee) as feehap, sum(out_amt) as outamt from {$g5['withdrawal']} A WHERE 1=1 AND DATE_FORMAT(A.create_dt, '%Y-%m-%d') between '{$fr_date}' and '{$to_date}' ";
 $sql .= $sql_condition;
-$sql .= $sql_ord;
-$row = sql_fetch($sql);
-
-$total_count = $row['cnt'];
-$total_hap = $row['hap'];
-$total_amt = $row['amt_total'];
-$total_out = $row['outamt'];
-$total_fee = $row['feehap'];
+$sql .= $sql_ord . " group by coin";
+$result = sql_query($sql);
+$total_arr = array();
+$total_count = 0;
+$total_out = 0;
+for($i = 0; $i < $row = sql_fetch_array($result); $i++){
+	$total_count += $row['cnt'];
+	$total_out += $row['outamt'];
+	array_push($total_arr,$row);
+}
 
 /* print_r($sql);
 echo "<br><br>"; */
@@ -108,10 +111,6 @@ function return_status_tx($val)
 
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link href="<?= G5_ADMIN_URL ?>/css/scss/adm.withdrawal_request.css" rel="stylesheet">
-
-<style>
-	
-</style>
 
 <script src="../excel/tabletoexcel/xlsx.core.min.js"></script>
 <script src="../excel/tabletoexcel/FileSaver.min.js"></script>
@@ -230,7 +229,7 @@ function return_status_tx($val)
 <input type="button" class="btn_submit excel" id="btnExport"  data-name='zeta_bonus_withdrawal' value="엑셀 다운로드" />
 
 <div class="local_ov01 local_ov">
-	<a href="./adm.withdrawal_request.php?<?= $qstr ?>" class="ov_listall"> 결과통계 <?= $total_count ?> 건 = <strong><?= shift_auto($total_out) ?> <?= WITHDRAW_CURENCY ?> </strong></a>
+	<a href="./adm.withdrawal_request.php?<?= $qstr ?>" class="ov_listall"> 결과통계 <?= $total_count ?> 건 = <strong><?= shift_auto($total_out,BALANCE_CURENCY) ?> <?= BALANCE_CURENCY ?> </strong></a>
 	<?
 	// 현재 통계치
 	$stats_sql = "SELECT status, sum(out_amt)  as hap, count(out_amt) as cnt from {$g5['withdrawal']} as A WHERE 1=1 " . $sql_condition . " GROUP BY status";
@@ -240,7 +239,7 @@ function return_status_tx($val)
 		echo "<a href='./adm.withdrawal_request.php?" . $qstr . "&status=" . $stats['status'] . "'><span class='tit'>";
 		echo return_status_tx($stats['status']);
 		echo "</span> : " . $stats['cnt'];
-		echo "건 = <strong>" . shift_auto($stats['hap']) . ' ' . WITHDRAW_CURENCY . "</strong></a>";
+		echo "건 = <strong>" . shift_auto($stats['hap'],BALANCE_CURENCY) . ' ' . BALANCE_CURENCY . "</strong></a>";
 	}
 	?>
 </div>
@@ -272,13 +271,13 @@ $ord_rev = $ord_array[($ord_key + 1) % 2]; // 내림차순→오름차순, 오�
 				<th style="width:4%;">KYC인증 </th>
 				<th style="width:auto">출금정보</th>
 
-				<th style="width:4%;">출금단위</th>
 				<th style="width:5%;">출금전잔고</th>
+				<th style="width:4%;">출금단위</th>
 				<th style="width:7%;">출금요청액</th>
-				<th style="width:4%;">출금수수료</th>
+				<th style="width:7%;">출금수수료</th>
 
-				<th style="width:7%;">출금액 <span style='color:red'>(<?= WITHDRAW_CURENCY ?>)</span></th>
-				<th style="width:3%;">출금시세</th>
+				<th style="width:7%;">출금액</th>
+				<th style="width:7%;">출금시세(원)</th>
 
 				<!-- <th style="width:5%;">적용코인시세</th> -->
 
@@ -316,11 +315,23 @@ $ord_rev = $ord_array[($ord_key + 1) % 2]; // 내림차순→오름차순, 오�
 							<?php if ($row['addr'] == '') { ?>
 								<?= $row['bank_name'] ?> | <span id="bank_account" style='font-weight:600;font-size:13px;'><?= $row['bank_account'] ?></span>(<?= $row['account_name'] ?>)
 								<button type="button" class="btn inline_btn copybutton f_right" style='margin-right:10px;vertical-align:top;'>계좌복사</button>
-							<?php } else { ?>
-								<!-- <a href='https://etherscan.io/address/<?= $row['addr'] ?>' target='_blank'><?= short_code($row['addr'], 15) ?></a>  -->
-								<div class='eth_addr'><a href='https://filfox.info/ko/address/<?= $row['addr'] ?>' target='_blank'><?= $row['addr'] ?></a></div>
-							<?php } ?>
+							<?php } else { 
+								$wallet_addr = $row['coin'] == ASSETS_CURENCY ? $mb['eth_my_wallet'] : $mb['mb_wallet'];
+								$wallet_addr1 = Decrypt($row['addr'],$secret_key,$secret_iv);
+								$wallet_addr2 = Decrypt($wallet_addr,$row['mb_id'],'x');
+								if($wallet_addr1 == $wallet_addr2){ ?>
+								<a href='https://etherscan.io/address/<?=$wallet_addr1?>' target='_blank'><?=$wallet_addr1?></a> 
+								<!-- <div class='eth_addr'><a href='https://filfox.info/ko/address/<?= $row['addr'] ?>' target='_blank'><?= $row['addr'] ?></a></div> -->
+							<?php }else{ ?>
+								<div class='eth_addr' style='color:red;border-bottom:1px solid red'>출금주소 불일치(확인요망)</div>
+								<div class='eth_addr' style="text-align:left;font-size:10px">출금요청주소: <?=$wallet_addr1?></div>
+								<div class='eth_addr' style="text-align:left;font-size:10px">등록지갑주소: <?=$wallet_addr2?></div>
+							<?php }
+								} ?>
 						</td>
+
+						<!-- 출금전잔고 -->
+						<td class="gray" style='font-size:11px;'><?= shift_auto($row['account'], $row['coin']) ?></td>
 
 						<input type="hidden" value="<?= $row['addr'] ?>" name="addr[]">
 						<td class="td_amt">
@@ -330,11 +341,10 @@ $ord_rev = $ord_array[($ord_key + 1) % 2]; // 내림차순→오름차순, 오�
 												} ?>
 						</td>
 
-						<!-- 출금전잔고 -->
-						<td class="gray" style='font-size:11px;'><?= shift_auto($row['account'], $row['coin']) ?></td>
+					
 
 						<!-- 출금요청액 -->
-						<td class="td_amt <?= $coin_class ?>"><?= shift_auto($row['amt_total'], $row['coin']) ?></td>
+						<td class="td_amt <?= $coin_class ?>"><?= shift_auto($row['amt_total'], $row['coin']) ?> <?="<br>(".shift_auto($row['out_amt'],BALANCE_CURENCY) ." ".BALANCE_CURENCY.")" ?></td>
 
 						<!-- 출금계산 -->
 						<!-- <td class="gray" style='line-height:18px;'>
@@ -347,11 +357,11 @@ $ord_rev = $ord_array[($ord_key + 1) % 2]; // 내림차순→오름차순, 오�
 
 						<td class="td_amt" style="color:red">
 							<!-- <input type="hidden" value="<?= shift_auto($row['out_amt']) ?>" name="out_amt[]"> -->
-							<?= shift_auto($row['out_amt'], $row['coin']) ?>
+							<?= shift_auto($row['amt'], $row['coin']) ?> 
 						</td>
 
 						<!-- 출금시세 -->
-						<td class="gray" style='font-size:11px;'><span><?= shift_auto($row['cost'], $row['coin']) ?></span></td>
+						<td class="gray" style='font-size:11px;'><span><?= shift_auto($row['cost'], KRW_CURENCY) ?></span></td>
 
 						<td style="font-size:11px;"><?= timeshift($row['create_dt']) ?></td>
 						<td>
@@ -378,14 +388,20 @@ $ord_rev = $ord_array[($ord_key + 1) % 2]; // 내림차순→오름차순, 오�
 					</tr>
 				<? } ?>
 			</tbody>
-
+<!-- $total_coin = $row['coin'];
+$total_count = $row['cnt'];
+$total_hap = $row['hap'];
+$total_amt = $row['amt_total'];
+$total_out = $row['outamt'];
+$total_fee = $row['feehap']; -->
 			<tfoot>
 				<td>합계:</td>
 				<td><?= $total_count ?></td>
 				<td colspan=4></td>
-				<td colspan=1><?= shift_auto($total_amt) ?></td>
-				<td><?= shift_auto($total_fee) ?></td>
-				<td colspan=1><?= shift_auto($total_out) ?></td>
+				<td><?=$total_arr[0]['coin']?> <br><?=$total_arr[1]['coin']?></td>
+				<td colspan=1><?= shift_auto($total_arr[0]['amt_total'],ASSETS_CURENCY) ?><br><?= shift_auto($total_arr[1]['amt_total'],WITHDRAW_CURENCY) ?></td>
+				<td><?= shift_auto($total_arr[0]['feehap'],ASSETS_CURENCY) ?><br><?= shift_auto($total_arr[1]['feehap'],WITHDRAW_CURENCY) ?></td>
+				<td colspan=1><?= shift_auto($total_arr[0]['hap'],ASSETS_CURENCY) ?><br><?= shift_auto($total_arr[1]['hap'],WITHDRAW_CURENCY) ?></td>
 				<td colspan=5></td>
 			</tfoot>
 		</table>

@@ -39,22 +39,23 @@ if ($func == 'withrawal') {
 
 		$ret = sql_fetch($get_row);
 		$mb_id = $ret['mb_id'];
-		$in_amt_total = $ret['amt_total'];
+		$in_amt_total = $ret['out_amt'];
 
 		// 출금반환처리
 
-		if ($coin == '원') {
-			$coin_target = "mb_deposit_calc";
-			$update_member_return = "update g5_member set {$coin_target} = {$coin_target} + {$in_amt_total}, mb_shift_amt = mb_shift_amt - {$in_amt_total}  where mb_id='{$mb_id}' ";
-		} else if($coin == strtolower($minings[1])){
-			$coin_target = "mb_mining_1";
-			$amt_target = "mb_mining_1_amt";
-			$update_member_return = "update g5_member set {$amt_target} = {$amt_target} - {$in_amt_total}  where mb_id='{$mb_id}' ";
-		} else if($coin == strtolower($minings[2])){
-			$coin_target = "mb_mining_2";
-			$amt_target = "mb_mining_2_amt";
-			$update_member_return = "UPDATE g5_member set {$amt_target} = {$amt_target} - {$in_amt_total}  where mb_id='{$mb_id}' ";
-		}
+	
+		$coin_target = "mb_deposit_calc";
+		$update_member_return = "update g5_member set {$coin_target} = {$coin_target} + {$in_amt_total}, mb_shift_amt = mb_shift_amt - {$in_amt_total}  where mb_id='{$mb_id}' ";
+	
+		// else if($coin == strtolower($minings[1])){
+		// 	$coin_target = "mb_mining_1";
+		// 	$amt_target = "mb_mining_1_amt";
+		// 	$update_member_return = "update g5_member set {$amt_target} = {$amt_target} - {$in_amt_total}  where mb_id='{$mb_id}' ";
+		// } else if($coin == strtolower($minings[2])){
+		// 	$coin_target = "mb_mining_2";
+		// 	$amt_target = "mb_mining_2_amt";
+		// 	$update_member_return = "UPDATE g5_member set {$amt_target} = {$amt_target} - {$in_amt_total}  where mb_id='{$mb_id}' ";
+		// }
 
 		if ($debug) {
 			print_r($update_member_return);
@@ -85,12 +86,8 @@ if ($func == 'withrawal') {
 		$ret = sql_fetch($get_row);
 		$mb_id = $ret['mb_id'];
 
-		if ($coin == '원') {
-			$coin_target = "mb_deposit_point";
-		} else {
-			$coin_target = "mb_" . strtolower($coin) . "_account";
-		}
-
+		$coin_target = "mb_deposit_point";
+	
 		if ($in_amt > 0 && $refund == 'Y') {
 			$update_member_return = "UPDATE g5_member set mb_deposit_point = mb_deposit_point + {$in_amt}  where mb_id='{$mb_id}' ";
 

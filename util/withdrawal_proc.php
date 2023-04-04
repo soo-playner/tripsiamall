@@ -1,6 +1,8 @@
 <?php
 include_once('./_common.php');
 include_once(G5_THEME_PATH.'/_include/wallet.php');
+include_once(G5_PLUGIN_PATH.'/Encrypt/rule.php');
+
 
 // 출금처리 PROCESS
 $user_ip = $_SERVER['REMOTE_ADDR'];
@@ -16,8 +18,11 @@ $select_coin    = trim($_POST['select_coin']);  */
 
 $func				= trim($_POST['func']);
 $mb_id			= trim($_POST['mb_id']);
-$amt		= trim($_POST['amt']);
+$total_amt		= trim($_POST['total_amt']);
 $select_coin 		= $_POST['select_coin'];
+$fixed_amt = $_POST['fixed_amt'];
+$fixed_fee = $_POST['fixed_fee'];
+$cost = str_replace(',','',shift_auto($_POST['cost'],KRW_CURENCY));
 
 /* 원화계좌출금*/
 $bank_name = trim($_POST['bank_name']);
@@ -26,15 +31,15 @@ $account_name = trim($_POST['account_name']);
 
 // $debug = 1;
 
-if($debug){
-	$mb_id = 'arcthan';
-	$func = 'withdraw';
-	$amt = 100000;
-	$select_coin = '원';
-	$bank_name = '농협';
-	$account_name = '로그컴퍼니';
-	$bank_account = '123-456789-012';
-}
+// if($debug){
+// 	$mb_id = 'arcthan';
+// 	$func = 'withdraw';
+// 	$total_amt = 100000;
+// 	$select_coin = '원';
+// 	$bank_name = '농협';
+// 	$account_name = '로그컴퍼니';
+// 	$bank_account = '123-456789-012';
+// }
 
 
 // 출금 설정 
@@ -45,15 +50,11 @@ $max_limit = $withdrwal_setting['amt_maximum'];
 $day_limit = $withdrwal_setting['day_limit'];
 
 // 출금가능금액 검증
-$withdrwal_total = floor($total_withraw);
+$withdrwal_total = $total_withraw;
 
 if($max_limit != 0 && ($total_withraw * $max_limit*0.01) < $withdrwal_total){
   $withdrwal_total = $total_withraw * ($max_limit*0.01);
-}
-
-$fee_calc = floor($amt*($fee*0.01)); // 수수료
-$in_amt = $amt - $fee_calc; // 실제출금 차감포인트
-	
+}	
 
 //출금기록 확인
 $today_ready_sql = "SELECT * FROM {$g5['withdrawal']} WHERE mb_id = '{$mb_id}' AND date_format(create_dt,'%Y-%m-%d') = '{$now_date}' ";
@@ -71,13 +72,13 @@ if($is_debug) echo "<code>최소: ".$min_limit .' / 최대가능금액 : '.$with
 
 
 // 최소금액 제한 확인
-if( $min_limit != 0 && $amt < $min_limit ) {
+if( $min_limit != 0 && $total_amt < $min_limit ) {
 	echo (json_encode(array("result" => "Failed", "code" => "0002","sql"=>"Input correct Minimum Quantity value")));
 	return false;
 }
 
 // 최대금액 제한 확인
-if( $max_limit != 0 && $amt > $withdrwal_total ) {
+if( $max_limit != 0 && $total_amt > $withdrwal_total ) {
 	echo (json_encode(array("result" => "Failed", "code" => "0002","sql"=>"Input correct Maximun Quantity value")));
 	return false;
 }
@@ -87,7 +88,7 @@ $fund_check_sql = "SELECT sum(mb_balance - mb_shift_amt) as total from g5_member
 $fund_check_val = sql_fetch($fund_check_sql)['total'];
 
 
-if($fund_check_val < $amt){
+if($fund_check_val < $total_amt){
 	echo (json_encode(array("result" => "Failed", "code" => "0002","sql"=>"Not sufficient account balance")));
 	return false;
 }
@@ -124,23 +125,25 @@ if($total_row['total_sum'] != ""){
 } */
 
 
+$amt_total = $fixed_amt+$fixed_fee;
+$Enc_wallet_addr = Encrypt($bank_account,$secret_key,$secret_iv);
 //출금 처리
 $proc_receipt = "insert {$g5['withdrawal']} set
 mb_id ='{$mb_id}'
-, addr = ''
-, bank_name = '{$bank_name}'
-, bank_account = '{$bank_account}'
-, account_name = '{$account_name}'
+, addr = '{$Enc_wallet_addr}'
+, bank_name = ''
+, bank_account = ''
+, account_name = ''
 , account = '{$fund_check_val}'
-, amt ={$in_amt}
-, fee = $fee_calc
+, amt ={$fixed_amt}
+, fee = {$fixed_fee}
 , fee_rate = {$fee}
-, amt_total = {$amt}
+, amt_total = {$amt_total}
 , coin = '{$select_coin}'
 , status = '0'
-, create_dt = '".$now_datetime."'
-, cost = '1'
-, out_amt = '{$in_amt}'
+, create_dt = '{$now_datetime}'
+, cost = {$cost}
+, out_amt = '{$total_amt}'
 , od_type = '출금요청'
 , memo = ''
 , ip =  '{$user_ip}' ";
@@ -156,13 +159,13 @@ if($debug){
 // 회원정보업데이트
 // 출금시 선차감
 if($rst){
+	$Enc_wallet_addr2 = Encrypt($bank_account,$mb_id,'x');
+	$column = $select_coin == ASSETS_CURENCY ? "eth_my_wallet = '{$Enc_wallet_addr2}'" : "mb_wallet = '{$Enc_wallet_addr2}'";
+
 	$amt_query = "UPDATE g5_member set 
-	bank_name = '{$bank_name}'
-	, bank_account = '{$bank_account}'
-	, account_name = '{$account_name}'
-	, mb_deposit_calc = mb_deposit_calc - {$amt}
-	, mb_shift_amt = mb_shift_amt + {$amt}
+	mb_shift_amt = mb_shift_amt + {$total_amt}
 	, otp_key = ''
+	, {$column}
 	where mb_id = '{$mb_id}' ";
 }
  

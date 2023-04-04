@@ -164,7 +164,7 @@ $title = 'Dashboard';
 					</ul> 
 				</div>
 				<div class="total_view_top" id="collapseExample">
-					<ul class="row">
+					<!-- <ul class="row">
 						<li class="col-4">
 							<dt class="title" >마이 해시</dt>
 							<dd class="value"><?=$member['mb_rate']?> <?=side_exp($mining_hash[0])?></dd>
@@ -177,13 +177,13 @@ $title = 'Dashboard';
 							<dt class="title" >메가풀 보너스 해시</dt>
 							<dd class="value"><?=percent_value($member['recom_mining'])?>  <?=remain_hash($member['recom_mining'],3)?></dd>
 						</li>
-					</ul>
-					<?if(percent_value_number($member['super_mining'],$member['mb_rate']) > 100){?>
+					</ul> -->
+					<!-- <?if(percent_value_number($member['super_mining'],$member['mb_rate']) > 100){?>
 					<ul class='extra'>
 						받지 못한 보너스가 있어요. <i class="ri-zoom-in-line"></i> CLICK
 					</ul>
-					<?}?>
-					<ul class="row">
+					<?}?> -->
+					<!-- <ul class="row">
 						<li class="col-4">
 							<dt class="title">제타풀 보너스 해시</dt>
 							<dd class="value"><?=percent_value($member['brecom_mining'])?> <?=remain_hash($member['brecom_mining'],3)?></dd>
@@ -196,7 +196,7 @@ $title = 'Dashboard';
 							<dt class="title" >슈퍼풀 보너스 해시</dt>
 							<dd class="value"><?=percent_value($member['super_mining'])?> <?=remain_hash($member['super_mining'],1)?></dd>
 						</li>
-					</ul>
+					</ul> -->
 					
 
 					<ul class="row">
