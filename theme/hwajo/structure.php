@@ -453,7 +453,7 @@ var gradeMap = {
 					row.find('.lvl-container').attr('class',"gr_"+member.grade);
 					row.find('.direct_cnt').html("<i class='ri-user-star-line'></i>" + member.cnt);
 					row.find('.package').html("<i class='ri-vip-diamond-fill'></i>" + member.rank);
-					row.find('.pv').html("마이닝해시 : <strong class='hp'>" + Price(member.mb_rate)+' mh/s </strong>');
+					// row.find('.pv').html("마이닝해시 : <strong class='hp'>" + Price(member.mb_rate)+' mh/s </strong>');
 					row.find('.acc').html("승급포인트 : <strong class='pv'>"+ Price(member.recom_sales)+"</strong>");
 
 					vHtml.append(row);
@@ -560,7 +560,7 @@ var gradeMap = {
 							<span class="badge package "></span><br>
 							<!-- <span class='divided'></span> -->
 							<p class='mbpoint'>
-								<span class="pv"></span>|&nbsp
+								<span class="pv"></span>&nbsp
 								<span class="acc"></span>
 							</p>
 							<span class='toggle'><i class="ri-line-height"></i></span>

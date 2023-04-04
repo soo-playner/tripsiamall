@@ -146,13 +146,13 @@ $title = 'Dashboard';
 					<ul class="row top">
 						<li class="col-4">
 							<dt class="title" >총 추천 보너스</dt>
-							<dd class="value" style='font-size:15px;'><?=shift_auto($total_bonus)?><span class='currency'></span></dd>
+							<dd class="value" style='font-size:15px;'><?=$total_bonus?><span class='currency'></span></dd>
 						</li>
 						<li class="col-4">
 							<dt class="title" >출금 가능 포인트 </dt>
-							<dd class="value" style='font-size:15px;'><?=shift_auto($total_withraw)?><span class='currency'></span></dd>
+							<dd class="value" style='font-size:15px;'><?=$total_withraw?><span class='currency'></span></dd>
 						</li>
-						<li class="col-4">
+						<!-- <li class="col-4">
 							<dt class="title">출금 가능 코인</dt>
 							<dd class="value" style='font-size:14px;'>
 								<?=shift_auto($mining_total,$minings[$now_mining_coin])?><span class='currency'><?=$minings[$now_mining_coin]?></span>
@@ -160,7 +160,7 @@ $title = 'Dashboard';
 									<br><div class='before_fund'>(  <?=$before_mining_total?><span class='currency'><?=$minings[$before_mining_coin]?></span> )</div>
 								<?}?>
 							</dd>
-						</li>
+						</li> -->
 					</ul> 
 				</div>
 				<div class="total_view_top" id="collapseExample">

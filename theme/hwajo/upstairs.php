@@ -129,12 +129,12 @@ $result = sql_query($sql);
 									</p>
 									<div class="b_blue_bottom"></div>
 									<div >
-										<div class='hash'>
+										<!-- <div class='hash'>
 											<?=$row[$i-1]['it_supply_point']?> <span class='f_small'>mh/s</span>
-										</div>
+										</div> -->
 										<div class=" text_wrap">
-											<div class="it_price">￦<?=Number_format($row[$i-1]['it_price'])?></div>
-											<div class='origin_price'>VAT ￦<?=Number_format($row[$i-1]['it_price']*0.1)?></div>
+											<div class="it_price"><?=shift_auto($row[$i-1]['it_price'],BALANCE_CURENCY)?> <?=BALANCE_CURENCY?></div>
+											<div class='origin_price'>VAT <?=shift_auto($row[$i-1]['it_price']*0.1,BALANCE_CURENCY)?> <?=BALANCE_CURENCY?></div>
 										</div>
 									</div>
 								</div>
@@ -165,7 +165,7 @@ $result = sql_query($sql);
 					
 					<div class='col-6'>
 						<input type="text" id="trade_total" class="trade_money input_price" placeholder="0" min=5 readonly>
-						<!-- <span class='currency-right coin'><?=ASSETS_CURENCY?></span> -->
+						<!-- <span class='currency-right coin'><?=BALANCE_CURENCY?></span> -->
 						<div id='shift_won'></div>
 					</div>
 				</div>
@@ -176,8 +176,8 @@ $result = sql_query($sql);
 					<div class='col-5 my_cash_wrap'>
 						<!-- <input type='radio' value='eth' class='radio_btn' name='currency'><input type="text" id="trade_money_eth" class="trade_money" placeholder="0" min=5 data-currency='eth' readonly> -->
 						<div>
-							<input type="text" id="total_coin_val" class='input_price' value="<?=number_format($available_fund)?>" readonly>
-							<span class="currency-right coin"><?=ASSETS_CURENCY?></span>
+							<input type="text" id="total_coin_val" class='input_price' value="<?=$available_fund?>" readonly>
+							<span class="currency-right coin"><?=BALANCE_CURENCY?></span>
 						</div>
 					</div>
 						
@@ -185,7 +185,7 @@ $result = sql_query($sql);
 
 					<div class='col-6'>
 						<input type="text" id='shift_dollor' class='input_price red' readOnly>
-						<span class="currency-right coin "><?=ASSETS_CURENCY?></span>
+						<span class="currency-right coin "><?=BALANCE_CURENCY?></span>
 					</div>
 				</div>
 
@@ -288,18 +288,20 @@ $result = sql_query($sql);
 				}else{
 					$od_name = $row['od_name'];
 				}
+
+				$od_settle_case = $row['od_settle_case'];
 			?>
 				
 			<div class="hist_con">
 				<div class="hist_con_row1">
 					<div class="row">
 						<span class="hist_date"><?= $row['od_receipt_time'] ?></span>
-						<span class="hist_value">$ <?=Number_format($row['od_cart_price'])?></span>
+						<span class="hist_value"><?=shift_auto($row['od_cart_price'],$od_settle_case)?> <?=$od_settle_case?></span>
 					</div>
 
 					<div class="row">
 						<h2 class="pack_name pack_f_<?=substr($od_name,1,1)?>"><?= strtoupper($row['od_name']) ?> </h2>
-						<span class='hist_sub_price'><?=Number_format($row['od_cash'])?><?=$row['od_settle_case']?></span>
+						<span class='hist_sub_price'><?=shift_auto($row['od_cash'],$od_settle_case)?> <?=$od_settle_case?></span>
 					</div>
 				</div>
 			</div>
@@ -364,8 +366,8 @@ $(function(){
 		func = "new";
 		od_id = "";
 		origin_bal = '<?=$available_fund?>';
-		price_calc = origin_bal - won_price ;
-		change_coin = "원";
+		price_calc = origin_bal.replace(',','') - won_price.replace(',','') ;
+		// change_coin = "원";
 
 		change_coin_status();
 	});
@@ -391,8 +393,8 @@ $(function(){
 	}); */
 
 	function change_coin_status(){
-		$('#trade_total').val( '￦ ' + Price(it_price) );
-		$('#shift_won').text( 'VAT 포함 : ￦' + Price(won_price) + '원' );
+		$('#trade_total').val(Price(it_price) + ' <?=BALANCE_CURENCY?>');
+		$('#shift_won').text( 'VAT 포함 : ' + Price(won_price) + ' <?=BALANCE_CURENCY?>' );
 		$('#shift_dollor').val( Price(price_calc) );
 		
 		// 상품구매로 이동

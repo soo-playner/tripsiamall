@@ -42,10 +42,7 @@ if ($func == 'withrawal') {
 		$in_amt_total = $ret['out_amt'];
 
 		// 출금반환처리
-
-	
-		$coin_target = "mb_deposit_calc";
-		$update_member_return = "update g5_member set {$coin_target} = {$coin_target} + {$in_amt_total}, mb_shift_amt = mb_shift_amt - {$in_amt_total}  where mb_id='{$mb_id}' ";
+		$update_member_return = "update g5_member set mb_shift_amt = mb_shift_amt - {$in_amt_total}  where mb_id='{$mb_id}' ";
 	
 		// else if($coin == strtolower($minings[1])){
 		// 	$coin_target = "mb_mining_1";
