@@ -142,13 +142,13 @@ $(function() {
 </div>
 
 <div class="pop_wrap notice_img_pop enroll_cancel_pop">
-	<p class="pop_title">Member registration failed</p>
+	<p class="pop_title">회원 등록 실패</p>
 	<div>
 		<img src="<?=G5_URL?>/img/notice.svg" alt="이미지">
-		<span>Member registration failed</span>
+		<span>회원 등록 실패</span>
 	</div>
 	<div class="pop_close_wrap">
-		<a href="javascript:location.href='/';" class="btn inline wd pop_close" data-i18n='popup.창닫기'>Close</a>
+		<a href="javascript:location.href='/';" class="btn inline wd pop_close" data-i18n='popup.창닫기'>창닫기</a>
 	</div>
 </div>
 
@@ -238,7 +238,7 @@ $(function() {
 
 <!-- 로그아웃 -->
 <div class="pop_wrap notice_img_pop logout_pop" style="z-index:9999;">
-	<p class="pop_title"  data-i18n="popup.로그 아웃">Logout</p>
+	<p class="pop_title"  data-i18n="popup.로그 아웃">로그아웃</p>
 	<div>
 		<img src="<?=G5_URL?>/img/notice.svg" alt="이미지">
 		<span >로그아웃 하시겠습니까?</span>

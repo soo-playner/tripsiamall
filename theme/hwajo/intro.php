@@ -3,12 +3,12 @@
 <style>
 body{overflow-y: hidden;}
 .container {
-	margin:0;
+	margin:0 auto !important;
 	padding:0;
 	width:100%;
 	display:block;
 	height:100vh;
-	background:#000 url('<?=G5_THEME_URL?>/img/launcher_0329_1.jpg?rel=20230330') no-repeat center;
+	background:#000 url('<?=G5_THEME_URL?>/img/launcher.png') no-repeat center;
 	background-size:cover;
 }
 
@@ -35,10 +35,10 @@ body{overflow-y: hidden;}
   height: 2px;
 }
 a.btn_secondary,
-.btn_secondary {background: rgba(255,255,255,0.9); border: 1px solid #fff; color: #a3a1e9; font-weight: bold;}
-a.btn_secondary:hover {background: rgba(255,255,255,1); color: #a3a1e9;}
-.btn.btn_primary{background:linear-gradient(90deg,#cedbfb, #d594cd);}
-.btn.btn_primary:hover{background:linear-gradient(90deg,#b4c7f7, #d26ac5)}
+.btn_secondary {background:linear-gradient(90deg, #545454, #3e3e3e); color: #fff; font-weight: bold;}
+a.btn_secondary:hover {background: #3e3e3e !important; border: none; transition: background-color .4s;}
+.btn.btn_primary{background:linear-gradient(90deg,#847c6d, #5f5644);}
+.btn.btn_primary:hover{background:#5f5644 !important; border: none; transition: background-color .4s;}
 
 .animate-bottom {
   position: relative;

@@ -341,9 +341,8 @@ a.btn {
 .btn_round {
 	border: 0;
 	border-radius: 25px;
-	background: #326bad;
 	min-width: 72px;
-	background: #565656;
+	background: #3e3e3e;
 	color: white;
 	font-size: 10px;
 }
@@ -1134,6 +1133,7 @@ main {
 	display: block;
 	text-align: left;
 	font-size: 14px;
+	color: #fff;
 }
 .login_wrap input {
 	color: black;
@@ -1181,6 +1181,11 @@ a.desc {
 	text-align: center;
 	color: #0079d3;
 }
+.pw_ul {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
 .pw_ul > li {
 	width: 49%;
 	min-height: 244px;
@@ -1190,9 +1195,13 @@ a.desc {
 	background: #ecf3fb;
 	padding: 15px;
 	border-radius: 10px;
-	/* width:100%; */
 }
-/* .pw_ul>li:last-child{margin-left:2%} */
+.dark .pw_ul > li {
+	background: #212429;
+}
+.dark .info_text {
+	color: #fff;
+}
 .enroll_wrap .pw_ul ul li {
 	padding-left: 20px;
 }
@@ -1965,12 +1974,6 @@ a.more i {
 	font-weight: bold;
 }
 
-@media only screen and (max-width: 414px) {
-	.profile-box ul li p {
-		font-size: 15px;
-	}
-}
-
 /* Hide default HTML checkbox */
 .switch input {
 	display: none;
@@ -2401,6 +2404,9 @@ input:checked + .slider:before {
 .pakage_sale li.col-8 {
 	color: #29386b;
 }
+.pakage_sale .row input {
+	box-shadow: none;
+}
 /* .pakage_sale .active .shift_dollor{box-shadow:0 0 0px 4px #3b86ff;} */
 
 .pakage_list .pack_btn {
@@ -2562,6 +2568,7 @@ input.input_price {
 	margin: 0;
 	padding: 0;
 	margin-top: 10px;
+	text-align: center;
 }
 .exchange {
 	font-size: 28px;
@@ -2635,15 +2642,8 @@ input.input_price {
 	padding: 30px 10px 30px 10px;
 	border-top: 2px solid #f1f4fb;
 }
-.total_view_wrap .total_view_wrap_bottom .bonus_wrap {
-}
 
-.upstairs_buy_wrap .package_wrap {
-}
-.upstairs_buy_wrap .package_wrap .box-header {
-	margin-bottom: 20px;
-}
-.box-header .title {
+.upstairs_buy_wrap .title {
 	margin: 20px 0 0px;
 	vertical-align: middle;
 	font-weight: bold;
@@ -2651,8 +2651,10 @@ input.input_price {
 	color: #29386b;
 }
 
-.upstairs_buy_wrap .package_wrap .box-body {
+.upstairs_buy_wrap .package_wrap .box-header {
+	margin-bottom: 20px;
 }
+
 .upstairs_buy_wrap .package_wrap .box-body button.slick-prev {
 	display: none !important;
 }
@@ -3057,9 +3059,6 @@ input.input_price {
 }
 .search_btn_wrap {
 	padding-left: 0px;
-}
-.search_btn_wrap button {
-	box-shadow: 1px 2px 5px 0 rgba(0, 0, 0, 0.22);
 }
 .btn_input_wrap input {
 	margin-top: 12px;
@@ -3933,7 +3932,8 @@ input.input_price {
 .pop_wrap {
 	position: fixed;
 	top: 50%;
-	width: 90%;
+	max-width: 520px;
+	width: 95%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	background: #fff;
@@ -4282,8 +4282,12 @@ a.gray_close {
 	font-size: 30px;
 }
 
-.mining .history_box .hist_tit {
-	text-align: center;
+#mining .history_box h3.hist_tit.title {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 0 0 10px;
+	padding-left: 0;
 }
 .mining .history_box .hist_date {
 	font-size: 12px;
@@ -4571,6 +4575,9 @@ a.gray_close {
 	}
 	#mining .m_wrap .view_wrap .date_wrap .form-group span {
 		padding-left: 8px;
+	}
+	.current_currency {
+		font-size: 16px;
 	}
 }
 

@@ -339,26 +339,49 @@ header {
 }
 
 .btn, a.btn{border-radius:3px;}
-a.btn_secondary, .btn_secondary{
-    background: #e6ecf3;
+// a.btn_secondary, .btn_secondary{
+//     background: #e6ecf3;
+//     border-radius: 8px;
+
+//     &:hover {
+//         background: #d7e2f1;
+//     }
+// }
+a.btn_secondary,
+.btn_secondary {
+    background:linear-gradient(90deg, #545454, #3e3e3e); 
+    color: #fff; 
+    font-weight: bold; 
     border-radius: 8px;
+    border: none;
 
     &:hover {
-        background: #d7e2f1;
+        background: #3e3e3e !important; 
+        border: none;
     }
 }
-
-a.btn_primary, .btn_primary, .btn.btn_primary{
-    border:none;
-    color:white;
+.btn.btn_primary {
+    background:linear-gradient(90deg,#847c6d, #5f5644); 
     border-radius: 8px;
-    background:linear-gradient(90deg, $main2-color,$sub2-color);
-    transition: all .6s;
-
-    &:hover{
-        background: $main2-color;
+    border: none;
+    
+    &:hover {
+        background:#5f5644 !important; 
+        border: none; 
     }
 }
+
+// a.btn_primary, .btn_primary, .btn.btn_primary{
+//     border:none;
+//     color:white;
+//     border-radius: 8px;
+//     background:linear-gradient(90deg, $main2-color,$sub2-color);
+//     transition: all .6s;
+
+//     &:hover{
+//         background: $main2-color;
+//     }
+// }
 
 a.btn_cancle, .btn_cancle{
     color:black;
@@ -439,12 +462,18 @@ a.btn_cancle, .btn_cancle{
 }  */
 .adm_btn{
     background:#FECE00;font-size:13px !important;letter-spacing:0px;
-    color:#111;font-weight:700;padding:3px 10px 2px;float:right;margin-right:15px;
-    border-radius: 15px;margin:0;
+    color:#111;font-weight:700;padding:3px 10px 2px;float:right;border-radius: 15px;margin:0;
 
     i{font-size:16px;margin-right:3px;}
     &:hover {
         background: #d9b000;
+    }
+
+    @include mobile {
+        line-height: 2;
+        i {
+            display: none;
+        }
     }
 }
 
@@ -1141,16 +1170,6 @@ a.btn_cancle, .btn_cancle{
     }
 }
 
-.structure_wrap {
-    .user_search_wrap {
-        #now_id {
-            border-radius: 20px;
-        }
-    }
-}
-
-
-
 
 
 
@@ -1422,7 +1441,6 @@ a.btn_cancle, .btn_cancle{
         .menu {
             i {
                 color: #fff;
-                vertical-align: unset;
             }
         }
 
@@ -2081,7 +2099,6 @@ a.btn_cancle, .btn_cancle{
 
         .wallet_title {
             color: #fff;
-            margin: 0;
         }
 
         .hist_tit {
@@ -2271,10 +2288,7 @@ a.btn_cancle, .btn_cancle{
                 outline:1px solid $main-background2;
             }
         }
-    }
-
-    
-    
+    }    
     
     // bonus_history
     .bonus_history {
@@ -2457,11 +2471,7 @@ a.btn_cancle, .btn_cancle{
         }
     
         ul{
-            margin-top:15px;border-top:1px dashed #e1e1e1;padding: 15px 0;margin:0;
-    
-            li{
-                padding: 0;
-            }
+            background: none;
         }
     
         .badge{_background:#eff3f9;color:white;font-weight:300}
@@ -3011,10 +3021,10 @@ a.btn_cancle, .btn_cancle{
     .support-tabs {
         li {
             color: #fff;
-            border-bottom: none;
+            border-color: transparent;
             &.active {
                 color: $main-colors;
-                border-bottom: 1px solid $main-colors;
+                border-color: $main-colors;
             }
         }
     }
@@ -3095,7 +3105,7 @@ a.btn_cancle, .btn_cancle{
             input {
                 // background: linear-gradient(to right, $main-button, $main-button2) !important;
                 background: $main-button2 !important;
-                color: #000;
+                color: #000 !important;
 
                 &:hover {
                     // background: linear-gradient(to right, $main-button, $main-button) !important;
@@ -3190,10 +3200,6 @@ a.btn_cancle, .btn_cancle{
             }
         }
     }
-
-    // .user_icon {
-    //     background: $user-icon;
-    // }
 
     .b_line3 {
         background: none;
@@ -3296,6 +3302,10 @@ a.btn_cancle, .btn_cancle{
     .pop_wrap {
         background: $main-background;
         border: none;
+
+        input {
+            border: none;
+        }
         &.input_pop_css {
             label {
                 color: #fff;

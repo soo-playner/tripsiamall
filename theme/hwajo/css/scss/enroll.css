@@ -29,19 +29,18 @@
 
 #service_checkbox + label, #private_checkbox + label {
   display: inline-block;
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   background: white;
   cursor: pointer;
   border: black solid 1px;
   border-radius: 3px;
-  margin-top: 3px;
 }
 #service_checkbox + label span, #private_checkbox + label span {
   position: absolute;
   display: block;
   font-weight: bold;
-  margin: -2px 0 0 28px;
+  margin: -2px 0 0 25px;
   top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
@@ -49,8 +48,8 @@
 #service_checkbox + label span::before, #private_checkbox + label span::before {
   content: "✔";
   position: absolute;
-  left: -22px;
-  top: 3px;
+  left: -20px;
+  top: 2px;
   font-size: 10px;
   color: #fff;
   font-weight: normal;

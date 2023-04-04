@@ -691,7 +691,7 @@ if ($_GET['recom_referral']){
 					</div>
 				</section>
 				<i style="color:rgba(255,255,255,0.4)">※센터정보 검색후 선택해주세요.</i> -->
-				<em>※센터정보 검색후 선택해주세요.</ㅇ>
+				<em class="info_text">※센터정보 검색후 선택해주세요.</em>
 
 
 			<!-- <p class="check_appear_title mt40"><span data-i18n='signUp.일반정보'>General Information</span></p> -->
@@ -716,7 +716,7 @@ if ($_GET['recom_referral']){
 
 			
 
-			<ul class="clear_fix pw_ul mt20">
+			<ul class="pw_ul mt20">
 				<li>
 					<input type="password" name="mb_password" id="reg_mb_password" minlength="4" placeholder="로그인 비밀번호" />
 					<input type="password" name="mb_password_re" id="reg_mb_password_re" minlength="4" placeholder="로그인 비밀번호 확인" />
@@ -772,9 +772,9 @@ if ($_GET['recom_referral']){
 			<div class="mt20">
 				<div class="term_space">
 					<input type="checkbox" id="service_checkbox" class="term_none" name="term_required" >
-					<label for="service_checkbox" style="width:25px;height:25px;">
-						<span style='margin-left:10px;line-height:30px;'><?= $service_term['wr_subject'] ?> 및 서약서 동의 (필수)</span>
-						<a id="service" href="javascript:collapse('#service');"  style="width:25px;height:25px;position:absolute;right:25px;"><i class="fas fa-angle-down" style="width:25px;height:25px;"></i></a>
+					<label for="service_checkbox">
+						<span><?= $service_term['wr_subject'] ?> 및 서약서 동의 (필수)</span>
+						<a id="service" href="javascript:collapse('#service');" style="width:25px;height:25px;position:absolute;right:0;"><i class="fas fa-angle-down"></i></a>
 					</label>
 				</div>
 				
@@ -782,9 +782,9 @@ if ($_GET['recom_referral']){
 
 				<div class="term_space">
 					<input type="checkbox" id="private_checkbox" class="term_none" name="mb_sms" value="1">
-					<label for="private_checkbox" style="width:25px;height:25px;">
-						<span style='margin-left:10px;line-height:30px;'><?= $private_term['wr_subject'] ?> 동의 (선택)</span>
-						<a id="private" href="javascript:collapse('#private');"  style="width:25px;height:25px;position:absolute;right:25px;"><i class="fas fa-angle-down" style="width:25px;height:25px;"></i></a>
+					<label for="private_checkbox">
+						<span><?= $private_term['wr_subject'] ?> 동의 (선택)</span>
+						<a id="private" href="javascript:collapse('#private');" style="width:25px;height:25px;position:absolute;right:0;"><i class="fas fa-angle-down"></i></a>
 					</label>
 				</div>
 				<textarea id="private_term" class="term_textarea term_none"><?= $private_term['wr_content'] ?></textarea>
@@ -793,7 +793,7 @@ if ($_GET['recom_referral']){
 
 			<div class="btn2_wrap mb40" style='width:100%;height:60px'>
 				<input class="btn btn_double enroll_cancel_pop_open btn_cancle pop_open" type="button" value="취소">
-				<input class="btn btn_double btn_primary" type="button" onclick="fregisterform_submit();" value="신규 회원 등록하기">
+				<input class="btn btn_double btn_secondary" type="button" onclick="fregisterform_submit();" value="신규 회원 등록하기">
 			</div>
 
 

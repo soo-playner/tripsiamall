@@ -276,7 +276,7 @@ $result = sql_query($sql);
 		<!-- <div class="col-sm-12 col-12 content-box round secondary mt20" > -->
 
 		<div class="history_box content-box mt40">
-			<h3 class="hist_tit" >Package 구매 내역</h3>
+			<h3 class="hist_tit title" style="margin-top: 0;">Package 구매 내역</h3>
 
 			<?if(sql_num_rows($result) == 0) {?>	
 				<div class="no_data"> Package 구매 내역이 존재하지 않습니다</div>

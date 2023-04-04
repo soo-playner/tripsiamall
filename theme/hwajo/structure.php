@@ -521,12 +521,12 @@ var gradeMap = {
 				<!--<p>데이터 크기로 인해 한번에 5대씩 화면에 나타납니다</p>-->
 				<div class="btn_input_wrap" style='background:white'>
 				<div class="bin_top">회원 검색</div>
-					<ul class="row">
+					<ul class="row align-items-center">
 						<li class="col-9 user_search_wrap">
 							<input type="text" id="now_id" class="" style='background:#eff3f9;color:black;border:1px solid #d9dfe8' placeholder="회원찾기"/>
 						</li>
 						<li class="col-3 search_btn_wrap">
-							<button type="button" class="btn wd b_skyblue b_radius" id="binary_search"  onclick="member_search();"><i class="ri-search-line"></i></button>
+							<button type="button" class="btn wd b_skyblue" id="binary_search" style="padding: 12px 10px;" onclick="member_search();"><i class="ri-search-line"></i></button>
 						</li>
 					</ul>
 				</div>

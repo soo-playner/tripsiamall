@@ -4,9 +4,13 @@
 ?>
 <style>
 #wrapper{
-	background:#f8fbff;
+	background: #3e3e3e;
 	margin: 0 auto;
 }
+.footer .copyright {
+	color: #fff;
+}
+
 </style>
 <section id="wrapper">
 	<div class="v_center">
@@ -15,7 +19,6 @@
 				<img src="<?=G5_THEME_URL?>/img/logo.png" alt="LOGO">
 				<?if(strpos($url,'adm')){echo "<br><span class='adm_title'>For Administrator</span>";}?>
 			</div>
-
 
 			<form name="flogin" method="post">
 					<input type="hidden" id="url" name="url" value="<?=$url?>">
@@ -44,7 +47,7 @@
 					<button type="button" class="btn btn_wd btn_primary" onclick="flogin_submit();" rerender="form"><span>로그인</span></button>
 					<a href="/bbs/register_form.php" class="btn btn_wd btn_secondary"><span>회원 가입</span></a>
 					<!-- <a href="javascript:temp_block();" class="btn btn_wd btn_default"><span data-i18n="login.신규 회원 등록하기">Create new account</span></a> -->
-					<a href="<?=G5_THEME_URL?>/find_pw.php" class='desc' style="font-size:11px;letter-spacing:0;">비밀번호가 기억나지 않나요?</a>
+					<a href="<?=G5_THEME_URL?>/find_pw.php" class='desc' style="font-size:11px;letter-spacing:0; color: #fff;">비밀번호가 기억나지 않나요?</a>
 						
 				</div>
 

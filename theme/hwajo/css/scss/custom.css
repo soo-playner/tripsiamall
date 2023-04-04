@@ -266,25 +266,30 @@ header .top_title #mode_select {
   border-radius: 3px;
 }
 
-a.btn_secondary, .btn_secondary {
-  background: #e6ecf3;
+a.btn_secondary,
+.btn_secondary {
+  background: -webkit-gradient(linear, left top, right top, from(#545454), to(#3e3e3e));
+  background: linear-gradient(90deg, #545454, #3e3e3e);
+  color: #fff;
+  font-weight: bold;
   border-radius: 8px;
+  border: none;
 }
-a.btn_secondary:hover, .btn_secondary:hover {
-  background: #d7e2f1;
+a.btn_secondary:hover,
+.btn_secondary:hover {
+  background: #3e3e3e !important;
+  border: none;
 }
 
-a.btn_primary, .btn_primary, .btn.btn_primary {
-  border: none;
-  color: white;
+.btn.btn_primary {
+  background: -webkit-gradient(linear, left top, right top, from(#847c6d), to(#5f5644));
+  background: linear-gradient(90deg, #847c6d, #5f5644);
   border-radius: 8px;
-  background: -webkit-gradient(linear, left top, right top, from(#37d2fd), to(#c73bda));
-  background: linear-gradient(90deg, #37d2fd, #c73bda);
-  -webkit-transition: all 0.6s;
-  transition: all 0.6s;
+  border: none;
 }
-a.btn_primary:hover, .btn_primary:hover, .btn.btn_primary:hover {
-  background: #37d2fd;
+.btn.btn_primary:hover {
+  background: #5f5644 !important;
+  border: none;
 }
 
 a.btn_cancle, .btn_cancle {
@@ -429,7 +434,6 @@ a.btn_cancle, .btn_cancle {
   font-weight: 700;
   padding: 3px 10px 2px;
   float: right;
-  margin-right: 15px;
   border-radius: 15px;
   margin: 0;
 }
@@ -439,6 +443,14 @@ a.btn_cancle, .btn_cancle {
 }
 .adm_btn:hover {
   background: #d9b000;
+}
+@media (min-width: 335px) and (max-width: 757px) {
+  .adm_btn {
+    line-height: 2;
+  }
+  .adm_btn i {
+    display: none;
+  }
 }
 
 /* 유저 아이콘*/
@@ -1222,10 +1234,6 @@ a.btn_cancle, .btn_cancle {
   margin-top: 0;
 }
 
-.structure_wrap .user_search_wrap #now_id {
-  border-radius: 20px;
-}
-
 .dark {
   border-color: #FECE00;
   /* 유저 아이콘*/
@@ -1453,7 +1461,6 @@ a.btn_cancle, .btn_cancle {
 }
 .dark header .menu i {
   color: #fff;
-  vertical-align: unset;
 }
 .dark header .left_gnbWrap {
   background: #212429;
@@ -1915,7 +1922,6 @@ a.btn_cancle, .btn_cancle {
 }
 .dark .mywallet .wallet_title {
   color: #fff;
-  margin: 0;
 }
 .dark .mywallet .hist_tit {
   color: #fff;
@@ -2214,13 +2220,7 @@ a.btn_cancle, .btn_cancle {
   color: #ffd965;
 }
 .dark #mining_history ul {
-  margin-top: 15px;
-  border-top: 1px dashed #e1e1e1;
-  padding: 15px 0;
-  margin: 0;
-}
-.dark #mining_history ul li {
-  padding: 0;
+  background: none;
 }
 .dark #mining_history .badge {
   _background: #eff3f9;
@@ -2659,11 +2659,11 @@ a.btn_cancle, .btn_cancle {
 }
 .dark .support-tabs li {
   color: #fff;
-  border-bottom: none;
+  border-color: transparent;
 }
 .dark .support-tabs li.active {
   color: #ffd965;
-  border-bottom: 1px solid #ffd965;
+  border-color: #ffd965;
 }
 .dark .chat-box.active {
   background: #212429;
@@ -2718,7 +2718,7 @@ a.btn_cancle, .btn_cancle {
 }
 .dark .refer_link_wrap .qr_wrap input {
   background: #fac707 !important;
-  color: #000;
+  color: #000 !important;
 }
 .dark .refer_link_wrap .qr_wrap input:hover {
   background: #fbe591 !important;
@@ -2868,6 +2868,9 @@ a.btn_cancle, .btn_cancle {
 }
 .dark .pop_wrap {
   background: #212429;
+  border: none;
+}
+.dark .pop_wrap input {
   border: none;
 }
 .dark .pop_wrap.input_pop_css label {

@@ -426,7 +426,7 @@ if(strpos($member['withdraw_wallet'],'0x')){
         <section id='mining_history'>
             <div class="history_box content-box mt20">
                 <div>
-                    <h3 class="hist_tit">내 마이닝 내역 <span class='mymining_total'><?= shift_coin($mining_acc) ?> <?= strtoupper($minings[$now_mining_coin]) ?></span></h3>
+                    <h3 class="hist_tit title">내 마이닝 내역 <span class='mymining_total'><?= shift_coin($mining_acc) ?> <?= strtoupper($minings[$now_mining_coin]) ?></span></h3>
 
                     <? if ($mining_history_cnt < 1) { ?>
                         <ul class="row">

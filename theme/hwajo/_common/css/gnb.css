@@ -324,6 +324,9 @@ header .left_gnbWrap .left_gnb .logout_wrap .h_line {
 		left: -20%;
 		display: none;
 	}
+	header .left_gnbWrap + .top_title {
+		padding-left: 30px;
+	}
 	header .top_title h3 {
 		margin-left: 0;
 	}
