@@ -24,7 +24,7 @@
 
 .orgchart .node .title {
   background: #fff;
-  border: 2px solid rgb(95, 95, 95);
+  border: 2px solid #5f5f5f;
   color: #000;
   height: 150px;
   font-weight: normal;
@@ -132,3 +132,4 @@
 .oc-export-btn {
   display: none;
 }
+/*# sourceMappingURL=member_org.css.map */

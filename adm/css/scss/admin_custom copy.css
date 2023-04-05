@@ -2,10 +2,12 @@
   width: 40px;
   height: 40px;
 }
+
 .week_dividend .divide {
   display: inline-block;
   margin: 0 15px;
 }
+
 .week_dividend label {
   cursor: pointer;
 }
@@ -21,7 +23,7 @@
 }
 
 .color1 {
-  background: rgba(181, 93, 204, 0.8509803922) !important;
+  background: #b55dccd9 !important;
 }
 
 .color2 {
@@ -51,3 +53,4 @@
 .color10 {
   background: #6214ab !important;
 }
+/*# sourceMappingURL=admin_custom copy.css.map */

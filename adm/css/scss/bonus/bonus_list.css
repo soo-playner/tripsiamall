@@ -108,7 +108,7 @@
 }
 
 .view_btn:hover {
-  background: rgb(249, 166, 46);
+  background: #f9a62e;
   cursor: pointer;
 }
 
@@ -205,3 +205,4 @@
 select, .frm_input {
   height: 36px;
 }
+/*# sourceMappingURL=bonus_list.css.map */

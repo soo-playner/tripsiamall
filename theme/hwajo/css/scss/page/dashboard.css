@@ -8,6 +8,7 @@
     opacity: 1;
   }
 }
+
 @keyframes slidein {
   from {
     margin-top: 50px;
@@ -18,12 +19,15 @@
     opacity: 1;
   }
 }
+
 .dashboard {
   padding-bottom: 100px;
 }
+
 .dashboard .r_card_wrap {
   margin: 10px 0;
 }
+
 .dashboard .hash_value {
   width: 130px;
   text-align: left;
@@ -37,6 +41,7 @@
   float: left;
   text-align: left;
 }
+
 .innerBox dd {
   float: left;
   text-align: right;
@@ -46,6 +51,7 @@ a.more {
   font-size: 14px;
   font-weight: 500;
 }
+
 a.more i {
   font-size: 18px;
   font-weight: 500;
@@ -68,13 +74,16 @@ a.more i {
 .history_latest {
   line-height: 24px;
 }
+
 .history_latest .card_title {
   margin-bottom: 15px;
 }
+
 .history_latest .category {
   padding: 0 10px;
   font-size: 12px;
 }
+
 .history_latest .price {
   color: #492191;
   font-size: 13px;
@@ -85,12 +94,15 @@ a.more i {
   line-height: 24px;
   font-size: 12px;
 }
+
 .regist_latest span {
   vertical-align: middle;
 }
+
 .regist_latest .card_title {
   margin-bottom: 15px;
 }
+
 .regist_latest .id {
   font-size: 14px;
   display: inline-block;
@@ -98,6 +110,7 @@ a.more i {
   font-weight: 600;
   margin: 0 10px;
 }
+
 .regist_latest .badge {
   font-weight: 500;
 }
@@ -105,6 +118,7 @@ a.more i {
 .my_btn_wrap {
   margin: 20px 0;
 }
+
 .my_btn_wrap button {
   padding: 15px;
 }
@@ -112,3 +126,4 @@ a.more i {
 .f_left {
   font-size: 15px;
 }
+/*# sourceMappingURL=dashboard.css.map */

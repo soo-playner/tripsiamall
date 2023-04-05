@@ -2,10 +2,12 @@
   width: 40px;
   height: 40px;
 }
+
 .week_dividend .divide {
   display: inline-block;
   margin: 0 15px;
 }
+
 .week_dividend label {
   cursor: pointer;
 }
@@ -21,7 +23,7 @@
 }
 
 .color1 {
-  background: rgba(181, 93, 204, 0.8509803922) !important;
+  background: #b55dccd9 !important;
 }
 
 .color2 {
@@ -108,7 +110,7 @@ table.regTb .admin_memo {
   border: solid 1px #ccc;
   background-color: #f9f9f9;
   height: 48px;
-  letter-spacing: 0px;
+  letter-spacing: -0px;
 }
 
 .cert_icon img {
@@ -134,6 +136,7 @@ table.regTb .admin_memo {
       -ms-user-select: none;
           user-select: none;
 }
+
 .checkbox-group > * {
   margin: 0.2rem 0.2rem;
 }
@@ -148,12 +151,14 @@ table.regTb .admin_memo {
   white-space: nowrap;
   width: 1px;
 }
+
 .checkbox-input:checked + .checkbox-tile {
   border-color: #2260ff;
   -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
           box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   color: #2260ff;
 }
+
 .checkbox-input:checked + .checkbox-tile:before {
   -webkit-transform: scale(1);
           transform: scale(1);
@@ -161,14 +166,17 @@ table.regTb .admin_memo {
   background-color: #2260ff;
   border-color: #2260ff;
 }
+
 .checkbox-input:checked + .checkbox-tile .checkbox-icon, .checkbox-input:checked + .checkbox-tile .checkbox-label {
   color: #2260ff;
 }
+
 .checkbox-input:focus + .checkbox-tile {
   border-color: #2260ff;
   -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1), 0 0 0 4px #b5c9fc;
           box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1), 0 0 0 4px #b5c9fc;
 }
+
 .checkbox-input:focus + .checkbox-tile:before {
   -webkit-transform: scale(1);
           transform: scale(1);
@@ -203,6 +211,7 @@ table.regTb .admin_memo {
   color: black;
   font-weight: 600;
 }
+
 .checkbox-tile:before {
   content: "";
   position: absolute;
@@ -224,9 +233,11 @@ table.regTb .admin_memo {
   background-repeat: no-repeat;
   background-position: 50% 50%;
 }
+
 .checkbox-tile:hover {
   border-color: #2260ff;
 }
+
 .checkbox-tile:hover:before {
   -webkit-transform: scale(1);
           transform: scale(1);
@@ -234,10 +245,11 @@ table.regTb .admin_memo {
 }
 
 .checkbox-icon {
-  -webkit-transition: 0.375s ease;
-  transition: 0.375s ease;
+  -webkit-transition: .375s ease;
+  transition: .375s ease;
   color: #494949;
 }
+
 .checkbox-icon svg {
   width: 3rem;
   height: 3rem;
@@ -245,7 +257,8 @@ table.regTb .admin_memo {
 
 .checkbox-label {
   color: #555;
-  -webkit-transition: 0.375s ease;
-  transition: 0.375s ease;
+  -webkit-transition: .375s ease;
+  transition: .375s ease;
   text-align: center;
 }
+/*# sourceMappingURL=admin_custom.css.map */

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,SAAS,CAAC,MAAM,CAAA;EAAC,KAAK,EAAC,GAAG;EAAE,WAAW,EAAC,GAAG;CAAG;;AAC9C,AAAA,SAAS,CAAC,IAAI,CAAA;EAAC,KAAK,EAAC,KAAK;EAAE,WAAW,EAAC,GAAG;CAAG;;AAC9C,AAAA,SAAS,CAAC,CAAC,CAAA;EAAC,WAAW,EAAC,IAAI;EAAC,aAAa,EAAC,IAAI;CAAG",
+    "sources": [
+        "orderlist.scss"
+    ],
+    "names": [],
+    "file": "orderlist.css"
+}

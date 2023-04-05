@@ -8,6 +8,7 @@
     opacity: 1;
   }
 }
+
 @keyframes slidein {
   from {
     margin-top: 50px;
@@ -18,28 +19,34 @@
     opacity: 1;
   }
 }
+
 .news_wrap .news + .news {
   margin-top: 20px;
 }
+
 .news_wrap .title {
   font-weight: bold;
 }
+
 .news_wrap .sub_title {
   margin: 10px 0 0 0;
 }
+
 .news_wrap .news .question {
   color: #29386b;
   cursor: pointer;
   font-weight: 200;
   padding: 5px;
-  -webkit-transition: all 0.2s linear;
-  transition: all 0.2s linear;
+  -webkit-transition: all .2s linear;
+  transition: all .2s linear;
   height: auto;
   font-size: 12px;
 }
+
 .news_wrap .news .question .left_wrap {
   padding-left: 0px;
 }
+
 .news_wrap .news .question .left_wrap .tit {
   font-size: 14px;
   color: #492191;
@@ -50,37 +57,45 @@
   padding-left: 9px;
   padding-right: 9px;
 }
+
 .news_wrap .news .question .left_wrap .date {
   text-align: center;
   color: #999;
   margin-top: 3px;
 }
+
 .news_wrap .news .question .mid_wrap {
   font-size: 14px;
   font-weight: bold;
   padding-left: 0px;
 }
+
 .news_wrap .news .question .right_wrap {
   padding-left: 0;
 }
+
 .news_wrap .news .question .right_wrap i {
   font-size: 20px;
 }
+
 .news_wrap .news .question.qa-open {
   color: #000;
 }
+
 .news_wrap .news .answer {
   clear: both;
   font-size: 13px;
   overflow: hidden;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
   text-align: left;
   height: 0;
 }
+
 .news_wrap .news .answer p {
   margin: 15px 0;
 }
+
 .news_wrap .news:hover {
   background: aliceblue;
 }
@@ -90,6 +105,7 @@
   font-weight: 400;
   text-align: center;
 }
+
 .qa-container .answer .answer-list li {
   border: none;
   color: #000;
@@ -98,17 +114,20 @@
   font-size: 18px;
   margin-left: 0;
 }
+
 .qa-container .title {
   width: 100%;
   background: #0062cc;
   color: #fff;
   padding: 5px 0;
-  -webkit-transition: all 0.2s linear;
-  transition: all 0.2s linear;
+  -webkit-transition: all .2s linear;
+  transition: all .2s linear;
   margin-bottom: 20px;
 }
+
 .qa-container .inner_title {
   min-width: 100px;
   width: 65%;
   text-align: left;
 }
+/*# sourceMappingURL=news.css.map */

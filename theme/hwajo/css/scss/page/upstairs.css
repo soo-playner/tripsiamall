@@ -8,6 +8,7 @@
     opacity: 1;
   }
 }
+
 @keyframes slidein {
   from {
     margin-top: 50px;
@@ -18,6 +19,7 @@
     opacity: 1;
   }
 }
+
 /* upstairs */
 .upstairs_buy_wrap .box-header .title {
   margin: 10px 0 0px;
@@ -27,11 +29,13 @@
   color: #29386b;
   line-height: 40px;
 }
+
 .upstairs_buy_wrap .box-body {
   margin: 5px 0;
   margin-left: -15px;
   margin-right: -15px;
 }
+
 .upstairs_buy_wrap .box-body .pack_price {
   width: 40px;
   height: 40px;
@@ -43,11 +47,13 @@
   margin-left: 15px;
   margin-top: 31px;
 }
+
 .upstairs_buy_wrap .box-body .pack_cate {
   font-size: 12px;
   text-align: center;
   line-height: 15px;
 }
+
 .upstairs_buy_wrap .box-body .pack_maker {
   margin: 0 auto;
   padding: 1px 0px 2px 0px;
@@ -63,19 +69,23 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   text-align: right;
 }
+
 .pakage_sale #trade_total + .currency-right {
   font-sizE: 14px;
   font-weight: 900;
   position: absolute;
 }
+
 .pakage_sale #total_coin_val {
   padding-right: 25px;
 }
+
 .pakage_sale #shift_dollor {
   font-size: 16px;
   font-weight: 600;
   padding-right: 25px;
 }
+
 .pakage_sale #shift_won {
   margin-top: -10px;
   text-align: right;
@@ -84,6 +94,7 @@
   color: #555;
   min-height: 17px;
 }
+
 .pakage_sale .current_currency {
   font-size: 18px;
   letter-spacing: -0.5px;
@@ -93,16 +104,19 @@
   font-weight: bold;
   text-indent: 10px;
 }
+
 .pakage_sale .tit {
   font-size: 14px;
   color: #29386b;
   font-weight: bold;
 }
+
 .pakage_sale .shift_usd {
   margin: 0;
   padding: 0;
   margin-top: 10px;
 }
+
 .pakage_sale .shift_usd .exchange {
   font-size: 28px;
   float: right;
@@ -110,6 +124,7 @@
   z-index: 100;
   color: #492191;
 }
+
 .pakage_sale .shift_usd .ex_dollor i {
   font-size: 24px;
   color: #492191;
@@ -117,58 +132,73 @@
   border-radius: 10px;
   vertical-align: bottom;
 }
+
 .pakage_sale .select {
   border: none;
   background: #eff3f9;
 }
+
 .pakage_sale .select_box .trade_money {
   font-size: 16px;
 }
+
 .pakage_sale .select_box .radio_btn {
   position: fixed;
   left: -1000px;
 }
+
 .pakage_sale .select_box .col-4 .currency-right {
   color: #ff0000;
 }
+
 .pakage_sale .select_box input {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   color: #492191;
   border-radius: 0px;
 }
+
 .pakage_sale .select_box .my_cash_wrap div:nth-child(1) {
   color: #492191;
   font-size: 14px;
   font-weight: bold;
 }
+
 .pakage_sale .select_box .my_cash_wrap div:nth-child(2) {
   font-size: 18px;
   font-weight: bold;
 }
+
 .pakage_sale .submit .purchase_btn {
   background: #302783 !important;
   color: #fff;
 }
+
 .pakage_sale .submit .deposit_btn {
   background: #516feb !important;
   color: #fff;
 }
+
 .pakage_sale #usd {
   margin: 10px 0 0 0;
 }
+
 .pakage_sale #usd div:first-child {
   padding-left: 0;
 }
+
 .pakage_sale input.input_price {
   font-size: 16px;
   text-align: right;
 }
+
 .pakage_sale input.input_price.blue {
   color: #492191;
 }
+
 .pakage_sale input.input_price.red {
   color: #ff0000;
 }
+
 .pakage_sale .active .trade_money {
   -webkit-box-shadow: 0 0 0px 4px #492191;
           box-shadow: 0 0 0px 4px #492191;
@@ -177,3 +207,4 @@
 #go_wallet_btn {
   margin-top: 0px;
 }
+/*# sourceMappingURL=upstairs.css.map */
