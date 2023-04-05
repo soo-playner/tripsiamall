@@ -1,8 +1,8 @@
 <?
 if (!defined('_GNUBOARD_')) exit;
 define('LIVE_MODE',false);
-define('CONFIG_TITLE','Hwajo International Wallet');
-define('CONFIG_SUB_TITLE','Hwajo International Wallet');
+define('CONFIG_TITLE','Hwajo Global asset');
+define('CONFIG_SUB_TITLE','Hwajo Global asset');
 
 
 // 메일설정
