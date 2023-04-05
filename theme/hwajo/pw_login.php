@@ -59,7 +59,7 @@
 	</div>
 
 	<div class='footer'>
-		<p class='copyright'>Copyright ⓒ 2021. WIZCLASS Co. ALL right reserved.</p>
+		<p class='copyright'>Copyright ⓒ 2023. HWAJO Co. ALL right reserved.</p>
 	</div>
 	
 </section>

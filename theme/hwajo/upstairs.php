@@ -134,7 +134,7 @@ $result = sql_query($sql);
 										</div> -->
 										<div class=" text_wrap">
 											<div class="it_price"><?=shift_auto($row[$i-1]['it_price'],BALANCE_CURENCY)?> <?=BALANCE_CURENCY?></div>
-											<div class='origin_price'>VAT <?=shift_auto($row[$i-1]['it_price']*0.1,BALANCE_CURENCY)?> <?=BALANCE_CURENCY?></div>
+											<div class='origin_price'>수익률: <?=shift_auto($row[$i-1]['it_supply_point'],BALANCE_CURENCY)?> %</div>
 										</div>
 									</div>
 								</div>

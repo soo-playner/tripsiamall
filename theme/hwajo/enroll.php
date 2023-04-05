@@ -691,7 +691,7 @@ if ($_GET['recom_referral']){
 					</div>
 				</section>
 				<i style="color:rgba(255,255,255,0.4)">※센터정보 검색후 선택해주세요.</i> -->
-				<em class="info_text">※센터정보 검색후 선택해주세요.</em>
+				<em class="info_text">※추천회원 검색후 선택해주세요.</em>
 
 
 			<!-- <p class="check_appear_title mt40"><span data-i18n='signUp.일반정보'>General Information</span></p> -->
@@ -803,8 +803,8 @@ if ($_GET['recom_referral']){
 </div>
 
 <div class='footer' style="position:relative;bottom:25px;">
-		<p class='company mb10'> 제타랩스 주식회사 | 사업자등록번호 356-87-02523 <br> 통신판매업 신고번호 : 제 2022-서울강남-00711호<br>고객센터 : 02-6205-1112 | 이메일 : <?=$config['cf_admin_email']?></p>
-		<p class='copyright'>Copyright ⓒ 2021. WIZCLASS Co. ALL right reserved.</p>
+		<p class='company mb10'> HWAJO GLOBAL ASSET <br>이메일 : <?=$config['cf_admin_email']?>
+		<p class='copyright'>Copyright ⓒ 2023. Hwajo Co. ALL right reserved.</p>
 	</div>
 </section>
 
