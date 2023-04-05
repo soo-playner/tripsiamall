@@ -1019,7 +1019,7 @@ strong.sodr_nonpay {display:block;padding:5px 0;text-align:right}
 
 
 /*모달*/
-#purchaseModal .modal-body{_background:url('/img/check_green.png') center center 80% no-repeat; min-height:200px;text-align:center}
+#purchaseModal .modal-body{_background:url('/img/check_basics.png') center center 80% no-repeat; min-height:200px;text-align:center}
 .modal .modal-body .chkimg{display:block;width:100%;}
 .modal .modal-body img{width:120px;margin-bottom:20px;}
 .modal .modal-body .transimg{background: url(/theme/seven/_images/exchange_arrow.gif) center center no-repeat;

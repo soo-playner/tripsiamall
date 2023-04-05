@@ -11,11 +11,11 @@ if(!$is_admin){
 
 	<script>
 		var topicOption = {
-			0 : 'General',
-			1 : 'Hacking',
-			2 : 'Bonus',
-			3 : 'Wallet',
-			4 : 'Account'
+			0 : '일반',
+			1 : '해킹',
+			2 : '보너스',
+			3 : '지갑',
+			4 : '계좌'
 		};
 
 		$(function() {
@@ -24,27 +24,34 @@ if(!$is_admin){
 			$(document).on('click','.ticket-header' ,function(e) {
 				$selected = $(this).next();
 				$(this).toggleClass('active');
+				$(this).siblings('div').removeClass('active');
 
+				if($(this).hasClass('active')) {
+					$selected.addClass('active');
+				} else {
+					$selected.removeClass('active');
+				}
 
-				$selected.toggleClass('active');
 				getComment($(this).attr('idx'));
-
 			});
 
 			// 코멘트 달기
 			$(document).on('click','.btn.send' ,function(e) {
-
-				$('#ticketChildForm [name=idx]').val($(this).attr('idx'));
-				$('#ticketChildForm [name=content]').val($(this).parents('.chat-input').find('.message').val());
-				$('#ticketChildForm').append($(this).parents('.chat-input').find('.messageFile').clone());
-				$('#ticketChildForm').submit();
-
+				if (!$(this).parents('.chat-input').find('.message').val()) {
+					dialogModal("문의 알림", "문의하실 내용을 적어주세요.", 'warning');
+					return false;
+				} else {
+					$('#ticketChildForm [name=idx]').val($(this).attr('idx'));
+					$('#ticketChildForm [name=content]').val($(this).parents('.chat-input').find('.message').val());
+					$('#ticketChildForm').append($(this).parents('.chat-input').find('.messageFile').clone());
+					$('#ticketChildForm').submit();
+				}
 			});
 
 			$(document).on('keydown','.message' ,function(e) {
 				if(e.which == 13) {
 					e.preventDefault();
-					$(this).next().find('.send').trigger('click');
+					$(this).parent().siblings('.input-group').find('.send').trigger('click');
 				}
 			});
 
@@ -59,13 +66,14 @@ if(!$is_admin){
 					},
 					success: function(result) {
 						$('.support-panels .support-tabs li[rel=active-tickets]').trigger('click');
-						commonModal("Ticket Closed","Ticket Move Closed","80");
+						dialogModal("문의 종료","해당 문의를 종료하였습니다.","success");
 
-						$('#commonModal #closeModal').click(function () {
+						// $('#commonModal #closeModal').click(function () {
+						// 	location.reload();
+						// });
+						$('#modal_return_url, #dialogModal').on('click',function() {
 							location.reload();
 						});
-
-
 					}
 				});
 			});
@@ -126,7 +134,7 @@ if(!$is_admin){
 						onchange: `FileSizeChk('answeredCustomFile${ticket.idx}')`
 					});
 					row.find('.file_label').attr('for', 'answeredCustomFile' + ticket.idx);
-				}
+				}				
 
 				if(Number(ticket.is_closed)){
 					row.find('.ticket-header').addClass('closed');
@@ -143,59 +151,62 @@ if(!$is_admin){
 
 		function getComment(paramIdx){
 			$selected.find('.chat').empty();
-			$selected.find('.chat-input .message').val('');
+			// $selected.find('.chat-input .message').val('');
 			$.get( "/util/support_center.ticket.child.php",{
 				idx : paramIdx
 			}).done(function( data ) {
 				// console.log(data);
 				var vHtml = $('<div>');
+
 				$.each(data.list, function( index, obj ) {
 					var row = $('#dup2').clone();
+
 					if(obj.mb_no == 1){ // 관리자
 						row.find('.message').addClass('support-message');
-						row.find('.name').text('Support Admin');
+						row.find('.name').text('관리자');
 					}else{
 						row.find('.message').addClass('member-message');
-						row.find('.name').text(obj.mb_id );
+						row.find('.name').text(obj.mb_id);
 					}
 					row.find('.content').text(obj.content);
 					row.find('.time').text(obj.create_date);
+
 					if(obj.bf_source){
-						var btn = $('<a>');
+						var btn = $('<a class="file_addon">');
 						btn.attr('href','<?=G5_URL?>/bbs/download.php?bo_table=supportCenterChild&wr_id=' + obj.wr_id + '&no=' + obj.bf_no);
-						btn.text(obj.bf_source);
-						row.find('.message').append(btn);
+						// btn.text(obj.bf_source);
+						btn.html(`<i class="ri-download-2-line"></i>${obj.bf_source}`)
+						row.find('.writer').prepend(btn);
 					}
 					vHtml.append(row.html());
 				});
 
 				if(data.file){
-					// console.log(data.file);
+					var row = $('#dup2').clone();
 					var btn = $('<a class="file_addon">');
+
 					btn.attr('href','<?=G5_URL?>/bbs/download.php?bo_table=supportCenter&wr_id=' + data.file.wr_id + '&no=' + data.file.bf_no);
-					btn.text(data.file.bf_source);
-					vHtml.find('.message.member-message').last().append(btn);
+					btn.html(`<i class="ri-download-2-line"></i>${data.file.bf_source}`);
+					// btn.text(data.file.bf_source);
+					// vHtml.find('.message.member-message').last().append(btn);
+					vHtml.find('.message.member-message .file').last().html(btn);
+					// row.find('.writer').prepend(btn);
 				}
-
-
-
 				$selected.find('.chat').append(vHtml.html());
+				
 			}).fail(function(e) {
 				console.log( e );
 			});
 		}
-
     </script>
-
 <main>
 	<section class="con90_wrap">
-
 		<div class="main-container dash_contents">
 			<div id="body-wrapper">
 				<div class="support-container">
 					<div class="support-panels">
 						<ul class="support-tabs content-box">
-						<li rel="active-tickets" data-i18n='support.활성화 티켓'>활성화 티켓</li>
+							<li rel="active-tickets" data-i18n='support.활성화 티켓'>활성화 티켓</li>
 							<li rel="answered-tickets" data-i18n='support.답변 티켓'>답변 티켓</li>
 							<li rel="closed-tickets" data-i18n='support.비활성화 티켓'>비활성화 티켓</li>
 						</ul>
@@ -210,82 +221,55 @@ if(!$is_admin){
 		</div>
 		<div style="display:none;" id="dup">
 			<div class="ticket-header">
-					<div class="dp-flex">
-						<strong class="topic"></strong>
-						<span class="ticket-title subject" ></span>
-					</div>
-					<span class="ticket-time create_date">12:34 PM</span>
-				</div>
-				<div class="chat-box">
-					<div class="chat"></div>
-					<div class="chat-input">
-						<div class="input-group mb-2">
-							<input type="text" class="form-control message" placeholder="내용입력" aria-label="Message" aria-describedby="basic-addon2" >
-						</div>
-						<div class="custom-file mb-2">
-							<input class="upload-name2" placeholder="선택된 파일 없음" readonly>
-							<input type="file" id="" class="messageFile" name="bf_file[]" onChange="" accept=".jpg, .png, .pdf" accept="image/*;capture=camera">
-							<label class="file_label" for="">파일선택</label> 
-							<button type="button" class="btn_del">&times;</button>
-						</div>				
-						<div class="input-group mb-2 noborder">
-							<div class="input-group-append" style="flex-grow: 1">
-								<button class="btn wd btn-primary send main_btn" type="button">티켓전송</button>
-							</div>
-						</div>
-						<div>
-							<button class="btn wd cl" type="button">티켓비활성화</button>
-						</div>
-					</div>
-				</div>
-			<!-- <div class="ticket-header">
-				<div>
+				<div class="dp-flex">
 					<strong class="topic"></strong>
-					<span class="ticket-title subject" ></span>
+					<span class="ticket-title subject"></span>
 				</div>
-				<span class="ticket-time create_date">12:34 PM</span>
+				<span class="ticket-time create_date"></span>
 			</div>
 			<div class="chat-box">
 				<div class="chat"></div>
 				<div class="chat-input">
-					<div class="input-group mb-3">
-						<input type="text" class="form-control message" placeholder="Message" aria-label="Message" aria-describedby="basic-addon2" >
-						<div class="input-group-append">
-							<button class="btn btn-primary send" type="button" data-i18n='support.보내기'>보내기</button>
-							<button class="btn btn-danger cl" type="button" data-i18n='support.닫기'>닫기</button>
+					<div class="input-group mb-2">
+						<input type="text" class="form-control message" placeholder="내용입력" aria-label="Message" aria-describedby="basic-addon2">
+					</div>
+					<div class="custom-file mb-2">
+						<input class="upload-name2" placeholder="선택된 파일 없음" readonly>
+						<input type="file" id="" class="messageFile" name="bf_file[]" onChange="" accept=".jpg, .png, .pdf" accept="image/*;capture=camera">
+						<label class="file_label" for="">파일선택</label> 
+						<button type="button" class="btn_del">&times;</button>
+					</div>				
+					<div class="input-group mb-2 noborder">
+						<div class="input-group-append" style="flex-grow: 1">
+							<button class="btn wd btn-primary send main_btn" type="button">티켓전송</button>
 						</div>
 					</div>
-					<div class="custom-file">
-						<input type="file" class="custom-file-input messageFile" name="bf_file[]" accept=".jpg, .png, .pdf" >
-						<label style="font-size: 12px;" class="custom-file-label" for="customFile">Choose file ( 5MB limit, .jpg, .png, .pdf )</label>
+					<div>
+						<button class="btn wd cl" type="button">티켓비활성화</button>
 					</div>
 				</div>
-			</div> -->
+			</div>
 		</div>
-
 		<div style="display:none;" id="dup2" >
-			<div class="message">
+			<div class="message mb-2">
 				<span class="content"> </span><br>
+				<a class="file"></a>
 				<p class="writer"><span class="name">Support</span> | <span class="time" >12:40 PM</span></p>
 			</div>
 		</div>
-
 		<div style="display:none;" >
-			<form id="ticketChildForm" action ="/util/support_center.ticket.child.php" method="post" enctype="multipart/form-data" >
-				<input type="hidden" name="idx" >
-				<input type="hidden" name="content" >
+			<form id="ticketChildForm" action ="/util/support_center.ticket.child.php" method="post" enctype="multipart/form-data">
+				<input type="hidden" name="idx">
+				<input type="hidden" name="content">
 			</form>
 		</div>
-
 		<div class="gnb_dim"></div>
-
 	</section>
 </main>
 
-
 	<script>
 		$(function(){
-			$(".top_title h3").html("<span >1:1문의사항</span>")
+			$(".top_title h3").html("<span >1:1문의사항</span>");
 		});
 
 		function FileSizeChk(param) {		
@@ -309,5 +293,4 @@ if(!$is_admin){
 			});
 		});		
 	</script>
-
 <? include_once(G5_THEME_PATH.'/_include/tail.php'); ?>

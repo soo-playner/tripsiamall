@@ -171,7 +171,7 @@ function dialogModal(title, htmlBody, category, dim = true) {
 	}
 
 	if (category == 'success') {
-		$('#dialogModal .modal-body').html("<div class=chkimg><img src='" + g5_url + "/img/check_green.png'></div>" + htmlBody);
+		$('#dialogModal .modal-body').html("<div class=chkimg><img src='" + g5_url + "/img/check_basics.png'></div>" + htmlBody);
 		$('#dialogModal .modal-footer').html("<button type='button' class='btn wd btn_defualt closed' data-dismiss='modal' id='modal_return_url' onclick='" + dimhide + "'>닫기</button>");
 	}
 	else if (category == 'confirm') {

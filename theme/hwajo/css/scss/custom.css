@@ -2686,7 +2686,7 @@ a.btn_cancle, .btn_cancle {
 }
 .dark .ticket-header.active,
 .dark .ticket-header:hover {
-  background-color: #cfa831;
+  background-color: #FECE00;
   color: #000;
 }
 .dark .ticket-header {

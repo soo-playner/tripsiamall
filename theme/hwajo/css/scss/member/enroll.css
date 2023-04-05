@@ -219,7 +219,7 @@
           transform: translate(22px, -3px);
 }
 #service_checkbox:checked + label, #private_checkbox:checked + label {
-  background: url("/img/check_green.png") no-repeat center/17px 18px;
+  background: url("/img/check_basics.png") no-repeat center/17px 18px;
   background-repeat: no-repeat;
 }
 

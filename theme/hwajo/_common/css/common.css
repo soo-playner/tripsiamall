@@ -368,7 +368,7 @@ a.btn {
 
 /*모달*/
 #purchaseModal .modal-body {
-	_background: url("/img/check_green.png") center center 80% no-repeat;
+	_background: url("/img/check_basics.png") center center 80% no-repeat;
 	min-height: 200px;
 	text-align: center;
 }
@@ -389,7 +389,12 @@ a.btn {
 	margin: 10px 0;
 }
 #dialogModal .modal-dialog {
-	transform: translate(0, 50%);
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	position: absolute;
+	width: 100%;
+	margin: 0;
 }
 #dialogModal .modal-body {
 	text-align: center;
@@ -3426,30 +3431,30 @@ input.input_price {
 /* ==================== SUPPORT CENTER ===================== */
 .support_center .chat {
 	height: auto;
-	margin-bottom: 25px;
 	overflow-x: auto;
 }
 .chat-box {
 	height: 0;
 	overflow: hidden;
-	transition: all 0.3s ease-in-out;
-	margin-bottom: 0;
 	padding: 0;
 	border-bottom-left-radius: 0;
 	border-bottom-right-radius: 0;
 	margin: 0;
 	border: 0;
-	background: inherit;
+	background: #fff;
 }
 .chat-box.active {
 	height: auto;
-	transition: all 0.3s ease-in-out;
 	padding: 15px;
 	border-bottom-left-radius: 6px;
 	border-bottom-right-radius: 6px;
 	margin-top: -1px;
 	box-shadow: 0 1px 1px rgb(49 104 116 / 20%);
-	background: #fff;
+
+}
+.chat-box .writer i {
+	margin-right: 5px;
+	vertical-align: baseline;
 }
 .upload-name1,
 .upload-name2 {
@@ -3458,8 +3463,7 @@ input.input_price {
 	height: 38px;
 	padding: 0 10px 0 120px;
 	vertical-align: middle;
-	border: none;
-	color: #fff;
+	border: 1px solid #dfe4ec;
 	font-weight: 100;
 	font-size: 0.8rem;
 	text-overflow: ellipsis;
@@ -3474,6 +3478,8 @@ input.input_price {
 .dark .upload-name1,
 .dark .upload-name2 {
 	background: none;
+	color: #fff;
+	border-color: #939393;
 }
 .file_label,
 .file_label2 {
@@ -3519,6 +3525,14 @@ input.input_price {
 	color: #fff;
 	background-color: #212429;
 }
+#open-new-ticket input,
+#open-new-ticket textarea {
+	line-height: normal;
+}
+.dark #open-new-ticket input,
+.dark #open-new-ticket textarea {
+	color: #fff;
+}
 .support-panels .input-group {
 	border: 1px solid #dfe4ec;
 	border-radius: 5px;
@@ -3526,6 +3540,9 @@ input.input_price {
 .dark .support-panels .input-group {
 	border-color: #939393;
 	overflow: hidden;
+}
+.dark .support-panels .input-group.noborder {
+	border: none;
 }
 .support-panels .input-group-text {
 	background-color: #f8fbff;
@@ -3545,6 +3562,10 @@ input.input_price {
 	border: none;
 	border-radius: 3px;
 	font-size: 14px !important;
+}
+.dark .support-panels .btn.send,
+.dark .support-panels .btn_send {
+	background-color: #ffd965;
 }
 .support-panels input[type="file"] {
 	position: absolute;
@@ -3596,14 +3617,14 @@ input.input_price {
 	width: 100%;
 }
 .member-message {
-	background-color: #e9ecef;
+	background-color: #f3f7ff;
 }
 .support-message {
 	background-color: #f3f7ff;
 	color: #29386b;
 }
 .dark .support-message {
-	background: #2c2f34;
+	background: #474a4f;
 	color: #fff;
 }
 .support-message a {
@@ -3637,6 +3658,7 @@ input.input_price {
 }
 .support-panels .panel {
 	display: none;
+	padding: 0 15px;
 }
 .support-panels .panel.active {
 	display: block;
@@ -3691,14 +3713,20 @@ input.input_price {
 }
 .ticket-header {
 	background: #fff;
-	border-radius: 4px 4px 0 0;
+	border-radius: 4px;
 	cursor: pointer;
 	margin-top: 15px;
 	padding: 15px 20px;
-	transition: all 0.2s linear;
 	width: 100%;
 	display: table;
 	color: #333;
+	box-shadow: 0 1px 3px rgba(49, 104, 116, 0.2);
+}
+.ticket-header .topic {
+	flex : 0 0 auto;
+}
+.dark .ticket-header .topic {
+	color: #fff;
 }
 .ticket-header .ticket-title {
 	color: #333;
@@ -3720,6 +3748,17 @@ input.input_price {
 	background-color: #3b86ff;
 	color: white;
 }
+.ticket-header.active {
+	border-radius: 4px 4px 0 0;
+}
+#closed-tickets .ticket-header.active,
+#closed-tickets .ticket-header:hover {
+	background-color: #adadad;
+}
+.ticket-header.active .ticket-title,
+.ticket-header:hover .ticket-title {
+	color: #fff;
+}
 .ticket-header span {
 	font-size: 16px;
 	margin-bottom: 0;
@@ -3736,29 +3775,15 @@ input.input_price {
 }
 .support-container .writer {
 	font-size: 0.7em;
-	background: rgba(0, 0, 0, 0.1);
-	padding: 3px 10px;
+	background: none;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	text-align: right;
 	border-radius: 3px;
 	display: inline-block;
 	float: right;
 	color: #333;
-}
-.support-message .writer {
-	float: right;
-	background: none;
-	color: #333;
-	text-align: right;
-	display: inline-block;
-	width: 100%;
-	margin: 0;
-	padding: 0;
-}
-.support_center .support-container label,
-.support_center .support-container div,
-.support_center .support-container select,
-.support_center .support-container input,
-.support_center .support-container span {
-	color: #29386b;
 }
 .email {
 	color: white;
@@ -3772,14 +3797,16 @@ input.input_price {
 }
 .file_addon {
 	background: rgba(255, 255, 255, 0.7);
-	color: #00f !important;
-	text-decoration: underline;
 	width: 100%;
-	display: block;
+	display: inline-block;
 	border-radius: 15px;
-	padding: 2px 10px;
-	text-align: center;
-	margin: 10px 0;
+	padding: 10px;
+	text-align: left;
+	margin: 15px 0 10px;
+	font-size: 0.8rem;
+}
+.dark .file_addon {
+	background: rgba(255, 255, 255, 0.1);
 }
 
 @media only screen and (max-width: 814px) {
@@ -3850,11 +3877,6 @@ input.input_price {
 .ticket-header.closed:hover {
 	background-color: #ccc;
 }
-.ticket-header.closed::before {
-	font-weight: 700;
-	content: "[Closed]";
-}
-
 /* ==================== NEWS ===================== */
 .news + .news {
 	margin-top: 20px;
