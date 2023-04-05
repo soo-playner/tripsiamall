@@ -145,14 +145,18 @@ $title = 'Dashboard';
 				
 					<ul class="row top">
 						<li class="col-4">
-							<dt class="title" >총 추천 보너스</dt>
-							<dd class="value" style='font-size:15px;'><?=shift_auto($total_bonus)?><span class='currency'></span></dd>
+							<dt class="title" >총 누적 보너스</dt>
+							<dd class="value" style='font-size:15px;'><?=$total_bonus?><span class='currency'><?=$curencys[1]?></span></dd>
+						</li>
+						<li class="col-4">
+							<dt class="title" >구매 가능 포인트 </dt>
+							<dd class="value" style='font-size:15px;'><?=$available_fund?><span class='currency'><?=$curencys[1]?></span></dd>
 						</li>
 						<li class="col-4">
 							<dt class="title" >출금 가능 포인트 </dt>
-							<dd class="value" style='font-size:15px;'><?=shift_auto($total_withraw)?><span class='currency'></span></dd>
+							<dd class="value" style='font-size:15px;'><?=$total_withraw?><span class='currency'><?=$curencys[1]?></span></dd>
 						</li>
-						<li class="col-4">
+						<!-- <li class="col-4">
 							<dt class="title">출금 가능 코인</dt>
 							<dd class="value" style='font-size:14px;'>
 								<?=shift_auto($mining_total,$minings[$now_mining_coin])?><span class='currency'><?=$minings[$now_mining_coin]?></span>
@@ -160,7 +164,7 @@ $title = 'Dashboard';
 									<br><div class='before_fund'>(  <?=$before_mining_total?><span class='currency'><?=$minings[$before_mining_coin]?></span> )</div>
 								<?}?>
 							</dd>
-						</li>
+						</li> -->
 					</ul> 
 				</div>
 				<div class="total_view_top" id="collapseExample">
@@ -213,12 +217,15 @@ $title = 'Dashboard';
 						</li>
 
 						<li class="col-4">
-							<dt class="title" >승급대상포인트</dt>
+							<dt class="title">승급대상포인트</dt>
 							<dd class="value"><?=Number_format($member['recom_sales'])?> </dd>
 						</li>
 
-						<!-- <li class="col-4">
-							<dt class="title" >수당한계</dt>
+					</ul>
+
+					<!-- <ul class="row" style="margin:0 20px;">
+						<li class="col-12">
+							
 							<dd class="value">
 								<div class='bonus_state_bg' data-per='<?=$bonus_per?>'>
 									<div class='bonus_state_bar' id='total_B_bar'></div>
@@ -226,13 +233,15 @@ $title = 'Dashboard';
 								
 								<div class='exp_per'>
 									<p class='start'>0%</p>
-									<p class='end'>250%</p>
+									<p class='end'>300%</p>
 								</div>
 							</dd>
-						</li> -->
-					</ul>
+							<dt class="title" >수당한계</dt>
+						</li>
+					</ul> -->
+
 					<ul class="row">
-						<li class="rank_title">승급조건달성</li>
+						<li class="rank_title">다음승급조건달성</li>
 
 						<!-- <li class="col-4">
 							<dt class="title">본인매출</dt>
@@ -248,8 +257,9 @@ $title = 'Dashboard';
 							</dd>
 						</li>
 
+
 						<li class="col-6">
-							<dt class="title">승급대상포인트</dt>
+							<dt class="title">승급대상포인트(산하매출)</dt>
 							<dd class="value">
 								<?=check_value($member['mb_7'])?>
 							</dd>

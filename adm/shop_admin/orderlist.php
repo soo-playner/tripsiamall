@@ -7,6 +7,7 @@ auth_check($auth[$sub_menu], "r");
 $g5['title'] = '주문/구매내역';
 include_once (G5_ADMIN_PATH.'/admin.head.php');
 include_once(G5_PLUGIN_PATH.'/jquery-ui/datepicker.php');
+include_once(G5_THEME_PATH.'/_include/wallet.php');
 
 if (empty($fr_date)) $fr_date = date("Y-m-d", strtotime(date("Y-m-d")."-3 months"));
 if (empty($to_date)) $to_date = G5_TIME_YMD;
@@ -318,7 +319,7 @@ if(!sql_query(" select mb_id from {$g5['g5_shop_order_delete_table']} limit 1 ",
         <th scope="col" id="odrpay" >결제수단</th>
 		<th scope="col" id="th_odrcnt" >구매가격</th>
 		<th scope="col" id="th_odrcnt" >판매실적(pv)</th>
-        <th scope="col" >마이닝(MH/s)</th>
+        <!-- <th scope="col" >마이닝(MH/s)</th> -->
         <th scope="col" >관리</th>
 
     </tr>
@@ -413,6 +414,7 @@ if(!sql_query(" select mb_id from {$g5['g5_shop_order_delete_table']} limit 1 ",
             $bg .= 'cancel';
             $td_color = 1;
         }
+        $od_settle_case = $row['od_settle_case'];
     ?>
 
 
@@ -446,11 +448,11 @@ if(!sql_query(" select mb_id from {$g5['g5_shop_order_delete_table']} limit 1 ",
 			<?php echo $row['od_status']; ?>
         </td>
         <td rowspan="2" class="td_numsum " ><span class='badge t_white color<?=od_name_return_rank($row['od_name'])?>' ><?=$row['od_name']?></span></td>
-        <td rowspan="2" class="td_numsum" style='text-align:right'><?= number_format($row['od_cart_price'])?> 원</td>
+        <td rowspan="2" class="td_numsum" style='text-align:right'><?= shift_auto($row['od_cart_price'],$od_settle_case)?> <?=$od_settle_case?></td>
         <td ><?php echo $row['od_settle_case'] ?></td>
-		<td rowspan="2" style="text-align:right;font-weight:600"><?=number_format($row['od_cash'])?> 원</td>
+		<td rowspan="2" style="text-align:right;font-weight:600"><?=shift_auto($row['od_cash'],$od_settle_case)?> <?=$od_settle_case?></td>
 		<td ><?=number_format($row['upstair'])?> </td>
-        <td > <?php echo $row['pv']; ?></td>
+        <!-- <td > <?php echo $row['pv']; ?></td> -->
         <td > <input type='button' class='btn od_cancle' value='구매취소' data-id="<?=$row['od_id']?>"></td>
        
 		<!-- ##end##  ## -->
@@ -499,9 +501,9 @@ if(!sql_query(" select mb_id from {$g5['g5_shop_order_delete_table']} limit 1 ",
             <!-- <?php echo number_format($tot_itemcount); ?>건 -->
         </td>
         <th scope="row">합 계</th>
-        <td style='text-align:right'><?=Number_format($tot_orderprice)?> 원</td>
+        <td style='text-align:right'><?=shift_auto($tot_orderprice,BALANCE_CURENCY)?> <?=BALANCE_CURENCY?></td>
         <td></td>
-        <td style='text-align:right'><?=Number_format($tot_receiptprice)?> 원</td>
+        <td style='text-align:right'><?=shift_auto($tot_receiptprice,BALANCE_CURENCY)?> <?=BALANCE_CURENCY?></td>
         <td></td>
 		<td></td>
         <td></td>

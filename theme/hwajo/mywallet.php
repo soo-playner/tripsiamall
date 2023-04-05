@@ -467,7 +467,7 @@ $auth_cnt = sql_num_rows($amt_auth_log);
     var out_day_limit = '<?= $withdrwal_day_limit ?>';
 
     // 최대출금가능금액
-    var out_mb_max_limit = <?= $withdrwal_total ?>;
+    var out_mb_max_limit = Number('<?= $withdrwal_total ?>'.replace(',',''));
     let fixed_amt = 0, fixed_fee = 0;
 
     
@@ -477,10 +477,10 @@ $auth_cnt = sql_num_rows($amt_auth_log);
     // 출금금액 변경 
     function input_change() {
 
-        let input_value = Number(conv_number(document.querySelector('#sendValue').value));
+        const input_value = Number(conv_number(document.querySelector('#sendValue').value));
+        const real_fee_val = Number(input_value * out_fee);
+        const real_withdraw_val = input_value - real_fee_val;
         let shift_coin_value = <?=BONUS_NUMBER_POINT?>;
-        let real_fee_val = Number(input_value * out_fee);
-        let real_withdraw_val = input_value - real_fee_val;
         let swap_coin_price = (real_withdraw_val*<?=$coin['usdt_krw']?>)/<?=$withdrawal_price?>;
         let swap_fee_val = (real_fee_val*<?=$coin['usdt_krw']?>)/<?=$withdrawal_price?>;
 
