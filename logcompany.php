@@ -18,18 +18,10 @@ define('ETH_ADDRESS','0x00000005');
 
 
 // 기준통화설정
-$curencys = ['eth','usdt','eth','hwajo'];
-
-define('ASSETS_CURENCY','USDT'); // 자산통화
-define('BALANCE_CURENCY','USDT'); // 보너스 통화
-define('WITHDRAW_CURENCY','ETH'); // 출금 통화
+$curencys = ['eth','usdt','krw','hwajo'];
 
 define('ASSETS_NUMBER_POINT',8); // 입금 단위
 define('BONUS_NUMBER_POINT',2); // 수당계산,정산기준단위
-define('COIN_NUMBER_POINT',8); // 코인 단위
-
-define('ASSETS_NUMBER_POINT',8); // 입금 단위
-define('BONUS_NUMBER_POINT',8); // 수당계산,정산기준단위
 define('COIN_NUMBER_POINT',8); // 코인 단위
 define('KRW_NUMBER_POINT',0);
 

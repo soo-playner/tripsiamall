@@ -501,9 +501,9 @@ if(!sql_query(" select mb_id from {$g5['g5_shop_order_delete_table']} limit 1 ",
             <!-- <?php echo number_format($tot_itemcount); ?>건 -->
         </td>
         <th scope="row">합 계</th>
-        <td style='text-align:right'><?=shift_auto($tot_orderprice,BALANCE_CURENCY)?> <?=BALANCE_CURENCY?></td>
+        <td style='text-align:right'><?=shift_auto($tot_orderprice,$curencys[1])?> <?=$curencys[1]?></td>
         <td></td>
-        <td style='text-align:right'><?=shift_auto($tot_receiptprice,BALANCE_CURENCY)?> <?=BALANCE_CURENCY?></td>
+        <td style='text-align:right'><?=shift_auto($tot_receiptprice,$curencys[1])?> <?=$curencys[1]?></td>
         <td></td>
 		<td></td>
         <td></td>

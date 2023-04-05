@@ -52,7 +52,7 @@ if ($_GET['recom_referral']){
 
 	$(function() {
 
-		onlyNumber('reg_mb_hp');
+		// onlyNumber('reg_mb_hp');
 		$('.cabinet').on('click',function(){
 			$(this).next().css('display','contents');
 		});
@@ -331,7 +331,7 @@ if ($_GET['recom_referral']){
 		//var eng_large = pw.search(/[A-Z]/ig);
 		var spe = pw.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
 
-		var pattern = /^(?!((?:[0-9]+)|(?:[a-zA-Z]+)|(?:[\[\]\^\$\.\|\?\*\+\(\)\\~`\!@#%&\-_+={}'""<>:;,\n]+))$)(.){4,}$/;
+		var pattern = /^(?=.*[a-zA-Z])(?=.*[!@#$%^&*=+])(?=.*[0-9]).{4,12}/;
 
 		if (pw.length < 4) {
 			$("#pm_1").attr('class', 'x_li');
@@ -591,14 +591,14 @@ if ($_GET['recom_referral']){
 		}
 
 		// 연락처
-		if (f.mb_hp.value == '' || f.mb_hp.value == 'undefined') {
-			commonModal('휴대폰번호확인', '<strong>휴대폰 번호가 잘못되거나 누락되었습니다. </strong>', 80);
-			return false;
-		}
+		// if (f.mb_hp.value == '' || f.mb_hp.value == 'undefined') {
+		// 	commonModal('휴대폰번호확인', '<strong>휴대폰 번호가 잘못되거나 누락되었습니다. </strong>', 80);
+		// 	return false;
+		// }
 
 		// 패스워드
 		if (!chkPwd_1($('#reg_mb_password').val(), $('#reg_mb_password_re').val())) {
-			commonModal('비밀번호 규칙 확인', '<strong> 로그인 패스워드가 일치하지 않습니다.</strong>', 80);
+			commonModal('비밀번호 규칙 확인', '<strong> 로그인 패스워드를 확인해주세요.</strong>', 80);
 			return false;
 		}
 
@@ -691,7 +691,15 @@ if ($_GET['recom_referral']){
 					</div>
 				</section>
 				<i style="color:rgba(255,255,255,0.4)">※센터정보 검색후 선택해주세요.</i> -->
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 				<em class="info_text">※추천회원 검색후 선택해주세요.</em>
+=======
+				<!-- <em class="info_text">※센터정보 검색후 선택해주세요.</em> -->
+>>>>>>> Stashed changes
+=======
+				<!-- <em class="info_text">※센터정보 검색후 선택해주세요.</em> -->
+>>>>>>> Stashed changes
 
 
 			<!-- <p class="check_appear_title mt40"><span data-i18n='signUp.일반정보'>General Information</span></p> -->
@@ -708,8 +716,8 @@ if ($_GET['recom_referral']){
 				<span class='cabinet_inner' style=''>※수신가능한 이메일주소를 직접 입력해주세요</span>
 				<div class='in_btn_ly'><input type="button" id='EmailChcek' class='btn_round check' value="이메일 전송"></div>
 				
-				<input type="text" name="mb_hp"  id="reg_mb_hp" class='cabinet'  pattern="[0-9]*" required  placeholder="휴대폰번호"/>
-				<span class='cabinet_inner' style=''>※'-'를 제외한 숫자만 입력해주세요</span>
+				<!-- <input type="text" name="mb_hp"  id="reg_mb_hp" class='cabinet'  pattern="[0-9]*" required  placeholder="휴대폰번호"/>
+				<span class='cabinet_inner' style=''>※'-'를 제외한 숫자만 입력해주세요</span> -->
 				<!-- <label class='prev_icon'><i class="ri-smartphone-line"></i></label> -->
 				
 			</div>
@@ -723,8 +731,8 @@ if ($_GET['recom_referral']){
 
 					<strong><span class='mb10' style='display:block;font-size:13px;'>비밀번호 설정 조건</span></strong>
 					<ul>
-						<li class="x_li" id="pm_1" >4자 이상 20자 이하</li>
-						<li class="x_li" id="pm_3" >숫자+영문</li>
+						<li class="x_li" id="pm_1" >4자 이상 12자 이하</li>
+						<li class="x_li" id="pm_3" >숫자+영문+특수문자</li>
 						<li class="x_li" id="pm_5" >비밀번호 비교</li>
 					</ul>
 				</li>

@@ -263,10 +263,8 @@ $result = sql_query($sql);
 </script>
 <input type="button" class="btn_submit excel" id="btnExport"  data-name='zeta_deposit' value="엑셀 다운로드" />
 
-
-
 <div class="local_ov01 local_ov">
-	<a href="./adm.deposit_request.php?<?=$qstr?>" class="ov_listall"> 결과통계 <?=$total_count?> 건 = <strong><?=shift_auto($total_hap,ASSETS_NUMBER_POINT)?></strong></a> 
+	<a href="./adm.deposit_request.php?<?=$qstr?>" class="ov_listall"> 결과통계 <?=$total_count?> 건 = <strong><?=shift_auto($total_hap,$curencys[1])?></strong></a> 
 	<?
 		// 현재 통계치
 		$stats_sql = "SELECT status, sum(in_amt) as hap, count(in_amt) as cnt from {$g5['deposit']} as A WHERE 1=1 ".$sql_condition. " GROUP BY status";
@@ -279,7 +277,7 @@ $result = sql_query($sql);
 			echo "<a href='./adm.deposit_request.php?".$qstr."&status=".$stats['status']."'><span class='tit'>";
 			echo status($stats['status']);
 			echo "</span> : ".$stats['cnt'];
-			echo "건 = <strong>".shift_auto($stats['hap'],ASSETS_NUMBER_POINT)."</strong></a>";
+			echo "건 = <strong>".shift_auto($stats['hap'],$curencys[1])."</strong></a>";
 		}
 	?>
 </div>
@@ -337,8 +335,8 @@ $result = sql_query($sql);
         <!-- <td style='color:#666'><?=$member_result['mb_center']?></td> -->
         <td style='color:#666'><?=$row['txhash']?></td>
         <td><?=shift_auto($row['amt'])?></td>
-        <td><input type='text' class='reg_text input_amt_val' style='font-weight:600;color:blue;text-align:right' value='<?=shift_auto($row['in_amt'],BALANCE_CURENCY)?>'></td>
-        <td class='coin'><?=strtoupper($row['coin']);?></td>
+        <td><input type='text' class='reg_text input_amt_val' style='font-weight:600;color:blue;text-align:right' value='<?=shift_auto($row['in_amt'],$curencys[1])?>'></td>
+        <td class='coin'><?=$row['coin']?></td>
         <td>
             <!-- <?=status($row['status'])?> -->
             <select name="status" uid="<?=$row['uid']?>" class='sel_<?=$row['status']?>'>

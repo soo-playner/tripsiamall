@@ -30,12 +30,9 @@ function dimHide() {
 
 // 비밀번호 조합
 function CheckPass(str){
- var reg1 = /^[a-z0-9]{4,12}$/;    // a-z 0-9 중에 4자리 부터 12자리만 허용
- var reg2 = /[a-z]/g;
- var reg3 = /[0-9]/g;
- return(reg1.test(str) &&  reg2.test(str) && reg3.test(str));
-};
-
+ var reg = /^(?=.*[a-zA-Z])(?=.*[!@#$%^&*=+])(?=.*[0-9]).{4,12}/;
+ return reg.test(str);
+}
 
 function onlyNumber(id){
 	document.getElementById(id).oninput = function(){

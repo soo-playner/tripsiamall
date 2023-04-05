@@ -129,15 +129,15 @@
 					</ul>
 
 					<ul class='row person_info'>
-						<li class='col-12'>
+						<!-- <li class='col-12'>
 							<label>모바일</label>  
 							<div class='row'>
 								<div class='col-8'><p><?=format_phone($member['mb_hp'])?></p></div>
-								<!-- <?if($member['mb_hp'] == '' || $member['mb_certify'] != 1){?>
+								<?if($member['mb_hp'] == '' || $member['mb_certify'] != 1){?>
 									<div class='col-4 text-right'><input type="button" value="수정/변경" class="btn inline num_pop_open pop_open" ></div>
-								<?}?> -->
+								<?}?>
 							</div>
-						</li>
+						</li> -->
 					
 
 						<li class='col-12 mt20'>
@@ -157,14 +157,14 @@
 
 						 
 					</ul>
-					<?php if($member['bank_name'] && $member['bank_account'] && $member['account_name']){?>
+					<!-- <?php if($member['bank_name'] && $member['bank_account'] && $member['account_name']){?>
 					<ul class='row person_info'>
 						<li class='col-12'>
 							<label>출금정보</label>
 							<p><?=$member['bank_name']?> : <?=$member['bank_account']?> (<?=$member['account_name']?>)</p>	
 						</li>
 					</ul>
-					<?php } ?>
+					<?php } ?> -->
 				</div>
 				<div class='col-sm-12 col-12 profile-box'>
 					<h3 class='title b_line'>
@@ -356,7 +356,7 @@
 				<p >변경이 성공적으로 완료되었습니다</p>
 			</div>
 			<div class="pop_close_wrap">
-				<a href="javascript:void(0);" id="pin_close" >창닫기</a>
+				<a href="javascript:void(0);" id="pin_close"  class="pop_close">창닫기</a>
 			</div>
 		</div>
 <script>
@@ -470,7 +470,7 @@ $(function() {
 			<span >비밀번호가 성공적으로 변경되었습니다
 		</div>
 		<div class="pop_close_wrap">
-			<a href="javascript:void(0);" id="pass_close" class="pop_close">Close</a>
+			<a href="javascript:void(0);" id="pass_close" class="pop_close">창닫기</a>
 		</div>
 	</div>
 
@@ -495,12 +495,12 @@ $(function() {
 		var new_pw_re = $('.chage_pw_pop1 #new_pw_re').val();
 
 		if(check_new_pw == false){
-			dialogModal('입력확인','<strong> New password required <br />1. Must be 4 to 12 digits<br />2. English and numbers must be written together</strong>','failed',false);
+			dialogModal('입력확인','<p>4~12자 이내 영문,숫자,특수문자 조합을 해주세요.</p>','failed',false);
 			return false;
 		}
 
 		if(new_pw != new_pw_re){
-			dialogModal('입력확인','<strong> New login password does not matched.</strong>','failed',false);
+			dialogModal('입력확인','<p>새로운 비밀번호가 일치하지 않습니다.</p>','failed',false);
 			return false;
 		}
 
@@ -779,7 +779,7 @@ $(function() {
 			<span>변경 처리되었습니다</span>
 		</div>
 		<div class="pop_close_wrap">
-			<a href="javascript:void(0);" class="btn inline wd pop_close">Close</a>
+			<a href="javascript:void(0);" class="btn inline wd pop_close">창닫기</a>
 		</div>
 	</div>
 

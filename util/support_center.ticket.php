@@ -57,7 +57,7 @@ if($method == 'GET'){
 	}
 	print json_encode($rows);
 }else if($method == 'POST'){
-	$write_result = sql_query("insert into ticket(topic, subject, mb_no, create_date) values ({$_POST[topic]},'{$_POST[subject]}', {$member[mb_no]}, now())");
+	$write_result = sql_query("insert into ticket(topic, subject, mb_no, create_date) values ({$_POST['topic']},'{$_POST['subject']}', {$member['mb_no']}, now())");
 	$idx = sql_insert_id();
 
 	if($write_result){
@@ -65,12 +65,12 @@ if($method == 'GET'){
 		if(TELEGRAM_ALERT_USE){
 			$sumary_subject = mb_strimwidth($_POST['subject'], 0, 20, "...","utf-8");
 			print_R($sumary_subject);
-			curl_tele_sent("[ZETABYTE][1:1문의] ".$member['mb_id']." 님이 (".$sumary_subject.")  문의 내용을 남겼습니다.",2);
+			curl_tele_sent("[HWAJO][1:1문의] ".$member['mb_id']." 님이 (".$sumary_subject.")  문의 내용을 남겼습니다.",2);
 		}
 		
 	}
 	
-	sql_query("insert into ticket_child(content, pid, mb_no, create_date) values ('{$_POST[content]}', ".$idx.", $member[mb_no], now())");
+	sql_query("insert into ticket_child(content, pid, mb_no, create_date) values ('{$_POST['content']}', {$idx}, {$member['mb_no']}, now())");
 
 	// 메일 전송
 	//shell_exec("php support.ticket.mail.php ".$idx." ".$member['mb_id']." ".$member['mb_email']." ".$_POST['lang']." > /dev/null &");

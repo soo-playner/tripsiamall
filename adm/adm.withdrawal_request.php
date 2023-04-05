@@ -229,17 +229,16 @@ function return_status_tx($val)
 <input type="button" class="btn_submit excel" id="btnExport"  data-name='zeta_bonus_withdrawal' value="엑셀 다운로드" />
 
 <div class="local_ov01 local_ov">
-	<a href="./adm.withdrawal_request.php?<?= $qstr ?>" class="ov_listall"> 결과통계 <?= $total_count ?> 건 = <strong><?= shift_auto($total_out,BALANCE_CURENCY) ?> <?= BALANCE_CURENCY ?> </strong></a>
+	<a href="./adm.withdrawal_request.php?<?= $qstr ?>" class="ov_listall"> 결과통계 <?= $total_count ?> 건 = <strong><?= shift_auto($total_out,$curencys[1]) ?> <?= $curencys[1] ?> </strong></a>
 	<?
 	// 현재 통계치
 	$stats_sql = "SELECT status, sum(out_amt)  as hap, count(out_amt) as cnt from {$g5['withdrawal']} as A WHERE 1=1 " . $sql_condition . " GROUP BY status";
 	$stats_result = sql_query($stats_sql);
-
 	while ($stats = sql_fetch_array($stats_result)) {
 		echo "<a href='./adm.withdrawal_request.php?" . $qstr . "&status=" . $stats['status'] . "'><span class='tit'>";
 		echo return_status_tx($stats['status']);
 		echo "</span> : " . $stats['cnt'];
-		echo "건 = <strong>" . shift_auto($stats['hap'],BALANCE_CURENCY) . ' ' . BALANCE_CURENCY . "</strong></a>";
+		echo "건 = <strong>" . shift_auto($stats['hap'],$curencys[1]) . ' ' . $curencys[1] . "</strong></a>";
 	}
 	?>
 </div>
@@ -316,7 +315,7 @@ $ord_rev = $ord_array[($ord_key + 1) % 2]; // 내림차순→오름차순, 오�
 								<?= $row['bank_name'] ?> | <span id="bank_account" style='font-weight:600;font-size:13px;'><?= $row['bank_account'] ?></span>(<?= $row['account_name'] ?>)
 								<button type="button" class="btn inline_btn copybutton f_right" style='margin-right:10px;vertical-align:top;'>계좌복사</button>
 							<?php } else { 
-								$wallet_addr = $row['coin'] == ASSETS_CURENCY ? $mb['eth_my_wallet'] : $mb['mb_wallet'];
+								$wallet_addr = $row['coin'] == $curencys[0] ? $mb['eth_my_wallet'] : $mb['mb_wallet'];
 								$wallet_addr1 = Decrypt($row['addr'],$secret_key,$secret_iv);
 								$wallet_addr2 = Decrypt($wallet_addr,$row['mb_id'],'x');
 								if($wallet_addr1 == $wallet_addr2){ ?>
@@ -342,9 +341,8 @@ $ord_rev = $ord_array[($ord_key + 1) % 2]; // 내림차순→오름차순, 오�
 						</td>
 
 					
-
 						<!-- 출금요청액 -->
-						<td class="td_amt <?= $coin_class ?>"><?= shift_auto($row['amt_total'], $row['coin']) ?> <?="<br>(".shift_auto($row['out_amt'],BALANCE_CURENCY) ." ".BALANCE_CURENCY.")" ?></td>
+						<td class="td_amt <?= $coin_class ?>"><?= shift_auto($row['amt_total'], $row['coin']) ?> <?="<br>(".shift_auto($row['out_amt'],$curencys[1]) ." ".$curencys[1].")" ?></td>
 
 						<!-- 출금계산 -->
 						<!-- <td class="gray" style='line-height:18px;'>
@@ -361,7 +359,7 @@ $ord_rev = $ord_array[($ord_key + 1) % 2]; // 내림차순→오름차순, 오�
 						</td>
 
 						<!-- 출금시세 -->
-						<td class="gray" style='font-size:11px;'><span><?= shift_auto($row['cost'], KRW_CURENCY) ?></span></td>
+						<td class="gray" style='font-size:11px;'><span><?= shift_auto($row['cost'], $curencys[2]) ?></span></td>
 
 						<td style="font-size:11px;"><?= timeshift($row['create_dt']) ?></td>
 						<td>
@@ -394,14 +392,15 @@ $total_hap = $row['hap'];
 $total_amt = $row['amt_total'];
 $total_out = $row['outamt'];
 $total_fee = $row['feehap']; -->
+
 			<tfoot>
 				<td>합계:</td>
 				<td><?= $total_count ?></td>
 				<td colspan=4></td>
 				<td><?=$total_arr[0]['coin']?> <br><?=$total_arr[1]['coin']?></td>
-				<td colspan=1><?= shift_auto($total_arr[0]['amt_total'],ASSETS_CURENCY) ?><br><?= shift_auto($total_arr[1]['amt_total'],WITHDRAW_CURENCY) ?></td>
-				<td><?= shift_auto($total_arr[0]['feehap'],ASSETS_CURENCY) ?><br><?= shift_auto($total_arr[1]['feehap'],WITHDRAW_CURENCY) ?></td>
-				<td colspan=1><?= shift_auto($total_arr[0]['hap'],ASSETS_CURENCY) ?><br><?= shift_auto($total_arr[1]['hap'],WITHDRAW_CURENCY) ?></td>
+				<td colspan=1><?= shift_auto($total_arr[0]['amt_total'],$curencys[0]) ?><br><?= shift_auto($total_arr[1]['amt_total'],$curencys[3]) ?></td>
+				<td><?= shift_auto($total_arr[0]['feehap'],$curencys[0]) ?><br><?= shift_auto($total_arr[1]['feehap'],$curencys[3]) ?></td>
+				<td colspan=1><?= shift_auto($total_arr[0]['hap'],$curencys[0]) ?><br><?= shift_auto($total_arr[1]['hap'],$curencys[3]) ?></td>
 				<td colspan=5></td>
 			</tfoot>
 		</table>

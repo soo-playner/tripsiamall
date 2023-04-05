@@ -77,14 +77,14 @@ $(document).ready(function(){
 		</div>
 		<div class="b_line3"></div>
 		<ul class="left_gnb">
-			<li class="dashboard_icon <? if($_SERVER['REQUEST_URI'] === '/') {echo 'active';}?>">
+			<!-- <li class="dashboard_icon <? if($_SERVER['REQUEST_URI'] === '/') {echo 'active';}?>">
 				<a href="/">
 					<div class="gnb_img_wrap"></div>
 					<div class="gnb_title_Wrap">
 						<span >대쉬보드</span>
 					</div>
 				</a>
-			</li>
+			</li> -->
 			<li class="profile_icon <? if($_GET['id'] === 'profile') {echo 'active';}?>">
 				<a href="/page.php?id=profile">
 					<div class="gnb_img_wrap"></div>
@@ -120,23 +120,23 @@ $(document).ready(function(){
 				</a>
 			</li> -->
 			<?if($nw['nw_purchase'] == 'Y'){?>
-			<li class="upstairs_icon <? if($_GET['id'] === 'upstairs') {echo 'active';}?>">
+			<!-- <li class="upstairs_icon <? if($_GET['id'] === 'upstairs') {echo 'active';}?>">
 				<a href="/page.php?id=upstairs">
 					<div class="gnb_img_wrap"></div>
 					<div class="gnb_title_Wrap">
 						<span >패키지구매</span>
 					</div>
 				</a>
-			</li> 
+			</li>  -->
 			<?}?>
-			<li class="bonus_history_icon <? if($_GET['id'] === 'bonus_history') {echo 'active';}?>">
+			<!-- <li class="bonus_history_icon <? if($_GET['id'] === 'bonus_history') {echo 'active';}?>">
 				<a href="/page.php?id=bonus_history">
 					<div class="gnb_img_wrap"></div>
 					<div class="gnb_title_Wrap">
 						<span >보너스내역</span>
 					</div>
 				</a>
-			</li>
+			</li> -->
 			<?if($member['center_use'] == 1){?>
 			<li class="center_page_icon <? if($_GET['id'] === 'center_page') {echo 'active';}?>">
 				<a href="/page.php?id=center_page">

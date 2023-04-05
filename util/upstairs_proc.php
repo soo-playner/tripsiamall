@@ -15,7 +15,7 @@ $mb_rank = $member['rank'];
 // $output_val ='169.09';
 // $coin_val = 'eth';
 
-$coin_val = BALANCE_CURENCY;
+$coin_val = $curencys[1];
 $func = $_POST['func'];
 $input_val= $_POST['input_val'];
 $output_val = $_POST['output_val'];

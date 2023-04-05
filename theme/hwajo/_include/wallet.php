@@ -26,15 +26,15 @@ $total_deposit = $member['mb_deposit_point'] + $member['mb_deposit_calc'];
 $total_bonus = $member['mb_balance']; 
 $total_shift_amt = $member['mb_shift_amt'];
 
-$total_fund = shift_auto($total_bonus,BALANCE_CURENCY);
+$total_fund = shift_auto($total_bonus,$curencys[1]);
 
 // $shop_point = $total_bonus*0.1;
 
 // 출금가능금액 :: 총보너스 - 기출금
-$total_withraw = shift_auto($total_bonus - $total_shift_amt,BALANCE_CURENCY) ;
+$total_withraw = shift_auto($total_bonus - $total_shift_amt,$curencys[1]) ;
 
 // 구매가능잔고 :: 입금액 - 구매금액 = 남은금액
-$available_fund = shift_auto($total_deposit,BALANCE_CURENCY);
+$available_fund = shift_auto($total_deposit,$curencys[1]);
 
 // 마이닝합계
 $mining_acc = $member[$mining_target];
@@ -459,12 +459,12 @@ function clean_number_format($val, $decimal = ASSETS_NUMBER_POINT){
     return $_num;
 }
 
-function shift_auto($val,$type = 'ETH'){
-	if($type == 'ETH'){
+function shift_auto($val,$type = 'eth'){
+	if($type == 'eth'){
 		$decimal = ASSETS_NUMBER_POINT;
-	}else if($type == 'KRW'){
+	}else if($type == 'krw'){
 		$decimal = KRW_NUMBER_POINT;
-	}else if($type == 'USDT'){
+	}else if($type == 'usdt'){
 		$decimal = BONUS_NUMBER_POINT;
 	}else{
 		$decimal = COIN_NUMBER_POINT;
@@ -663,14 +663,12 @@ function ordered_items($mb_id, $table=null){
 		}
 	
 		$sql = "SELECT * FROM package_".$name_lower." WHERE mb_id = '{$mb_id}' AND promote = 0";
+	
 		$result = sql_query($sql);
 
-		$result_num = sql_num_rows($result);
-
-		if($result_num > 0){
-		for($j = 0; $j < $result_num; $j++){
-			$row = sql_fetch_array($result);
-
+	
+		for($j = 0; $j < $row = sql_fetch_array($result); $j++){
+			
 			$order_sql = "SELECT * FROM g5_shop_order WHERE od_id = '{$row['od_id']}'";
 			$order_row = sql_fetch($order_sql);
 
@@ -694,7 +692,7 @@ function ordered_items($mb_id, $table=null){
 				"row" => $row
 			));
 		}
-		}
+		
 		
 	}
 	return $upgrade_array;

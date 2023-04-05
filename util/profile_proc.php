@@ -26,10 +26,10 @@ if($category == 'email'){
 		$email_up_result= sql_query($email_up_sql);
 
 		if($email_up_result){
-			echo (json_encode(array("result" => "success",  "code" => "0000", "sql" => 'change email')));
+			echo (json_encode(array("result" => "success",  "code" => "0000", "sql" => '이메일이 변경되었습니다.')));
 		}
 	}else{
-		echo (json_encode(array("result" => "error",  "code" => "0002", "sql" => 'Current login password does not match.')));
+		echo (json_encode(array("result" => "error",  "code" => "0002", "sql" => '사용중인 비밀번호가 올바르지 않습니다.')));
 		return false;
 	}
 }
@@ -44,9 +44,9 @@ if($category == 'phone'){
 	if( check_password($_POST['auth_pwd'], $member['mb_password']) ){
 		$hp_up_sql = "UPDATE g5_member set mb_hp = '{$new_hp}', mb_certify = '1' where mb_id = '{$member['mb_id']}' ";
 		$hp_up_result= sql_query($hp_up_sql);
-		echo (json_encode(array("result" => "success",  "code" => "0000", "sql" => 'change phone number')));
+		echo (json_encode(array("result" => "success",  "code" => "0000", "sql" => '휴대폰번호가 변경되었습니다.')));
 	}else{
-		echo (json_encode(array("result" => "error",  "code" => "0002", "sql" => 'Current login password does not match.')));
+		echo (json_encode(array("result" => "error",  "code" => "0002", "sql" => '사용중인 비밀번호가 올바르지 않습니다.')));
 		return false;
 	}
 }
@@ -79,12 +79,12 @@ if($category == 'pw'){
 		if( $pass_result){
 			echo (json_encode(array("result" => "success",  "code" => "0000", "sql" => 'change purchase complete')));
 		}else{
-			echo (json_encode(array("result" => "error",  "code" => "0003", "sql" => 'please retry.')));
+			echo (json_encode(array("result" => "error",  "code" => "0003", "sql" => '죄송합니다. 문제가 발생하였습니다. 나중에 다시 시도해주세요.')));
 			return false;
 		}
 	}else{
 		//alert('The current email address is incorrect <br> Check current email.');
-		echo (json_encode(array("result" => "error",  "code" => "0002", "sql" => 'Current login password does not match.')));
+		echo (json_encode(array("result" => "error",  "code" => "0002", "sql" => '사용중인 비밀번호가 올바르지 않습니다.')));
 		return false;
 	}
 }
@@ -101,7 +101,7 @@ if($category == 'tpw'){
 			if( $pass_result){
 				echo (json_encode(array("result" => "success",  "code" => "0000", "sql" => 'change purchase complete')));
 			}else{
-				echo (json_encode(array("result" => "error",  "code" => "0003", "sql" => 'please retry.')));
+				echo (json_encode(array("result" => "error",  "code" => "0003", "sql" => '죄송합니다. 문제가 발생하였습니다. 나중에 다시 시도해주세요.')));
 				return false;
 			}
 		}else{
@@ -111,7 +111,7 @@ if($category == 'tpw'){
 		}
 
 	}else{
-		echo (json_encode(array("result" => "error",  "code" => "0002", "sql" => 'Current login password does not match.')));
+		echo (json_encode(array("result" => "error",  "code" => "0002", "sql" => '사용중인 비밀번호가 올바르지 않습니다.')));
 		return false;
 	}
 }
@@ -126,7 +126,7 @@ if($category == 'name'){
 		if( $name_result ){
 			echo (json_encode(array("result" => "success",  "code" => "0000", "sql" => 'change wallet address complete')));
 		}else{
-			echo (json_encode(array("result" => "error",  "code" => "0003", "sql" => 'please retry.')));
+			echo (json_encode(array("result" => "error",  "code" => "0003", "sql" => '죄송합니다. 문제가 발생하였습니다. 나중에 다시 시도해주세요.')));
 			return false;
 		}
 

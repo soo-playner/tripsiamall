@@ -133,8 +133,8 @@ $result = sql_query($sql);
 											<?=$row[$i-1]['it_supply_point']?> <span class='f_small'>mh/s</span>
 										</div> -->
 										<div class=" text_wrap">
-											<div class="it_price"><?=shift_auto($row[$i-1]['it_price'],BALANCE_CURENCY)?> <?=BALANCE_CURENCY?></div>
-											<div class='origin_price'>수익률: <?=shift_auto($row[$i-1]['it_supply_point'],BALANCE_CURENCY)?> %</div>
+											<div class="it_price"><?=shift_auto($row[$i-1]['it_price'],$curencys[1])?> <?=$curencys[1]?></div>
+											<!-- <div class='origin_price'>VAT <?=shift_auto($row[$i-1]['it_price']*0.1,$curencys[1])?> <?=$curencys[1]?></div> -->
 										</div>
 									</div>
 								</div>
@@ -177,7 +177,7 @@ $result = sql_query($sql);
 						<!-- <input type='radio' value='eth' class='radio_btn' name='currency'><input type="text" id="trade_money_eth" class="trade_money" placeholder="0" min=5 data-currency='eth' readonly> -->
 						<div>
 							<input type="text" id="total_coin_val" class='input_price' value="<?=$available_fund?>" readonly>
-							<span class="currency-right coin"><?=BALANCE_CURENCY?></span>
+							<span class="currency-right coin"><?=$curencys[1]?></span>
 						</div>
 					</div>
 						
@@ -185,7 +185,7 @@ $result = sql_query($sql);
 
 					<div class='col-6'>
 						<input type="text" id='shift_dollor' class='input_price red' readOnly>
-						<span class="currency-right coin "><?=BALANCE_CURENCY?></span>
+						<span class="currency-right coin "><?=$curencys[1]?></span>
 					</div>
 				</div>
 
@@ -301,7 +301,7 @@ $result = sql_query($sql);
 
 					<div class="row">
 						<h2 class="pack_name pack_f_<?=substr($od_name,1,1)?>"><?= strtoupper($row['od_name']) ?> </h2>
-						<span class='hist_sub_price'><?=shift_auto($row['od_cash'],$od_settle_case)?> <?=$od_settle_case?></span>
+						<!-- <span class='hist_sub_price'><?=shift_auto($row['od_cash'],$od_settle_case)?> <?=$od_settle_case?></span> -->
 					</div>
 				</div>
 			</div>
@@ -366,7 +366,7 @@ $(function(){
 		func = "new";
 		od_id = "";
 		origin_bal = '<?=$available_fund?>';
-		price_calc = origin_bal.replace(',','') - won_price.replace(',','') ;
+		price_calc = origin_bal.replace(/,/g,'') - won_price.replace(/,/g,'') ;
 		// change_coin = "원";
 
 		change_coin_status();
@@ -393,10 +393,10 @@ $(function(){
 	}); */
 
 	function change_coin_status(){
-		$('#trade_total').val(Price(it_price) + ' <?=BALANCE_CURENCY?>');
-		$('#shift_won').text( 'VAT 포함 : ' + Price(won_price) + ' <?=BALANCE_CURENCY?>' );
+		$('#trade_total').val(Price(it_price) + ' <?=$curencys[1]?>');
+		$('#shift_won').text( 'VAT 포함 : ' + Price(won_price) + ' <?=$curencys[1]?>' );
 		$('#shift_dollor').val( Price(price_calc) );
-		
+
 		// 상품구매로 이동
 		var scrollPosition = $('#pakage_sale').offset().top;
 		window.scrollTo({top: scrollPosition, behavior: 'smooth'});
