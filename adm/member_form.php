@@ -402,8 +402,10 @@ $rank_result = sql_fetch($rank_sql);
 		<? } ?>
 		-->
 					</td>
-					<th scope="row"><label for="mb_email">휴대폰 번호<strong class="sound_only">필수</strong></label></th>
-					<td><input type="text" name="mb_hp" value="<?php echo $mb['mb_hp'] ?>" id="mb_hp" maxlength="13" class="frm_input wide" size="13"></td>
+					<!-- <th scope="row"><label for="mb_email">휴대폰 번호<strong class="sound_only">필수</strong></label></th>
+					<td><input type="text" name="mb_hp" value="<?php echo $mb['mb_hp'] ?>" id="mb_hp" maxlength="13" class="frm_input wide" size="13"></td> -->
+					<th scope="row"><label for="mb_level">회원 레벨</label></th>
+					<td><?php echo get_member_level_select('mb_level', 0, $member['mb_level'], $mb['mb_level']) ?> <div></td>
 				</tr>
 
 				<tr>
@@ -413,9 +415,6 @@ $rank_result = sql_fetch($rank_sql);
 	</td>
 
 
-	<th scope="row"><label for="mb_level">회원 레벨</label></th>
-	<td><?php echo get_member_level_select('mb_level', 0, $member['mb_level'], $mb['mb_level']) ?> <div>
-	</td>
 	</tr>
 
 
