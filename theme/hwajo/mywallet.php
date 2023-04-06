@@ -305,14 +305,18 @@ $auth_cnt = sql_num_rows($amt_auth_log);
       <h3 class="wallet_title">출금</h3>
       <span class="desc"> 총 출금 가능액 : <?= shift_auto($withdrwal_total,$curencys[1]) ?> <?= $curencys[1] ?></span>
       
-      <div class="coin_select_wrap">
-          <select class="form-control" name="" id="select_coin">
-            <option value="<?=$curencys[3]?>" selected><?=$curencys[3]?></option>
-              <option value="<?=$curencys[0]?>"><?=$curencys[0]?></option>
-          </select>
-      </div> 
+      
      
       <div class="row">
+
+      <div class="col-12 coin_select_wrap mb20 ">
+          <label class="sub_title">- 출금코인선택</label>
+          <select class="form-control" name="" id="select_coin">
+            <option value="<?=$curencys[0]?>" selected><?=$curencys[0]?></option>  
+            <option value="<?=$curencys[3]?>"><?=$curencys[3]?></option>
+          </select>
+      </div> 
+
         <div class='col-12'><label class="sub_title">- 출금정보 (최초 1회입력)</label></div>
         <!-- <div class='col-6'>
           <input type="text" id="withdrawal_bank_name" class="b_ghostwhite " placeholder="은행명" value="<?= $member['bank_name'] ?>">

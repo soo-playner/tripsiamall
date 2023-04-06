@@ -88,9 +88,10 @@ $result = sql_query($sql);
 							/*패키지상품구매체크*/
 							if($member['rank_note'] == ''){
 								$start_pack = 1;
-								$max_count = 1;
+								// $max_count = 1;
+								$max_count = count($row);
 							}else{
-								$start_pack = 2;
+								$start_pack = 1;
 								$max_count = count($row);
 							}
 						
@@ -120,7 +121,7 @@ $result = sql_query($sql);
 							}
 						?>
 							<div class="<?=$row_col?> r_card_box">
-								<div class="r_card r_card_<?=$i-1?>" data-row=<?=json_encode($data_arr,JSON_UNESCAPED_UNICODE)?>>
+								<div class="r_card r_card_<?=$i?>" data-row=<?=json_encode($data_arr,JSON_UNESCAPED_UNICODE)?>>
 									<p class="title">
 										<span style='vertical-align:middle'><?=$row[$i-1]['it_name']?></span>
 										<?if($i!=1){?>
