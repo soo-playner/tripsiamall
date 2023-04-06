@@ -7,12 +7,6 @@ if($_COOKIE['myLang'])
 }
 ?>
 
-<style>
-	#gnb_anguage{padding:10px}
-	.gnb_bottom{background:#f5f5f5}
-	.hidden{display:none;}
-</style>
-
 <script>
 $(document).ready(function(){
 
@@ -103,7 +97,7 @@ $(document).ready(function(){
 				</a>
 			</li> 
 			<?}?>
-			<li class="mining_icon <? if($_GET['id'] === 'mining') {echo 'active';}?>">
+			<!-- <li class="mining_icon <? if($_GET['id'] === 'mining') {echo 'active';}?>">
 				<a href="/page.php?id=mining">
 					<div class="gnb_img_wrap"></div>
 					<div class="gnb_title_Wrap">
@@ -146,7 +140,7 @@ $(document).ready(function(){
 					</div>
 				</a>
 			</li>
-			<?}?>
+			<?}?> -->
 			<li class="recommend_icon <? if($_GET['id'] === 'structure') {echo 'active';}?>">
 				<a href="/page.php?id=structure">
 					<div class="gnb_img_wrap"></div>
@@ -235,31 +229,21 @@ $(document).ready(function(){
 			<option value="dark">다크</option>
 		</select>
 	</div>
-
-	
-
 </header>
 
 <div id="loading" class="wrap-loading display-none"><span class="loading_img"></span></div>
-
-
 <script>
 	$( document ).ajaxStart(function() { 
 		$('.wrap-loading').removeClass('display-none');
 	});
-
-
 	$( document ).ajaxStop(function() { 
 		$('.wrap-loading').addClass('display-none');
 	});
 
-	$(function(){
-		
+	$(function(){		
 		var left_gnb = $('.left_gnb');
-		var left_gnbHeight = left_gnb.height();
-		let wHeight = $(window).height();
 
-		if(wHeight < 540){
+		if(left_gnb.height() < 380){
 			$(".gnb_bottom").css('display','block');
 
 			$(left_gnb).scroll(function () {
