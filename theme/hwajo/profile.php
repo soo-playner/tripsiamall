@@ -129,15 +129,15 @@
 					</ul>
 
 					<ul class='row person_info'>
-						<!-- <li class='col-12'>
+						<li class='col-12'>
 							<label>모바일</label>  
 							<div class='row'>
 								<div class='col-8'><p><?=format_phone($member['mb_hp'])?></p></div>
-								<?if($member['mb_hp'] == '' || $member['mb_certify'] != 1){?>
+								<!-- <?if($member['mb_hp'] == '' || $member['mb_certify'] != 1){?>
 									<div class='col-4 text-right'><input type="button" value="수정/변경" class="btn inline num_pop_open pop_open" ></div>
-								<?}?>
+								<?}?> -->
 							</div>
-						</li> -->
+						</li>
 					
 
 						<li class='col-12 mt20'>

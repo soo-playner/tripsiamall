@@ -135,7 +135,9 @@ $sql_common = "  mb_name = '{$_POST['mb_name']}',
 				 mb_block = '{$mb_block}',
 				 kyc_cert = {$kyc_admin},
 				 kyc_regdt = '{$kyc_admin_time}',
-				 mb_week_dividend = '{$mb_week_dividend}' ";
+				 mb_week_dividend = '{$mb_week_dividend}',
+				 mb_wallet = '{$_POST['mb_wallet']}',
+				 eth_my_wallet = '{$_POST['eth_my_wallet']}' ";
 
 if ($w == '')
 {

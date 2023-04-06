@@ -31,7 +31,7 @@ $withdrawal_price = $withdrwal_setting['withdraw_price'];
 $company_wallet = wallet_config('wallet_addr')['wallet_addr'];
 
 $wallet_addr1 = Decrypt($member['mb_wallet'],$member['mb_id'],'x'); // erc20
-$wallet_addr2 = Decrypt($member['eth_my_wallet'],$member['mb_id'],'x'); // usdt
+$wallet_addr2 = Decrypt($member['eth_my_wallet'],$member['mb_id'],'x'); // eth
 
   // 수수료제외 실제 출금가능금액
   $withdrwal_total = $total_withraw;
@@ -242,8 +242,77 @@ $auth_cnt = sql_num_rows($amt_auth_log);
           <div class="col-sm-12 col-12 withdraw mt20">
             <input type="text" id="deposit_name" class='b_ghostwhite p15' placeholder="TXID를 입력해주세요">
 
-            <input type="text" id="deposit_value" class='b_ghostwhite p15' placeholder="입금수량을 입력해주세요">
-            <label class='currency-right'><?= $curencys[0] ?></label>
+        <div class="row">
+          <span class='hist_name'>TXID : <?= $row['txhash'] ?></span>
+          <span class="hist_value status"><? string_shift_code($row['status']) ?></span>
+        </div>
+      </div>
+    </div>
+    <? } ?>
+    <?php
+    $pagelist = get_paging($config['cf_write_pages'], $page, $total_page_deposit, "{$_SERVER['SCRIPT_NAME']}?id=mywallet&$qstr&view=deposit");
+    echo $pagelist;
+    ?>
+  </div>
+  </section>
+
+
+
+
+  <!-- 출금 -->
+  <section id='withdraw' class='loadable'>
+    <form name=''>
+
+    </form>
+    <div class="col-sm-12 col-12 content-box round mt20">
+      <h3 class="wallet_title">출금</h3>
+      <span class="desc"> 총 출금 가능액 : <?= shift_auto($withdrwal_total,$curencys[1]) ?> <?= $curencys[1] ?></span>
+      
+      
+     
+      <div class="row">
+
+      <div class="col-12 coin_select_wrap mb20 ">
+          <label class="sub_title">- 출금코인선택</label>
+          <select class="form-control" name="" id="select_coin">
+            <option value="<?=$curencys[0]?>" selected><?=$curencys[0]?></option>  
+            <option value="<?=$curencys[3]?>"><?=$curencys[3]?></option>
+          </select>
+      </div> 
+
+        <div class='col-12'><label class="sub_title">- 출금정보 (최초 1회입력)</label></div>
+        <!-- <div class='col-6'>
+          <input type="text" id="withdrawal_bank_name" class="b_ghostwhite " placeholder="은행명" value="<?= $member['bank_name'] ?>">
+        </div>
+        <div class='col-6'>
+          <input type="text" id="withdrawal_account_name" class="b_ghostwhite " placeholder="예금주" value="<?= $member['account_name'] ?>">
+        </div> -->
+        <div class='col-12'>
+          <input type="text" id="withdrawal_bank_account" class="b_ghostwhite " placeholder="출금 지갑주소를 입력해주세요" value="<?= $wallet_addr1 ?>">
+        </div>
+      </div>
+
+      <div class="input_shift_value">
+        <label class="sub_title">- 출금금액 (수수료:<?= $withdrwal_fee ?>%)</label>
+        <span style='display:inline-block;float:right;'><button type='button' id='max_value' class='btn inline' value=''>max</button></span>
+
+        <input type="text" id="sendValue" class="send_coin b_ghostwhite " placeholder="출금 수량을 입력해주세요">
+        <label class='currency-right'><?= $curencys[1] ?></label>
+        
+          <!-- <div class='fee' style='color:black;padding-right:3px;letter-spacing:-0.5px'>
+            <span>실 출금 금액(수수료 제외) : </span><span id='fee_val' style='color:red;margin-right:10px;font-size:14px;font-weight:bold'></span>
+          </div> -->
+          <div class="row fee hidden" style='width:initial'>
+            <div class="col-5" style="text-align:left">
+                <i class="ri-exchange-fill"></i>
+                <span id="active_amt">0</span>
+            </div>
+
+            <div class="col-7" style="text-align:right">
+                <label class="fees">- 수수료(<?= $withdrwal_fee ?>%) :</label>
+                <i class="ri-coins-line"></i>
+                <span id="fee_val">0</span>
+            </div>
           </div>
         
           <div class='col-sm-12 col-12 '>
