@@ -591,10 +591,10 @@ if ($_GET['recom_referral']){
 		}
 
 		// 연락처
-		// if (f.mb_hp.value == '' || f.mb_hp.value == 'undefined') {
-		// 	commonModal('휴대폰번호확인', '<strong>휴대폰 번호가 잘못되거나 누락되었습니다. </strong>', 80);
-		// 	return false;
-		// }
+		if (f.mb_hp.value == '' || f.mb_hp.value == 'undefined') {
+			commonModal('휴대폰번호확인', '<strong>휴대폰 번호가 잘못되거나 누락되었습니다. </strong>', 80);
+			return false;
+		}
 
 		// 패스워드
 		if (!chkPwd_1($('#reg_mb_password').val(), $('#reg_mb_password_re').val())) {
@@ -709,8 +709,8 @@ if ($_GET['recom_referral']){
 				<span class='cabinet_inner' style=''>※수신가능한 이메일주소를 직접 입력해주세요</span>
 				<div class='in_btn_ly'><input type="button" id='EmailChcek' class='btn_round check' value="이메일 전송"></div>
 				
-				<!-- <input type="text" name="mb_hp"  id="reg_mb_hp" class='cabinet'  pattern="[0-9]*" required  placeholder="휴대폰번호"/>
-				<span class='cabinet_inner' style=''>※'-'를 제외한 숫자만 입력해주세요</span> -->
+				<input type="text" name="mb_hp"  id="reg_mb_hp" class='cabinet'  pattern="[0-9]*" required  placeholder="휴대폰번호"/>
+				<span class='cabinet_inner' style=''>※'-'를 제외한 숫자만 입력해주세요</span>
 				<!-- <label class='prev_icon'><i class="ri-smartphone-line"></i></label> -->
 				
 			</div>

@@ -379,6 +379,7 @@ $rank_result = sql_fetch($rank_sql);
 
 					<th scope="row"><label for="mb_id">이름<?php echo $sound_only ?></label></th>
 					<td>
+						<input type="hidden" name="mb_name" value="<?= $mb['mb_name'] ?>" />
 						<span class="td_id"><?= $mb['mb_name'] ?></span>
 					</td>
 
@@ -402,20 +403,18 @@ $rank_result = sql_fetch($rank_sql);
 		<? } ?>
 		-->
 					</td>
-					<!-- <th scope="row"><label for="mb_email">휴대폰 번호<strong class="sound_only">필수</strong></label></th>
-					<td><input type="text" name="mb_hp" value="<?php echo $mb['mb_hp'] ?>" id="mb_hp" maxlength="13" class="frm_input wide" size="13"></td> -->
-					<th scope="row"><label for="mb_level">회원 레벨</label></th>
-					<td><?php echo get_member_level_select('mb_level', 0, $member['mb_level'], $mb['mb_level']) ?> <div></td>
+					<th scope="row"><label for="mb_hp">휴대폰 번호<strong class="sound_only">필수</strong></label></th>
+					<td><input type="text" name="mb_hp" value="<?php echo $mb['mb_hp'] ?>" id="mb_hp" maxlength="13" class="frm_input wide" size="13"></td>
 				</tr>
 
 				<tr>
+					<th scope="row"><label for="mb_level">회원 레벨</label></th>
+					<td><?php echo get_member_level_select('mb_level', 0, $member['mb_level'], $mb['mb_level']) ?> <div></td>
 					<th scope="row"><label for="grade">회원 등급</label></th>
-					<td><? echo "<img src='/img/" . $mb['grade'] . ".png' style='width:40px;height:40px;'>"; ?><?php echo get_grade_select('grade', 0, $member['grade'], $mb['grade']) ?><?= $rank_result['rank_day'] ?>
+					<td><? echo "<img src='/img/" . $mb['grade'] . ".png' style='width:40px;height:40px;'>"; ?><?php echo get_grade_select('grade', 0, $member['grade'], $mb['grade']) ?><?= $rank_result['rank_day'] ?></td>
+				</tr>
 	</div>
-	</td>
 
-
-	</tr>
 
 
 	<!-- <tr class="hidden">
