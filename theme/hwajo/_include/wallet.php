@@ -26,15 +26,15 @@ $total_deposit = $member['mb_deposit_point'] + $member['mb_deposit_calc'];
 $total_bonus = $member['mb_balance']; 
 $total_shift_amt = $member['mb_shift_amt'];
 
-$total_fund = shift_auto($total_bonus,$curencys[1]);
+$total_fund = $total_bonus;
 
 // $shop_point = $total_bonus*0.1;
 
 // 출금가능금액 :: 총보너스 - 기출금
-$total_withraw = shift_auto($total_bonus - $total_shift_amt,$curencys[1]) ;
+$total_withraw = $total_bonus - $total_shift_amt;
 
 // 구매가능잔고 :: 입금액 - 구매금액 = 남은금액
-$available_fund = shift_auto($total_deposit,$curencys[1]);
+$available_fund = $total_deposit;
 
 // 마이닝합계
 $mining_acc = $member[$mining_target];
