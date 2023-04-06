@@ -302,6 +302,12 @@ a.btn_secondary,
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
 }
+a.btn_secondary:hover,
+.btn_secondary:hover {
+  background: -webkit-gradient(linear, left top, right top, from(#545454), to(#545454)) !important;
+  background: linear-gradient(90deg, #545454, #545454) !important;
+  border: none;
+}
 
 a.btn_primary,
 .btn_primary {
@@ -312,6 +318,12 @@ a.btn_primary,
   color: #fff;
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
+}
+a.btn_primary:hover,
+.btn_primary:hover {
+  background: -webkit-gradient(linear, left top, right top, from(#5f5644), to(#5f5644)) !important;
+  background: linear-gradient(90deg, #5f5644, #5f5644) !important;
+  border: none;
 }
 
 a.btn_cancle, .btn_cancle {

@@ -383,10 +383,10 @@ a.btn_secondary,
     border: none;
     transition: all .4s;
 
-    // &:hover {
-    //     background: #3e3e3e !important; 
-    //     border: none;
-    // }
+    &:hover {
+        background: linear-gradient(90deg, #545454, #545454) !important; 
+        border: none;
+    }
 }
 
 a.btn_primary,
@@ -397,10 +397,10 @@ a.btn_primary,
     color: #fff;
     transition: all .4s;
 
-    // &:hover {
-    //     background:#5f5644 !important; 
-    //     border: none; 
-    // }
+    &:hover {
+        background:linear-gradient(90deg,#5f5644, #5f5644) !important; 
+        border: none; 
+    }
 }
 
 // a.btn_primary, .btn_primary, .btn.btn_primary{

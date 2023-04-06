@@ -155,26 +155,24 @@ body{overflow-y: hidden;}
 </script>
 
 <html>
-
 <script src="<?php echo G5_JS_URL ?>/common.js?ver=<?php echo G5_JS_VER; ?>"></script>
 <body style="margin:0;">
+	<div class="container">
+		<div id="myBar"></div>
+		<div id="btnDiv" class="animate-bottom">
+			<div class='btn_ly'>
+				<?include_once(G5_THEME_PATH.'/_include/lang.php')?>
+					<a href="/bbs/login_pw.php" class="btn btn_wd btn_secondary login_btn">LOG IN</a>
+					<!-- <a href="javascript:auto_login()" class="btn btn_wd btn_primary login_btn">LOG IN</a> -->
+						<a href="/bbs/register_form.php" class="btn btn_wd btn_primary signup_btn">SIGN UP</a>
+					<!-- <a href="javascript:temp_block()" class="btn btn_wd btn_secondary signup_btn">SIGN UP</a> -->
+			</div>
+		</div>
 
-<div class="container">
-	<div id="myBar"></div>
-
-	<div id="btnDiv" class="animate-bottom">
-		<div class='btn_ly'>
-			<?include_once(G5_THEME_PATH.'/_include/lang.php')?>
-	  		<a href="/bbs/login_pw.php" class="btn btn_wd btn_secondary login_btn">LOG IN</a>
-				<!-- <a href="javascript:auto_login()" class="btn btn_wd btn_primary login_btn">LOG IN</a> -->
-	  			<a href="/bbs/register_form.php" class="btn btn_wd btn_primary signup_btn">SIGN UP</a>
-				<!-- <a href="javascript:temp_block()" class="btn btn_wd btn_secondary signup_btn">SIGN UP</a> -->
+		<div class='intro_title'>
+			<p class='company'> HWAJO GLOBAL ASSET <br>이메일 : <?=$config['cf_admin_email']?></p>
+			<p class='copyright'>Copyright ⓒ 2023. HWAJO Co. ALL right reserved.</p>
 		</div>
 	</div>
-
-	<div class='intro_title'>
-		<p class='company'> HWAJO GLOBAL ASSET <br>이메일 : <?=$config['cf_admin_email']?></p>
-		<p class='copyright'>Copyright ⓒ 2023. HWAJO Co. ALL right reserved.</p>
-	</div>
-</div>
+</body>
 </html>
