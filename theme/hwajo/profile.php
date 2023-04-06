@@ -188,7 +188,7 @@
 
 				<div class='col-sm-12 col-12 profile-box certificate'>
 					<h3 class='title b_line'>
-						<i class="ri-account-box-line kyc_icon" style="font-weight:300;font-size:26px;vertical-align:bottom"></i>
+						<i class="ri-account-box-line kyc_icon"></i>
 						<span >KYC 인증 정보</span>
 					</h3>
 					<ul class='row mt10'>

@@ -1952,6 +1952,14 @@ a.more i {
 .profile-box .title img {
 	width: 20px;
 }
+.profile-box .title .p2 img {
+	width: 16px;
+}
+.profile-box .title .kyc_icon {
+	font-size: 23px; 
+	font-weight:300;
+	vertical-align: sub;
+}
 
 .profile-box .ch_pw_open,
 .profile-box .ch_tpw_open,
