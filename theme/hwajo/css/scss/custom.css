@@ -1066,6 +1066,13 @@ a.btn_cancle, .btn_cancle {
   display: none;
 }
 
+.mywallet #withdraw #select_coin {
+  padding: 5px;
+}
+.mywallet #withdraw #max_value {
+  margin-top: -5px;
+}
+
 .checkbox-group {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1743,6 +1750,9 @@ a.btn_cancle, .btn_cancle {
 .dark header .left_gnbWrap .logout_wrap {
   background: #17191d;
   color: #fff;
+}
+.dark header .left_gnbWrap .logout_wrap {
+  border-color: #212429;
 }
 .dark header .top_title {
   background: #212429;
@@ -2863,7 +2873,6 @@ a.btn_cancle, .btn_cancle {
 .dark .pack_6 {
   background: linear-gradient(135deg, #7e524b, #50320b) !important;
 }
-
 .dark .r_card.r_card_7,
 .dark .pack_7 {
   background: linear-gradient(135deg, #bda253, #cfa21c) !important;
@@ -2877,23 +2886,18 @@ a.btn_cancle, .btn_cancle {
 .dark .color2 {
   background: #5e7dc6 !important;
 }
-
 .dark .color3 {
   background: #4e8ecb !important;
 }
-
 .dark .color4 {
   background: #227f9c !important;
 }
-
 .dark .color5 {
   background: #586875 !important;
 }
-
 .dark .color6 {
   background: #7e524b !important;
 }
-
 .dark .color7 {
   background: #bda253 !important;
 }
@@ -2915,11 +2919,9 @@ a.btn_cancle, .btn_cancle {
 .dark .pack_f_5 {
   color: #586875 !important;
 }
-
 .dark .pack_f_6 {
   color: #7e524b !important;
 }
-
 .dark .pack_f_7 {
   color: #bda253 !important;
 }

@@ -1041,7 +1041,17 @@ a.btn_cancle, .btn_cancle{
     display: none;
 }
 
-
+// 출금
+.mywallet {
+    #withdraw {
+        #select_coin {
+            padding: 5px;
+        }
+        #max_value {
+            margin-top: -5px;
+        }
+    }
+}
 
 //MINING 코인시세카드 
 .checkbox-group {
@@ -1814,6 +1824,9 @@ a.btn_cancle, .btn_cancle{
 
             #gnb_language, 
             .logout_wrap{background:#17191d;color:#fff;}
+            .logout_wrap {
+                border-color: #212429;
+            }
         }
 
         .top_title {

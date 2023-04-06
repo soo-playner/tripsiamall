@@ -193,7 +193,6 @@ $auth_cnt = sql_num_rows($amt_auth_log);
 
 <main>
   <div class='container mywallet'>
-
     <div class="my_btn_wrap">
       <div class="row mywallet_btn">
         <div class='col-lg-6 col-12'>
@@ -215,24 +214,22 @@ $auth_cnt = sql_num_rows($amt_auth_log);
               <div class='sel_price'>입금액 : <span class='price'><?= Number_format($sel_price) ?><?= ASSETS_CURENCY ?></span></div>
             <?}?>
           </div>
-        </div>
-        <div class='col-12'>
-          <button class="btn wd line_btn " style="background: #f5f5f5;" id="accountCopy" onclick="copyURL('#bank_account')">
-            <span > 계좌복사 </span>
-          </button>
-        </div> -->
-
+          <div class='col-12'>
+            <button class="btn wd line_btn " style="background: #f5f5f5;" id="accountCopy" onclick="copyURL('#bank_account')">
+              <span > 계좌복사 </span>
+            </button>
+          </div> -->
           <!-- 이더전용입금 -->          
           <div class="wallet qrBox col-3">
               <div class="eth_qr_img qr_img" id="my_eth_qr"></div>
           </div> 
           <div class='qrBox_right col-9'>
-            <input type="text" id="my_eth_wallet" class="wallet_addr" value="<?=$company_wallet ?>" title='my address' disabled/>
-            <button class="btn wd line_btn" id="accountCopy" onclick="copyURL('#my_eth_wallet')">
-              <span >주소복사</span>
-            </button>
-          </div>  
-        </div>       
+              <input type="text" id="my_eth_wallet" class="wallet_addr" value="<?=$company_wallet ?>" title='my address' disabled/>
+              <button class="btn wd line_btn" id="accountCopy" onclick="copyURL('#my_eth_wallet')">
+                      <span >주소복사</span>
+              </button>
+          </div>   
+        </div>      
       </div>
       <div class="col-sm-12 col-12 content-box round mt20" id="eth">
         <h3 class="wallet_title" >입금확인요청 </h3> <span class='desc'> - 입금후 1회만 요청해주세요</span>
@@ -242,77 +239,8 @@ $auth_cnt = sql_num_rows($amt_auth_log);
           <div class="col-sm-12 col-12 withdraw mt20">
             <input type="text" id="deposit_name" class='b_ghostwhite p15' placeholder="TXID를 입력해주세요">
 
-        <div class="row">
-          <span class='hist_name'>TXID : <?= $row['txhash'] ?></span>
-          <span class="hist_value status"><? string_shift_code($row['status']) ?></span>
-        </div>
-      </div>
-    </div>
-    <? } ?>
-    <?php
-    $pagelist = get_paging($config['cf_write_pages'], $page, $total_page_deposit, "{$_SERVER['SCRIPT_NAME']}?id=mywallet&$qstr&view=deposit");
-    echo $pagelist;
-    ?>
-  </div>
-  </section>
-
-
-
-
-  <!-- 출금 -->
-  <section id='withdraw' class='loadable'>
-    <form name=''>
-
-    </form>
-    <div class="col-sm-12 col-12 content-box round mt20">
-      <h3 class="wallet_title">출금</h3>
-      <span class="desc"> 총 출금 가능액 : <?= shift_auto($withdrwal_total,$curencys[1]) ?> <?= $curencys[1] ?></span>
-      
-      
-     
-      <div class="row">
-
-      <div class="col-12 coin_select_wrap mb20 ">
-          <label class="sub_title">- 출금코인선택</label>
-          <select class="form-control" name="" id="select_coin">
-            <option value="<?=$curencys[0]?>" selected><?=$curencys[0]?></option>  
-            <option value="<?=$curencys[3]?>"><?=$curencys[3]?></option>
-          </select>
-      </div> 
-
-        <div class='col-12'><label class="sub_title">- 출금정보 (최초 1회입력)</label></div>
-        <!-- <div class='col-6'>
-          <input type="text" id="withdrawal_bank_name" class="b_ghostwhite " placeholder="은행명" value="<?= $member['bank_name'] ?>">
-        </div>
-        <div class='col-6'>
-          <input type="text" id="withdrawal_account_name" class="b_ghostwhite " placeholder="예금주" value="<?= $member['account_name'] ?>">
-        </div> -->
-        <div class='col-12'>
-          <input type="text" id="withdrawal_bank_account" class="b_ghostwhite " placeholder="출금 지갑주소를 입력해주세요" value="<?= $wallet_addr1 ?>">
-        </div>
-      </div>
-
-      <div class="input_shift_value">
-        <label class="sub_title">- 출금금액 (수수료:<?= $withdrwal_fee ?>%)</label>
-        <span style='display:inline-block;float:right;'><button type='button' id='max_value' class='btn inline' value=''>max</button></span>
-
-        <input type="text" id="sendValue" class="send_coin b_ghostwhite " placeholder="출금 수량을 입력해주세요">
-        <label class='currency-right'><?= $curencys[1] ?></label>
-        
-          <!-- <div class='fee' style='color:black;padding-right:3px;letter-spacing:-0.5px'>
-            <span>실 출금 금액(수수료 제외) : </span><span id='fee_val' style='color:red;margin-right:10px;font-size:14px;font-weight:bold'></span>
-          </div> -->
-          <div class="row fee hidden" style='width:initial'>
-            <div class="col-5" style="text-align:left">
-                <i class="ri-exchange-fill"></i>
-                <span id="active_amt">0</span>
-            </div>
-
-            <div class="col-7" style="text-align:right">
-                <label class="fees">- 수수료(<?= $withdrwal_fee ?>%) :</label>
-                <i class="ri-coins-line"></i>
-                <span id="fee_val">0</span>
-            </div>
+            <input type="text" id="deposit_value" class='b_ghostwhite p15' placeholder="입금수량을 입력해주세요">
+            <label class='currency-right'><?= $curencys[0] ?></label>
           </div>
         
           <div class='col-sm-12 col-12 '>
@@ -321,7 +249,7 @@ $auth_cnt = sql_num_rows($amt_auth_log);
             </button>
           </div>
         </div>
-      </div>  
+      </div>
       <!-- 입금 요청 내역 -->
       <div class="history_box content-box mt40">
         <h3 class="hist_tit wallet_title">입금 내역</h3>
@@ -349,25 +277,24 @@ $auth_cnt = sql_num_rows($amt_auth_log);
         $pagelist = get_paging($config['cf_write_pages'], $page, $total_page_deposit, "{$_SERVER['SCRIPT_NAME']}?id=mywallet&$qstr&view=deposit");
         echo $pagelist;
         ?>
-      </div>   
+      </div>
     </section>
+
     <!-- 출금 -->
     <section id='withdraw' class='loadable'>
       <form name=''>
-
       </form>
       <div class="col-sm-12 col-12 content-box round mt20">
         <h3 class="wallet_title">출금</h3>
         <span class="desc"> 총 출금 가능액 : <?= shift_auto($withdrwal_total,$curencys[1]) ?> <?= $curencys[1] ?></span>
-        
-        <div class="coin_select_wrap">
-            <select class="form-control" name="" id="select_coin">
-              <option value="<?=$curencys[3]?>" selected><?=$curencys[3]?></option>
-                <option value="<?=$curencys[0]?>"><?=$curencys[0]?></option>
-            </select>
-        </div> 
-      
         <div class="row">
+          <div class="col-12 coin_select_wrap mb20">
+            <label class="sub_title">- 출금코인 선택</label>
+            <select class="form-control" name="" id="select_coin">
+              <option value="<?=$curencys[0]?>" selected><?=$curencys[0]?></option>  
+              <option value="<?=$curencys[3]?>"><?=$curencys[3]?></option>
+            </select>
+          </div> 
           <div class='col-12'><label class="sub_title">- 출금정보 (최초 1회입력)</label></div>
           <!-- <div class='col-6'>
             <input type="text" id="withdrawal_bank_name" class="b_ghostwhite " placeholder="은행명" value="<?= $member['bank_name'] ?>">
@@ -379,39 +306,33 @@ $auth_cnt = sql_num_rows($amt_auth_log);
             <input type="text" id="withdrawal_bank_account" class="b_ghostwhite " placeholder="출금 지갑주소를 입력해주세요" value="<?= $wallet_addr1 ?>">
           </div>
         </div>
-
-        <div class="input_shift_value">
+        <div class="input_shift_value mb10 pb5">
           <label class="sub_title">- 출금금액 (수수료:<?= $withdrwal_fee ?>%)</label>
           <span style='display:inline-block;float:right;'><button type='button' id='max_value' class='btn inline' value=''>max</button></span>
-
           <input type="text" id="sendValue" class="send_coin b_ghostwhite " placeholder="출금 수량을 입력해주세요">
-          <label class='currency-right'><?= $curencys[1] ?></label>
-          
+          <label class='currency-right'><?= $curencys[1] ?></label>          
             <!-- <div class='fee' style='color:black;padding-right:3px;letter-spacing:-0.5px'>
               <span>실 출금 금액(수수료 제외) : </span><span id='fee_val' style='color:red;margin-right:10px;font-size:14px;font-weight:bold'></span>
             </div> -->
-            <div class="row fee hidden" style='width:initial'>
-              <div class="col-5" style="text-align:left">
-                  <i class="ri-exchange-fill"></i>
-                  <span id="active_amt">0</span>
-              </div>
-
-              <div class="col-7" style="text-align:right">
-                  <label class="fees">- 수수료(<?= $withdrwal_fee ?>%) :</label>
-                  <i class="ri-coins-line"></i>
-                  <span id="fee_val">0</span>
-              </div>
+          <div class="row fee hidden mt10" style='width:initial'>
+            <div class="col-12">
+                <i class="ri-exchange-fill"></i>
+                <span id="active_amt">0</span>
             </div>
+            <div class="col-12">
+                <label class="fees">- 수수료(<?= $withdrwal_fee ?>%) :</label>
+                <i class="ri-coins-line"></i>
+                <span id="fee_val">0</span>
+            </div>
+          </div>
         </div>
-
         <div class="b_line5"></div>
-        <div class="otp-auth-code-container mt20">
+        <div class="otp-auth-code-container mt20 pt10">
           <div class="verifyContainerOTP">
             <label class="sub_title" >- 출금 비밀번호</label>
             <input type="password" id="pin_auth_with" class="b_ghostwhite" name="pin_auth_code"  maxlength="6" placeholder="6 자리 핀코드를 입력해주세요">
           </div>
         </div>
-
         <div class="send-button-container row">
           <div class="col-5">
             <button id="pin_open" class="btn wd yellow form-send-button" >인증</button>
@@ -421,6 +342,7 @@ $auth_cnt = sql_num_rows($amt_auth_log);
           </div>
         </div>
       </div>
+
       <!-- 출금내역 -->
       <div class="history_box content-box mt40">
         <h3 class="hist_tit wallet_title">출금 내역</h3>
