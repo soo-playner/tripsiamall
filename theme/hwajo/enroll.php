@@ -691,17 +691,7 @@ if ($_GET['recom_referral']){
 					</div>
 				</section>
 				<i style="color:rgba(255,255,255,0.4)">※센터정보 검색후 선택해주세요.</i> -->
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 				<em class="info_text">※추천회원 검색후 선택해주세요.</em>
-=======
-				<!-- <em class="info_text">※센터정보 검색후 선택해주세요.</em> -->
->>>>>>> Stashed changes
-=======
-				<!-- <em class="info_text">※센터정보 검색후 선택해주세요.</em> -->
->>>>>>> Stashed changes
-
-
 			<!-- <p class="check_appear_title mt40"><span data-i18n='signUp.일반정보'>General Information</span></p> -->
 			<p class="check_appear_title mt30"><span>개인 정보 & 인증</span></p>
 			<div>

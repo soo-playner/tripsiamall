@@ -103,7 +103,7 @@ $(document).ready(function(){
 				</a>
 			</li> 
 			<?}?>
-			<!-- <li class="mining_icon <? if($_GET['id'] === 'mining') {echo 'active';}?>">
+			<li class="mining_icon <? if($_GET['id'] === 'mining') {echo 'active';}?>">
 				<a href="/page.php?id=mining">
 					<div class="gnb_img_wrap"></div>
 					<div class="gnb_title_Wrap">
@@ -118,25 +118,25 @@ $(document).ready(function(){
 						<span >마이풀</span>
 					</div>
 				</a>
-			</li> -->
+			</li>
 			<?if($nw['nw_purchase'] == 'Y'){?>
-			<!-- <li class="upstairs_icon <? if($_GET['id'] === 'upstairs') {echo 'active';}?>">
+			<li class="upstairs_icon <? if($_GET['id'] === 'upstairs') {echo 'active';}?>">
 				<a href="/page.php?id=upstairs">
 					<div class="gnb_img_wrap"></div>
 					<div class="gnb_title_Wrap">
 						<span >패키지구매</span>
 					</div>
 				</a>
-			</li>  -->
+			</li> 
 			<?}?>
-			<!-- <li class="bonus_history_icon <? if($_GET['id'] === 'bonus_history') {echo 'active';}?>">
+			<li class="bonus_history_icon <? if($_GET['id'] === 'bonus_history') {echo 'active';}?>">
 				<a href="/page.php?id=bonus_history">
 					<div class="gnb_img_wrap"></div>
 					<div class="gnb_title_Wrap">
 						<span >보너스내역</span>
 					</div>
 				</a>
-			</li> -->
+			</li>
 			<?if($member['center_use'] == 1){?>
 			<li class="center_page_icon <? if($_GET['id'] === 'center_page') {echo 'active';}?>">
 				<a href="/page.php?id=center_page">
@@ -256,19 +256,11 @@ $(document).ready(function(){
 	$(function(){
 		
 		var left_gnb = $('.left_gnb');
-		// console.log(left_gnb.height());
-		if(left_gnb.height() < 433){
-			$(".gnb_bottom").css('display','block');
+		var left_gnbHeight = left_gnb.height();
+		let wHeight = $(window).height();
 
-			$(left_gnb).scroll(function () {
-				var gnb_height = $(left_gnb).scrollTop();
-				
-				if(gnb_height > 30){
-					$(".gnb_bottom i").attr('class','ri-arrow-up-s-line')
-				}else if(gnb_height < 30){
-					$(".gnb_bottom i").attr('class','ri-arrow-down-s-line')
-				}
-			}); 
+		if(wHeight < 540){
+			$(".gnb_bottom").css('display','block');
 
 			$(left_gnb).scroll(function () {
 				var gnb_height = $(left_gnb).scrollTop();

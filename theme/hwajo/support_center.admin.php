@@ -68,9 +68,6 @@ if(!$is_admin){
 						$('.support-panels .support-tabs li[rel=active-tickets]').trigger('click');
 						dialogModal("문의 종료","해당 문의를 종료하였습니다.","success");
 
-						// $('#commonModal #closeModal').click(function () {
-						// 	location.reload();
-						// });
 						$('#modal_return_url, #dialogModal').on('click',function() {
 							location.reload();
 						});
