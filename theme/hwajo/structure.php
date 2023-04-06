@@ -18,6 +18,7 @@
 	///bbs/level_structure_upgraded.search.php 검색
 	///bbs/level_structure_upgraded.mem.php
 	///util/level_structure.leg.php 스택
+
 ?>
 
 
@@ -25,6 +26,7 @@
 <link rel="stylesheet" href="<?=G5_THEME_URL?>/_common/css/level_structure.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600;700&display=swap" rel="stylesheet">
 <script>
 
 var levelMap = {
@@ -100,6 +102,8 @@ var gradeMap = {
 			getLeg('<?=$tree_id?>', $(this).text());
 			$('.search_container').removeClass("active");
 		 });
+
+
 /*
 		 $(document).on('click','.lv' ,function(e) {
 			var search_mb_id = $(this).parent().find('.lvl-username').text();
@@ -392,6 +396,7 @@ var gradeMap = {
 		
 		var url = "/util/structure_member_list.php";
 		var dataResult =[];
+		var curency = "<?=$curencys[1]?>";
 		
 		$.ajax({  
 			url: url,  
@@ -447,14 +452,16 @@ var gradeMap = {
 					row.find('._lvl').attr('data-depth',member.depth);
 
 					row.find('.lvl-icon').html(user_icon);
-					row.find('.lvl-username').text(member.mb_id);
-					row.find('.level').addClass('color'+member.grade);
-					row.find('.level').text(member.grade+' s');
+					row.find('#lvl-userid').text(member.mb_id);
+					row.find('#lvl-username').text(' [ ' + member.mb_name + ' ]');
+					// row.find('.level').addClass('color'+member.grade);
+					row.find('.level').html(' <i class="ri-star-fill pack_f_'+member.grade +'"></i> ' + member.grade);
 					row.find('.lvl-container').attr('class',"gr_"+member.grade);
-					row.find('.direct_cnt').html("<i class='ri-user-star-line'></i>" + member.cnt);
+					row.find('.direct_cnt').html("<i class='ri-user-received-2-line'></i>" + member.cnt);
+					row.find('.package').addClass('color'+member.grade);
 					row.find('.package').html("<i class='ri-vip-diamond-fill'></i>" + member.rank);
-					// row.find('.pv').html("마이닝해시 : <strong class='hp'>" + Price(member.mb_rate)+' mh/s </strong>');
-					row.find('.acc').html("승급포인트 : <strong class='pv'>"+ Price(member.recom_sales)+"</strong>");
+					// row.find('.pv').html(" 매출 : <strong class='hp'>" + Price(member.mb_rate)+' mh/s </strong>');
+					row.find('.acc').html("승급포인트 : <strong class='pv'>"+ Price(Number(member.recom_sales)) + ' ' + curency  + "</strong>");
 
 					vHtml.append(row);
 				});
@@ -505,13 +512,26 @@ var gradeMap = {
 	</script>
 
 	<style>
-		.toggle{float:right;width:38px;height:38px;display:inline-block;font-size:18px;text-align:center;font-weight:300;color:#ccc}
-		.toggle i{vertical-align:middle;line-height:36px;}
-		.badge.package{ background:none;border:1px solid #2b3a6d;color:#2b3a6d;font-size:12px;line-height:10px;padding:4px 10px;}
-		.badge.package i{font-size:12px;margin-right:2px;}
+		.toggle{float:right;width:40px;height:40px;display:inline-block;font-size:18px;text-align:center;font-weight:300;color:#ccc}
+		.toggle i{vertical-align:middle;line-height:40px;}
+		.badge{margin-left:0;margin-right:5px;}
+		.badge.package{ background:none;color:#2b3a6d;font-size:12px;line-height:12px;padding:5px 8px;color:white}
+		.badge i{font-size:12px;margin-right:2px;vertical-align:bottom}
 		.hp{margin-right:5px;}
-		.toggle{margin-top:-25px;}
-		.mbpoint{padding-left:15px;}
+		.mbpoint{}
+
+		.structure_wrap .accordion_wrap dt{display:flex;border-top-left-radius:25px;border-bottom-left-radius:25px;padding:6px;}
+		.accordion_wrap dt div{font-size:inherit;float:inherit;}
+		.lvl-icon{width:42px;height:42px;}
+		.lvl-icon .user_icon{line-height:34px;font-size:20px;}
+
+		#lvl-userid{font-family:Montserrat, Arial, sans-serif;line-height:24px;font-size:16px;font-weight:600}
+		.lvl-username{line-height:24px;font-size:11px;}
+		#lvl-username{color:rgba(0,0,0,0.7);margin-right:5px;font-weight:300;}
+		
+		.dark #lvl-username{color:rgba(255,255,255,0.7);}
+		.dark .badge.package{border:1px solid #444}
+
 	</style>
 
 	<main>
@@ -553,17 +573,23 @@ var gradeMap = {
 							<!-- <p class="lv"></p> -->
 							<!-- <i class="ri-vip-crown-line" style="font-size: 1.8em; margin-right: 5px; color: #e5c6b1;vertical-align:-webkit-baseline-middle;border: 3px solid #e5c6b1;border-radius:50%;"></i>
 							<i class="ri-account-circle-line" style="font-size: 2.5em; margin-right: 5px;"></i> -->
-							<span class="lvl-icon"></span>
-							<span class="lvl-username"></span>
-							<span class="level badge"></span>
-							<span class="direct_cnt badge"></span>
-							<span class="badge package "></span><br>
-							<!-- <span class='divided'></span> -->
-							<p class='mbpoint'>
-								<span class="pv"></span>&nbsp
-								<span class="acc"></span>
-							</p>
-							<span class='toggle'><i class="ri-line-height"></i></span>
+							<div><span class="lvl-icon"></span></div>
+
+							<div>
+								<span id="lvl-userid" class="lvl-username"></span>
+								<span id="lvl-username" class="lvl-username"></span>
+								<span class="level badge"></span>
+								<span class="direct_cnt badge"></span>
+								<span class="badge package "></span>
+								
+								<!-- <span class='divided'></span> -->
+								<p class='mbpoint'>
+									<!-- <span class="pv"></span>&nbsp -->
+									<span class="acc"></span>
+								</p>
+							</div>
+
+							<div style="margin-left:auto"><span class='toggle'><i class="ri-line-height"></i></span></div>
 						</dt>
 					</dl>
 				</div>
