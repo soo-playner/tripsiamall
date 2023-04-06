@@ -2078,16 +2078,15 @@ input:checked + .slider:before {
 /* .mywallet .sel_price .price{color:#29386b;text-align:center;} */
 
 .mywallet .qrBox_right .wallet_addr {
+	display: inline-block;
+	word-break: break-all;
 	width: 100%;
 	text-align: left;
 	border: none !important;
 	outline: 0;
 	font-size: 13px;
 	color: #3b86ff;
-	padding-bottom: 0px;
-	padding-top: 0px;
-	padding-left: 0px;
-	padding-right: 0px;
+	padding: 0;
 	box-shadow: none;
 	background-color: transparent;
 }
@@ -2124,6 +2123,13 @@ input:checked + .slider:before {
 
 .mywallet .line_btn {
 	border-radius: 30px;
+}
+
+@media all and (max-width: 400px) {
+	.mywallet .qrBox_right {
+		flex: 0 0 60%;
+		margin-left: auto;
+	}
 }
 .mywallet .line_btn:hover {
 	background: ghostwhite;
@@ -3565,10 +3571,12 @@ input.input_price {
 	border: none;
 	border-radius: 3px;
 	font-size: 14px !important;
+	color: #fff;
 }
 .dark .support-panels .btn.send,
 .dark .support-panels .btn_send {
 	background-color: #ffd965;
+	color: #000;
 }
 .support-panels input[type="file"] {
 	position: absolute;
@@ -3768,6 +3776,7 @@ input.input_price {
 .ticket-header span.ticket-time {
 	float: right;
 	font-weight: bold;
+	margin-top: 8px;
 }
 .support-container {
 	margin: 0 auto;
@@ -3779,7 +3788,7 @@ input.input_price {
 	font-size: 0.7em;
 	background: none;
 	width: 100%;
-	margin: 0;
+	margin: 8px 0 0;
 	padding: 0;
 	text-align: right;
 	border-radius: 3px;
@@ -4145,7 +4154,9 @@ input.input_price {
 	border-radius: 5px;
 	box-shadow: none;
 }
-
+.pop_wrap input[type="password"] {
+	font-size: 14px;
+}
 .pop_title {
 	font-size: 1.15em;
 	font-weight: 600;

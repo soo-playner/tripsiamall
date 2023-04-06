@@ -579,6 +579,10 @@ a.btn_cancle, .btn_cancle{
         background: #fff;
         box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.05);
         display:none;
+
+        @include mobile {
+            padding: 15px;
+        }
         
         h5 {
             font-size: 18px;
@@ -2039,7 +2043,7 @@ a.btn_cancle, .btn_cancle{
             .line_btn {
                 background: none !important;
                 border: 1px solid $main-colors;
-    
+                
                 span {
                     color: #fff;
                 }

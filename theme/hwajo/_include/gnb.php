@@ -241,17 +241,18 @@ $(document).ready(function(){
 	});
 
 	$(function(){		
-		var left_gnb = $('.left_gnb');
+		let left_gnb = $('.left_gnb');
+		let arrowIconTop = $(window).height() - 140;
 
-		if(left_gnb.height() < 380){
+		if(left_gnb.outerHeight() >= arrowIconTop) {
 			$(".gnb_bottom").css('display','block');
 
 			$(left_gnb).scroll(function () {
 				var gnb_height = $(left_gnb).scrollTop();
 				
-				if(gnb_height > 30){
+				if(gnb_height > 10){
 					$(".gnb_bottom i").attr('class','ri-arrow-up-s-line')
-				}else if(gnb_height < 30){
+				}else if(gnb_height < 10){
 					$(".gnb_bottom i").attr('class','ri-arrow-down-s-line')
 				}
 			}); 

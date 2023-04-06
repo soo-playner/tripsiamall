@@ -570,6 +570,11 @@ a.btn_cancle, .btn_cancle {
           box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.05);
   display: none;
 }
+@media (min-width: 335px) and (max-width: 757px) {
+  .breadcrumb .dash_news {
+    padding: 15px;
+  }
+}
 .breadcrumb .dash_news h5 {
   font-size: 18px;
   font-weight: 800;

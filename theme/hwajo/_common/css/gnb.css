@@ -150,7 +150,7 @@ header .left_gnbWrap .user_wrap ul {
 	padding-left: 0px;
 }
 header .left_gnbWrap .left_gnb {
-	padding: 10px 0 135px;
+	padding: 10px 0 145px;
 	width: 100%;
 	overflow-y: auto;
 	overflow-x: hidden;
@@ -187,7 +187,7 @@ header .left_gnbWrap .gnb_top .close img {
 #gnb_language{position:absolute; left: 0; bottom:62px; width:100%;text-align: center; background: #fff;}
 #gnb_language .title{font-size:11px;padding:5px 0;}
 
-.logout_wrap{position:absolute;left: 0; bottom:0; top: auto; line-height:20px;padding:20px 15px;width:100%;display:flex; border-top: 1px solid #f1f4fb; background: #fff;}
+.logout_wrap{position:absolute;left: 0; bottom:0; top: auto; line-height:20px;padding:20px 15px;width:100%;display:flex; border-top: 1px solid #f1f4fb; background: #fff; max-height: 62px;}
 .logout_wrap a{display:inline-block;width:50%;text-align: center;font-size:13px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
 .logout_wrap a:first-child{border-right:1px solid #f1f4fb;}
 .logout_wrap a i{padding-right:5px;font-size:18px;}
