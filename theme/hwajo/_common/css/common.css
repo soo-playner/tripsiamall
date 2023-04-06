@@ -238,8 +238,9 @@ a.btn {
 	cursor: pointer;
 	font-weight: bold;
 	background-color: #e6ecf3;
+	color: #000;
 }
-.btn:hover {
+.btn:not(.btn_secondary):hover {
 	background: #d7e2f1;
 }
 
@@ -314,6 +315,12 @@ a.btn {
 .btn.black {
 	background: rgba(0, 0, 0, 0.6);
 	color: white;
+}
+.btn.black:hover {
+	background: rgba(0, 0, 0, 0.8);
+}
+.dark .btn.black:hover {
+	background: rgba(0, 0, 0, 0.1);
 }
 .btn.yellow {
 	background: #ffcd20;
@@ -808,8 +815,6 @@ input.p15 {
 	margin: 0 auto;
 	position: relative;
 	overflow-x: hidden;
-}
-#wrapper {
 	background: #f8fbff;
 	color: #333;
 }
@@ -990,10 +995,6 @@ input.p15 {
 	position: relative;
 	z-index: 1;
 }
-/* .breadcrumb li{display: inline-block;}
-.breadcrumb .title{display:block;font-size:16px;font-weight:500}
-.breadcrumb i{font-size:14px;line-height:14px;}
-.breadcrumb .home::after{content:" / ";vertical-align: middle;} */
 
 /*상단 헤더 회원정보*/
 .user-info {
@@ -1602,9 +1603,10 @@ a.more i {
 .notice_wrap {
 	position: fixed;
 	bottom: 0;
-	width: 100%;
+	width: calc(100% - 300px);
 	cursor: pointer;
 	z-index: 1;
+	left: 300px;
 }
 .notice_box {
 	margin: 0 15px;
@@ -2086,6 +2088,8 @@ input:checked + .slider:before {
 	padding-top: 0px;
 	padding-left: 0px;
 	padding-right: 0px;
+	box-shadow: none;
+	background-color: transparent;
 }
 
 .mywallet .btn_ly {
@@ -2653,7 +2657,6 @@ input.input_price {
 	vertical-align: middle;
 	font-weight: bold;
 	font-size: 16px;
-	color: #29386b;
 }
 
 .upstairs_buy_wrap .package_wrap .box-header {
@@ -3617,11 +3620,10 @@ input.input_price {
 	width: 100%;
 }
 .member-message {
-	background-color: #f3f7ff;
+	background-color: #f8fbff;
 }
 .support-message {
 	background-color: #f3f7ff;
-	color: #29386b;
 }
 .dark .support-message {
 	background: #474a4f;
@@ -3962,6 +3964,22 @@ input.input_price {
 .news_wrap .news:first-of-type {
 	border-top: 1px solid #eef2f8;
 }
+.dark .news_wrap .news {
+	border-color: #909090;
+}
+.dark .news_wrap .news:first-of-type {
+	border-color: #909090;
+}
+.dark .news_wrap .news .left_wrap .tit {
+	color: #ffd965;
+	border-color: #ffd965;
+}
+.dark .news_wrap .news .answer .writing {
+	background: #212429;
+}
+.dark .news_wrap .news .answer p:not(.writing) {
+	color: #fff !important;
+}
 .news_wrap .news .question {
 	padding: 0 25px;
 	font-size: 14px;
@@ -4024,12 +4042,11 @@ input.input_price {
 	margin-bottom: 5px;
 	padding: 10px;
 }
-.user:hover {
+.user:not(.selected):hover {
 	border-color: rgb(0, 121, 211);
 }
 .user.selected {
-	background: rgb(0, 121, 211);
-	color: white;
+	background: aliceblue;
 }
 .non_user {
 	border: 1px solid rgb(242, 242, 242);
@@ -4510,7 +4527,12 @@ a.gray_close {
 	-webkit-padding: 10px;
 	-webkit-width: 100%;
 }
-
+@media all and (max-width: 767px) {
+	.notice_wrap {
+		width: 100%;
+		left: 0;
+	}
+}
 /* 모바일 */
 @media screen and (max-width: 414px) {
 	.pack_btn {

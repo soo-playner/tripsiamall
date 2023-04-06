@@ -7,12 +7,6 @@ if($_COOKIE['myLang'])
 }
 ?>
 
-<style>
-	#gnb_anguage{padding:10px}
-	.gnb_bottom{background:#f5f5f5}
-	.hidden{display:none;}
-</style>
-
 <script>
 $(document).ready(function(){
 
@@ -118,25 +112,25 @@ $(document).ready(function(){
 						<span >마이풀</span>
 					</div>
 				</a>
-			</li> -->
+			</li>
 			<?if($nw['nw_purchase'] == 'Y'){?>
-			<!-- <li class="upstairs_icon <? if($_GET['id'] === 'upstairs') {echo 'active';}?>">
+			<li class="upstairs_icon <? if($_GET['id'] === 'upstairs') {echo 'active';}?>">
 				<a href="/page.php?id=upstairs">
 					<div class="gnb_img_wrap"></div>
 					<div class="gnb_title_Wrap">
 						<span >패키지구매</span>
 					</div>
 				</a>
-			</li>  -->
+			</li> 
 			<?}?>
-			<!-- <li class="bonus_history_icon <? if($_GET['id'] === 'bonus_history') {echo 'active';}?>">
+			<li class="bonus_history_icon <? if($_GET['id'] === 'bonus_history') {echo 'active';}?>">
 				<a href="/page.php?id=bonus_history">
 					<div class="gnb_img_wrap"></div>
 					<div class="gnb_title_Wrap">
 						<span >보너스내역</span>
 					</div>
 				</a>
-			</li> -->
+			</li>
 			<?if($member['center_use'] == 1){?>
 			<li class="center_page_icon <? if($_GET['id'] === 'center_page') {echo 'active';}?>">
 				<a href="/page.php?id=center_page">
@@ -146,7 +140,7 @@ $(document).ready(function(){
 					</div>
 				</a>
 			</li>
-			<?}?>
+			<?}?> -->
 			<li class="recommend_icon <? if($_GET['id'] === 'structure') {echo 'active';}?>">
 				<a href="/page.php?id=structure">
 					<div class="gnb_img_wrap"></div>
@@ -235,40 +229,22 @@ $(document).ready(function(){
 			<option value="dark">다크</option>
 		</select>
 	</div>
-
-	
-
 </header>
 
 <div id="loading" class="wrap-loading display-none"><span class="loading_img"></span></div>
-
-
 <script>
 	$( document ).ajaxStart(function() { 
 		$('.wrap-loading').removeClass('display-none');
 	});
-
-
 	$( document ).ajaxStop(function() { 
 		$('.wrap-loading').addClass('display-none');
 	});
 
-	$(function(){
-		
+	$(function(){		
 		var left_gnb = $('.left_gnb');
-		// console.log(left_gnb.height());
-		if(left_gnb.height() < 433){
-			$(".gnb_bottom").css('display','block');
 
-			$(left_gnb).scroll(function () {
-				var gnb_height = $(left_gnb).scrollTop();
-				
-				if(gnb_height > 30){
-					$(".gnb_bottom i").attr('class','ri-arrow-up-s-line')
-				}else if(gnb_height < 30){
-					$(".gnb_bottom i").attr('class','ri-arrow-down-s-line')
-				}
-			}); 
+		if(left_gnb.height() < 380){
+			$(".gnb_bottom").css('display','block');
 
 			$(left_gnb).scroll(function () {
 				var gnb_height = $(left_gnb).scrollTop();

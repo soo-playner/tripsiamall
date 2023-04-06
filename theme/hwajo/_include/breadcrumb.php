@@ -102,15 +102,12 @@ $title = 'Dashboard';
 			
 			<div class="col-sm-12 col-12 content-box round dash_news" style='margin-bottom:-10px;'>
 				<h5>
-					<span class="title">공지사항</span>
-					
+					<span class="title">공지사항</span>					
 					<i class="ri-close-circle-line close_news" style="font-size: 30px;float: right;cursor: pointer;"></i>
 					<button class="f_right btn line_btn close_today" >
-						<span > 오늘하루 열지않기</span>
+						<span >오늘 하루 열지 않기</span>
 					</button>
 					<!-- <img class="close_news f_right small" src="<?=G5_THEME_URL?>/_images/close_round.gif" alt="공지사항 닫기"> -->
-				<!-- 				
-					 -->
 				</h5>
 
 				<?while( $row = sql_fetch_array($notice_sql_query) ){ ?>
@@ -288,8 +285,8 @@ $title = 'Dashboard';
 
 			$('.fold_img_wrap img').attr('src','<?=G5_THEME_URL?>/img/arrow_up_'+Theme+'.png');
 			
-			var user_height = $('.user-info').height();
-
+			var user_height = $('#collapseExample').height();
+			
 			if ($(id).css("display") == "none") {
 				$(id).css("display", "block");
 				$(id).animate({
