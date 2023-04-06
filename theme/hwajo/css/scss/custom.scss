@@ -3393,12 +3393,17 @@ a.btn_cancle, .btn_cancle{
         .pop_close {
             background: #3b454f;
             color: #fff;
+
             &:hover {
                 background: #252b31;
                 box-shadow:0 0 1px 2px #3b454f;    
+            }   
+            
+            & + .black {
+                &:hover {
+                    box-shadow:0 0 1px 2px #3b454f; 
+                }
             }
-            
-            
         }
         .save {
             background: $main-button2;
