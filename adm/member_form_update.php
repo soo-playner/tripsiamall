@@ -243,16 +243,18 @@ else if ($w == 'u')
 		if($deposit_code == '+'){
 			if($deposit_adm_content === '') {
 				$deposit_adm_code = '관리자 지급';
+				$admin_states = "0";
 			} else {
 				$deposit_adm_code = $deposit_adm_content;
-				$admin_states = "관리자 지급";
+				$admin_states = "1";
 			}
 		}else{
 			if(!$deposit_adm_content === '') {
 				$deposit_adm_code = '관리자 차감';
+				$admin_states = "0";
 			} else {
 				$deposit_adm_code = $deposit_adm_content;
-				$admin_states = "관리자 차감";
+				$admin_states = "1";
 			}
 		}
 

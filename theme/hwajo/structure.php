@@ -229,8 +229,6 @@ var gradeMap = {
 				return;
 			}
 
-			dimShow();
-
 			$.get("/util/level_structure_upgraded.search.php", {
 				keyword: $("#now_id").val()
 			}).done(function( data ) {
@@ -251,7 +249,6 @@ var gradeMap = {
 
 				$("#structure_search_result").html(vHtml.html());
 				$(".structure_search_container .result_btn").click(function(){
-					dimHide();
 					$('.structure_search_container').removeClass("active");
 				});
 			}).fail(function(e) {
