@@ -692,6 +692,7 @@ if ($_GET['recom_referral']){
 				</section>
 				<i style="color:rgba(255,255,255,0.4)">※센터정보 검색후 선택해주세요.</i> -->
 
+
 				<em class="info_text">※추천회원 검색후 선택해주세요.</em>
 
 

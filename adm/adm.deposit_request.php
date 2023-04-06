@@ -174,7 +174,7 @@ $result = sql_query($sql);
             var _target = $(this).parent().parent();
 
             var coin = _target.find('.coin').text();
-            var amt = _target.find('.input_amt_val').val().replace(',','');
+            var amt = _target.find('.input_amt_val').val().replace(/,/g,'');
 
 			if (confirm('상태값을 변경하시겠습니까?')) {
 			} else {

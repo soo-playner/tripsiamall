@@ -31,7 +31,7 @@ $withdrawal_price = $withdrwal_setting['withdraw_price'];
 $company_wallet = wallet_config('wallet_addr')['wallet_addr'];
 
 $wallet_addr1 = Decrypt($member['mb_wallet'],$member['mb_id'],'x'); // erc20
-$wallet_addr2 = Decrypt($member['eth_my_wallet'],$member['mb_id'],'x'); // usdt
+$wallet_addr2 = Decrypt($member['eth_my_wallet'],$member['mb_id'],'x'); // eth
 
   // 수수료제외 실제 출금가능금액
   $withdrwal_total = $total_withraw;
