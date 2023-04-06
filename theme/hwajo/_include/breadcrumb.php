@@ -143,15 +143,15 @@ $title = 'Dashboard';
 					<ul class="row top">
 						<li class="col-4">
 							<dt class="title" >총 누적 보너스</dt>
-							<dd class="value" style='font-size:15px;'><?=$total_bonus?><span class='currency'><?=$curencys[1]?></span></dd>
+							<dd class="value" style='font-size:15px;'><?=shift_auto($total_bonus,$curencys[1])?><span class='currency'><?=$curencys[1]?></span></dd>
 						</li>
 						<li class="col-4">
 							<dt class="title" >구매 가능 포인트 </dt>
-							<dd class="value" style='font-size:15px;'><?=$available_fund?><span class='currency'><?=$curencys[1]?></span></dd>
+							<dd class="value" style='font-size:15px;'><?=shift_auto($available_fund,$curencys[1])?><span class='currency'><?=$curencys[1]?></span></dd>
 						</li>
 						<li class="col-4">
 							<dt class="title" >출금 가능 포인트 </dt>
-							<dd class="value" style='font-size:15px;'><?=$total_withraw?><span class='currency'><?=$curencys[1]?></span></dd>
+							<dd class="value" style='font-size:15px;'><?=shift_auto($total_withraw,$curencys[1])?><span class='currency'><?=$curencys[1]?></span></dd>
 						</li>
 						<!-- <li class="col-4">
 							<dt class="title">출금 가능 코인</dt>
