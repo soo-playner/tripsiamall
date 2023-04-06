@@ -220,13 +220,13 @@ $auth_cnt = sql_num_rows($amt_auth_log);
             </button>
           </div> -->
           <!-- 이더전용입금 -->          
-          <div class="wallet qrBox col-3">
+          <div class="wallet qrBox col-12">
               <div class="eth_qr_img qr_img" id="my_eth_qr"></div>
           </div> 
-          <div class='qrBox_right col-9'>
-              <input type="text" id="my_eth_wallet" class="wallet_addr" value="<?=$company_wallet ?>" title='my address' disabled/>
+          <div class='qrBox_right col-12'>
+              <input type="text" id="my_eth_wallet" class="wallet_addr text-center" value="<?=$company_wallet ?>" title='my address' disabled/>
               <button class="btn wd line_btn" id="accountCopy" onclick="copyURL('#my_eth_wallet')">
-                      <span >주소복사</span>
+                  <span >주소복사</span>
               </button>
           </div>   
         </div>      

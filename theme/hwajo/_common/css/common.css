@@ -2042,8 +2042,15 @@ input:checked + .slider:before {
 .mywallet .qrBox {
 	margin-bottom: 10px;
 }
-.mywallet .qrBox .qr_img {
-	width: 100px;
+.mywallet .qrBox .qr_img  {
+	width: 120px;
+	padding: 15px;
+	border-radius: 5px;
+	background-color: #fff;
+	margin: 0 auto;
+}
+.mywallet .qrBox .qr_img img {
+	margin: 0 auto;
 }
 
 /* 은행계좌정보 */
@@ -2089,6 +2096,8 @@ input:checked + .slider:before {
 	padding: 0;
 	box-shadow: none;
 	background-color: transparent;
+	text-overflow: ellipsis;
+	margin-bottom: 5px;
 }
 
 .mywallet .btn_ly {
@@ -2125,12 +2134,6 @@ input:checked + .slider:before {
 	border-radius: 30px;
 }
 
-@media all and (max-width: 400px) {
-	.mywallet .qrBox_right {
-		flex: 0 0 60%;
-		margin-left: auto;
-	}
-}
 .mywallet .line_btn:hover {
 	background: ghostwhite;
 	box-shadow: 0 0 0 2px royalblue;
