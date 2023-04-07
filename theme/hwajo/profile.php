@@ -1049,7 +1049,7 @@ $(function() {
 					dataType: "json",
 					success: function(data) {
 						if(data.result =='success'){
-							dialogModal('KYC 인증처리',"<strong> 등록되었습니다.<br>관리자 승인까지 최대 24시간 소요될수 있습니다.</strong>",'success');
+							dialogModal('KYC 인증처리',"<strong>등록되었습니다.<br>관리자 승인까지 최대 24시간 소요될수 있습니다.</strong>",'success');
 
 							$('.closed').click(function(){
 								window.location.reload();
@@ -1059,7 +1059,7 @@ $(function() {
 						}
 					},
 					error:function(e){
-						dialogModal('처리 실패!','<strong> 다시시도해주세요 문제가 계속되면 관리자에게 연락주세요.</strong>','failed');
+						dialogModal('처리 실패!','<strong>다시 시도해주세요. 문제가 계속되면 관리자에게 연락주세요.</strong>','failed');
 					}
 				});
 			} 
