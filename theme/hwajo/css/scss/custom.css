@@ -1080,7 +1080,11 @@ a.btn_cancle, .btn_cancle {
 }
 
 .mywallet #withdraw #select_coin {
-  padding: 5px;
+  background: #fff url("../../img/select_arrow_dark.png") no-repeat right 10px center/10px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 5px 25px 5px 10px;
 }
 .mywallet #withdraw #max_value {
   margin-top: -5px;
