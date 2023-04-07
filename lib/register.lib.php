@@ -145,7 +145,7 @@ function exist_mb_email($reg_mb_email, $reg_mb_id)
     global $g5;
     $row = sql_fetch(" select count(*) as cnt from `{$g5['member_table']}` where mb_email = '$reg_mb_email' and mb_id <> '$reg_mb_id' ");
     if ($row['cnt'])
-        return "이미 사용중인 E-mail 주소입니다..";
+        return "이미 사용중인 E-mail 주소입니다.";
     else
         return "";
 }

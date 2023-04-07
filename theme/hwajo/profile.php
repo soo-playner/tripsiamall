@@ -381,7 +381,7 @@ $(function() {
 
 
 		if(new_tpw.length < 6){
-			dialogModal('입력확인','<strong> 출금비밀번호(핀코드)는 6자리 숫자입니다..</strong>','failed');
+			dialogModal('입력확인','<strong> 출금비밀번호(핀코드)는 6자리 숫자입니다.</strong>','failed');
 			return false;
 		}
 
