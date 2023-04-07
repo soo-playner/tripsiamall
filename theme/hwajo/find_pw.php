@@ -70,6 +70,12 @@ $rand_num = sprintf("%06d", rand(000000, 999999));
 
 </html>
 <script>
+    $('#mode_select').on('change',function() {
+		mode_change(this.value);	
+	})
+	$('#mode_select').val(Theme).change();
+
+
     $(document).ready(function() {
         if($('#wrapper').parent().hasClass('bf-login') == true ) {
             $('#wrapper').css('margin-left','0px').css('color','#000');
