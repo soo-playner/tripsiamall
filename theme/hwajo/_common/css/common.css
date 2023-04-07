@@ -2384,7 +2384,9 @@ input:checked + .slider:before {
 	text-align: right;
 	width: 100%;
 }
-
+.dark .fee {
+	color: #fff;
+}
 #fee_val {
 	margin-left: 5px;
 }
