@@ -335,7 +335,7 @@ $result = sql_query($sql);
         <!-- <td style='color:#666'><?=$member_result['mb_center']?></td> -->
         <td style='color:#666'><?=$row['txhash']?></td>
         <td><?=shift_auto($row['amt'])?></td>
-        <td><input type='text' class='reg_text input_amt_val' style='font-weight:600;color:blue;text-align:right' value='<?=shift_auto($row['in_amt'],$curencys[1])?>'></td>
+        <td><input type='text' class='reg_text input_amt_val' style='font-weight:600;color:blue;text-align:right' value='<?=shift_auto($row['in_amt'],$curencys[0])?>'></td>
         <td class='coin'><?=$row['coin']?></td>
         <td>
             <!-- <?=status($row['status'])?> -->
