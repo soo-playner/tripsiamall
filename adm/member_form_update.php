@@ -266,7 +266,7 @@ else if ($w == 'u')
 				, create_d    		= '{$today}'
 				, status   			= {$process_code}
 				, update_dt         = '{$todate}'
-				, coin          	= '원'
+				, coin          	= '{$curencys[1]}'
 				, fee    			= 0
 				, cost         		= 0
 				, amt    			= {$deposit_adm_value}
