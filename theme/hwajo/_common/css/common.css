@@ -613,7 +613,9 @@ hr {
 	border: 0;
 	border-bottom: 2px dashed rgba(0, 0, 0, 0.2) !important;
 }
-
+.dark .hr_dash {
+	border-color: #ccc !important;
+}
 .col-40 {
 	flex: 0 0 40%;
 	max-width: 40%;
