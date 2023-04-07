@@ -249,7 +249,7 @@ else if ($w == 'u')
 				$admin_states = "1";
 			}
 		}else{
-			if(!$deposit_adm_content === '') {
+			if($deposit_adm_content === '') {
 				$deposit_adm_code = '관리자 차감';
 				$admin_states = "0";
 			} else {
