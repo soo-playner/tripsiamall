@@ -555,7 +555,10 @@ $rank_result = sql_fetch($rank_sql);
 		<th scope="row">보유 잔고</th>
 
 		<td colspan="1">
-			<strong><?= Number_format($mb['mb_deposit_point'] + $mb['mb_deposit_calc'] + $mb['mb_balance']) ?></strong> <?=$curencys[1]?> &nbsp&nbsp (총 입금액 : <?= Number_format($mb['mb_deposit_point']) ?> <?=$curencys[0]?>)
+			<?php $sql = "SELECT SUM(amt) as amt FROM {$g5['deposit']} WHERE mb_id = '{$mb['mb_id']}'";
+			$deposit_sum = sql_fetch($sql);
+			?>
+			<strong><?= Number_format($mb['mb_deposit_point'] + $mb['mb_deposit_calc'] + $mb['mb_balance']) ?></strong> <?=$curencys[1]?> &nbsp&nbsp (총 입금액 : <?= shift_auto($deposit_sum['amt']) ?> <?=$curencys[0]?>)
 		</td>
 		<th></th>
 		<!-- <td>
