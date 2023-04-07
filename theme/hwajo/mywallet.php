@@ -856,7 +856,7 @@ $auth_cnt = sql_num_rows($amt_auth_log);
       }
       
       if(in_min_limit > 0 &&  Number(d_price) < Number(in_min_limit) ){
-        dialogModal('<p>최소입금액 확인</p>', '<p>최소입금확인금액은 '+ Price(in_min_limit)+coin +' 입니다. </p>', 'warning');
+        dialogModal('<p>최소 입금액 확인</p>', '<p>최소 입금 확인 금액은 '+ Price(in_min_limit)+coin +' 입니다. </p>', 'warning');
         return false;
       }
       

@@ -37,6 +37,11 @@ if ($_GET['recom_referral']){
 
 
 <script type="text/javascript">
+	$('#mode_select').on('change',function() {
+		mode_change(this.value);	
+	})
+	$('#mode_select').val(Theme).change();
+
 	var captcha;
 	var key;
 	var verify = false;

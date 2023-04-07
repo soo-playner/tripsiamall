@@ -3,23 +3,23 @@ h1, h2, h3, h4, h5, h6 {
   font-family: inherit;
 }
 
-body::-webkit-scrollbar {
+html::-webkit-scrollbar, body::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
-body::-webkit-scrollbar-track {
+html::-webkit-scrollbar-track, body::-webkit-scrollbar-track {
   background-color: #eee;
 }
-body::-webkit-scrollbar-thumb {
+html::-webkit-scrollbar-thumb, body::-webkit-scrollbar-thumb {
   background-color: #999;
 }
-body.dark::-webkit-scrollbar-thumb {
+html.dark::-webkit-scrollbar-thumb, body.dark::-webkit-scrollbar-thumb {
   background-color: #333;
 }
-body.dark::-webkit-scrollbar-track {
+html.dark::-webkit-scrollbar-track, body.dark::-webkit-scrollbar-track {
   background-color: #ccc;
 }
-body.modal-open {
+html.modal-open, body.modal-open {
   padding-right: 0 !important;
 }
 
@@ -3038,18 +3038,6 @@ a.btn_cancle, .btn_cancle {
 }
 .dark .gnb_bottom {
   background: #17191d;
-}
-.dark input:-webkit-autofill {
-  -webkit-text-fill-color: #fff;
-}
-
-input:-webkit-autofill {
-  -webkit-text-fill-color: #000;
-}
-
-input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active {
-  -webkit-transition: background-color 5000s ease-in-out 0s;
-  transition: background-color 5000s ease-in-out 0s;
 }
 
 @media (min-width: 335px) and (max-width: 757px) {
