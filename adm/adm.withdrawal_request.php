@@ -276,7 +276,7 @@ $ord_rev = $ord_array[($ord_key + 1) % 2]; // 내림차순→오름차순, 오�
 				<th style="width:7%;">출금수수료</th>
 
 				<th style="width:7%;">출금액</th>
-				<th style="width:7%;">출금시세(원)</th>
+				<th style="width:7%;">출금시세<br>(1<?=$curencys[1]?> 당 <?=$curencys[0]?>)</th>
 
 				<!-- <th style="width:5%;">적용코인시세</th> -->
 
@@ -359,7 +359,8 @@ $ord_rev = $ord_array[($ord_key + 1) % 2]; // 내림차순→오름차순, 오�
 						</td>
 
 						<!-- 출금시세 -->
-						<td class="gray" style='font-size:11px;'><span><?= shift_auto($row['cost'], $curencys[2]) ?></span></td>
+						<!-- <td class="gray" style='font-size:11px;'><span><?= shift_auto($row['cost'], $curencys[2]) ?></span></td> -->
+						<td class="gray" style='font-size:11px;'><span><?= $row['cost'] ?></span></td>
 
 						<td style="font-size:11px;"><?= timeshift($row['create_dt']) ?></td>
 						<td>

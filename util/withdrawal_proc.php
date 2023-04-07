@@ -21,7 +21,9 @@ $total_amt		= trim($_POST['total_amt']);
 $select_coin 		= $_POST['select_coin'];
 $fixed_amt = $_POST['fixed_amt'];
 $fixed_fee = $_POST['fixed_fee'];
-$cost = str_replace(',','',shift_auto($_POST['cost'],$curencys[2]));
+$coin = get_coins_price();
+$market_price = shift_auto($coin['usdt_krw'] / $coin['eth_krw']);
+/* $cost = str_replace(',','',shift_auto($_POST['cost'],$curencys[2])); */
 
 /* 원화계좌출금*/
 $bank_name = trim($_POST['bank_name']);
@@ -141,7 +143,7 @@ mb_id ='{$mb_id}'
 , coin = '{$select_coin}'
 , status = '0'
 , create_dt = '{$now_datetime}'
-, cost = {$cost}
+, cost = {$market_price}
 , out_amt = '{$total_amt}'
 , od_type = '출금요청'
 , memo = ''
