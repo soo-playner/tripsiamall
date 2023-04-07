@@ -322,6 +322,10 @@ header .left_gnbWrap .left_gnb .logout_wrap .h_line {
 }
 
 @media screen and (min-width: 768px) {
+	#gnb_language,
+	.logout_wrap {
+		left: 0;
+	}
 	header {
 		max-width: 100%;
 	}
