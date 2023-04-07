@@ -483,10 +483,6 @@ a.btn_cancle, .btn_cancle {
   color: red;
 }
 
-/* @media screen and (min-width:768px) {
-	body{background:#fff;color:white;}
-	#wrapper{max-width:767px;margin:0 auto;}
-}  */
 .adm_btn {
   background: #FECE00;
   font-size: 13px !important;
@@ -2848,12 +2844,12 @@ a.btn_cancle, .btn_cancle {
 .dark .notice_box {
   background: #2c2f34;
 }
+.dark .notice_box a {
+  color: #ffd965;
+}
 .dark .notice_box ul li span {
   color: #ffd965;
   border: 1px solid #ffd965;
-}
-.dark .notice_box ul li a {
-  color: #ffd965;
 }
 .dark .b_line3 {
   background: none;

@@ -507,10 +507,6 @@ a.btn_cancle, .btn_cancle{
     color:red;
 }
 
-/* @media screen and (min-width:768px) {
-	body{background:#fff;color:white;}
-	#wrapper{max-width:767px;margin:0 auto;}
-}  */
 .adm_btn{
     background:#FECE00;font-size:13px !important;letter-spacing:0px;
     color:#111;font-weight:700;padding:3px 10px 2px;float:right;border-radius: 15px;margin:0;
@@ -1082,7 +1078,6 @@ a.btn_cancle, .btn_cancle{
     }
 }
 
-
 .checkbox-input {
 	// Code to hide the input
 	clip: rect(0 0 0 0);
@@ -1118,7 +1113,6 @@ a.btn_cancle, .btn_cancle{
 		}
 	}
 }
-
 
 .checkbox-tile {
 	display: flex;
@@ -1184,14 +1178,10 @@ a.btn_cancle, .btn_cancle{
     font-size:12px;
 }
 .checkbox-price .change_price{text-align:center;font-size:11px;font-weight:400}
-
-
 .refresh_loader{text-align:center;margin:0 auto;width:100%;min-height:60px;display:flex;}
 .refresh_loader img{max-width:100px;margin:0 auto;}
-
 .pre_loading{position:absolute;z-index:1100;top:40%;width:100%;height:50px;text-align:center}
 .pre_loading img{margin:0 auto;}
-
 .dark .pre_loading img{color:white;}
 
 // 20230330 추가
@@ -1284,6 +1274,7 @@ a.btn_cancle, .btn_cancle{
     .checkbox-tile{
         background:#212429;
         border-color:#52575c;
+
         .checkbox-icon{
             background: white;
             border-radius: 50%;
@@ -1306,6 +1297,7 @@ a.btn_cancle, .btn_cancle{
         border-color:#f9d448;
     }
         border-color:#FECE00;
+
     #SwapCoinModal .modal-close{background:transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3e%3cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3e%3c/svg%3e") center/1em auto no-repeat}
     
     #SwapCoinModal .icon{color:#FECE00;font-weight: 300;}
@@ -3265,15 +3257,16 @@ a.btn_cancle, .btn_cancle{
     // tail
     .notice_box {
         background: $main-background3;
+        a {
+            color: $main-colors;
+        }
         ul {
             li {
                 span {
                     color: $main-colors;
                     border: 1px solid $main-colors;
                 }
-                a {
-                    color: $main-colors;
-                }
+
             }
         }
     }

@@ -8,13 +8,14 @@ $notice_row = sql_fetch($notice_sql);
 <?php if(sql_num_rows($notice_result) > 0 && $_GET['id'] != "news"){?>
 <section class="notice_wrap">
 	<div class='notice_box notice_oneline'>
-		<ul>
-			<li>
-				<span>새소식</span>
-				<a href="/page.php?id=news"><?=$notice_row['wr_subject']?></a>
-			</li>
-			
-		</ul>
+		<a href="/page.php?id=news">
+			<ul>
+				<li>
+					<span>새소식</span>
+					<?=$notice_row['wr_subject']?>
+				</li>				
+			</ul>
+		</a>
 	</div>
 </section>
 <?php } ?>
