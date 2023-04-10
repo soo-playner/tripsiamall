@@ -224,7 +224,6 @@ var gradeMap = {
     	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 	}
 
-
 	function member_search(){
 		
 			if($("#now_id").val() == ""){
@@ -268,8 +267,6 @@ var gradeMap = {
 			dimHide();
 			$('.structure_search_container').removeClass("active");
 		});
-	
-
 	
 
 	function getList2(member_no, type){
@@ -508,36 +505,12 @@ var gradeMap = {
 	}
 	</script>
 
-	<style>
-		.toggle{float:right;width:40px;height:40px;display:inline-block;font-size:18px;text-align:center;font-weight:300;color:#ccc}
-		.toggle i{vertical-align:middle;line-height:40px;}
-		.badge{margin-left:0;margin-right:5px;}
-		.badge.package{ background:none;color:#2b3a6d;font-size:12px;line-height:12px;padding:5px 8px;color:white}
-		.badge i{font-size:12px;margin-right:2px;vertical-align:bottom}
-		.hp{margin-right:5px;}
-		.mbpoint{}
-
-		.structure_wrap .accordion_wrap dt{display:flex;border-top-left-radius:25px;border-bottom-left-radius:25px;padding:6px;}
-		.accordion_wrap dt div{font-size:inherit;float:inherit;}
-		.lvl-icon{width:42px;height:42px;}
-		.lvl-icon .user_icon{line-height:34px;font-size:20px;}
-
-		#lvl-userid{font-family:Montserrat, Arial, sans-serif;line-height:24px;font-size:16px;font-weight:600}
-		.lvl-username{line-height:24px;font-size:11px;}
-		#lvl-username{color:rgba(0,0,0,0.7);margin-right:5px;font-weight:300;}
-		
-		.dark #lvl-username{color:rgba(255,255,255,0.7);}
-		.dark .badge.package{border:1px solid #444}
-
-	</style>
-
-	<main>
-		
+	<main>		
 		<div class="container nopadding nomargin">
 			<section class="structure_wrap">
 				<!--<p>데이터 크기로 인해 한번에 5대씩 화면에 나타납니다</p>-->
 				<div class="btn_input_wrap" style='background:white'>
-				<div class="bin_top">회원 검색</div>
+					<div class="bin_top">회원 검색</div>
 					<ul class="row align-items-center">
 						<li class="col-9 user_search_wrap">
 							<input type="text" id="now_id" class="" style='background:#eff3f9;color:black;border:1px solid #d9dfe8' placeholder="회원찾기"/>
@@ -549,20 +522,18 @@ var gradeMap = {
 				</div>
 
 				<div class="btn_input_wrap">
-				<div class="bin_top">추천 계보</div>
+					<div class="bin_top">추천 계보</div>
 					<div class='legbox'>
 						<div class="leg-view-container">
 							<div class="gray"></div>
 						</div>
 					</div>
 				</div>
-
 				
 				<!-- <div class="desc font_red" style='font-size:11px'>[ 금액단위 : 만원 ]</div> -->
-				<div class="main-container content-box tree-container">
-					<div class="bin_top" >추천 조직도</div>
-					
-					<div id="levelStructure" class="accordion_wrap" ></div>
+				<div class="main-container content-box tree-container nomargin">
+					<div class="bin_top">추천 조직도</div>					
+					<div id="levelStructure" class="accordion_wrap"></div>
 				</div>
 				<div style="display:none;" id="dup">
 					<dl class="lvl-container" >
@@ -571,21 +542,18 @@ var gradeMap = {
 							<!-- <i class="ri-vip-crown-line" style="font-size: 1.8em; margin-right: 5px; color: #e5c6b1;vertical-align:-webkit-baseline-middle;border: 3px solid #e5c6b1;border-radius:50%;"></i>
 							<i class="ri-account-circle-line" style="font-size: 2.5em; margin-right: 5px;"></i> -->
 							<div><span class="lvl-icon"></span></div>
-
 							<div>
 								<span id="lvl-userid" class="lvl-username"></span>
 								<span id="lvl-username" class="lvl-username"></span>
 								<span class="level badge"></span>
 								<span class="direct_cnt badge"></span>
-								<span class="badge package "></span>
-								
+								<span class="badge package"></span>								
 								<!-- <span class='divided'></span> -->
 								<p class='mbpoint'>
 									<!-- <span class="pv"></span>&nbsp -->
 									<span class="acc"></span>
 								</p>
 							</div>
-
 							<div style="margin-left:auto"><span class='toggle'><i class="ri-line-height"></i></span></div>
 						</dt>
 					</dl>
@@ -595,10 +563,8 @@ var gradeMap = {
 	</main>
 
 	<div class="structure_search_container">
-		<div class="structure_search_result" id="structure_search_result">
-
-		</div>
-		<div class="result_btn">Close</div>
+		<div class="structure_search_result" id="structure_search_result"></div>
+		<div class="result_btn">닫기</div>
 	</div>
 
 	<script>
