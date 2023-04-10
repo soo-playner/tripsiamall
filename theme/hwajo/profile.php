@@ -382,12 +382,12 @@ $(function() {
 
 
 		if(new_tpw.length < 6){
-			dialogModal('입력확인','<strong> 출금비밀번호(핀코드)는 6자리 숫자입니다.</strong>','failed');
+			dialogModal('입력확인','<strong> 출금비밀번호(핀코드)는 6자리 숫자입니다.</strong>','failed',false);
 			return false;
 		}
 
 		if(new_tpw != new_tpw_re){
-			dialogModal('입력확인','<strong> 입력한 출금비밀번호(핀코드)가 일치하지 않습니다.</strong>','failed');
+			dialogModal('입력확인','<strong> 입력한 출금비밀번호(핀코드)가 일치하지 않습니다.</strong>','failed',false);
 			return false;
 		}
 
@@ -412,11 +412,11 @@ $(function() {
 							window.location.reload();
 						})
 					}else{
-						dialogModal('처리에러!','<strong> '+ data.sql+'</strong>','failed');
+						dialogModal('처리에러!','<strong> '+ data.sql+'</strong>','failed',false);
 					}
 				},
 				error:function(e){
-					dialogModal('처리 실패!','<strong> 다시시도해주세요 문제가 계속되면 관리자에게 연락주세요.</strong>','failed');
+					dialogModal('처리 실패!','<strong> 다시시도해주세요 문제가 계속되면 관리자에게 연락주세요.</strong>','failed',false);
 				}
 			});
 
@@ -526,11 +526,11 @@ $(function() {
 						window.location.reload();
 					})
 				}else{
-					dialogModal('처리 실패!','<strong> '+ data.sql+'</strong>','failed');
+					dialogModal('처리 실패!','<strong> '+ data.sql+'</strong>','failed',false);
 				}
 			},
 			error:function(e){
-				dialogModal('처리 실패!','<strong> 다시시도해주세요 문제가 계속되면 관리자에게 연락주세요.</strong>','failed');
+				dialogModal('처리 실패!','<strong> 다시시도해주세요 문제가 계속되면 관리자에게 연락주세요.</strong>','failed',false);
 			}
 		});
 
@@ -607,7 +607,7 @@ $(function() {
 			var email3 = $('.chage_email_pop #email_new_re').val();
 
 			if( email2 != email3){
-				dialogModal('입력확인','<strong> 입력한 메일주소가 일치하지 않습니다.</strong>','failed');
+				dialogModal('입력확인','<strong> 입력한 메일주소가 일치하지 않습니다.</strong>','failed',false);
 				return false;
 			}
 
@@ -628,11 +628,11 @@ $(function() {
 							$('.chage_email_pop2').css("display","none");
 							$('.chage_email_pop1').css("display","block");
 						}else{
-							dialogModal('처리 실패!','<strong> '+ data.sql+'</strong>','failed');
+							dialogModal('처리 실패!','<strong> '+ data.sql+'</strong>','failed',false);
 						}
 					},
 					error:function(e){
-						dialogModal('처리 실패!','<strong> 다시시도해주세요 문제가 계속되면 관리자에게 연락주세요.</strong>','failed');
+						dialogModal('처리 실패!','<strong> 다시시도해주세요 문제가 계속되면 관리자에게 연락주세요.</strong>','failed',false);
 					}
 				});
 
@@ -723,11 +723,11 @@ $(function() {
 								parent.location.reload();
 							});
 						}else{
-							dialogModal('입력확인','<strong>'+data.sql+'</strong>','failed');
+							dialogModal('입력확인','<strong>'+data.sql+'</strong>','failed',false);
 						}
 					},
 					error:function(e){
-						dialogModal('처리 실패!','<strong> 다시시도해주세요 문제가 계속되면 관리자에게 연락주세요.</strong>','failed');
+						dialogModal('처리 실패!','<strong> 다시시도해주세요 문제가 계속되면 관리자에게 연락주세요.</strong>','failed',false);
 					}
 				});
 			});
@@ -838,11 +838,11 @@ $(function() {
 							$('.chage_name_pop1').css("display","none");
 							$('.chage_name_pop3').css("display","block");
 						}else{
-							dialogModal('처리 실패!','<strong> '+ data.sql+'</strong>','failed');
+							dialogModal('처리 실패!','<strong> '+ data.sql+'</strong>','failed',false);
 						}
 					},
 					error:function(e){
-						dialogModal('처리 실패!','<strong> 다시시도해주세요 문제가 계속되면 관리자에게 연락주세요.</strong>','failed');
+						dialogModal('처리 실패!','<strong> 다시시도해주세요 문제가 계속되면 관리자에게 연락주세요.</strong>','failed',false);
 					}
 				});
 		});
@@ -932,7 +932,7 @@ $(function() {
 			// var upload_name = $(".upload-name").val();
 			var kyc_agree = $("#tax_person_number_agree").is(':checked');
 			if(!kyc_agree){
-				dialogModal('KYC 인증','<strong> 고유식별정보 처리방침에 동의해주세요. </strong>','warning');
+				dialogModal('KYC 인증','<strong> 고유식별정보 처리방침에 동의해주세요. </strong>','warning',false);
 				return false;
 			}
 
@@ -986,7 +986,7 @@ $(function() {
 			
 			if(fileInput[0].files.length < 1 || fileInput[1].files.length < 1){
 
-				dialogModal('KYC 인증','<strong> 신분확인이 가능한 사진과 출금지갑 인증파일을 첨부해주세요. </strong>','warning');
+				dialogModal('KYC 인증','<strong> 신분확인이 가능한 사진과 출금지갑 인증파일을 첨부해주세요. </strong>','warning',false);
 				return false;
 			}else{
 			
@@ -1037,7 +1037,7 @@ $(function() {
 					dataType: "json",
 					success: function(data) {
 						if(data.result =='success'){
-							dialogModal('KYC 인증처리',"<strong>등록되었습니다.<br>관리자 승인까지 최대 24시간 소요될수 있습니다.</strong>",'success');
+							dialogModal('KYC 인증처리',"<strong>등록되었습니다.<br>관리자 승인까지 최대 24시간 소요될수 있습니다.</strong>",'success',false);
 
 							$('.closed').click(function(){
 								window.location.reload();
@@ -1047,7 +1047,7 @@ $(function() {
 						}
 					},
 					error:function(e){
-						dialogModal('처리 실패!','<strong>다시 시도해주세요. 문제가 계속되면 관리자에게 연락주세요.</strong>','failed');
+						dialogModal('처리 실패!','<strong>다시 시도해주세요. 문제가 계속되면 관리자에게 연락주세요.</strong>','failed',false);
 					}
 				});
 			} 
