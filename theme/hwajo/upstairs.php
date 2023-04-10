@@ -174,7 +174,7 @@ $result = sql_query($sql);
 					<div class='col-5 my_cash_wrap'>
 						<!-- <input type='radio' value='eth' class='radio_btn' name='currency'><input type="text" id="trade_money_eth" class="trade_money" placeholder="0" min=5 data-currency='eth' readonly> -->
 						<div>
-							<input type="text" id="total_coin_val" class='input_price' value="<?=$available_fund?>" readonly>
+							<input type="text" id="total_coin_val" class='input_price' value="<?=shift_auto($available_fund,$curencys[1])?>" readonly>
 							<span class="currency-right coin"><?=$curencys[1]?></span>
 						</div>
 					</div>
