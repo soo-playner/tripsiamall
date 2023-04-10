@@ -517,7 +517,7 @@ var gradeMap = {
 		.hp{margin-right:5px;}
 		.mbpoint{}
 
-		.structure_wrap .accordion_wrap dt{display:flex;border-top-left-radius:25px;border-bottom-left-radius:25px;padding:6px;}
+		.structure_wrap .accordion_wrap dt{display:flex;border-top-left-radius:25px;border-bottom-left-radius:25px;padding:6px; 	-webkit-box-shadow: 0 2px 10px 0 rgba(0,0,0,0.03);box-shadow: 0 2px 10px 0 rgba(0,0,0,0.03);}
 		.accordion_wrap dt div{font-size:inherit;float:inherit;}
 		.lvl-icon{width:42px;height:42px;}
 		.lvl-icon .user_icon{line-height:34px;font-size:20px;}
@@ -559,7 +559,7 @@ var gradeMap = {
 
 				
 				<!-- <div class="desc font_red" style='font-size:11px'>[ 금액단위 : 만원 ]</div> -->
-				<div class="main-container content-box tree-container">
+				<div class="main-container content-box tree-container nomargin">
 					<div class="bin_top" >추천 조직도</div>
 					
 					<div id="levelStructure" class="accordion_wrap" ></div>
