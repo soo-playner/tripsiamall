@@ -113,6 +113,7 @@ $(document).ready(function(){
 					</div>
 				</a>
 			</li>
+			-->
 			<?if($nw['nw_purchase'] == 'Y'){?>
 			<li class="upstairs_icon <? if($_GET['id'] === 'upstairs') {echo 'active';}?>">
 				<a href="/page.php?id=upstairs">
@@ -131,6 +132,7 @@ $(document).ready(function(){
 					</div>
 				</a>
 			</li>
+			<!--
 			<?if($member['center_use'] == 1){?>
 			<li class="center_page_icon <? if($_GET['id'] === 'center_page') {echo 'active';}?>">
 				<a href="/page.php?id=center_page">

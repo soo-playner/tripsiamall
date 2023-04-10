@@ -124,18 +124,15 @@ $result = sql_query($sql);
 								<div class="r_card r_card_<?=$i?>" data-row=<?=json_encode($data_arr,JSON_UNESCAPED_UNICODE)?>>
 									<p class="title">
 										<span style='vertical-align:middle'><?=$row[$i-1]['it_name']?></span>
-										<?if($i!=1){?>
 										<span style='font-size:13px;float:right;line-height:36px;'><?=$row[$i-1]['it_option_subject']?></span>
-										<?}?>
 									</p>
+									
 									<div class="b_blue_bottom"></div>
 									<div >
-										<!-- <div class='hash'>
-											<?=$row[$i-1]['it_supply_point']?> <span class='f_small'>mh/s</span>
-										</div> -->
+										
 										<div class=" text_wrap">
 											<div class="it_price"><?=shift_auto($row[$i-1]['it_price'],$curencys[1])?> <?=$curencys[1]?></div>
-											<!-- <div class='origin_price'>VAT <?=shift_auto($row[$i-1]['it_price']*0.1,$curencys[1])?> <?=$curencys[1]?></div> -->
+											<div class='origin_price'>수익률: <?=$row[$i-1]['it_supply_point']?> %</div>
 										</div>
 									</div>
 								</div>
