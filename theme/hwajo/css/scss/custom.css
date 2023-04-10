@@ -575,7 +575,7 @@ a.btn_cancle, .btn_cancle {
   font-size: 18px;
   font-weight: 800;
   line-height: 40px;
-  border-bottom: 2px solid #333;
+  border-bottom: 1.5px solid #333;
   padding-bottom: 5px;
   margin-bottom: 20px;
 }
@@ -1135,7 +1135,7 @@ a.btn_cancle, .btn_cancle {
   padding: 5px 25px 5px 10px;
 }
 .mywallet #withdraw #max_value {
-  margin-top: -5px;
+  margin-top: -12px;
 }
 
 .checkbox-group {

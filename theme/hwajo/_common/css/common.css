@@ -637,7 +637,6 @@ hr {
 .box_on {
 	background: white;
 	padding: 20px 10px 20px 10px !important;
-	box-shadow: 0px 0px 20px 0 rgba(0, 0, 0, 0.025);
 	position: relative;
 	height: auto;
 	border-radius: 8px;
@@ -2333,9 +2332,6 @@ input:checked + .slider:before {
 #withdraw .input_shift_value {
 	margin-top: 10px;
 }
-#withdraw .input_shift_value .sub_title {
-	height: 28px;
-}
 
 #deposit input.confirm_hash {
 	box-shadow: 1px 2px 5px 0 rgba(0, 0, 0, 0.05);
@@ -3089,6 +3085,9 @@ input.input_price {
 }
 .search_btn_wrap {
 	padding-left: 0px;
+}
+.search_btn_wrap button {
+	margin-top: 6px;
 }
 .btn_input_wrap input {
 	margin-top: 12px;

@@ -242,9 +242,9 @@ $(document).ready(function(){
 
 	$(function(){		
 		let left_gnb = $('.left_gnb');
-		let arrowIconTop = $(window).height() - 140;
+		let gHeight = $(window).height() - 270;
 
-		if(left_gnb.outerHeight() >= arrowIconTop) {
+		if(left_gnb.height() >= gHeight) {
 			$(".gnb_bottom").css('display','block');
 
 			$(left_gnb).scroll(function () {
