@@ -2896,8 +2896,7 @@ a.btn_cancle, .btn_cancle{
                 background: $main-colors !important;
 
                 &:hover {
-                    background: $search_background;
-                    box-shadow:0 0 1px 1px $main-button;
+                    background: $search_background !important;
                 }
 
                 i {
