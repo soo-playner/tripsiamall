@@ -84,7 +84,7 @@ if ($_GET['recom_referral']){
 			//SMS발송
 			$('#sendSms').on('click', function(e) {
 				if (!$('#reg_mb_hp').val()) {
-					commonModal('모바일 본인 인증', '<p>연락가능한 모바일 번호를 등록해주세요.</p>', 80);
+					dialogModal("모바일 본인 인증", "연락가능한 모바일 번호를 등록해주세요.", 'failed');
 					return;
 				}
 				var reg_mb_hp = +($('#reg_mb_hp').val().replace(/-/gi, ''));
@@ -100,7 +100,7 @@ if ($_GET['recom_referral']){
 					success: function(result) {
 						// console.log(result);
 						smsKey = result.key;
-						commonModal('SMS authentication', '<p>Sent a authentication code to your Mobile.</p>', 80);
+						dialogModal("SMS 인증", "모바일로 인증 코드를 보냈습니다.", 'success');
 					},
 					error: function(e) {
 						console.log(e);
@@ -121,7 +121,7 @@ if ($_GET['recom_referral']){
 
 
 			if (email == '' || !re.test(email)) {
-				commonModal("이메일 인증", "사용가능한 이메일 주소를 입력해주세요.", 80)
+				dialogModal("이메일 인증","사용가능한 이메일 주소를 입력해주세요.", "failed");
 				return false;
 			}
 
@@ -194,7 +194,7 @@ if ($_GET['recom_referral']){
 				$('#reg_mb_email').css('background-color', '#ccc').prop('readonly', true);;
 
 			} else {
-				commonModal('인증 실패', '<p>이메일로 전송된 인증코드를 다시 확인후 입력해주세요.</p>', 80);
+				dialogModal("인증 실패","이메일로 전송된 인증코드를 다시 확인 후 입력해주세요.", "failed");
 			}
 		});
 
@@ -557,11 +557,11 @@ if ($_GET['recom_referral']){
 
 		//추천인 검사
 		if (f.mb_recommend.value == '' || f.mb_recommend.value == 'undefined') {
-			dialogModal('추천인정보 확인', "<strong>추천인 아이디 검색하여 목록에서 선택해주세요.</strong>", 'warning');
+			dialogModal('추천인 정보 확인', "<strong>추천인 아이디를 검색하여 목록에서 선택해주세요.</strong>", 'warning');
 			return false;
 		}
 		if (!recommend_search) {
-			dialogModal('추천인정보 확인', "<strong>추천인 아이디 검색하여 목록에서 선택해주세요.</strong>", 'warning');
+			dialogModal('추천인 정보 확인', "<strong>추천인 아이디를 검색하여 목록에서 선택해주세요.</strong>", 'warning');
 			return false;
 		}
 

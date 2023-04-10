@@ -907,7 +907,7 @@ $auth_cnt = sql_num_rows($amt_auth_log);
   }
 
   function copyURL(addr) {
-    dialogModal("","<p>지갑주소가 복사 되었습니다</p>","success");
+    dialogModal("","<p>지갑주소가 복사 되었습니다.</p>","success");
 
     var temp = $("<input>");
     $("body").append(temp);

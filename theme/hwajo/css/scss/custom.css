@@ -499,7 +499,7 @@ a.btn_cancle, .btn_cancle {
   margin-right: 3px;
 }
 .adm_btn:hover {
-  background: #d9b000;
+  background: #d9b000 !important;
 }
 @media (min-width: 335px) and (max-width: 757px) {
   .adm_btn {
@@ -575,7 +575,7 @@ a.btn_cancle, .btn_cancle {
   font-size: 18px;
   font-weight: 800;
   line-height: 40px;
-  border-bottom: 2px solid #333;
+  border-bottom: 1.5px solid #333;
   padding-bottom: 5px;
   margin-bottom: 20px;
 }
@@ -1075,8 +1075,67 @@ a.btn_cancle, .btn_cancle {
   }
 }
 
-#ui-datepicker-div {
-  display: none;
+#ui-datepicker-div.ui-datepicker {
+  border-radius: 8px;
+}
+#ui-datepicker-div.ui-datepicker .ui-datepicker-header {
+  background: aliceblue;
+  border: none;
+}
+#ui-datepicker-div.ui-datepicker .ui-datepicker-buttonpane button {
+  font-size: 14px;
+  border-radius: 8px;
+  background: #3b86ff;
+  font-weight: normal;
+  color: #fff;
+  padding: 5px 8px;
+  opacity: 1;
+}
+#ui-datepicker-div.ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-close {
+  background: #f1f1f1;
+  color: #333;
+}
+#ui-datepicker-div.ui-datepicker .ui-state-default {
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  padding: 6.5px 4px;
+  text-align: center;
+}
+#ui-datepicker-div.ui-datepicker .ui-state-default:hover {
+  background: rgba(59, 134, 255, 0.5);
+}
+#ui-datepicker-div.ui-datepicker .ui-state-active {
+  background: #3b86ff;
+  font-weight: bold;
+}
+#ui-datepicker-div.ui-datepicker .ui-state-highlight {
+  background: rgba(59, 134, 255, 0.5);
+  color: #000;
+}
+#ui-datepicker-div.ui-datepicker .ui-datepicker-prev,
+#ui-datepicker-div.ui-datepicker .ui-datepicker-next {
+  top: 7px;
+}
+#ui-datepicker-div.ui-datepicker .ui-datepicker-prev:hover,
+#ui-datepicker-div.ui-datepicker .ui-datepicker-next:hover {
+  border: none;
+  background: transparent;
+}
+#ui-datepicker-div.ui-datepicker select {
+  border-color: #f1f4fb;
+  margin: 4px;
+}
+
+.profile .profile_wrap .profile-box.security .row {
+  padding-top: 15px;
+}
+.profile .profile_wrap .profile-box.security .row li {
+  margin: 0;
+  color: #7e8fad;
+}
+.profile .profile_wrap .profile-box.security .row + .row {
+  margin-top: 0;
 }
 
 .mywallet #withdraw #select_coin {
@@ -1087,7 +1146,7 @@ a.btn_cancle, .btn_cancle {
   padding: 5px 25px 5px 10px;
 }
 .mywallet #withdraw #max_value {
-  margin-top: -5px;
+  margin-top: -12px;
 }
 
 .checkbox-group {
@@ -1333,6 +1392,32 @@ a.btn_cancle, .btn_cancle {
 
 .dark {
   /* 유저 아이콘*/
+}
+.dark #ui-datepicker-div.ui-datepicker {
+  background: #17191d;
+  color: #fff;
+}
+.dark #ui-datepicker-div.ui-datepicker .ui-datepicker-header {
+  background: #212429;
+}
+.dark #ui-datepicker-div.ui-datepicker .ui-datepicker-buttonpane button:not(.ui-datepicker-close) {
+  background: #f9d448;
+  color: #000;
+}
+.dark #ui-datepicker-div.ui-datepicker .ui-state-default {
+  color: #fff;
+}
+.dark #ui-datepicker-div.ui-datepicker .ui-state-default:hover {
+  background: #fde58e;
+  color: #000;
+}
+.dark #ui-datepicker-div.ui-datepicker .ui-state-active {
+  background: #f9d448;
+  color: #000;
+}
+.dark #ui-datepicker-div.ui-datepicker .ui-state-highlight {
+  background: #fde58e;
+  color: #000;
 }
 .dark .menuback i {
   color: #fff;
@@ -1874,8 +1959,7 @@ a.btn_cancle, .btn_cancle {
   color: #fff;
   border-bottom: 2px solid #2c3037;
 }
-.dark .profile .profile-box ul li {
-  border-bottom: none;
+.dark .profile .profile-box.security .row li {
   color: #b4b4b4;
 }
 .dark .profile .profile-box ul li.user_box {
