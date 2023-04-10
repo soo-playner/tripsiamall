@@ -5,7 +5,8 @@ function open_pop_close(){
 
 	dimHide();
 	$('.pop_wrap').css("display","none");
-	// $('.dim').css("display","none");
+	$('.pop_wrap .reset_input_box input[type=text], .pop_wrap .reset_input_box input[type=password], .pop_wrap .reset_input_box input[type=file]').val("");
+	$('.pop_wrap .reset_input_box input[type=radio], .pop_wrap .reset_input_box input[type=checkbox]').attr("checked", false);
 	$('body').css({"overflow":"auto","height":"inherit"});
 };
 
