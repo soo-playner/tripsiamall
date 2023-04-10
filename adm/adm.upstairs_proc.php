@@ -28,16 +28,16 @@ $val = substr($pack_maker,1,1);
 $coin_val = '원';
 
 if($debug){
-	$mb_id = 'test3';
-	$mb_no = 4;
+	$mb_id = 'test1';
+	$mb_no = 2;
 	$mb_rank = 1;
 	$func = 'new';
-	$input_val =5500000; // 결제금액 (부가세포함)
-	$output_val =5000000; // 구매금액 (부가세제외)
-	$pack_name = 'P2';
-	$pack_id = 2021091722;
-	$it_point = 5000000;
-	$it_supply_point = 5;
+	$input_val =1000; // 결제금액 
+	$output_val =1000; // 구매금액
+	$pack_name = 'P3';
+	$pack_id = 2023040403;
+	$it_point = 1000;
+	$it_supply_point = 6;
 }
 
 $target = "mb_deposit_calc";

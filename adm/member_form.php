@@ -734,10 +734,10 @@ $rank_result = sql_fetch($rank_sql);
 				console.log(`total:${total_fund}\nprice:${item.it_cust_price}`);
 				// console.log(`it_id:${item_id}\nit_sp:${item_supply_point}\ncoin:${select_coin}`);
 
-				if (mb_item_rank == '' && item_num > 0) {
+				/* if (mb_item_rank == '' && item_num > 0) {
 					alert("MEMBERSHIP 팩을 보유하지 않았습니다.");
 					return false;
-				}
+				} */
 
 				if (confirm("해당 회원에게 " + item.it_name + " 패키지를 지급하시겠습니까?\n회원 잔고에서 " + Price(item.it_cust_price) + " <?= $curencys[1] ?> (이)가 차감됩니다.")) {} else {
 					return false;

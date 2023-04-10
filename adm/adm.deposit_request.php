@@ -300,12 +300,12 @@ $result = sql_query($sql);
         <!-- <th scope="col" width='5%'>센터</th> -->
         <th scope="col" width='12%'>TX ID</th>
         <th scope="col" width='5%'>입금요청금액</th>
-        <th scope="col" width='10%'>입금처리금액</th>
         <th scope="col" width='4%'>입금종류</th>
+        <th scope="col" width='10%'>입금처리금액(<?=$curencys[1]?>)</th>
         <th scope="col" width='10%'>승인여부</th>
         <th scope="col" width='8%'>요청시간</th>
         <th scope="col" width='8%'>상태변경일</th>
-        <th scope="col" width='6%'>조직도등록</th>
+        <!-- <th scope="col" width='6%'>조직도등록</th> -->
         <!-- <th scope="col" width='10%'>추가항목2</th> -->
         <th scope="col" style="width:14%;">관리자메모</th>
     </tr>
@@ -335,8 +335,9 @@ $result = sql_query($sql);
         <!-- <td style='color:#666'><?=$member_result['mb_center']?></td> -->
         <td style='color:#666'><?=$row['txhash']?></td>
         <td><?=shift_auto($row['amt'])?></td>
-        <td><input type='text' class='reg_text input_amt_val' style='font-weight:600;color:blue;text-align:right' value='<?=shift_auto($row['in_amt'],$curencys[0])?>'></td>
         <td class='coin'><?=$row['coin']?></td>
+        <td><input type='text' class='reg_text input_amt_val' style='font-weight:600;color:blue;text-align:right' value='<?=shift_auto($row['in_amt'],$curencys[1])?>'></td>
+        
         <td>
             <!-- <?=status($row['status'])?> -->
             <select name="status" uid="<?=$row['uid']?>" class='sel_<?=$row['status']?>'>
@@ -349,7 +350,7 @@ $result = sql_query($sql);
         </td>
         <td class='time'><?=$row['create_dt']?></td>
         <td class='time'><?=$row['update_dt']?></td>
-        <td>
+        <!-- <td>
            
             <?if(!$member_binary){?>
                 <input type="button" class="inline_btn add_binary btn1" value='후원레그+' data-id='<?=$row['mb_id']?>' data-func='1'></input>
@@ -358,7 +359,7 @@ $result = sql_query($sql);
             <?if(!$member_binary2){?>
                 <input type="button" class="inline_btn add_binary btn2" value='후원레그2+' data-id='<?=$row['mb_id']?>' data-func='2'></input>
             <?}?>
-        </td>
+        </td> -->
         <!-- <td>
         <?if($member_binary || $member_binary2){?>
             <input type="button" class="inline_btn add_binary btn3" value='후원레그삭제' data-id='<?=$row['mb_id']?>' data-func='3'></input>

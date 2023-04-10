@@ -13,17 +13,18 @@ login_check($member['mb_id']);
 $title = 'Mywallet';
 
 
+
 // 입금설정
 $deposit_setting = wallet_config('deposit');
 $deposit_fee = $deposit_setting['fee'];
-$deposit_min_limit = $deposit_setting['amt_minimum'];
+$deposit_min_limit = shift_auto($deposit_setting['amt_minimum']/$coin['usdt_eth'],$currencys[0]);
 $deposit_max_limit = $deposit_setting['amt_maximum'];
 $deposit_day_limit = $deposit_setting['day_limit'];
 
 // 출금설정
 $withdrwal_setting = wallet_config('withdrawal');
 $withdrwal_fee = $withdrwal_setting['fee'];
-$withdrwal_min_limit = $withdrwal_setting['amt_minimum'];
+$withdrwal_min_limit = $withdrwal_setting['amt_minimum']/$coin['usdt_eth'];
 $withdrwal_max_limit = $withdrwal_setting['amt_maximum'];
 $withdrwal_day_limit = $withdrwal_setting['day_limit'];
 $withdrawal_price = $withdrwal_setting['withdraw_price'];
@@ -719,7 +720,7 @@ $auth_cnt = sql_num_rows($amt_auth_log);
     });
 
 
-    // function process_pin_mobile(){
+  // function process_pin_mobile(){
 
     //   return new Promise(
     //     function(resolve,reject){
@@ -776,7 +777,7 @@ $auth_cnt = sql_num_rows($amt_auth_log);
     //       alert('잠시 후 다시 시도해주세요.');
     //     }
     //   });
-    // }
+  // }
 
     
 
@@ -856,7 +857,7 @@ $auth_cnt = sql_num_rows($amt_auth_log);
       }
       
       if(in_min_limit > 0 &&  Number(d_price) < Number(in_min_limit) ){
-        dialogModal('<p>최소 입금액 확인</p>', '<p>최소 입금 확인 금액은 '+ Price(in_min_limit)+coin +' 입니다. </p>', 'warning');
+        dialogModal('<p>최소 입금액 확인</p>', '<p>최소 입금 확인 금액은 '+ Price(in_min_limit)+ coin +' 입니다. </p>', 'warning');
         return false;
       }
       
