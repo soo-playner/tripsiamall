@@ -317,16 +317,17 @@
 
 		<div class="pop_wrap chage_tpw_pop1 input_pop_css">
 			<form action="">
-				<label for="" >사용중인 출금 비밀번호</label>
-				<input type="password" id="current_tpw" maxlength="6">
-				<hr class="hr_dash">
-
-				<label for="" >새로운 출금 비밀번호</label>
-				<input type="password" id="new_tpw" maxlength="6">
-				<label for="" >새로운 출금 비밀번호 확인</label>
-				<input type="password" id="new_tpw_re" maxlength="6">
-				<label for="" >로그인 비밀번호</label>
-				<input type="password" id="auth_pwd" minlength='4' maxlength="20">
+				<div class="reset_input_box">
+					<label for="" >사용중인 출금 비밀번호</label>
+					<input type="password" id="current_tpw" maxlength="6">
+					<hr class="hr_dash">
+					<label for="" >새로운 출금 비밀번호</label>
+					<input type="password" id="new_tpw" maxlength="6">
+					<label for="" >새로운 출금 비밀번호 확인</label>
+					<input type="password" id="new_tpw_re" maxlength="6">
+					<label for="" >로그인 비밀번호</label>
+					<input type="password" id="auth_pwd" minlength='4' maxlength="20">
+				</div>
 				<!--
 				<div>
 					<label for="" >보안코드 입력</label>
@@ -441,13 +442,15 @@ $(function() {
 
 	<div class="pop_wrap chage_pw_pop1 input_pop_css">
 		<form action="">
-			<label for="" >사용중인 비밀번호</label>
-			<input type="password" id="current_pw" minlength='4' maxlength="20">
-			<hr class="hr_dash">
-			<label for="" >새로운 비밀번호</label>
-			<input type="password" id="new_pw" minlength='4' maxlength="20">
-			<label for="" >새로운 비밀번호 확인</label>
-			<input type="password" id="new_pw_re" minlength='4' maxlength="20">
+			<div class="reset_input_box">
+				<label for="" >사용중인 비밀번호</label>
+				<input type="password" id="current_pw" minlength='4' maxlength="20">
+				<hr class="hr_dash">
+				<label for="" >새로운 비밀번호</label>
+				<input type="password" id="new_pw" minlength='4' maxlength="20">
+				<label for="" >새로운 비밀번호 확인</label>
+				<input type="password" id="new_pw_re" minlength='4' maxlength="20">
+			</div>
 			<!--
 			<div>
 				<label for="" >보안코드 입력</label>
@@ -479,7 +482,6 @@ $(function() {
 
 
 $(function() {
-
 	
 	$('.ch_pw_open').click(function(){
 			//$('.chage_pw_pop').css("display","block");
@@ -638,15 +640,6 @@ $(function() {
 	});
 	</script>
 <!-- 이메일 주소 변경 -->
-
-
-
-
-
-
-
-
-
 
 
 
@@ -865,63 +858,58 @@ $(function() {
 		
 
 	<form method="post" action="">
-		<label for="" >성명</label>
-		<input type="text" id="tax_name" maxlength="6" value="">
-		<label for="" >주민등록번호</label>
-		<input type="text" pattern="\d*" id="tax_person_number_1" maxlength="6" class="half" inputmode="number"> 
-		<label style="display:inline;font-size:22px">-</label>
-		<input type="password" pattern="\d*" id="tax_person_number_2" maxlength="7" class="half" inputmode="number">
-		<input type="hidden" id="tax_person_number_3" maxlength="7" class="half" >
+		<div class="reset_input_box">
+			<label for="" >성명</label>
+			<input type="text" id="tax_name" maxlength="6" value="">
+			<label for="" >주민등록번호</label>
+			<input type="text" pattern="\d*" id="tax_person_number_1" maxlength="6" class="half" inputmode="number"> 
+			<label style="display:inline;font-size:22px">-</label>
+			<input type="password" pattern="\d*" id="tax_person_number_2" maxlength="7" class="half" inputmode="number">
+			<input type="hidden" id="tax_person_number_3" maxlength="7" class="half" >
 
-		<div class='box'>
-		<label>KYC신분증 첨부 </label>
-			<input type="file" accept="image/*" class='filebox' name="bf_file[1]"  >
-			<label for="bf_file[1]" class='kyc_label' style="font-size:11px;margin:3px;font-weight:300;">신분확인 가능한 주민등록증, 운전면허증 사진을 첨부해주세요.</label>
-		</div>
+			<label>KYC신분증 첨부 </label>
+				<input type="file" accept="image/*" class='filebox' name="bf_file[1]"  >
+				<label for="bf_file[1]" class='kyc_label' style="font-size:11px;margin:3px;font-weight:300;">신분확인 가능한 주민등록증, 운전면허증 사진을 첨부해주세요.</label>
 
-		<hr class="hr_dash">
+			<hr class="hr_dash">
 
-		<div class='box'>
-		<label class="mt20">출금지갑주소 첨부 </label>
+			<label class="mt20">출금지갑주소 첨부 </label>
 			<input type="file"  accept="image/*" class='filebox' name="bf_file[2]">
 			<label for="bf_file[2]" class='kyc_label' style="font-size:11px;margin:5px;font-weight:300;">출금 지갑주소가 확인되는 캡쳐이미지,사진을 첨부해주세요.</label>
-		</div>
 
-		<!-- <div class="radio_set">
-			<input type="radio" id="wallet_type1" name="wallet_type" value="0"/><label for="wallet_type1">국내거래소 지갑</lable>
-			<input type="radio" id="wallet_type2" name="wallet_type" value="1"/><label for="wallet_type2">해외거래소 지갑</lable>
-			<input type="radio" id="wallet_type3" name="wallet_type" value="2"/><label for="wallet_type3">기타/개인 지갑</lable>
-		</div> -->
+			<!-- <div class="radio_set">
+				<input type="radio" id="wallet_type1" name="wallet_type" value="0"/><label for="wallet_type1">국내거래소 지갑</lable>
+				<input type="radio" id="wallet_type2" name="wallet_type" value="1"/><label for="wallet_type2">해외거래소 지갑</lable>
+				<input type="radio" id="wallet_type3" name="wallet_type" value="2"/><label for="wallet_type3">기타/개인 지갑</lable>
+			</div> -->
 
-		<div class='box'>
-		<label class="mt30">출금지갑 종류선택 </label>
-			<div class="radio_set">
-				<label>
-					<input type="radio" id="wallet_type1" name="wallet_type" class="selector-item_radio" value=1>
-					<span>국내거래소 지갑</span>
-				</label>
-				<label>
-					<input type="radio" id="wallet_type1" name="wallet_type" class="selector-item_radio" value=2>
-					<span>해외거래소 지갑</span>
-				</label>
-				<label>
-					<input type="radio" id="wallet_type1" name="wallet_type" class="selector-item_radio" value=3>
-					<span>개인/기타 지갑</span>
-				</label>
-			</div>
-		</div>
+			<label class="mt30">출금지갑 종류선택 </label>
+				<div class="radio_set">
+					<label>
+						<input type="radio" id="wallet_type1" name="wallet_type" class="selector-item_radio" value=1>
+						<span>국내거래소 지갑</span>
+					</label>
+					<label>
+						<input type="radio" id="wallet_type1" name="wallet_type" class="selector-item_radio" value=2>
+						<span>해외거래소 지갑</span>
+					</label>
+					<label>
+						<input type="radio" id="wallet_type1" name="wallet_type" class="selector-item_radio" value=3>
+						<span>개인/기타 지갑</span>
+					</label>
+				</div>
 
-		<hr class="hr_dash">
-		<div class='mb15'>
-			<input type="checkbox" id="tax_person_number_agree" class="inline" name="tax_person_number_agree" value=""/>
-			<label for="tax_person_number_agree" class="inline">고유식별정보 처리 동의</label>
-			<a href="javascript:void(0);" class="inline_btn person_agree_view" >전문보기</a>
-			<div class="preclose">
-				<textarea id="tax_person_agree_content" class="textbox">
-				</textarea>
-			</div>
-			<div id="argee_content" style="display: none">
-
+			<hr class="hr_dash">
+			<div class='mb15'>
+				<input type="checkbox" id="tax_person_number_agree" class="inline" name="tax_person_number_agree" value=""/>
+				<label for="tax_person_number_agree" class="inline">고유식별정보 처리 동의</label>
+				<a href="javascript:void(0);" class="inline_btn person_agree_view" >전문보기</a>
+				<div class="preclose">
+					<textarea id="tax_person_agree_content" class="textbox">
+					</textarea>
+				</div>
+				<div id="argee_content" style="display: none">
+				</div>
 			</div>
 		</div>
 
