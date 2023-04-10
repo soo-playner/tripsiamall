@@ -274,8 +274,6 @@ header .left_gnbWrap .left_gnb .menu_tree.on:before {
 header .left_gnbWrap .left_gnb > li > ul {
 	display: none;
 }
-header .left_gnbWrap .left_gnb ul a {
-}
 header .left_gnbWrap .left_gnb .logout_wrap .foot_btn {
 	padding: 5px 15px !important;
 	background-position: 30px 15px;

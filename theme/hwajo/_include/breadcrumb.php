@@ -128,7 +128,7 @@ $title = 'Dashboard';
 				<h4 class='mygrade badge' style="margin-left:0;"><?=$user_level?></h4>
 
 				<?if($notice_result_num > 0){ ?>
-					<button class="btn text-white b_darkblue_round notice_open f_right" >
+					<button class="btn notice_open">
 					<i class="ri-broadcast-line"></i>
 					</button>
 				<?}?>

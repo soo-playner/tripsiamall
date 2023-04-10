@@ -166,7 +166,7 @@
 					</ul>
 					<?php } ?> -->
 				</div>
-				<div class='col-sm-12 col-12 profile-box'>
+				<div class='col-sm-12 col-12 profile-box security'>
 					<h3 class='title b_line'>
 						<i class="p2"><img src="<?=G5_THEME_URL?>/img/security_setting.png" alt=""></i>
 						<span >보안설정</span>
@@ -1065,7 +1065,7 @@ $(function() {
 			} 
 		});
 
-        $("#tax_person_number_2").on('change', function(e){
+		$("#tax_person_number_2").on('change', function(e){
 			$("#tax_person_number_3").val($("#tax_person_number_2").val()); 
 		});
 	});

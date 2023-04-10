@@ -512,8 +512,9 @@ a.btn_cancle, .btn_cancle{
     color:#111;font-weight:700;padding:3px 10px 2px;float:right;border-radius: 15px;margin:0;
 
     i{font-size:16px;margin-right:3px;}
+
     &:hover {
-        background: #d9b000;
+        background: #d9b000 !important;
     }
 
     @include mobile {
@@ -759,7 +760,6 @@ a.btn_cancle, .btn_cancle{
 
         .wallet_title{font-weight:600;font-size:16px;}
         .max_with{margin-left:10px;font-size:11px;}
-        .btn_title{}
         .caret_box{
             vertical-align: top;
             float:right;
@@ -786,7 +786,6 @@ a.btn_cancle, .btn_cancle{
 
         .wallet_title{font-weight:600;font-size:16px;}
         .max_with{margin-left:10px;font-size:11px;}
-        .btn_title{}
         .caret_box{
             vertical-align: top;
             float:right;
@@ -820,7 +819,6 @@ a.btn_cancle, .btn_cancle{
     .hidden{display:none;}
     
     .polding{
-        label{}
         .comment{float:right;font-size:11px;line-height:30px;color:red;}
     }
 
@@ -851,7 +849,6 @@ a.btn_cancle, .btn_cancle{
 }
 
 #mining_amt_log{
-    // border-top:1px double #aaa;
     padding:15px 0;
     display: grid;
     .hist_tit{width:100%; color:#29386b;}
@@ -1092,6 +1089,28 @@ a.btn_cancle, .btn_cancle{
     }
 } 
 
+// 개인정보 & 보안설정
+.profile {
+    .profile_wrap {
+        .profile-box {
+            // 보안설정
+            &.security {
+                .row {
+                    padding-top: 15px;
+
+                    li {
+                        margin: 0;
+                        color: #7e8fad;
+                    }
+
+                    & + .row {
+                        margin-top: 0;
+                    }
+                }
+            }
+        }
+    }
+}
 
 
 
@@ -1136,7 +1155,6 @@ a.btn_cancle, .btn_cancle{
 }
 
 .checkbox-input {
-	// Code to hide the input
 	clip: rect(0 0 0 0);
 	clip-path: inset(100%);
 	height: 1px;
@@ -1176,8 +1194,6 @@ a.btn_cancle, .btn_cancle{
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	// min-width: 7rem;
-	// min-height: 3rem;
     padding:10px 16px 10px 16px;
 	border-radius: 0.5rem;
 	border: 2px solid #b5bfd9;
@@ -1590,10 +1606,6 @@ a.btn_cancle, .btn_cancle{
         .term_space {
             background: $main-background;
             color: #fff;
-
-            #service_checkbox + label, #private_checkbox + label {
-                // background-color: transparent
-            }
         }
 
         .term_textarea {
@@ -2067,12 +2079,15 @@ a.btn_cancle, .btn_cancle{
                 color: #fff;
                 border-bottom: 2px solid $line;
             }
-
+            &.security {
+                .row {
+                    li {
+                        color: #b4b4b4;
+                    }
+                }
+            }
             ul {
                 li {
-                    border-bottom: none;
-                    color: #b4b4b4;
-
                     &.user_box {
                         background: $main-background2 !important;
                     }
@@ -2564,7 +2579,6 @@ a.btn_cancle, .btn_cancle{
         
                 .wallet_title{font-weight:600;font-size:16px;color: #fff;}
                 .max_with{margin-left:10px;font-size:11px;color: #fff;}
-                .btn_title{}
                 .caret_box{                    
                     i{font-size:18px; color: #333;}
                 }
@@ -2591,7 +2605,6 @@ a.btn_cancle, .btn_cancle{
             .hidden{display:none;}
             
             .polding{
-                label{}
                 .comment{float:right;font-size:11px;line-height:30px;color:#c84a31;}
 
                 .sub_title {
@@ -2867,10 +2880,6 @@ a.btn_cancle, .btn_cancle{
                 i {
                     vertical-align: middle;
                 }
-    
-                &:hover  {
-                    
-                }
             }
         }
     }
@@ -3079,10 +3088,6 @@ a.btn_cancle, .btn_cancle{
                     color: $main-colors;
                 }
             }
-            .page-scroll {
-                span {
-                }
-            }
     
             .lvl .direct_cnt {
                 background: #67757d;
@@ -3105,29 +3110,8 @@ a.btn_cancle, .btn_cancle{
         }
 
         .news {
-
             .question {
                 color: #fff;
-
-                .left_wrap {
-                    // padding-left: 0;
-                    // width: 80px;
-                    // .tit {
-                    //     color: $main-colors;
-                    //     border: 1px solid $main-colors;
-                    //     border-radius: 10px;
-                    //     text-align: center;
-                    //     padding-left: 9px;
-                    //     padding-right: 9px;
-                    //     width: 65px;
-                    // }
-                    // .date {
-                    //     color: #999;
-                    //     margin-top: 3px;
-                    //     font-size: 12px;
-                    // }
-                }
-                
                 .right_wrap {
                     i {
                         color: $main-colors;
