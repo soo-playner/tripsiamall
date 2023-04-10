@@ -2,25 +2,38 @@
 @import "./_variable";
 @import "./_mixin";
 
-h1,h2,h3,h4,h5,h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: inherit;
 }
 
-html,body {
+html,
+body {
     &::-webkit-scrollbar {
         width: 8px;
         height: 8px;
     }
+
     &::-webkit-scrollbar-track {
         background-color: #eee;
     }
+
     &::-webkit-scrollbar-thumb {
         background-color: #999;
     }
 
     &.dark {
-        &::-webkit-scrollbar-thumb {background-color: #333}
-        &::-webkit-scrollbar-track {background-color: #ccc;}
+        &::-webkit-scrollbar-thumb {
+            background-color: #333
+        }
+
+        &::-webkit-scrollbar-track {
+            background-color: #ccc;
+        }
     }
 
     // 모달 오픈시 여백 안나오게 설정
@@ -33,6 +46,7 @@ html,body {
     background-color: $main-colors;
     color: #000;
 }
+
 // header 
 
 header {
@@ -56,7 +70,7 @@ header {
                 }
             }
         }
-    
+
         .gnb_img_wrap {
             background: url($white);
             background-repeat: no-repeat;
@@ -65,7 +79,7 @@ header {
             height: 38px;
             flex: 0 0 auto;
         }
-        
+
         .gnb_title_Wrap {
             flex-grow: 2;
         }
@@ -74,6 +88,7 @@ header {
             .gnb_img_wrap {
                 background-position: -159px 6px;
             }
+
             &:hover .gnb_img_wrap,
             &.active .gnb_img_wrap {
                 background: url($white_hover);
@@ -84,11 +99,12 @@ header {
                 height: 38px;
             }
         }
-        
+
         .profile_icon {
             .gnb_img_wrap {
                 background-position: 7px 6px;
             }
+
             &:hover .gnb_img_wrap,
             &.active .gnb_img_wrap {
                 background: url($white_hover);
@@ -99,12 +115,12 @@ header {
                 height: 38px;
             }
         }
-        
+
         .mywallet_icon {
             .gnb_img_wrap {
                 background-position: -27px 6px;
             }
-        
+
             &:hover .gnb_img_wrap,
             &.active .gnb_img_wrap {
                 background: url($white_hover);
@@ -115,12 +131,12 @@ header {
                 height: 38px;
             }
         }
-        
+
         .mining_icon {
             .gnb_img_wrap {
                 background-position: -196px 6px;
             }
-        
+
             &:hover .gnb_img_wrap,
             &.active .gnb_img_wrap {
                 background: url($white_hover);
@@ -131,12 +147,12 @@ header {
                 height: 38px;
             }
         }
-        
+
         .mypool_icon {
             .gnb_img_wrap {
                 background-position: -196px -30px;
             }
-        
+
             &:hover .gnb_img_wrap,
             &.active .gnb_img_wrap {
                 background: url($white_hover);
@@ -147,12 +163,12 @@ header {
                 height: 38px;
             }
         }
-        
+
         .upstairs_icon {
             .gnb_img_wrap {
                 background-position: -61px 6px;
             }
-        
+
             &:hover .gnb_img_wrap,
             &.active .gnb_img_wrap {
                 background: url($white_hover);
@@ -163,12 +179,12 @@ header {
                 height: 38px;
             }
         }
-        
+
         .bonus_history_icon {
             .gnb_img_wrap {
                 background-position: -95px 6px;
             }
-        
+
             &:hover .gnb_img_wrap,
             &.active .gnb_img_wrap {
                 background: url($white_hover);
@@ -179,12 +195,12 @@ header {
                 height: 38px;
             }
         }
-        
+
         .center_page_icon {
             .gnb_img_wrap {
                 background-position: -161px -30px;
             }
-        
+
             &:hover .gnb_img_wrap,
             &.active .gnb_img_wrap {
                 background: url($white_hover);
@@ -195,12 +211,12 @@ header {
                 height: 38px;
             }
         }
-        
+
         .recommend_icon {
             .gnb_img_wrap {
                 background-position: -128px 6px;
             }
-        
+
             &:hover .gnb_img_wrap,
             &.active .gnb_img_wrap {
                 background: url($white_hover);
@@ -211,12 +227,12 @@ header {
                 height: 38px;
             }
         }
-        
+
         .support_icon {
             .gnb_img_wrap {
                 background-position: 7px -30px;
             }
-        
+
             &:hover .gnb_img_wrap,
             &.active .gnb_img_wrap {
                 background: url($white_hover);
@@ -227,12 +243,12 @@ header {
                 height: 38px;
             }
         }
-        
+
         .notice_icon {
             .gnb_img_wrap {
                 background-position: -26px -30px;
             }
-        
+
             &:hover .gnb_img_wrap,
             &.active .gnb_img_wrap {
                 background: url($white_hover);
@@ -243,12 +259,12 @@ header {
                 height: 38px;
             }
         }
-        
+
         .question_icon {
             .gnb_img_wrap {
                 background-position: -60px -30px;
             }
-        
+
             &:hover .gnb_img_wrap,
             &.active .gnb_img_wrap {
                 background: url($white_hover);
@@ -259,12 +275,12 @@ header {
                 height: 38px;
             }
         }
-        
+
         .reffer_icon {
             .gnb_img_wrap {
                 background-position: -94px -30px;
             }
-        
+
             &:hover .gnb_img_wrap,
             &.active .gnb_img_wrap {
                 background: url($white_hover);
@@ -275,13 +291,13 @@ header {
                 height: 38px;
             }
         }
-        
+
         .logout_wrap {
             .logout_icon {
                 .gnb_img_wrap {
                     background-position: -127px -30px;
                 }
-            
+
                 &:hover .gnb_img_wrap,
                 &.active .gnb_img_wrap {
                     background: url($white_hover);
@@ -300,10 +316,11 @@ header {
                 }
             }
         }
-        
+
         .shopping_mall_icon {
             background: url("../../img/gnb/shopping_mall.png");
         }
+
         .shopping_mall_icon:hover {
             background: #eff3f9 url("../../img/gnb/shopping_mall_blue.png");
         }
@@ -334,9 +351,11 @@ header {
 }
 
 /*인트로*/
-#myBar {background-color: $main-color;}
+#myBar {
+    background-color: $main-color;
+}
 
-.b_main{
+.b_main {
     // background:linear-gradient(0deg, $main-color,$sub-color) !important; 
     background: $sub-color !important;
     color: #fff !important;
@@ -348,7 +367,7 @@ header {
     }
 }
 
-.b_sub{
+.b_sub {
     // background:linear-gradient(0deg, $navy-color,$sky-color) !important; 
     background: $sky-color !important;
     color: #fff !important;
@@ -360,12 +379,16 @@ header {
     }
 }
 
-.b_third{
-    background:linear-gradient(0deg, #1a1a1a,#343434) !important; 
+.b_third {
+    background: linear-gradient(0deg, #1a1a1a, #343434) !important;
     color: #fff !important;
 }
 
-.btn, a.btn{border-radius:3px;}
+.btn,
+a.btn {
+    border-radius: 3px;
+}
+
 // a.btn_secondary, .btn_secondary{
 //     background: #e6ecf3;
 //     border-radius: 8px;
@@ -376,30 +399,30 @@ header {
 // }
 a.btn_secondary,
 .btn_secondary {
-    background:linear-gradient(90deg, #545454, #3e3e3e); 
-    color: #fff; 
-    font-weight: bold; 
+    background: linear-gradient(90deg, #545454, #3e3e3e);
+    color: #fff;
+    font-weight: bold;
     border-radius: 8px;
     border: none;
     transition: all .4s;
 
     &:hover {
-        background: linear-gradient(90deg, #545454, #545454) !important; 
+        background: linear-gradient(90deg, #545454, #545454) !important;
         border: none;
     }
 }
 
 a.btn_primary,
 .btn_primary {
-    background:linear-gradient(90deg,#847c6d, #5f5644); 
+    background: linear-gradient(90deg, #847c6d, #5f5644);
     border-radius: 8px;
     border: none;
     color: #fff;
     transition: all .4s;
 
     &:hover {
-        background:linear-gradient(90deg,#5f5644, #5f5644) !important; 
-        border: none; 
+        background: linear-gradient(90deg, #5f5644, #5f5644) !important;
+        border: none;
     }
 }
 
@@ -415,14 +438,16 @@ a.btn_primary,
 //     }
 // }
 
-a.btn_cancle, .btn_cancle{
-    color:black;
+a.btn_cancle,
+.btn_cancle {
+    color: black;
     border-radius: 8px;
 }
 
 .b_darkblue {
     background: #29386b !important;
     color: #fff;
+
     &:hover {
         background: #202c52 !important;
     }
@@ -431,10 +456,12 @@ a.btn_cancle, .btn_cancle{
 .b_skyblue {
     background: #3b86ff !important;
     color: #fff;
+
     &:hover {
-        background: #224d93 !important; 
+        background: #224d93 !important;
     }
 }
+
 // 추천인 모달
 #referral {
     .modal-footer .btn {
@@ -448,70 +475,160 @@ a.btn_cancle, .btn_cancle{
 }
 
 /*대쉬보드*/
-.day{color:#565656}
-.history_latest{
-    line-height:24px;
+.day {
+    color: #565656
+}
+
+.history_latest {
+    line-height: 24px;
+
     .card_title_wrap {
         display: flex;
         justify-content: space-between;
     }
-    .card_title{
-        margin-bottom:15px;
+
+    .card_title {
+        margin-bottom: 15px;
     }
-    .category{padding:0 10px;font-size:12px;}
-    .price{color:#3b86ff;font-size:13px;font-weight:600}
+
+    .category {
+        padding: 0 10px;
+        font-size: 12px;
+    }
+
+    .price {
+        color: #3b86ff;
+        font-size: 13px;
+        font-weight: 600
+    }
 }
 
-.regist_latest{
+.regist_latest {
     display: grid;
-    line-height:24px;
-    font-size:12px;
+    line-height: 24px;
+    font-size: 12px;
 
     .card_title_wrap {
         display: flex;
         justify-content: space-between;
     }
-    .card_title{
-        margin-bottom:15px;
+
+    .card_title {
+        margin-bottom: 15px;
     }
-    .id{font-size:14px;display:inline-block;min-width:80px;font-weight:600;margin:0 10px;}
-    .badge{font-weight: 500;}
+
+    .id {
+        font-size: 14px;
+        display: inline-block;
+        min-width: 80px;
+        font-weight: 600;
+        margin: 0 10px;
+    }
+
+    .badge {
+        font-weight: 500;
+    }
 }
 
 
 
-.ml10{margin-left:10px;}
+.ml10 {
+    margin-left: 10px;
+}
 
-.color0,.r_card_0 {background: #555 !important;}
+.color0,
+.r_card_0 {
+    background: #555 !important;
+}
 
-.color1,.r_card_1 {background: #b55dcc !important;}
-.color2,.r_card_2 {background: #516feb !important;}
-.color3,.r_card_3 {background: #09c3fd !important;}
-.color4,.r_card_4 {background: #5ed2dc !important;}
-.color5,.r_card_5 {background: #373cbc !important;}
-.color6,.r_card_6 {background: #2b3a6d !important;}
-.color7,.r_card_7 {background: #6214ab !important;}
+.color1,
+.r_card_1 {
+    background: #b55dcc !important;
+}
 
-.pack_f_0 {color: #555 !important;}
-.pack_f_1 {color: #b55dcc !important;}
-.pack_f_2 {color: #516feb !important;}
-.pack_f_3 {color: #09c3fd !important;}
-.pack_f_4 {color: #5ed2dc !important;}
-.pack_f_5 {color: #373cbc !important;}
-.pack_f_6 {color: #2b3a6d !important;}
-.pack_f_7 {color: #6214ab !important;}
+.color2,
+.r_card_2 {
+    background: #516feb !important;
+}
+
+.color3,
+.r_card_3 {
+    background: #09c3fd !important;
+}
+
+.color4,
+.r_card_4 {
+    background: #5ed2dc !important;
+}
+
+.color5,
+.r_card_5 {
+    background: #373cbc !important;
+}
+
+.color6,
+.r_card_6 {
+    background: #2b3a6d !important;
+}
+
+.color7,
+.r_card_7 {
+    background: #6214ab !important;
+}
+
+.pack_f_0 {
+    color: #555 !important;
+}
+
+.pack_f_1 {
+    color: #b55dcc !important;
+}
+
+.pack_f_2 {
+    color: #516feb !important;
+}
+
+.pack_f_3 {
+    color: #09c3fd !important;
+}
+
+.pack_f_4 {
+    color: #5ed2dc !important;
+}
+
+.pack_f_5 {
+    color: #373cbc !important;
+}
+
+.pack_f_6 {
+    color: #2b3a6d !important;
+}
+
+.pack_f_7 {
+    color: #6214ab !important;
+}
 
 
 
 .red {
-    color:red;
+    color: red;
 }
 
-.adm_btn{
-    background:#FECE00;font-size:13px !important;letter-spacing:0px;
-    color:#111;font-weight:700;padding:3px 10px 2px;float:right;border-radius: 15px;margin:0;
+.adm_btn {
+    background: #FECE00;
+    font-size: 13px !important;
+    letter-spacing: 0px;
+    color: #111;
+    font-weight: 700;
+    padding: 3px 10px 2px;
+    float: right;
+    border-radius: 15px;
+    margin: 0;
 
-    i{font-size:16px;margin-right:3px;}
+    i {
+        font-size: 16px;
+        margin-right: 3px;
+    }
 
     &:hover {
         background: #d9b000 !important;
@@ -519,6 +636,7 @@ a.btn_cancle, .btn_cancle{
 
     @include mobile {
         line-height: 2;
+
         i {
             display: none;
         }
@@ -527,74 +645,88 @@ a.btn_cancle, .btn_cancle{
 
 /* 유저 아이콘*/
 .user_icon {
-	background:#cbd2de;width:100%;height:100%;
-	text-align:center;display:block;border-radius:50%;
+    background: #cbd2de;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: block;
+    border-radius: 50%;
 
-	i{font-weight: 300; vertical-align: sub;}
+    i {
+        font-weight: 300;
+        vertical-align: sub;
+    }
 
-	&.lv0{
-		color:white;
-	}
-	&.lv1{
-		background:#2b3a6d;
-	    color:white;
-	}
-	&.lv2{
-		background:#61b5ff;
-	    color:#1a4158;
-	}
-    &.lv3{
-		background:red;
-	    color:white;
-	}
-    &.lv4{
-		background:green;
-	    color:white;
-	}
-    &.lv5{
-        background:black;
-	    color:gold;
+    &.lv0 {
+        color: white;
     }
-    &.lv9{
-        background:black;
-	    color:white;
+
+    &.lv1 {
+        background: #2b3a6d;
+        color: white;
     }
-	&.lv10{
-		background:black;
-	    color:white;
-	}
+
+    &.lv2 {
+        background: #61b5ff;
+        color: #1a4158;
+    }
+
+    &.lv3 {
+        background: red;
+        color: white;
+    }
+
+    &.lv4 {
+        background: green;
+        color: white;
+    }
+
+    &.lv5 {
+        background: black;
+        color: gold;
+    }
+
+    &.lv9 {
+        background: black;
+        color: white;
+    }
+
+    &.lv10 {
+        background: black;
+        color: white;
+    }
 }
 
 // breadcrumb
 .breadcrumb {
     .dash_news {
-        position:absolute;
-        z-index:1000;
-        border-top:1px solid #f0f0f0;
-        border-radius:0;
+        position: absolute;
+        z-index: 1000;
+        border-top: 1px solid #f0f0f0;
+        border-radius: 0;
         padding: 25px 30px 40px;
         background: #fff;
         box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.05);
-        display:none;
+        display: none;
 
         @include mobile {
             padding: 15px;
         }
-        
+
         h5 {
             font-size: 18px;
-            font-weight:800;
-            line-height:40px;
+            font-weight: 800;
+            line-height: 40px;
             border-bottom: 1.5px solid #333;
             padding-bottom: 5px;
             margin-bottom: 20px;
 
             i {
-                font-weight:300;
+                font-weight: 300;
             }
         }
 
-        & > div {
+        &>div {
             background-color: aliceblue;
             padding: 10px 15px;
             border-radius: 8px;
@@ -602,7 +734,7 @@ a.btn_cancle, .btn_cancle{
 
         .close_today {
             &.btn {
-                margin:0;    
+                margin: 0;
                 background: #111;
                 color: white;
                 padding: 0 10px;
@@ -620,7 +752,7 @@ a.btn_cancle, .btn_cancle{
 
     .user-info {
         .user-content {
-            width:100%;
+            width: 100%;
             position: relative;
             display: inline-flex;
             align-items: center;
@@ -635,39 +767,43 @@ a.btn_cancle, .btn_cancle{
             margin-top: 5px;
             top: 15%;
             right: 0%;
-            position:absolute;
+            position: absolute;
 
             i {
-                font-size:20px;
-                color:red;
+                font-size: 20px;
+                color: red;
             }
         }
 
         .total_view_wrap {
             .total_view_top {
                 .sideexp {
-                    font-size:11px;
-                    letter-spacing:-0.5px;
+                    font-size: 11px;
+                    letter-spacing: -0.5px;
                 }
 
                 .remain_mining {
-                    line-height:14px;
-                    color:#999;
-                    font-size:12px;
-                    display:block;
-                    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-                    margin-bottom:-5px;
+                    line-height: 14px;
+                    color: #999;
+                    font-size: 12px;
+                    display: block;
+                    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                    margin-bottom: -5px;
 
                     i {
-                        padding-right:5px;
-                        font-size:16px;
-                        font-weight:500;
+                        padding-right: 5px;
+                        font-size: 16px;
+                        font-weight: 500;
                     }
                 }
 
-                .before_fund{
-                    font-size:11px;margin:0;padding:0;line-height:10px;
+                .before_fund {
+                    font-size: 11px;
+                    margin: 0;
+                    padding: 0;
+                    line-height: 10px;
                 }
+
                 .value i {
                     font-size: 20px;
                 }
@@ -675,33 +811,45 @@ a.btn_cancle, .btn_cancle{
         }
 
         .extra {
-            background:#FECE00; 
-            border-radius:3px;
-            color:black;
-            text-align:center;
-            margin-top:10px;
-            font-size:12px;
-            font-weight:600;
+            background: #FECE00;
+            border-radius: 3px;
+            color: black;
+            text-align: center;
+            margin-top: 10px;
+            font-size: 12px;
+            font-weight: 600;
             cursor: pointer;
         }
     }
 }
 
-.total_view_top .row.top{
-    margin:10px 0px;
-    background:aliceblue;
-    border-radius:10px;
+.total_view_top .row.top {
+    margin: 10px 0px;
+    background: aliceblue;
+    border-radius: 10px;
     width: 100%;
     position: relative;
 }
-.value_no{color:red}
-.total_view_wrap .rank_title{width:100%;padding:3px 10px;margin:10px 20px -10px;background:#f0edff;border-radius: 10px;}
+
+.value_no {
+    color: red
+}
+
+.total_view_wrap .rank_title {
+    width: 100%;
+    padding: 3px 10px;
+    margin: 10px 20px -10px;
+    background: #f0edff;
+    border-radius: 10px;
+}
 
 
 // mining 
 #mining {
-    
-    .myitemform {display: contents;}
+
+    .myitemform {
+        display: contents;
+    }
 
     h3.title {
         margin: 20px 0 0px;
@@ -715,12 +863,12 @@ a.btn_cancle, .btn_cancle{
 
     .all_view {
         float: right;
-        background:white;
-        margin-top:15px;
+        background: white;
+        margin-top: 15px;
 
-        &:hover{
-            background:#492191;
-            color:white;
+        &:hover {
+            background: #492191;
+            color: white;
         }
     }
 
@@ -728,14 +876,18 @@ a.btn_cancle, .btn_cancle{
         margin: 20px 0 10px;
     }
 
-    .mining_ico{
+    .mining_ico {
         height: 40px;
         width: 40px;
         vertical-align: middle;
-        margin:0 auto;s
-        
-        img{width:100%;height:100%;}
+        margin: 0 auto;
+
+        s img {
+            width: 100%;
+            height: 100%;
+        }
     }
+
     .refresh_btn .btn,
     .caret_box .btn {
         background-color: #fff;
@@ -743,150 +895,280 @@ a.btn_cancle, .btn_cancle{
 }
 
 #mymining {
-    .r_card_wrap{
+    .r_card_wrap {
         margin: 0 0 10px 0;
     }
 }
 
-#mining_swap{
+#mining_swap {
     background: #FECE00;
     cursor: pointer;
 
-    .pop_btn{
+    .pop_btn {
         display: flex;
         align-items: center;
-        color:black; 
-        div{display:inline-block}
+        color: black;
 
-        .wallet_title{font-weight:600;font-size:16px;}
-        .max_with{margin-left:10px;font-size:11px;}
-        .caret_box{
+        div {
+            display: inline-block
+        }
+
+        .wallet_title {
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .max_with {
+            margin-left: 10px;
+            font-size: 11px;
+        }
+
+        .caret_box {
             vertical-align: top;
-            float:right;
-            -webkit-box-flex:3;
-            flex-grow :3;
+            float: right;
+            -webkit-box-flex: 3;
+            flex-grow: 3;
             vertical-align: top;
             text-align: right;
-            
-            i{font-size:18px; color: #333;}
+
+            i {
+                font-size: 18px;
+                color: #333;
+            }
         }
     }
 }
 
-#mining_withdraw{
-    background:#ec2b38;
+#mining_withdraw {
+    background: #ec2b38;
 
-    .polding_btn{
+    .polding_btn {
         display: flex;
         align-items: center;
-        color:white; 
+        color: white;
         cursor: pointer;
 
-        div{display:inline-block}
+        div {
+            display: inline-block
+        }
 
-        .wallet_title{font-weight:600;font-size:16px;}
-        .max_with{margin-left:10px;font-size:11px;}
-        .caret_box{
+        .wallet_title {
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .max_with {
+            margin-left: 10px;
+            font-size: 11px;
+        }
+
+        .caret_box {
             vertical-align: top;
-            float:right;
-            -webkit-box-flex:3;
-            flex-grow :3;
+            float: right;
+            -webkit-box-flex: 3;
+            flex-grow: 3;
             vertical-align: top;
             text-align: right;
-            
-            i{font-size:18px; color: #333;}
+
+            i {
+                font-size: 18px;
+                color: #333;
+            }
         }
     }
 
-    &.open{
-        background:white;
-        .polding_btn{
-            color:black;
-            .caret_box .btn{background:#f4f1f5;border-radius: 5px;}
+    &.open {
+        background: white;
+
+        .polding_btn {
+            color: black;
+
+            .caret_box .btn {
+                background: #f4f1f5;
+                border-radius: 5px;
+            }
         }
-        
-    }
-    .input_shift_value{
-        .button_wrap {float:right;}
-        .currency-right{margin-top:14px;margin-right:10px;}
-        .fee{
-            font-size:13px;margin-bottom:10px;margin-top:-5px;
-            #active_amt,#fee_val{color:#ec2b38}
-        }
-        .fee i{font-size:18px;color:#ec2b38}
-    }
-    
-    .hidden{display:none;}
-    
-    .polding{
-        .comment{float:right;font-size:11px;line-height:30px;color:red;}
+
     }
 
-    #withdrawal_btn{
-        background:#ec2b38;
-        color:white;
+    .input_shift_value {
+        .button_wrap {
+            float: right;
+        }
+
+        .currency-right {
+            margin-top: 14px;
+            margin-right: 10px;
+        }
+
+        .fee {
+            font-size: 13px;
+            margin-bottom: 10px;
+            margin-top: -5px;
+
+            #active_amt,
+            #fee_val {
+                color: #ec2b38
+            }
+        }
+
+        .fee i {
+            font-size: 18px;
+            color: #ec2b38
+        }
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .polding {
+        .comment {
+            float: right;
+            font-size: 11px;
+            line-height: 30px;
+            color: red;
+        }
+    }
+
+    #withdrawal_btn {
+        background: #ec2b38;
+        color: white;
     }
 }
 
 
-#mining_history{
-    .mymining_total{
-        float:right;
-        text-align:right;
+#mining_history {
+    .mymining_total {
+        float: right;
+        text-align: right;
     }
 
-    ul{
-        margin:30px 0 0; padding: 15px 0;
+    ul {
+        margin: 30px 0 0;
+        padding: 15px 0;
 
-        li{padding:0;}
+        li {
+            padding: 0;
+        }
     }
 
-    .badge{_background:#eff3f9;color:white;font-weight:300}
-    
-    .hist_td{line-height:30px;}
-    .hist_value{font-size: 12px;}
-    .hist_rec{font-size:11px;color:#767676}
+    .badge {
+        _background: #eff3f9;
+        color: white;
+        font-weight: 300
+    }
+
+    .hist_td {
+        line-height: 30px;
+    }
+
+    .hist_value {
+        font-size: 12px;
+    }
+
+    .hist_rec {
+        font-size: 11px;
+        color: #767676
+    }
 }
 
-#mining_amt_log{
-    padding:15px 0;
+#mining_amt_log {
+    padding: 15px 0;
     display: grid;
-    .hist_tit{width:100%; color:#29386b;}
-    .mymining_total{color:#29386b;}
-    
-    ul li span{display:inline-block;line-height:26px;font-size:12px; float:left;}
 
-    .amt_total{color:#ec2b38;font-weight:600;font-size:13px;}
-    .amt{font-size:13px;}
-    .hist_bank{color:black;border-radius:5px;width:inherit;}
-    .result{font-size:15px;}
+    .hist_tit {
+        width: 100%;
+        color: #29386b;
+    }
 
-    
-    i{font-size:18px;margin-right:5px;font-weight:300;vertical-align: sub;color:#333}
-    p{display:inline-block}
+    .mymining_total {
+        color: #29386b;
+    }
+
+    ul li span {
+        display: inline-block;
+        line-height: 26px;
+        font-size: 12px;
+        float: left;
+    }
+
+    .amt_total {
+        color: #ec2b38;
+        font-weight: 600;
+        font-size: 13px;
+    }
+
+    .amt {
+        font-size: 13px;
+    }
+
+    .hist_bank {
+        color: black;
+        border-radius: 5px;
+        width: inherit;
+    }
+
+    .result {
+        font-size: 15px;
+    }
+
+
+    i {
+        font-size: 18px;
+        margin-right: 5px;
+        font-weight: 300;
+        vertical-align: sub;
+        color: #333
+    }
+
+    p {
+        display: inline-block
+    }
 }
 
-.b_orange{background:orangered;}
-.b_pink{background:#ef21fd;}
-.b_purple{background:#6f00ff}
-.b_blue{background:#073a69 !important}
-.hist_value{color:#073a69}
+.b_orange {
+    background: orangered;
+}
 
-.btn.more_record i{font-size:18px;}
+.b_pink {
+    background: #ef21fd;
+}
 
-.content-box{
-    &.mining_detail{
-        font-size:13px;
-        border-bottom:4px solid #073a69;
+.b_purple {
+    background: #6f00ff
+}
+
+.b_blue {
+    background: #073a69 !important
+}
+
+.hist_value {
+    color: #073a69
+}
+
+.btn.more_record i {
+    font-size: 18px;
+}
+
+.content-box {
+    &.mining_detail {
+        font-size: 13px;
+        border-bottom: 4px solid #073a69;
     }
 
-    &.mining_history{
-        font-size:13px;
-        border-left:4px solid #073a69;
+    &.mining_history {
+        font-size: 13px;
+        border-left: 4px solid #073a69;
     }
-    
-    .m_hist_exp {font-size:11px;}
-    .hist_value2{font-size:13px;}
+
+    .m_hist_exp {
+        font-size: 11px;
+    }
+
+    .hist_value2 {
+        font-size: 13px;
+    }
 }
 
 // mypool 
@@ -969,7 +1251,7 @@ a.btn_cancle, .btn_cancle{
         .sparkline {
             width: 100%;
         }
-        
+
         .comp {
             font-size: 16px;
             color: #666;
@@ -990,7 +1272,7 @@ a.btn_cancle, .btn_cancle{
             font-family: Montserrat, Arial, sans-serif;
             margin: 0 5px;
             padding: 0 5px;
-            color:black;
+            color: black;
             background: #FECE00;
             display: inline-block
         }
@@ -999,10 +1281,10 @@ a.btn_cancle, .btn_cancle{
             *.ad_btn {
                 /* text-decoration: underline !important; */
                 letter-spacing: -0.5px;
-                margin-bottom:-10px;
-                border:1px solid rgba(0,0,0,0.4) !important;
-                padding:5px 8px 4px !important;
-                font-size:13px !important;
+                margin-bottom: -10px;
+                border: 1px solid rgba(0, 0, 0, 0.4) !important;
+                padding: 5px 8px 4px !important;
+                font-size: 13px !important;
                 /* font-weight:  700 !important; */
             }
         }
@@ -1013,7 +1295,7 @@ a.btn_cancle, .btn_cancle{
             }
         }
     }
-    
+
     .row.half {
         flex-wrap: nowrap;
         justify-content: space-between;
@@ -1041,6 +1323,7 @@ a.btn_cancle, .btn_cancle{
         background: aliceblue;
         border: none;
     }
+
     .ui-datepicker-buttonpane button {
         font-size: 14px;
         border-radius: 8px;
@@ -1055,6 +1338,7 @@ a.btn_cancle, .btn_cancle{
             color: #333;
         }
     }
+
     .ui-state-default {
         background: transparent;
         border: none;
@@ -1066,15 +1350,18 @@ a.btn_cancle, .btn_cancle{
             background: rgba(59, 134, 255, 0.5);
         }
     }
+
     .ui-state-active {
         background: #3b86ff;
         font-weight: bold;
     }
+
     .ui-state-highlight {
         background: rgba(59, 134, 255, 0.5);
         color: #000;
     }
-    .ui-datepicker-prev, 
+
+    .ui-datepicker-prev,
     .ui-datepicker-next {
         top: 7px;
 
@@ -1083,16 +1370,18 @@ a.btn_cancle, .btn_cancle{
             background: transparent;
         }
     }
+
     select {
         border-color: #f1f4fb;
         margin: 4px;
     }
-} 
+}
 
 // 개인정보 & 보안설정
 .profile {
     .profile_wrap {
         .profile-box {
+
             // 보안설정
             &.security {
                 .row {
@@ -1103,7 +1392,7 @@ a.btn_cancle, .btn_cancle{
                         color: #7e8fad;
                     }
 
-                    & + .row {
+                    &+.row {
                         margin-top: 0;
                     }
                 }
@@ -1112,6 +1401,86 @@ a.btn_cancle, .btn_cancle{
     }
 }
 
+// 추천조직도
+.structure_wrap {
+    .toggle {
+        float: right;
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+        text-align: center;
+        font-weight: 300;
+        color: #ccc;
+
+        i {
+            vertical-align: middle;
+            line-height: 40px;
+        }
+    }
+
+    .badge {
+        margin-left: 0;
+        margin-right: 5px;
+
+        &.package {
+            background: none;
+            color: #2b3a6d;
+            font-size: 12px;
+            line-height: 12px;
+            padding: 5px 8px;
+            color: white;
+        }
+
+        i {
+            font-size: 12px;
+            margin-right: 2px;
+            vertical-align: bottom;
+        }
+    }
+
+
+    .hp {
+        margin-right: 5px;
+    }
+
+    .accordion_wrap dt {
+        display: flex;
+        border-top-left-radius: 25px;
+        border-bottom-left-radius: 25px;
+        padding: 6px;
+        -webkit-box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.03);
+        box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.03);
+
+        div {
+            font-size: inherit;
+            float: inherit;
+        }
+    }
+    .lvl-icon {
+        width: 42px;
+        height: 42px;
+
+        .user_icon {
+            line-height: 34px;
+            font-size: 20px;
+        }
+    }
+
+    #lvl-userid {
+        font-family: Montserrat, Arial, sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 24px;
+    }
+
+    #lvl-username {
+        color: rgba(0, 0, 0, 0.7);
+        margin-right: 5px;
+        font-weight: 300;
+        font-size: 11px;
+        line-height: 24px;
+    }
+}
 
 
 // 출금
@@ -1124,6 +1493,7 @@ a.btn_cancle, .btn_cancle{
             appearance: none;
             padding: 5px 25px 5px 10px;
         }
+
         #max_value {
             margin-top: -12px;
         }
@@ -1132,130 +1502,166 @@ a.btn_cancle, .btn_cancle{
 
 //MINING 코인시세카드 
 .checkbox-group {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: left;
-	width: 100%;
-	margin-left: auto;
-	margin-right: auto;
-	user-select: none;
-	
-    .checkbox{
-        padding-right:0.2rem;
-        width:50%;
-    } 
-    .checkbox + .checkbox{
-        padding-right:0;
-        padding-left:0.2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    user-select: none;
+
+    .checkbox {
+        padding-right: 0.2rem;
+        width: 50%;
     }
 
-    .checkbox-wrapper{
-        width:100%;
+    .checkbox+.checkbox {
+        padding-right: 0;
+        padding-left: 0.2rem;
+    }
+
+    .checkbox-wrapper {
+        width: 100%;
     }
 }
 
 .checkbox-input {
-	clip: rect(0 0 0 0);
-	clip-path: inset(100%);
-	height: 1px;
-	overflow: hidden;
-	position: absolute;
-	white-space: nowrap;
-	width: 1px;
+    clip: rect(0 0 0 0);
+    clip-path: inset(100%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
 
-	&:checked + .checkbox-tile {
-		border-color: #2260ff;
-		box-shadow: 0 0 20px 0 rgba(0,0,0,0.04); 
-		color: #2260ff;
-		&:before {
-			transform: scale(1);
-			opacity: 1;
-			background-color: #2260ff;
-			border-color: #2260ff;
-		}
-		
-		.checkbox-icon, .checkbox-label {
-			color: #2260ff;
-		}
-	}
-	
-	&:focus + .checkbox-tile {
-		border-color: #2260ff;
-		box-shadow: 0 5px 10px rgba(#000, 0.1), 0 0 0 4px #b5c9fc;
-		&:before {
-			transform: scale(1);
-			opacity: 1;
-		}
-	}
+    &:checked+.checkbox-tile {
+        border-color: #2260ff;
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.04);
+        color: #2260ff;
+
+        &:before {
+            transform: scale(1);
+            opacity: 1;
+            background-color: #2260ff;
+            border-color: #2260ff;
+        }
+
+        .checkbox-icon,
+        .checkbox-label {
+            color: #2260ff;
+        }
+    }
+
+    &:focus+.checkbox-tile {
+        border-color: #2260ff;
+        box-shadow: 0 5px 10px rgba(#000, 0.1), 0 0 0 4px #b5c9fc;
+
+        &:before {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
 }
 
 .checkbox-tile {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-    padding:10px 16px 10px 16px;
-	border-radius: 0.5rem;
-	border: 2px solid #b5bfd9;
-	background-color: #fff;
-    box-shadow: 0 0 20px 0 rgba(0,0,0,0.04); 
-	transition: 0.15s ease;
-	cursor: pointer;
-	position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 16px 10px 16px;
+    border-radius: 0.5rem;
+    border: 2px solid #b5bfd9;
+    background-color: #fff;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.04);
+    transition: 0.15s ease;
+    cursor: pointer;
+    position: relative;
     font-family: "Inter", sans-serif;
-    color:black;
-    font-weight:600;
+    color: black;
+    font-weight: 600;
 
-	&:before {
-		content: "";
-		position: absolute;
-		display: block;
-		width: 1.25rem;
-		height: 1.25rem;
-		border: 2px solid #b5bfd9;
-		background-color: #fff;
-		border-radius: 50%;
-		top: 0.25rem;
-		left: 0.25rem;
-		opacity: 0;
-		transform: scale(0);
-		transition: 0.25s ease;
-		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='192' height='192' fill='%23FFFFFF' viewBox='0 0 256 256'%3E%3Crect width='256' height='256' fill='none'%3E%3C/rect%3E%3Cpolyline points='216 72.005 104 184 48 128.005' fill='none' stroke='%23FFFFFF' stroke-linecap='round' stroke-linejoin='round' stroke-width='32'%3E%3C/polyline%3E%3C/svg%3E");
-		background-size: 12px;
-		background-repeat: no-repeat;
-		background-position: 50% 50%;
-	}
+    &:before {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 1.25rem;
+        height: 1.25rem;
+        border: 2px solid #b5bfd9;
+        background-color: #fff;
+        border-radius: 50%;
+        top: 0.25rem;
+        left: 0.25rem;
+        opacity: 0;
+        transform: scale(0);
+        transition: 0.25s ease;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='192' height='192' fill='%23FFFFFF' viewBox='0 0 256 256'%3E%3Crect width='256' height='256' fill='none'%3E%3C/rect%3E%3Cpolyline points='216 72.005 104 184 48 128.005' fill='none' stroke='%23FFFFFF' stroke-linecap='round' stroke-linejoin='round' stroke-width='32'%3E%3C/polyline%3E%3C/svg%3E");
+        background-size: 12px;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+    }
 
-	&.active:hover {
-		border-color: #2260ff;
-		&:before {
-			transform: scale(1);
-			opacity: 1;
-		}
-	}
+    &.active:hover {
+        border-color: #2260ff;
+
+        &:before {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
 }
 
 .checkbox-icon {
-	transition: .375s ease;
-	color: #494949;
-	img {
-		width: 44px;
-		height: 44px;
-	}
+    transition: .375s ease;
+    color: #494949;
+
+    img {
+        width: 44px;
+        height: 44px;
+    }
 }
 
 .checkbox-label {
-	color: #555;
-	transition: .375s ease;
-	text-align: center;
-    font-size:12px;
+    color: #555;
+    transition: .375s ease;
+    text-align: center;
+    font-size: 12px;
 }
-.checkbox-price .change_price{text-align:center;font-size:11px;font-weight:400}
-.refresh_loader{text-align:center;margin:0 auto;width:100%;min-height:60px;display:flex;}
-.refresh_loader img{max-width:100px;margin:0 auto;}
-.pre_loading{position:absolute;z-index:1100;top:40%;width:100%;height:50px;text-align:center}
-.pre_loading img{margin:0 auto;}
-.dark .pre_loading img{color:white;}
+
+.checkbox-price .change_price {
+    text-align: center;
+    font-size: 11px;
+    font-weight: 400
+}
+
+.refresh_loader {
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+    min-height: 60px;
+    display: flex;
+}
+
+.refresh_loader img {
+    max-width: 100px;
+    margin: 0 auto;
+}
+
+.pre_loading {
+    position: absolute;
+    z-index: 1100;
+    top: 40%;
+    width: 100%;
+    height: 50px;
+    text-align: center
+}
+
+.pre_loading img {
+    margin: 0 auto;
+}
+
+.dark .pre_loading img {
+    color: white;
+}
 
 // 20230330 추가
 // 로그인
@@ -1272,13 +1678,16 @@ a.btn_cancle, .btn_cancle{
         padding-top: 0;
     }
 }
+
 // 모달
 .modal-content {
     width: 95%;
     margin: 0 auto;
+
     .modal-header {
         border-bottom: none;
     }
+
     .modal-body {
         font-size: 14px;
         max-height: 400px;
@@ -1289,20 +1698,29 @@ a.btn_cancle, .btn_cancle{
 
             &-thumb {
                 background-color: #999;
-            } 
+            }
+
             &-track {
                 background-color: #eee;
-            } 
+            }
         }
     }
+
     .modal-footer {
         border-top: none;
     }
 }
+
 .dark {
-    .modal-content .modal-body::-webkit-scrollbar-thumb {background-color: #333}
-    .modal-content .modal-body::-webkit-scrollbar-track {background-color: #ccc;}
+    .modal-content .modal-body::-webkit-scrollbar-thumb {
+        background-color: #333
+    }
+
+    .modal-content .modal-body::-webkit-scrollbar-track {
+        background-color: #ccc;
+    }
 }
+
 #commonModal {
     .btn-secondary {
         width: 100%;
@@ -1310,6 +1728,7 @@ a.btn_cancle, .btn_cancle{
         padding-bottom: 15px;
         color: #333;
     }
+
     .modal-body {
         text-align: center;
         margin-top: 20px;
@@ -1337,14 +1756,16 @@ a.btn_cancle, .btn_cancle{
     #ui-datepicker-div.ui-datepicker {
         background: #17191d;
         color: #fff;
-        
+
         .ui-datepicker-header {
             background: #212429;
         }
+
         .ui-datepicker-buttonpane button:not(.ui-datepicker-close) {
             background: #f9d448;
             color: #000;
         }
+
         .ui-state-default {
             color: #fff;
 
@@ -1353,15 +1774,17 @@ a.btn_cancle, .btn_cancle{
                 color: #000;
             }
         }
+
         .ui-state-active {
             background: #f9d448;
             color: #000;
         }
+
         .ui-state-highlight {
             background: #fde58e;
             color: #000;
         }
-    } 
+    }
 
 
     .menuback {
@@ -1376,43 +1799,78 @@ a.btn_cancle, .btn_cancle{
         }
     }
 
-    .checkbox-tile{
-        background:#212429;
-        border-color:#52575c;
+    .checkbox-tile {
+        background: #212429;
+        border-color: #52575c;
 
-        .checkbox-icon{
+        .checkbox-icon {
             background: white;
             border-radius: 50%;
             width: 42px;
             height: 40px;
             text-align: center;
             padding: 5px 2px;
-            margin-bottom:5px;
+            margin-bottom: 5px;
         }
-        .checkbox-labelkr{
-            color:rgba(255, 255, 255, 0.692);
+
+        .checkbox-labelkr {
+            color: rgba(255, 255, 255, 0.692);
         }
-    }
-    .checkbox-input:checked + .checkbox-tile{
-        border-color:#FECE00;
-    }
-    .checkbox-input:checked + .checkbox-tile:before{
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='192' height='192' fill='%23FFFFFF' viewBox='0 0 256 256'%3E%3Crect width='256' height='256' fill='none'%3E%3C/rect%3E%3Cpolyline points='216 72.005 104 184 48 128.005' fill='none' stroke='%23000000' stroke-linecap='round' stroke-linejoin='round' stroke-width='32'%3E%3C/polyline%3E%3C/svg%3E");
-        background-color:#f9d448;
-        border-color:#f9d448;
     }
 
-    #SwapCoinModal .modal-close{background:transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3e%3cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3e%3c/svg%3e") center/1em auto no-repeat}
-    
-    #SwapCoinModal .icon{color:#FECE00;font-weight: 300;}
-    #SwapCoinModal .line_card{background:#15171b;border:0;box-shadow: inset 0 3px 3px rgba(0,0,0,0.3);}
-    #SwapCoinModal .line_card .checkbox-labelkr{color:white;}
-    #SwapCoinModal .prices{color:white;}
-    #SwapCoinModal #result_curency{border-color:#FECE00;background:#101214;color:white;font-weight:300;}
-    #result_curency .fund{color:white;font-weight:600;}
-    
-    .red{color:#c84a31}
-    strong{color:#FECE00}
+    .checkbox-input:checked+.checkbox-tile {
+        border-color: #FECE00;
+    }
+
+    .checkbox-input:checked+.checkbox-tile:before {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='192' height='192' fill='%23FFFFFF' viewBox='0 0 256 256'%3E%3Crect width='256' height='256' fill='none'%3E%3C/rect%3E%3Cpolyline points='216 72.005 104 184 48 128.005' fill='none' stroke='%23000000' stroke-linecap='round' stroke-linejoin='round' stroke-width='32'%3E%3C/polyline%3E%3C/svg%3E");
+        background-color: #f9d448;
+        border-color: #f9d448;
+    }
+
+    #SwapCoinModal .modal-close {
+        background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3e%3cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3e%3c/svg%3e") center/1em auto no-repeat
+    }
+
+    #SwapCoinModal .icon {
+        color: #FECE00;
+        font-weight: 300;
+    }
+
+    #SwapCoinModal .line_card {
+        background: #15171b;
+        border: 0;
+        box-shadow: inset 0 3px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    #SwapCoinModal .line_card .checkbox-labelkr {
+        color: white;
+    }
+
+    #SwapCoinModal .prices {
+        color: white;
+    }
+
+    #SwapCoinModal #result_curency {
+        border-color: #FECE00;
+        background: #101214;
+        color: white;
+        font-weight: 300;
+    }
+
+    #result_curency .fund {
+        color: white;
+        font-weight: 600;
+    }
+
+    .red {
+        color: #c84a31
+    }
+
+    strong {
+        color: #FECE00
+    }
+
     // #SwapCoinModal #result_curency{border-color:#FECE00}
 
 
@@ -1421,8 +1879,13 @@ a.btn_cancle, .btn_cancle{
             border: none;
         }
     }
+
     .user.selected,
-    .btn-primary{background:#FECE00;color:black}
+    .btn-primary {
+        background: #FECE00;
+        color: black
+    }
+
     // 추천
     // 버튼
     .b_main {
@@ -1452,19 +1915,21 @@ a.btn_cancle, .btn_cancle{
     .b_darkblue {
         background: $main-button !important;
         color: #fff;
+
         &:hover {
             background: $main-button2 !important;
         }
     }
-    
+
     .b_skyblue {
         background: $main-button3 !important;
         color: #fff;
+
         &:hover {
-            background: $main-button4 !important; 
+            background: $main-button4 !important;
         }
     }
-    
+
 
 
     // wapper
@@ -1478,34 +1943,48 @@ a.btn_cancle, .btn_cancle{
 
     /* 유저 아이콘*/
     .user_icon {
-        background:$user-icon;width:100%;height:100%;
-        text-align:center;display:block;border-radius:50%;
+        background: $user-icon;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        display: block;
+        border-radius: 50%;
 
-        i{font-weight: 300; vertical-align: sub;}
+        i {
+            font-weight: 300;
+            vertical-align: sub;
+        }
 
-        &.lv0{
-            color:black;
+        &.lv0 {
+            color: black;
         }
-        &.lv1{
-            color:white;
+
+        &.lv1 {
+            color: white;
         }
-        &.lv2{
-            color:#881eff;
+
+        &.lv2 {
+            color: #881eff;
         }
-        &.lv3{
-            color:#b61fad;
+
+        &.lv3 {
+            color: #b61fad;
         }
-        &.lv4{
-            color:#ff4242;
+
+        &.lv4 {
+            color: #ff4242;
         }
-        &.lv5{
-            color:#2b94ff;
+
+        &.lv5 {
+            color: #2b94ff;
         }
-        &.lv9{
-            color:#5edd82;
+
+        &.lv9 {
+            color: #5edd82;
         }
-        &.lv10{
-            color:#ffe400;
+
+        &.lv10 {
+            color: #ffe400;
         }
     }
 
@@ -1526,7 +2005,9 @@ a.btn_cancle, .btn_cancle{
     }
 
     // find_pw
-    #hp_form, #timer_auth, #pw_form {
+    #hp_form,
+    #timer_auth,
+    #pw_form {
         input {
             background: $main-background;
             color: #fff;
@@ -1536,7 +2017,7 @@ a.btn_cancle, .btn_cancle{
         .btn--gray {
             &:hover {
                 background: #101214;
-                box-shadow:0 0 1px 2px #212429;
+                box-shadow: 0 0 1px 2px #212429;
             }
         }
     }
@@ -1548,7 +2029,8 @@ a.btn_cancle, .btn_cancle{
             color: #fff;
         }
 
-        input[type='email'], input[type='text'] {
+        input[type='email'],
+        input[type='text'] {
             background: $main-background;
             color: #fff;
         }
@@ -1590,7 +2072,7 @@ a.btn_cancle, .btn_cancle{
                 }
             }
         }
-        
+
         .btn_input_wrap {
             input[type='text'] {
                 background: $main-background;
@@ -1614,7 +2096,7 @@ a.btn_cancle, .btn_cancle{
             border: none;
             padding: 10p;
         }
-        
+
         .btn_secondary {
             background-color: #909090 !important;
         }
@@ -1655,6 +2137,7 @@ a.btn_cancle, .btn_cancle{
                     &.active a {
                         background: $main-background2;
                     }
+
                     &:hover .gnb_title_Wrap,
                     &.active .gnb_title_Wrap {
                         color: $main-colors;
@@ -1667,13 +2150,15 @@ a.btn_cancle, .btn_cancle{
                     background-size: 227px;
                     width: 38px;
                     height: 38px;
-                }        
+                }
+
                 .dashboard_icon {
                     .gnb_img_wrap {
                         background-position: -159px 6px;
                     }
+
                     &:hover .gnb_img_wrap,
-                    &.active .gnb_img_wrap  {
+                    &.active .gnb_img_wrap {
                         background: url($dark_hover);
                         background-repeat: no-repeat;
                         background-size: 227px;
@@ -1682,13 +2167,14 @@ a.btn_cancle, .btn_cancle{
                         height: 38px;
                     }
                 }
-                
+
                 .profile_icon {
                     .gnb_img_wrap {
                         background-position: 7px 6px;
                     }
+
                     &:hover .gnb_img_wrap,
-                    &.active .gnb_img_wrap  {
+                    &.active .gnb_img_wrap {
                         background: url($dark_hover);
                         background-repeat: no-repeat;
                         background-size: 227px;
@@ -1697,14 +2183,14 @@ a.btn_cancle, .btn_cancle{
                         height: 38px;
                     }
                 }
-                
+
                 .mywallet_icon {
                     .gnb_img_wrap {
                         background-position: -27px 6px;
                     }
-                
+
                     &:hover .gnb_img_wrap,
-                    &.active .gnb_img_wrap  {
+                    &.active .gnb_img_wrap {
                         background: url($dark_hover);
                         background-repeat: no-repeat;
                         background-size: 227px;
@@ -1713,14 +2199,14 @@ a.btn_cancle, .btn_cancle{
                         height: 38px;
                     }
                 }
-                
+
                 .mining_icon {
                     .gnb_img_wrap {
                         background-position: -196px 6px;
                     }
-                
+
                     &:hover .gnb_img_wrap,
-                    &.active .gnb_img_wrap  {
+                    &.active .gnb_img_wrap {
                         background: url($dark_hover);
                         background-repeat: no-repeat;
                         background-size: 227px;
@@ -1729,14 +2215,14 @@ a.btn_cancle, .btn_cancle{
                         height: 38px;
                     }
                 }
-                
+
                 .mypool_icon {
                     .gnb_img_wrap {
                         background-position: -196px -30px;
                     }
-                
+
                     &:hover .gnb_img_wrap,
-                    &.active .gnb_img_wrap  {
+                    &.active .gnb_img_wrap {
                         background: url($dark_hover);
                         background-repeat: no-repeat;
                         background-size: 227px;
@@ -1745,14 +2231,14 @@ a.btn_cancle, .btn_cancle{
                         height: 38px;
                     }
                 }
-                
+
                 .upstairs_icon {
                     .gnb_img_wrap {
                         background-position: -61px 6px;
                     }
-                
+
                     &:hover .gnb_img_wrap,
-                    &.active .gnb_img_wrap  {
+                    &.active .gnb_img_wrap {
                         background: url($dark_hover);
                         background-repeat: no-repeat;
                         background-size: 227px;
@@ -1761,14 +2247,14 @@ a.btn_cancle, .btn_cancle{
                         height: 38px;
                     }
                 }
-                
+
                 .bonus_history_icon {
                     .gnb_img_wrap {
                         background-position: -95px 6px;
                     }
-                
+
                     &:hover .gnb_img_wrap,
-                    &.active .gnb_img_wrap  {
+                    &.active .gnb_img_wrap {
                         background: url($dark_hover);
                         background-repeat: no-repeat;
                         background-size: 227px;
@@ -1777,14 +2263,14 @@ a.btn_cancle, .btn_cancle{
                         height: 38px;
                     }
                 }
-                
+
                 .center_page_icon {
                     .gnb_img_wrap {
                         background-position: -161px -30px;
                     }
-                
+
                     &:hover .gnb_img_wrap,
-                    &.active .gnb_img_wrap  {
+                    &.active .gnb_img_wrap {
                         background: url($dark_hover);
                         background-repeat: no-repeat;
                         background-size: 227px;
@@ -1793,14 +2279,14 @@ a.btn_cancle, .btn_cancle{
                         height: 38px;
                     }
                 }
-                
+
                 .recommend_icon {
                     .gnb_img_wrap {
                         background-position: -128px 6px;
                     }
-                
+
                     &:hover .gnb_img_wrap,
-                    &.active .gnb_img_wrap  {
+                    &.active .gnb_img_wrap {
                         background: url($dark_hover);
                         background-repeat: no-repeat;
                         background-size: 227px;
@@ -1809,14 +2295,14 @@ a.btn_cancle, .btn_cancle{
                         height: 38px;
                     }
                 }
-                
+
                 .support_icon {
                     .gnb_img_wrap {
                         background-position: 7px -30px;
                     }
-                
+
                     &:hover .gnb_img_wrap,
-                    &.active .gnb_img_wrap  {
+                    &.active .gnb_img_wrap {
                         background: url($dark_hover);
                         background-repeat: no-repeat;
                         background-size: 227px;
@@ -1825,14 +2311,14 @@ a.btn_cancle, .btn_cancle{
                         height: 38px;
                     }
                 }
-                
+
                 .notice_icon {
                     .gnb_img_wrap {
                         background-position: -26px -30px;
                     }
-                
+
                     &:hover .gnb_img_wrap,
-                    &.active .gnb_img_wrap  {
+                    &.active .gnb_img_wrap {
                         background: url($dark_hover);
                         background-repeat: no-repeat;
                         background-size: 227px;
@@ -1841,14 +2327,14 @@ a.btn_cancle, .btn_cancle{
                         height: 38px;
                     }
                 }
-                
+
                 .question_icon {
                     .gnb_img_wrap {
                         background-position: -60px -30px;
                     }
-                
+
                     &:hover .gnb_img_wrap,
-                    &.active .gnb_img_wrap  {
+                    &.active .gnb_img_wrap {
                         background: url($dark_hover);
                         background-repeat: no-repeat;
                         background-size: 227px;
@@ -1857,14 +2343,14 @@ a.btn_cancle, .btn_cancle{
                         height: 38px;
                     }
                 }
-                
+
                 .reffer_icon {
                     .gnb_img_wrap {
                         background-position: -94px -30px;
                     }
-                
+
                     &:hover .gnb_img_wrap,
-                    &.active .gnb_img_wrap  {
+                    &.active .gnb_img_wrap {
                         background: url($dark_hover);
                         background-repeat: no-repeat;
                         background-size: 227px;
@@ -1873,14 +2359,15 @@ a.btn_cancle, .btn_cancle{
                         height: 38px;
                     }
                 }
-                
+
                 .logout_wrap {
                     .logout_icon {
                         border-top: none;
+
                         .gnb_img_wrap {
                             background-position: -127px -30px;
                         }
-                    
+
                         &:hover .gnb_img_wrap,
                         &.active .gnb_img_wrap {
                             background: url($dark_hover);
@@ -1891,13 +2378,13 @@ a.btn_cancle, .btn_cancle{
                             height: 38px;
                         }
                     }
-    
+
                     .h_line {
                         width: 1px;
                         height: 25px;
                         background: #fff;
                     }
-                    
+
                     .terms_icon {
                         border-top: none;
 
@@ -1919,8 +2406,12 @@ a.btn_cancle, .btn_cancle{
                 color: #fff;
             }
 
-            #gnb_language, 
-            .logout_wrap{background:#17191d;color:#fff;}
+            #gnb_language,
+            .logout_wrap {
+                background: #17191d;
+                color: #fff;
+            }
+
             .logout_wrap {
                 border-color: #212429;
             }
@@ -1953,7 +2444,7 @@ a.btn_cancle, .btn_cancle{
                 border-bottom: 0.5px solid #fff;
             }
 
-            & > div {
+            &>div {
                 background-color: #212429;
             }
         }
@@ -1971,6 +2462,7 @@ a.btn_cancle, .btn_cancle{
                         vertical-align: sub;
                     }
                 }
+
                 h4 {
                     color: #fff;
                 }
@@ -1980,13 +2472,16 @@ a.btn_cancle, .btn_cancle{
                 .row.top {
                     background: $main-background2;
                 }
-                
+
                 .total_view_top {
                     li {
                         .title {
                             color: #b8b8b8;
-                            font{
-                                font {line-height:16px;}
+
+                            font {
+                                font {
+                                    line-height: 16px;
+                                }
                             }
                         }
 
@@ -2000,13 +2495,18 @@ a.btn_cancle, .btn_cancle{
                         }
                     }
 
-                    .remain_mining{
-                        background:rgba(0,0,0,0.5); 
-                        border-radius:8px;
-                        margin:5px 10px 0 ;
+                    .remain_mining {
+                        background: rgba(0, 0, 0, 0.5);
+                        border-radius: 8px;
+                        margin: 5px 10px 0;
 
-                        i{vertical-align: bottom;}
-                        font{vertical-align: bottom;}
+                        i {
+                            vertical-align: bottom;
+                        }
+
+                        font {
+                            vertical-align: bottom;
+                        }
                     }
 
                     &.collapse {
@@ -2019,6 +2519,7 @@ a.btn_cancle, .btn_cancle{
                         li:first-child {
                             padding-right: 17px;
                         }
+
                         li:last-child {
                             padding-left: 17px;
                         }
@@ -2027,7 +2528,7 @@ a.btn_cancle, .btn_cancle{
             }
         }
 
-        
+
 
         .bonus_state_bg {
             background: $main-background2;
@@ -2037,26 +2538,28 @@ a.btn_cancle, .btn_cancle{
             background: $main-background2;
             color: $main-colors;
         }
+
         .fold_wrap {
             .collap {
                 color: $main-colors;
                 font-size: 14px;
             }
+
             .fold_img_wrap {
                 background: $fold-img;
-                
-                    // img {
 
-                    //     &:active {
-                    //         transition: all .5s;
-                    //         transform: rotateX(180deg);
-                    //     }
-                    // }
-                
+                // img {
+
+                //     &:active {
+                //         transition: all .5s;
+                //         transform: rotateX(180deg);
+                //     }
+                // }
+
 
                 &:hover {
-                    box-shadow:0 0 1px 1px #f9d448;
-                    background: #ebbd13 !important; 
+                    box-shadow: 0 0 1px 1px #f9d448;
+                    background: #ebbd13 !important;
                 }
             }
         }
@@ -2074,11 +2577,13 @@ a.btn_cancle, .btn_cancle{
         .person_info .myid .name {
             color: #fff;
         }
+
         .profile-box {
             .title {
                 color: #fff;
                 border-bottom: 2px solid $line;
             }
+
             &.security {
                 .row {
                     li {
@@ -2086,6 +2591,7 @@ a.btn_cancle, .btn_cancle{
                     }
                 }
             }
+
             ul {
                 li {
                     &.user_box {
@@ -2108,7 +2614,7 @@ a.btn_cancle, .btn_cancle{
                         color: #fff;
                     }
                 }
-    
+
                 .myid {
                     color: #fff;
                 }
@@ -2139,7 +2645,7 @@ a.btn_cancle, .btn_cancle{
             .line_btn {
                 background: none !important;
                 border: 1px solid $main-colors;
-                
+
                 span {
                     color: #fff;
                 }
@@ -2153,22 +2659,22 @@ a.btn_cancle, .btn_cancle{
             .history_box {
                 .hist_con {
                     background: $main-background3;
-                    
+
                     &:hover {
                         background: $main-background2;
                     }
 
                     .hist_con_row1 {
                         background: none;
-    
+
                         .hist_date {
                             color: #fff;
                         }
-    
+
                         .hist_value {
                             color: $main-colors;
                         }
-    
+
                         .hist_name {
                             color: #fff;
                         }
@@ -2180,7 +2686,7 @@ a.btn_cancle, .btn_cancle{
                 background: #1f9df5;
             }
 
-            
+
         }
 
         #withdraw {
@@ -2196,7 +2702,7 @@ a.btn_cancle, .btn_cancle{
                 background: none;
                 border: 1px solid #ced4da;
                 color: #fff;
-                
+
                 &:hover {
                     background: $main-background3;
                 }
@@ -2212,8 +2718,8 @@ a.btn_cancle, .btn_cancle{
                 background: #1f9df5;
 
                 &:hover {
-                    box-shadow:0 0 1px 1px #162d55;
-                    background: #224d93 !important; 
+                    box-shadow: 0 0 1px 1px #162d55;
+                    background: #224d93 !important;
                 }
             }
 
@@ -2228,26 +2734,26 @@ a.btn_cancle, .btn_cancle{
                     &:hover {
                         background: $main-background2;
                     }
-    
+
                     .hist_con_row1 {
                         background: none;
-    
+
                         .hist_date {
                             color: #fff;
                         }
-    
+
                         .hist_value {
                             color: $main-colors;
                         }
-    
+
                         .hist_name {
                             color: #fff;
                         }
-    
+
                         .hist_bank {
                             color: #fff;
                         }
-    
+
                         .hist_withval {
                             color: #fff;
                         }
@@ -2300,7 +2806,7 @@ a.btn_cancle, .btn_cancle{
             }
         }
 
-        input[type="text"] + .currency-right {
+        input[type="text"]+.currency-right {
             color: #fff;
         }
 
@@ -2321,8 +2827,8 @@ a.btn_cancle, .btn_cancle{
 
             .exchange {
                 color: $main-colors;
-            }    
-            
+            }
+
             .ex_dollor {
                 i {
                     color: #000;
@@ -2339,16 +2845,16 @@ a.btn_cancle, .btn_cancle{
                 border-bottom: 1px solid #fff;
                 color: #fff;
             }
-    
+
             #shift_dollor {
                 background: none;
                 border-bottom: 1px solid #fff;
-    
+
                 &.red {
                     color: #109dff;
                 }
             }
-    
+
             #shift_won {
                 color: #fff;
             }
@@ -2370,11 +2876,11 @@ a.btn_cancle, .btn_cancle{
                     .hist_date {
                         color: #fff;
                     }
-        
+
                     .hist_value {
                         color: $main-colors;
                     }
-        
+
                     .hist_sub_price {
                         color: #fff;
                     }
@@ -2398,6 +2904,7 @@ a.btn_cancle, .btn_cancle{
             // background: linear-gradient(to right, $main-button3, $main-button4) !important;
             background: $main-button3 !important;
             font-weight: bold;
+
             &:hover {
                 // background: linear-gradient(to right, $main-button3, $main-button3) !important;
                 background: $main-button4 !important;
@@ -2408,57 +2915,57 @@ a.btn_cancle, .btn_cancle{
     // center_page
     .center_wrap {
         .center_box {
-            &.content-box +.content-box {
+            &.content-box+.content-box {
                 margin-top: 10px;
             }
-    
+
             .box-header {
                 line-height: 30px;
-    
+
                 span {
                     display: inline-block;
                 }
             }
-    
+
             .lvl-icon {
                 width: 30px;
                 height: 30px;
-                line-height:30px;
+                line-height: 30px;
                 vertical-align: middle;
-    
+
                 i {
                     vertical-align: top;
                 }
             }
-    
+
             .user_id {
-                font-size:18px;
-                font-weight:600;
-                line-height:30px;
+                font-size: 18px;
+                font-weight: 600;
+                line-height: 30px;
                 vertical-align: top;
             }
-    
+
             .mygrade {
                 line-height: 10px;
-                font-size:10px;
+                font-size: 10px;
                 font-weight: 300;
-                vertical-align:baseline;
-                padding:2px 8px;
+                vertical-align: baseline;
+                padding: 2px 8px;
             }
-    
+
             .sales {
                 color: #ffd965;
             }
-    
+
             #detail {
                 dd {
                     color: #d1d1d1;
-                    margin-right:10px;
-                    font-size:12px;
+                    margin-right: 10px;
+                    font-size: 12px;
                 }
-    
+
                 .sales {
-                    color:#fff;
+                    color: #fff;
                 }
             }
         }
@@ -2470,12 +2977,12 @@ a.btn_cancle, .btn_cancle{
             color: #fff;
 
             &:hover {
-                background:$main-background2;
-                outline:1px solid $main-background2;
+                background: $main-background2;
+                outline: 1px solid $main-background2;
             }
         }
-    }    
-    
+    }
+
     // bonus_history
     .bonus_history {
         input {
@@ -2487,7 +2994,7 @@ a.btn_cancle, .btn_cancle{
             background: $main-colors;
 
             &:hover {
-                background: #ebbd13 !important; 
+                background: #ebbd13 !important;
             }
 
             i {
@@ -2516,13 +3023,15 @@ a.btn_cancle, .btn_cancle{
     .bonus_detail {
         .sum {
             color: $main-colors;
-        }   
+        }
     }
 
     // mining
     #mining {
-        .myitemform {display: contents;}
-    
+        .myitemform {
+            display: contents;
+        }
+
         h3.title {
             margin: 20px 0 0px;
             vertical-align: middle;
@@ -2532,80 +3041,145 @@ a.btn_cancle, .btn_cancle{
             padding-left: 10px;
             display: inline-block;
         }
-    
+
         .mining_wrap {
             margin: 20px 0 10px;
         }
-    
-        .mining_ico{
+
+        .mining_ico {
             height: 40px;
             width: 40px;
             display: inline-block;
             vertical-align: middle;
-            
-            img{width:100%;height:100%;}
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
         }
-            
-        
+
+
         #mymining {
-            .r_card_wrap{
+            .r_card_wrap {
                 margin: 0 0 10px 0;
             }
         }
 
-        #mining_swap{
+        #mining_swap {
 
-            .pop_btn{
+            .pop_btn {
                 // color:white; 
-                
-                div{display:inline-block}
-        
-                .wallet_title{font-weight:600;font-size:16px;}
-                .max_with{margin-left:10px;font-size:11px;}
-                .btn_title{text-align: center;}
-                .caret_box{
-                    
-                    i{font-size:18px; color: #333;}
+
+                div {
+                    display: inline-block
+                }
+
+                .wallet_title {
+                    font-weight: 600;
+                    font-size: 16px;
+                }
+
+                .max_with {
+                    margin-left: 10px;
+                    font-size: 11px;
+                }
+
+                .btn_title {
+                    text-align: center;
+                }
+
+                .caret_box {
+
+                    i {
+                        font-size: 18px;
+                        color: #333;
+                    }
                 }
             }
         }
-        
+
         #mining_withdraw {
-            background:$mining_withdraw_background;
-        
-            .polding_btn{
-                color:white; 
-                div{display:inline-block}
-        
-                .wallet_title{font-weight:600;font-size:16px;color: #fff;}
-                .max_with{margin-left:10px;font-size:11px;color: #fff;}
-                .caret_box{                    
-                    i{font-size:18px; color: #333;}
+            background: $mining_withdraw_background;
+
+            .polding_btn {
+                color: white;
+
+                div {
+                    display: inline-block
+                }
+
+                .wallet_title {
+                    font-weight: 600;
+                    font-size: 16px;
+                    color: #fff;
+                }
+
+                .max_with {
+                    margin-left: 10px;
+                    font-size: 11px;
+                    color: #fff;
+                }
+
+                .caret_box {
+                    i {
+                        font-size: 18px;
+                        color: #333;
+                    }
                 }
             }
-        
-            &.open{
-                background:$main-background;
-                .polding_btn{
-                    color:black;
-                    .caret_box .btn{background:#f4f1f5;border-radius: 5px;}
+
+            &.open {
+                background: $main-background;
+
+                .polding_btn {
+                    color: black;
+
+                    .caret_box .btn {
+                        background: #f4f1f5;
+                        border-radius: 5px;
+                    }
                 }
-                
+
             }
-            .input_shift_value{
-                .button_wrap {float:right;}
-                .currency-right{margin-top:14px;margin-right:10px;}
-                .fee{
-                    font-size:13px;margin-bottom:10px;margin-top:-5px;
-                    #active_amt,#fee_val{color:$withdraw-btn-background}
+
+            .input_shift_value {
+                .button_wrap {
+                    float: right;
                 }
-                .fee i{font-size:18px;color:$withdraw-btn-background}
+
+                .currency-right {
+                    margin-top: 14px;
+                    margin-right: 10px;
+                }
+
+                .fee {
+                    font-size: 13px;
+                    margin-bottom: 10px;
+                    margin-top: -5px;
+
+                    #active_amt,
+                    #fee_val {
+                        color: $withdraw-btn-background
+                    }
+                }
+
+                .fee i {
+                    font-size: 18px;
+                    color: $withdraw-btn-background
+                }
             }
-            
-            .hidden{display:none;}
-            
-            .polding{
-                .comment{float:right;font-size:11px;line-height:30px;color:#c84a31;}
+
+            .hidden {
+                display: none;
+            }
+
+            .polding {
+                .comment {
+                    float: right;
+                    font-size: 11px;
+                    line-height: 30px;
+                    color: #c84a31;
+                }
 
                 .sub_title {
                     color: $main-colors;
@@ -2614,25 +3188,27 @@ a.btn_cancle, .btn_cancle{
                 #max_value {
                     background: #eff3f9;
                     color: #000;
+
                     &:hover {
-                        background: rgba(255,255,255,0.8);
+                        background: rgba(255, 255, 255, 0.8);
                     }
                 }
-                
+
                 .fees {
                     color: #fff;
                 }
             }
-        
-            #withdrawal_btn{
-                background:$form_send_button;
-                color:white;
+
+            #withdrawal_btn {
+                background: $form_send_button;
+                color: white;
             }
         }
 
         .all_view {
             background-color: $main-background;
             color: #fff;
+
             &:hover {
                 background: $main-background3;
             }
@@ -2642,32 +3218,57 @@ a.btn_cancle, .btn_cancle{
         .caret_box .btn {
             background-color: #2c2f34;
         }
+
         .refresh_btn .btn i,
         .caret_box .btn i {
             color: #fff !important;
         }
     }
 
-    #mining_history{
-        .mymining_total{
-            float:right;
-            color:$main-colors;
+    #mining_history {
+        .mymining_total {
+            float: right;
+            color: $main-colors;
         }
-    
-        ul{
+
+        ul {
             background: none;
         }
-    
-        .badge{_background:#eff3f9;color:white;font-weight:300}
 
-        .b_orange{background:orangered;}
-        .b_pink{background:#ef21fd;}
-        .b_purple{background:#6f00ff}
-        .b_blue{background:#073a69 !important}
-        
-        .hist_td{line-height:30px;}
-        .hist_value{font-size: 12px;}
-        .hist_rec{font-size:11px;color:#767676}
+        .badge {
+            _background: #eff3f9;
+            color: white;
+            font-weight: 300
+        }
+
+        .b_orange {
+            background: orangered;
+        }
+
+        .b_pink {
+            background: #ef21fd;
+        }
+
+        .b_purple {
+            background: #6f00ff
+        }
+
+        .b_blue {
+            background: #073a69 !important
+        }
+
+        .hist_td {
+            line-height: 30px;
+        }
+
+        .hist_value {
+            font-size: 12px;
+        }
+
+        .hist_rec {
+            font-size: 11px;
+            color: #767676
+        }
 
         .hist_tit {
             color: #fff;
@@ -2697,57 +3298,113 @@ a.btn_cancle, .btn_cancle{
             }
         }
     }
-    
-    #mining_amt_log{
+
+    #mining_amt_log {
         // border-top:1px double #aaa;
-        padding:15px 0;
-    
-        .hist_tit{width:100%; color:#fff;}
-        .mymining_total{color:$withdraw-btn-background;}
-        
-        ul li span{display:inline-block;line-height:26px;float:left;font-size:12px;}
-    
-        .amt_total{color:$withdraw-btn-background;font-weight:600;font-size:13px;}
-        .amt{font-size:13px;}
-        .hist_bank{color:#fff;background:$main-background3;border-radius:5px;}
-        .result{font-size:15px;}
-    
-        
-        i{font-size:18px;margin-right:5px;font-weight:300;vertical-align: sub;color:#fff;}
-        p{display:inline-block}
+        padding: 15px 0;
+
+        .hist_tit {
+            width: 100%;
+            color: #fff;
+        }
+
+        .mymining_total {
+            color: $withdraw-btn-background;
+        }
+
+        ul li span {
+            display: inline-block;
+            line-height: 26px;
+            float: left;
+            font-size: 12px;
+        }
+
+        .amt_total {
+            color: $withdraw-btn-background;
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        .amt {
+            font-size: 13px;
+        }
+
+        .hist_bank {
+            color: #fff;
+            background: $main-background3;
+            border-radius: 5px;
+        }
+
+        .result {
+            font-size: 15px;
+        }
+
+
+        i {
+            font-size: 18px;
+            margin-right: 5px;
+            font-weight: 300;
+            vertical-align: sub;
+            color: #fff;
+        }
+
+        p {
+            display: inline-block
+        }
 
         #mining_amt_more {
             background: $main-background3;
+
             &:hover {
                 background: $main-background2;
             }
         }
     }
-    
-    .b_orange{background:orangered;}
-    .b_pink{background:#ef21fd;}
-    .b_purple{background:#6f00ff}
-    .b_blue{background:#073a69 !important}
-    
-    .hist_value{color:#073a69}
-    
-    .btn.more_record i{font-size:18px;}
-    
-    .content-box{
+
+    .b_orange {
+        background: orangered;
+    }
+
+    .b_pink {
+        background: #ef21fd;
+    }
+
+    .b_purple {
+        background: #6f00ff
+    }
+
+    .b_blue {
+        background: #073a69 !important
+    }
+
+    .hist_value {
+        color: #073a69
+    }
+
+    .btn.more_record i {
+        font-size: 18px;
+    }
+
+    .content-box {
         box-shadow: 0px 0px 20px 0 rgba(0, 0, 0, 0.04);
 
-        &.mining_detail{
-            font-size:13px;
-            border-bottom:none;
+        &.mining_detail {
+            font-size: 13px;
+            border-bottom: none;
         }
-    
-        &.mining_history{
-            font-size:13px;
-            border-left:none;
+
+        &.mining_history {
+            font-size: 13px;
+            border-left: none;
         }
-        
-        .m_hist_exp {font-size:11px;}
-        .hist_value2{font-size:13px;}
+
+        .m_hist_exp {
+            font-size: 11px;
+        }
+
+        .hist_value2 {
+            font-size: 13px;
+        }
     }
 
     // mypool
@@ -2760,7 +3417,7 @@ a.btn_cancle, .btn_cancle{
                     border-bottom: 1px solid #ccc;
                     margin-bottom: 10px;
                     display: flex;
-    
+
                     .nav {
                         display: inline-block;
                         font-size: 13px;
@@ -2768,18 +3425,18 @@ a.btn_cancle, .btn_cancle{
                         width: 24.9%;
                         text-align: center;
                         cursor: pointer;
-    
+
                         &.active {
                             border-bottom: 2px solid $main-colors;
                         }
                     }
                 }
             }
-    
+
             .nav_con {
                 display: none;
                 animation: slidein 0.5s ease-out;
-                
+
                 &.active {
                     display: block;
                 }
@@ -2787,28 +3444,29 @@ a.btn_cancle, .btn_cancle{
                 .more_btn {
                     background: $main-background3;
                     color: #fff;
+
                     &:hover {
                         background: $main-background2;
                     }
                 }
             }
-    
+
             .box-header {
                 display: block;
             }
-    
+
             .box-body {
                 ul {
                     margin: 15px 0;
                     border-bottom: 2px dotted #ccc;
                     padding-bottom: 10px;
-    
+
                     .date {
                         font-size: 12px;
                         letter-spacing: -0.5px;
                         color: #fff;
                     }
-    
+
                     .mining {
                         font-size: 17px;
                         font-weight: 700;
@@ -2816,13 +3474,13 @@ a.btn_cancle, .btn_cancle{
                         line-height: 30px;
                         color: $main-colors;
                     }
-    
+
                     .rec_adm {
                         font-size: 11px;
                         color: #777;
                     }
                 }
-    
+
                 .from_id {
                     font-size: 14px;
                     color: #fff;
@@ -2834,25 +3492,25 @@ a.btn_cancle, .btn_cancle{
                     border-right: 2px solid #222;
                 }
             }
-    
+
             .sparkline {
                 width: 100%;
             }
-            
+
             .comp {
                 font-size: 16px;
                 color: #666;
                 padding: 0 5px;
-    
+
                 &.plus {
                     color: #c84a31;
                 }
-    
+
                 &.minus {
                     color: #0260b9;
                 }
             }
-    
+
             .point {
                 font-size: 16px;
                 font-weight: 700;
@@ -2860,22 +3518,22 @@ a.btn_cancle, .btn_cancle{
                 margin: 0 5px;
                 padding: 0 5px;
                 color: #FECE00;
-                background:transparent;
+                background: transparent;
                 display: inline-block
             }
-    
+
             .btn {
                 *.ad_btn {
                     /* text-decoration: underline !important; */
                     letter-spacing: -0.5px;
-                    margin-bottom:-10px;
-                    border:1px solid rgba(0,0,0,0.4) !important;
-                    padding:5px 8px 4px !important;
-                    font-size:13px !important;
+                    margin-bottom: -10px;
+                    border: 1px solid rgba(0, 0, 0, 0.4) !important;
+                    padding: 5px 8px 4px !important;
+                    font-size: 13px !important;
                     /* font-weight:  700 !important; */
                 }
             }
-    
+
             .ad_btn {
                 i {
                     vertical-align: middle;
@@ -2890,6 +3548,13 @@ a.btn_cancle, .btn_cancle{
             background: $main-background !important;
         }
 
+        #lvl-username {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .badge.package {
+            border: 1px solid #444
+        }
 
         .search_btn_wrap {
             .b_skyblue {
@@ -2949,6 +3614,7 @@ a.btn_cancle, .btn_cancle{
                     background: $main-background2;
                     color: #fff;
                 }
+
                 .mbpoint {
                     color: #fff;
                 }
@@ -2988,11 +3654,12 @@ a.btn_cancle, .btn_cancle{
 
         .btn_input_wrap {
             background: $main-background2;
-    
+
             .sumary_lr li {
                 &.left {
                     background: linear-gradient(to right, $binary-left1, $binary-left1-1) !important;
                 }
+
                 &.right {
                     background: linear-gradient(to right, $binary-right1, $binary-right1-1) !important;
                 }
@@ -3022,20 +3689,20 @@ a.btn_cancle, .btn_cancle{
 
         .tree-container {
             background: $main-background2;
-    
+
             .bin_top {
                 color: #fff;
             }
-    
+
             .tree {
                 .box {
                     background: $main-background;
                     border: 2px solid #272b31;
-    
+
                     .userid {
                         color: #fff;
                     }
-    
+
                     .pointed {
                         background: #363c46;
                         color: #fff;
@@ -3045,7 +3712,7 @@ a.btn_cancle, .btn_cancle{
                         &:hover {
                             background: $main-background3;
                         }
-                        
+
                     }
                 }
 
@@ -3053,6 +3720,7 @@ a.btn_cancle, .btn_cancle{
                     .line1-1 {
                         border-right: 2px solid $binary-line;
                     }
+
                     .line2 {
                         border-left: 2px solid $binary-line;
                         border-right: 2px solid $binary-line;
@@ -3065,6 +3733,7 @@ a.btn_cancle, .btn_cancle{
                         .line1-1 {
                             border-right: 2px solid $binary-line;
                         }
+
                         .line2 {
                             border-left: 2px solid $binary-line;
                             border-right: 2px solid $binary-line;
@@ -3073,25 +3742,25 @@ a.btn_cancle, .btn_cancle{
                     }
                 }
             }
-    
+
             .lvl-open {
                 background: $main-background;
                 border: none;
-    
+
                 .b_skyblue {
                     background: #3d4d5c !important;
                 }
-    
+
                 select {
                     background: none;
                     color: $main-colors;
                 }
             }
-    
+
             .lvl .direct_cnt {
                 background: #67757d;
             }
-    
+
             .lvl .badge.pv {
                 background: #007bff;
             }
@@ -3111,6 +3780,7 @@ a.btn_cancle, .btn_cancle{
         .news {
             .question {
                 color: #fff;
+
                 .right_wrap {
                     i {
                         color: $main-colors;
@@ -3130,7 +3800,7 @@ a.btn_cancle, .btn_cancle{
             .submit-button {
                 .btn {
                     background: $main-button2;
-    
+
                     &.font_white {
                         color: #000 !important;
                     }
@@ -3145,12 +3815,14 @@ a.btn_cancle, .btn_cancle{
                 color: #fff;
             }
         }
-        
+
         .writer {
             color: #fff;
+
             .name {
                 color: #fff;
             }
+
             .time {
                 color: #fff;
             }
@@ -3168,6 +3840,7 @@ a.btn_cancle, .btn_cancle{
         li {
             color: #fff;
             border-color: transparent;
+
             &.active {
                 color: $main-colors;
                 border-color: $main-colors;
@@ -3260,6 +3933,7 @@ a.btn_cancle, .btn_cancle{
         p {
             color: #fff;
         }
+
         .white {
             background: $main-background3;
             color: #fff;
@@ -3328,9 +4002,11 @@ a.btn_cancle, .btn_cancle{
     // tail
     .notice_box {
         background: $main-background3;
+
         a {
             color: $main-colors;
         }
+
         ul {
             li {
                 span {
@@ -3355,7 +4031,7 @@ a.btn_cancle, .btn_cancle{
         background-size: 10px;
         color: #fff;
     }
-    
+
     .r_card.r_card_1,
     .pack_1 {
         background: linear-gradient(135deg, $r-card1, $r-card1-1) !important;
@@ -3394,27 +4070,35 @@ a.btn_cancle, .btn_cancle{
     .color0 {
         background: $r-card0 !important;
     }
+
     .color1 {
         background: $r-card1 !important;
     }
+
     .color2 {
         background: $r-card2 !important;
     }
+
     .color3 {
         background: $r-card3 !important;
     }
+
     .color4 {
         background: $r-card4 !important;
     }
+
     .color5 {
         background: $r-card5 !important;
     }
+
     .color6 {
         background: $r-card6 !important;
     }
+
     .color7 {
         background: $r-card7 !important;
     }
+
     .color10 {
         background: $r-card7 !important;
     }
@@ -3422,21 +4106,27 @@ a.btn_cancle, .btn_cancle{
     .pack_f_1 {
         color: $r-card1 !important;
     }
+
     .pack_f_2 {
         color: $r-card2 !important;
     }
+
     .pack_f_3 {
         color: $r-card3 !important;
     }
+
     .pack_f_4 {
         color: $r-card4 !important;
     }
+
     .pack_f_5 {
         color: $r-card5 !important;
     }
+
     .pack_f_6 {
         color: $r-card6 !important;
     }
+
     .pack_f_7 {
         color: $r-card7 !important;
     }
@@ -3449,6 +4139,7 @@ a.btn_cancle, .btn_cancle{
         input {
             border: none;
         }
+
         &.input_pop_css {
             label {
                 color: #fff;
@@ -3465,15 +4156,16 @@ a.btn_cancle, .btn_cancle{
 
             &:hover {
                 background: #252b31;
-                box-shadow:0 0 1px 2px #3b454f;    
-            }   
-            
-            & + .black {
+                box-shadow: 0 0 1px 2px #3b454f;
+            }
+
+            &+.black {
                 &:hover {
-                    box-shadow:0 0 1px 2px #3b454f; 
+                    box-shadow: 0 0 1px 2px #3b454f;
                 }
             }
         }
+
         .save {
             background: $main-button2;
             color: #000;
@@ -3534,25 +4226,26 @@ a.btn_cancle, .btn_cancle{
         .modal-footer {
             border-top: 2px solid #2c3037;
         }
+
         input[type='text'].modal_input {
-            color:black;
+            color: black;
         }
 
         .closed {
             &:hover {
                 background: #aeaeae !important;
-                box-shadow:0 0 1px 1px #efefef;
+                box-shadow: 0 0 1px 1px #efefef;
             }
         }
     }
 
     // logout pop
     .logout_pop {
-        & > p {
+        &>p {
             border-bottom: none;
         }
 
-        & > div {
+        &>div {
             background: $main-background2;
         }
 
