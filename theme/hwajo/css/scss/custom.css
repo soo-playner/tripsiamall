@@ -1,25 +1,36 @@
 @charset "UTF-8";
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: inherit;
 }
 
-html::-webkit-scrollbar, body::-webkit-scrollbar {
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
-html::-webkit-scrollbar-track, body::-webkit-scrollbar-track {
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track {
   background-color: #eee;
 }
-html::-webkit-scrollbar-thumb, body::-webkit-scrollbar-thumb {
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
   background-color: #999;
 }
-html.dark::-webkit-scrollbar-thumb, body.dark::-webkit-scrollbar-thumb {
+html.dark::-webkit-scrollbar-thumb,
+body.dark::-webkit-scrollbar-thumb {
   background-color: #333;
 }
-html.dark::-webkit-scrollbar-track, body.dark::-webkit-scrollbar-track {
+html.dark::-webkit-scrollbar-track,
+body.dark::-webkit-scrollbar-track {
   background-color: #ccc;
 }
-html.modal-open, body.modal-open {
+html.modal-open,
+body.modal-open {
   padding-right: 0 !important;
 }
 
@@ -287,7 +298,8 @@ header .top_title #mode_select {
   color: #fff !important;
 }
 
-.btn, a.btn {
+.btn,
+a.btn {
   border-radius: 3px;
 }
 
@@ -326,7 +338,8 @@ a.btn_primary:hover,
   border: none;
 }
 
-a.btn_cancle, .btn_cancle {
+a.btn_cancle,
+.btn_cancle {
   color: black;
   border-radius: 8px;
 }
@@ -415,35 +428,43 @@ a.btn_cancle, .btn_cancle {
   margin-left: 10px;
 }
 
-.color0, .r_card_0 {
+.color0,
+.r_card_0 {
   background: #555 !important;
 }
 
-.color1, .r_card_1 {
+.color1,
+.r_card_1 {
   background: #b55dcc !important;
 }
 
-.color2, .r_card_2 {
+.color2,
+.r_card_2 {
   background: #516feb !important;
 }
 
-.color3, .r_card_3 {
+.color3,
+.r_card_3 {
   background: #09c3fd !important;
 }
 
-.color4, .r_card_4 {
+.color4,
+.r_card_4 {
   background: #5ed2dc !important;
 }
 
-.color5, .r_card_5 {
+.color5,
+.r_card_5 {
   background: #373cbc !important;
 }
 
-.color6, .r_card_6 {
+.color6,
+.r_card_6 {
   background: #2b3a6d !important;
 }
 
-.color7, .r_card_7 {
+.color7,
+.r_card_7 {
   background: #6214ab !important;
 }
 
@@ -822,7 +843,8 @@ a.btn_cancle, .btn_cancle {
   margin-bottom: 10px;
   margin-top: -5px;
 }
-#mining_withdraw .input_shift_value .fee #active_amt, #mining_withdraw .input_shift_value .fee #fee_val {
+#mining_withdraw .input_shift_value .fee #active_amt,
+#mining_withdraw .input_shift_value .fee #fee_val {
   color: #ec2b38;
 }
 #mining_withdraw .input_shift_value .fee i {
@@ -1138,6 +1160,75 @@ a.btn_cancle, .btn_cancle {
   margin-top: 0;
 }
 
+.structure_wrap .toggle {
+  float: right;
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+  text-align: center;
+  font-weight: 300;
+  color: #ccc;
+}
+.structure_wrap .toggle i {
+  vertical-align: middle;
+  line-height: 40px;
+}
+.structure_wrap .badge {
+  margin-left: 0;
+  margin-right: 5px;
+}
+.structure_wrap .badge.package {
+  background: none;
+  color: #2b3a6d;
+  font-size: 12px;
+  line-height: 12px;
+  padding: 5px 8px;
+  color: white;
+}
+.structure_wrap .badge i {
+  font-size: 12px;
+  margin-right: 2px;
+  vertical-align: bottom;
+}
+.structure_wrap .hp {
+  margin-right: 5px;
+}
+.structure_wrap .accordion_wrap dt {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  padding: 6px;
+  -webkit-box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.03);
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.03);
+}
+.structure_wrap .accordion_wrap dt div {
+  font-size: inherit;
+  float: inherit;
+}
+.structure_wrap .lvl-icon {
+  width: 42px;
+  height: 42px;
+}
+.structure_wrap .lvl-icon .user_icon {
+  line-height: 34px;
+  font-size: 20px;
+}
+.structure_wrap #lvl-userid {
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+}
+.structure_wrap #lvl-username {
+  color: rgba(0, 0, 0, 0.7);
+  margin-right: 5px;
+  font-weight: 300;
+  font-size: 11px;
+  line-height: 24px;
+}
+
 .mywallet #withdraw #select_coin {
   background: #fff url("../../img/select_arrow_dark.png") no-repeat right 10px center/10px;
   -webkit-appearance: none;
@@ -1201,7 +1292,8 @@ a.btn_cancle, .btn_cancle {
   background-color: #2260ff;
   border-color: #2260ff;
 }
-.checkbox-input:checked + .checkbox-tile .checkbox-icon, .checkbox-input:checked + .checkbox-tile .checkbox-label {
+.checkbox-input:checked + .checkbox-tile .checkbox-icon,
+.checkbox-input:checked + .checkbox-tile .checkbox-label {
   color: #2260ff;
 }
 .checkbox-input:focus + .checkbox-tile {
@@ -1574,12 +1666,16 @@ a.btn_cancle, .btn_cancle {
 .dark .login_wrap .auto_login {
   color: #fff;
 }
-.dark #hp_form input, .dark #timer_auth input, .dark #pw_form input {
+.dark #hp_form input,
+.dark #timer_auth input,
+.dark #pw_form input {
   background: #212429;
   color: #fff;
   border: none !important;
 }
-.dark #hp_form .btn--gray:hover, .dark #timer_auth .btn--gray:hover, .dark #pw_form .btn--gray:hover {
+.dark #hp_form .btn--gray:hover,
+.dark #timer_auth .btn--gray:hover,
+.dark #pw_form .btn--gray:hover {
   background: #101214;
   -webkit-box-shadow: 0 0 1px 2px #212429;
           box-shadow: 0 0 1px 2px #212429;
@@ -1588,7 +1684,8 @@ a.btn_cancle, .btn_cancle {
   background: #2c2f34;
   color: #fff;
 }
-.dark .enroll_wrap input[type=email], .dark .enroll_wrap input[type=text] {
+.dark .enroll_wrap input[type=email],
+.dark .enroll_wrap input[type=text] {
   background: #212429;
   color: #fff;
 }
@@ -2341,7 +2438,8 @@ a.btn_cancle, .btn_cancle {
   margin-bottom: 10px;
   margin-top: -5px;
 }
-.dark #mining #mining_withdraw .input_shift_value .fee #active_amt, .dark #mining #mining_withdraw .input_shift_value .fee #fee_val {
+.dark #mining #mining_withdraw .input_shift_value .fee #active_amt,
+.dark #mining #mining_withdraw .input_shift_value .fee #fee_val {
   color: #ffd965;
 }
 .dark #mining #mining_withdraw .input_shift_value .fee i {
@@ -2635,6 +2733,12 @@ a.btn_cancle, .btn_cancle {
 }
 .dark .structure_wrap .btn_input_wrap:first-child {
   background: #212429 !important;
+}
+.dark .structure_wrap #lvl-username {
+  color: rgba(255, 255, 255, 0.7);
+}
+.dark .structure_wrap .badge.package {
+  border: 1px solid #444;
 }
 .dark .structure_wrap .search_btn_wrap .b_skyblue {
   background: #ffd965 !important;
