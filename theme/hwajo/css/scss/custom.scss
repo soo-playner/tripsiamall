@@ -1036,10 +1036,63 @@ a.btn_cancle, .btn_cancle{
     }
 }
 
-// center_page 
-#ui-datepicker-div {
-    display: none;
-}
+// datepicker
+#ui-datepicker-div.ui-datepicker {
+    border-radius: 8px;
+
+    .ui-datepicker-header {
+        background: aliceblue;
+        border: none;
+    }
+    .ui-datepicker-buttonpane button {
+        font-size: 14px;
+        border-radius: 8px;
+        background: #3b86ff;
+        font-weight: normal;
+        color: #fff;
+        padding: 5px 8px;
+        opacity: 1;
+
+        &.ui-datepicker-close {
+            background: #f1f1f1;
+            color: #333;
+        }
+    }
+    .ui-state-default {
+        background: transparent;
+        border: none;
+        border-radius: 50%;
+        padding: 6.5px 4px;
+        text-align: center;
+
+        &:hover {
+            background: rgba(59, 134, 255, 0.5);
+        }
+    }
+    .ui-state-active {
+        background: #3b86ff;
+        font-weight: bold;
+    }
+    .ui-state-highlight {
+        background: rgba(59, 134, 255, 0.5);
+        color: #000;
+    }
+    .ui-datepicker-prev, 
+    .ui-datepicker-next {
+        top: 7px;
+
+        &:hover {
+            border: none;
+            background: transparent;
+        }
+    }
+    select {
+        border-color: #f1f4fb;
+        margin: 4px;
+    }
+} 
+
+
 
 
 // 출금
@@ -1263,6 +1316,38 @@ a.btn_cancle, .btn_cancle{
 
 // 다크모드
 .dark {
+
+    // datepicker
+    #ui-datepicker-div.ui-datepicker {
+        background: #17191d;
+        color: #fff;
+        
+        .ui-datepicker-header {
+            background: #212429;
+        }
+        .ui-datepicker-buttonpane button:not(.ui-datepicker-close) {
+            background: #f9d448;
+            color: #000;
+        }
+        .ui-state-default {
+            color: #fff;
+
+            &:hover {
+                background: #fde58e;
+                color: #000;
+            }
+        }
+        .ui-state-active {
+            background: #f9d448;
+            color: #000;
+        }
+        .ui-state-highlight {
+            background: #fde58e;
+            color: #000;
+        }
+    } 
+
+
     .menuback {
         i {
             color: #fff;
