@@ -688,7 +688,7 @@ $rank_result = sql_fetch($rank_sql);
 
 			?>
 				<button type='button' class='btn purchase_btn' value='' data-row='<?= json_encode($get_shop_item[$i], JSON_FORCE_OBJECT) ?>'>
-					<span class='pack_title color<?= $i ?>'><?= $get_shop_item[$i]['it_name'] ?></span>
+					<span class='pack_title color<?= $i + 1 ?>'><?= $get_shop_item[$i]['it_name'] ?></span>
 					<div class='pack_have'><span><?= $pack_array[$i] ?>
 				</button>
 			<?php } ?>
