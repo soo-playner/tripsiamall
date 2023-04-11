@@ -761,7 +761,13 @@ function rank_name($val){
 
 function retrun_tx_func($tx,$coin){
 	if(strtolower($coin) == 'eth' || strtolower($coin) == 'etc'){
-		return "<a href='https://etherscan.io/tx/".$tx."' target='_blank' style='text-decoration:underline'>".$tx."</a>";
+
+		if(preg_match("/^0x/",$tx,$matches)){
+			return "<a href='https://etherscan.io/tx/".$tx."' target='_blank' style='text-decoration:underline'>".$tx."</a>";
+		}else{
+			echo $tx;
+		}
+
 	}else if(strtolower($coin) =='fil'){
 		return "<a href ='https://filfox.info/ko/message/".$tx."' target='_blank' style='text-decoration:underline'>".$tx."</a>";
 	}else{
@@ -769,7 +775,7 @@ function retrun_tx_func($tx,$coin){
 	}
 }
 
-function retrun_fil_addr_func($tx,$coin){
+function retrun_addr_func($tx,$coin){
 	if(strtolower($coin) == 'eth'){
 		return "<a href='https://etherscan.io/address/".$tx."' target='_blank' style='text-decoration:underline'>".$tx."</a>";
 	}else if(strtolower($coin) =='fil'){

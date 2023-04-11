@@ -81,7 +81,7 @@ $result = sql_query($sql);
     .red{color:red}
     .text-center{text-align:center}
     .hash{min-width:120px;height:auto;display:block;}
-    .reg_text{border:1px solid #ccc;padding:5px 10px;width:80%;}
+    .reg_text{border:1px solid #ccc;padding:5px 10px;}
     select{padding:5px;min-width:80px;width:80%;}
     table tr td{text-align:center}
     .row_dup td{background:rgba(253,240,220,0.8)}
@@ -301,7 +301,7 @@ $result = sql_query($sql);
         <th scope="col" width='12%'>TX ID</th>
         <th scope="col" width='5%'>입금요청금액</th>
         <th scope="col" width='4%'>입금종류</th>
-        <th scope="col" width='10%'>입금처리금액(<?=$curencys[1]?>)</th>
+        <th scope="col" width='8%'>입금처리금액(<?=$curencys[1]?>)</th>
         <th scope="col" width='10%'>승인여부</th>
         <th scope="col" width='8%'>요청시간</th>
         <th scope="col" width='8%'>상태변경일</th>
@@ -333,7 +333,11 @@ $result = sql_query($sql);
         <td class='td_id'><a href='/adm/member_form.php?sst=&sod=&sfl=&stx=&page=&w=u&mb_id=<?=$row['mb_id']?>' target='_blank'><?=$row['mb_id'] ?></a></td>
         <td style='color:#666'><?=$member_result['mb_recommend']?></td>
         <!-- <td style='color:#666'><?=$member_result['mb_center']?></td> -->
-        <td style='color:#666'><?=$row['txhash']?></td>
+
+        <td style='color:#666'>
+            <?=retrun_tx_func($row['txhash'],$row['coin'])?>
+        </td>
+
         <td><?=shift_auto($row['amt'])?></td>
         <td class='coin'><?=$row['coin']?></td>
         <td><input type='text' class='reg_text input_amt_val' style='font-weight:600;color:blue;text-align:right' value='<?=shift_auto($row['in_amt'],$curencys[1])?>'></td>

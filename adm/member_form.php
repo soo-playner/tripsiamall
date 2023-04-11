@@ -591,7 +591,7 @@ $rank_result = sql_fetch($rank_sql);
 	<tr class="ly_up padding-box fund">
 
 		<th scope="row">누적 매출 합계 (PV)</th>
-		<td colspan="1"><span class='strong soodang'><?= number_format($mb['mb_save_point']) ?> </span><?=$curencys[1]?></td>
+		<td colspan="1"><span class='strong soodang'><?= number_format($mb['mb_save_point']/3) ?> </span><?=$curencys[1]?></td>
 
 		<th scope="row">총 받은보너스(수당)</th>
 		<td colspan="1"><span class='strong bonus'>

@@ -398,7 +398,7 @@
 }
 
 .lvl-container .mbpoint {
-	display: inline-block;
+	display: block;
 	font-size: 11px;
 	vertical-align: middle;
 	letter-spacing: 0;

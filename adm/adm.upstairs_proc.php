@@ -94,10 +94,11 @@ if($rst && $logic){
 	}
 
 	// 해당 패키지로 받을 수 있는 수당 한도(300%)
-	$max_save_point = $it_point * 3;
+	$max_limit_point = $it_point * 3;
 	
 	$update_point .= ", mb_rate = ( mb_rate + {$pv}) ";
-	$update_point .= ", mb_save_point = ( mb_save_point + {$max_save_point}) ";
+	$update_point .= ", mb_save_point = ( mb_save_point + {$it_point}) ";
+	$update_point .= ", mb_index = ( mb_index + {$max_limit_point}) ";
 	$update_point .= ", rank = '{$update_rank}', rank_note = '{$pack_name}', sales_day = '{$now_datetime}' ";
 	$update_point .= " where mb_id ='".$mb_id."'";
 

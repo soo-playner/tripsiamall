@@ -308,14 +308,14 @@ $ord_rev = $ord_array[($ord_key+1)%2]; // 내림차순→오름차순, 오름차
 						$wallet_addr2 = Decrypt($mb['withdraw_wallet'],$row['mb_id'],'x');
 						if($wallet_addr1 == $wallet_addr2){
 						?>
-							<div class='eth_addr'><?=retrun_fil_addr_func($wallet_addr1,$row['coin'])?></div>
+							<div class='eth_addr'><?=retrun_addr_func($wallet_addr1,$row['coin'])?></div>
 						<?}else{?>
 							<div class='eth_addr' style='color:red;border-bottom:1px solid red'>출금주소 불일치(확인요망)</div>
 							<div class='eth_addr' style="text-align:left;font-size:10px">출금요청주소: <?=$wallet_addr1?></div>
 							<div class='eth_addr' style="text-align:left;font-size:10px">등록지갑주소: <?=$wallet_addr2?></div>
 						<?}?>
 					<?}else{?>
-						<div class='eth_addr'><?=retrun_fil_addr_func($row['addr'],$row['coin'])?></div>
+						<div class='eth_addr'><?=retrun_addr_func($row['addr'],$row['coin'])?></div>
 					<?php } ?>	
 
 					<?php } ?>		
