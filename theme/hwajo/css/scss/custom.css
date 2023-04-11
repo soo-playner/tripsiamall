@@ -367,6 +367,9 @@ a.btn_cancle,
 #referral .modal-footer .btn.btn-secondary {
   color: #333;
 }
+#referral .modal-footer .btn.btn-primary:hover {
+  background: #014ea0;
+}
 
 /*대쉬보드*/
 .day {
@@ -1438,6 +1441,7 @@ a.btn_cancle,
 .modal-content {
   width: 95%;
   margin: 0 auto;
+  border: none;
 }
 .modal-content .modal-header {
   border-bottom: none;
@@ -2731,6 +2735,35 @@ a.btn_cancle,
 .dark .mypool #minings .ad_btn i {
   vertical-align: middle;
 }
+.dark .structure_search_container {
+  border-color: rgba(255, 255, 255, 0.7);
+}
+.dark .structure_search_container .structure_search_result {
+  background: #212429;
+}
+.dark .structure_search_container .structure_search_result::-webkit-scrollbar-track {
+  background-color: #aaa;
+}
+.dark .structure_search_container .structure_search_result::-webkit-scrollbar-thumb {
+  background-color: #212429;
+}
+.dark .structure_search_container .structure_search_result.noData {
+  background: #212429;
+  color: #fff;
+}
+.dark .structure_search_container .structure_search_result .rows,
+.dark .structure_search_container .structure_search_result .mbId {
+  background: transparent;
+}
+.dark .structure_search_container .structure_search_result .rows:hover {
+  background: #FECE00;
+}
+.dark .structure_search_container .structure_search_result .rows:hover .mbId {
+  color: #000;
+}
+.dark .structure_search_container .structure_search_result .mbId {
+  border-color: rgba(255, 255, 255, 0.7);
+}
 .dark .structure_wrap .btn_input_wrap:first-child {
   background: #212429 !important;
 }
@@ -2760,13 +2793,10 @@ a.btn_cancle,
 }
 .dark .structure_wrap .legbox .mbId {
   color: #ffd965;
-  padding: 5px 15px;
 }
 .dark .structure_wrap .legbox .mbId:hover {
-  background: #fff;
-  border: none;
   color: #000;
-  border-radius: 20px;
+  background: #ffd965;
 }
 .dark .structure_wrap .legbox .ri-arrow-right-s-fill {
   color: #ffd965;
@@ -2821,14 +2851,10 @@ a.btn_cancle,
 }
 .dark .binary_wrap .legbox .mbId {
   color: #ffd965;
-  padding: 5px 15px;
-  border-radius: 20px;
 }
 .dark .binary_wrap .legbox .mbId:hover {
-  background: #fff;
-  border: none;
   color: #000;
-  border-radius: 20px;
+  background: #ffd965;
 }
 .dark .binary_wrap .legbox .ri-arrow-right-s-fill {
   color: #ffd965;

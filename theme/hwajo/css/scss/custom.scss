@@ -471,6 +471,9 @@ a.btn_cancle,
         &.btn-secondary {
             color: #333;
         }
+        &.btn-primary:hover {
+            background: #014ea0;
+        }
     }
 }
 
@@ -1683,6 +1686,7 @@ a.btn_cancle,
 .modal-content {
     width: 95%;
     margin: 0 auto;
+    border: none;
 
     .modal-header {
         border-bottom: none;
@@ -3543,6 +3547,46 @@ a.btn_cancle,
     }
 
     // structure
+    .structure_search_container {
+        border-color: rgba(255, 255, 255, 0.7);
+
+        
+        .structure_search_result {
+            background: #212429;
+
+            &::-webkit-scrollbar-track {
+                background-color: #aaa;
+            }
+            &::-webkit-scrollbar-thumb {
+                background-color: #212429;
+            }
+
+            &.noData {
+                background: #212429;
+                color: #fff;
+            }
+
+            .rows,
+            .mbId {
+                background: transparent;
+            }
+
+            .rows {
+                &:hover {
+                    background: #FECE00;
+
+                    .mbId {
+                        color: #000;
+                    }
+                }
+            }
+
+            .mbId {
+                border-color: rgba(255, 255, 255, 0.7);
+            } 
+        }
+    }
+
     .structure_wrap {
         .btn_input_wrap:first-child {
             background: $main-background !important;
@@ -3583,13 +3627,10 @@ a.btn_cancle,
 
             .mbId {
                 color: $main-colors;
-                padding: 5px 15px;
 
                 &:hover {
-                    background: #fff;
-                    border: none;
                     color: #000;
-                    border-radius: 20px;
+                    background: #ffd965;
                 }
             }
 
@@ -3671,14 +3712,10 @@ a.btn_cancle,
 
             .mbId {
                 color: $main-colors;
-                padding: 5px 15px;
-                border-radius: 20px;
 
                 &:hover {
-                    background: #fff;
-                    border: none;
                     color: #000;
-                    border-radius: 20px;
+                    background: #ffd965;
                 }
             }
 

@@ -249,11 +249,17 @@ var gradeMap = {
 					} */
 					vHtml.append(line);
 				});
-
 				$("#structure_search_result").html(vHtml.html());
 				$(".structure_search_container .result_btn").click(function(){
 					$('.structure_search_container').removeClass("active");
 				});
+
+				if ($("#structure_search_result").html() == ''){
+					$("#structure_search_result").addClass('noData');
+					$("#structure_search_result").html('검색결과가 없습니다.');
+				} else {
+					$("#structure_search_result").removeClass('noData');
+				}
 			}).fail(function(e) {
 				console.log( e );
 			});
@@ -564,12 +570,14 @@ var gradeMap = {
 
 	<div class="structure_search_container">
 		<div class="structure_search_result" id="structure_search_result"></div>
-		<div class="result_btn">닫기</div>
+		<div class="b_skyblue result_btn">닫기</div>
 	</div>
 
 	<script>
 		$(function(){
 			$(".top_title h3").html("<span >추천조직도</span>")
 		});
+
+
 	</script>
 <? include_once(G5_THEME_PATH.'/_include/tail.php'); ?>

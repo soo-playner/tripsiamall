@@ -114,7 +114,7 @@ $(document).ready(function(){
 				</a>
 			</li>
 			-->
-			<?if($nw['nw_purchase'] == 'Y'){?>
+			<!-- <?if($nw['nw_purchase'] == 'Y'){?>
 			<li class="upstairs_icon <? if($_GET['id'] === 'upstairs') {echo 'active';}?>">
 				<a href="/page.php?id=upstairs">
 					<div class="gnb_img_wrap"></div>
@@ -131,7 +131,7 @@ $(document).ready(function(){
 						<span >보너스내역</span>
 					</div>
 				</a>
-			</li>
+			</li> -->
 			<!--
 			<?if($member['center_use'] == 1){?>
 			<li class="center_page_icon <? if($_GET['id'] === 'center_page') {echo 'active';}?>">
