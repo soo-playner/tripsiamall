@@ -26,10 +26,10 @@ if($debug){
 	}
 }
 
-$order_list_sql = "select s.*, m.mb_level, m.grade, m.mb_name, m.mb_balance, m.mb_deposit_point, m.mb_save_point
+$order_list_sql = "select s.*, m.mb_level, m.grade, m.mb_name, m.mb_balance, m.mb_deposit_point, m.mb_index
 from g5_shop_order s 
 join g5_member m 
-on s.mb_id = m.mb_id where m.mb_balance < m.mb_save_point";
+on s.mb_id = m.mb_id where m.mb_balance < m.mb_index";
 
 $order_list_result = sql_query($order_list_sql);
 
@@ -46,9 +46,10 @@ echo "<div class='btn' onclick='bonus_url();'>돌아가기</div>";
 
 ?>
 
-<html><body>
-<header>정산시작</header>    
-<div>
+<html>
+	<body>
+		<header>정산시작</header>    
+		<div>
 	
 <?php
 
@@ -67,14 +68,14 @@ if(!$get_today){
 	for($i = 0; $i < $order_list_row = sql_fetch_array($order_list_result); $i++){
 		$goods_price = $order_list_row['upstair'];
 		$mb_balance = $order_list_row['mb_balance'];
-		$mb_save_point = $order_list_row['mb_save_point'];
+		$mb_index = $order_list_row['mb_index'];
 		$benefit = $goods_price *(($order_list_row['pv'] * 0.01) * $daily_bonus_rate);
 
 		$total_benefit = $mb_balance + $benefit + $total_paid_list[$order_list_row['mb_id']]['total_benefit'];
 
 		$clean_number_goods_price = clean_number_format($goods_price);
 		$clean_number_mb_balance = clean_number_format($mb_balance);
-		$clean_number_mb_save_point = clean_number_format($mb_save_point);
+		$clean_number_mb_index = clean_number_format($mb_index);
 		
 
 		$total_paid_list[$order_list_row['mb_id']]['total_benefit'] += $benefit;
@@ -82,9 +83,9 @@ if(!$get_today){
 
 		$over_benefit_log  = "";
 		
-		if( $total_benefit > $mb_save_point ){
-			$remaining_benefit = $total_benefit - $mb_save_point;
-			$cut_benefit = $mb_save_point - $mb_balance;
+		if( $total_benefit > $mb_index ){
+			$remaining_benefit = $total_benefit - $mb_index;
+			$cut_benefit = $mb_index - $mb_balance;
 			
 			$origin_benefit = $benefit;
 			if($benefit - $remaining_benefit > 0) {
@@ -101,12 +102,12 @@ if(!$get_today){
 		}
 
 		$clean_number_benefit = clean_number_format($benefit);
-		$rec = "Daily( {$order_list_row['pv']}% ) : {$clean_number_benefit}지급{$over_benefit_log}";
+		$rec = "Daily bonus {$order_list_row['pv']}% : {$clean_number_benefit} payment{$over_benefit_log}";
 		$benefit_log = "{$clean_number_goods_price}(상품가격) * ( ({$order_list_row['pv']}(상품보너스) * 0.01 ) * {$daily_bonus_rate}(매일지급보너스) ){$over_benefit_log}";
 
-		$total_paid_list[$order_list_row['mb_id']]['log'] .= "<br><span>현재총수당 : {$clean_number_mb_balance}, 수당한계점 : {$clean_number_mb_save_point} | {$benefit_log} = </span><span class='blue'>{$clean_number_benefit}</span>";
+		$total_paid_list[$order_list_row['mb_id']]['log'] .= "<br><span>{$benefit_log} = </span><span class='blue'>{$clean_number_benefit}</span>";
 	
-		$log_values_sql .= "('{$code}','{$now_date}','{$order_list_row['mb_id']}',{$order_list_row['mb_no']},{$benefit},{$order_list_row['mb_level']},{$order_list_row['grade']},
+		$log_values_sql .= "('{$code}','{$bonus_day}','{$order_list_row['mb_id']}',{$order_list_row['mb_no']},{$benefit},{$order_list_row['mb_level']},{$order_list_row['grade']},
 							'{$order_list_row['mb_name']}','{$rec}','{$benefit_log}={$clean_number_benefit}',{$mb_balance},{$order_list_row['mb_deposit_point']},now()),";
 	
 	}
@@ -119,7 +120,7 @@ if(!$get_today){
 		$member_my_sales_cloumn_sql .= "when '{$key}' then {$value['real_benefit']} ";
 		
 		$member_where_sql .= "'{$key}',";
-		echo "<span class='title'>{$key}</span> {$value['log']}<div style='color:orange;'>당일 예정 수당 : {$value['total_benefit']}</div><div style='color:red;'>▶ 당일 실제 수당 : {$value['real_benefit']}</div><br><br>";
+		echo "<span class='title'>{$key}</span><span>현재총수당 : {$clean_number_mb_balance}, 수당한계점 : {$clean_number_mb_index} </span><br>{$value['log']}<div style='color:orange;'>당일 예정 수당 : {$value['total_benefit']}</div><div style='color:red;'>▶ 당일 실제 수당 : {$value['real_benefit']}</div><br><br>";
 	}
 	
 	$member_balance_column_sql .= "else mb_balance end ";
@@ -150,10 +151,10 @@ if(!$get_today){
 			if($result){
 				$result = sql_query($member_sql);
 				if(!$result){
-					echo "ERROR:: MEMBER SQL -> {$member_sql}";
+					echo "<code>ERROR:: MEMBER SQL -> {$member_sql}</code>";
 				}
 			}else{
-				echo "ERROR:: LOG SQL -> {$log_sql}";
+				echo "<code>ERROR:: LOG SQL -> {$log_sql}</code>";
 			}
 		}
 	}else{
