@@ -542,7 +542,7 @@
                     <span class='category'><?=strtoupper($row['allowance_name'].' Bonus')?> </span>
                 </div>
                 <div class='col-4 text-right'>
-                    <span class='price'><?=Number_format($row['benefit'])?> <?=BALANCE_CURENCY?> </span>
+                    <span class='price'><?=Number_format($row['benefit'])?> <?=$curencys[1]?> </span>
                 </div>
             </div>
 

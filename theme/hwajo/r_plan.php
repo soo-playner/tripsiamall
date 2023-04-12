@@ -128,12 +128,12 @@
 			<div class="innerBox round mt20 col-sm-12" >
 				<div class='bonus_state_bar' id='total_B_bar'></div>
 				<dt class='col-6'><span class='t_shadow_white'>BONUS ETH</span></dt>
-				<dd class='col-6'><?=number_format($total_bonus,2)?> <?=BALANCE_CURENCY?></dd>
+				<dd class='col-6'><?=number_format($total_bonus,2)?> <?=$curencys[1]?></dd>
 			</div>
 			<div class="innerBox round mt20 col-sm-12" >
 				<div class='bonus_state_bar' id='total_B_bar'></div>
 				<dt class='col-6'><span class='t_shadow_white'>TOTAL BONUS ETH</span></dt>
-				<dd class='col-6'><?=number_format($total_fund,2)?> <?=BALANCE_CURENCY?></dd>
+				<dd class='col-6'><?=number_format($total_fund,2)?> <?=$curencys[1]?></dd>
 			</div>
 			<!-- <div class='exp_per'>
 				<p class='start'>0%</p>
