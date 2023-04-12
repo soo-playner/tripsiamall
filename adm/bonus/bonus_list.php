@@ -22,7 +22,7 @@ if($_GET['end_dt']){
 }
 
 
-$sql = "select * from {$g5['bonus_config']} where used = 1 order by no asc";
+$sql = "select * from {$g5['bonus_config']} where used > 0 order by no asc";
 $list = sql_query($sql);
 
 
@@ -172,7 +172,7 @@ include_once(G5_PLUGIN_PATH.'/jquery-ui/datepicker.php');
 	</li>
 
 	<?
-	$sql = "select * from {$g5['bonus_config']} where used = 1 order by no";
+	$sql = "select * from {$g5['bonus_config']} where used > 0 order by no";
 	$list = sql_query($sql);
 
 	for($i=0; $row = sql_fetch_array($list); $i++ ){?>

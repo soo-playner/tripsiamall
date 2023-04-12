@@ -37,9 +37,9 @@ if ($_GET['sst'] == "mb_bonus_total_rate") {
 	$sub_sql = " , ((recom_mining + brecom_mining + brecom2_mining + super_mining)/mb_rate) as mb_bonus_total_rate";
 }
 
-if ($_GET['sst'] == "mining") {
+/* if ($_GET['sst'] == "mining") {
 	$sub_sql = " , ($mining_target - $mining_amt_target) as mining";
-}
+} */
 
 
 
@@ -89,6 +89,10 @@ if (!$sst) {
 
 if ($_GET['grade'] > -1) {
 	$sql_search .= " and grade = " . $_GET['grade'];
+}
+
+if ($member['mb_id'] != 'admin') {
+	$sql_search .= " AND mb_id != 'admin' ";
 }
 
 $sql_order = " order by {$sst} {$sod}";
@@ -188,18 +192,15 @@ $stats_sql = "SELECT COUNT(*) as cnt,
 SUM(mb_deposit_point) AS deposit, 
 SUM(mb_balance) AS balance,
 SUM(mb_save_point) AS pv, 
-SUM($mining_target) AS mining_total, 
-SUM(mb_deposit_point + mb_deposit_calc + mb_balance ) AS able_with, 
-SUM($mining_target - $mining_amt_target) AS able_mining,
-(SELECT SUM($before_mining_target) FROM g5_member WHERE swaped = 0) AS B1,
-(SELECT SUM($before_mining_target - $before_mining_amt_target) FROM g5_member WHERE swaped = 0) AS B2
+SUM(mb_deposit_point + mb_deposit_calc + mb_balance ) AS able_with
 {$sql_common} {$sql_search}";
+
 /* echo "<br>";
 echo "=====================";
 print_R($stats_sql);
 echo "=====================";
-echo "<br>"; */
-$stats_result = sql_fetch($stats_sql);
+echo "<br>";
+$stats_result = sql_fetch($stats_sql); */
 ?>
 
 
@@ -505,7 +506,7 @@ $stats_result = sql_fetch($stats_sql);
 		echo "<span>총 매출(pv) 합계 <strong>" . Number_format($stats_result['pv']) . "</strong></span><br> ";
 
 		echo "<div class='bonus'>보너스<span> 보유량 : <strong>" . Number_format($stats_result['balance']) . " " . $curencys[1] . " </strong></span> | ";
-		echo "<span>출금 가능 : <span class='f_blue'>" . Number_format($stats_result['able_with']) . " " . $curencys[1] . "  </span></span></div>  ";
+		echo "<span>출금 가능 : <span class='f_blue'>" . Number_format($stats_result['balance']) . " " . $curencys[1] . "  </span></span></div>  ";
 
 		// echo "<div class='bonus mining before'>미변환 <strong>".strtoupper($minings[$before_mining_coin])."</strong><span>보유량 : <strong>" . Number_format($stats_result['B1'], 8) .' '.strtoupper($minings[$before_mining_coin])." </strong></span> | ";
 		// echo "<span>변환 가능 : <span class='f_blue'>" . Number_format($stats_result['B2'], 8) .' '.strtoupper($minings[$before_mining_coin])."  </span></span></div> ";

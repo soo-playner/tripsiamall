@@ -26,9 +26,9 @@ $menu["menu700"] = array (
 	$menu["menu700"] = array (
 	array('700000', ' 입금/출금/매출', ''.G5_ADMIN_URL.'/shop_admin/orderlist.php', '0'),	
 	array('700010', '코인 시세(UPbit)', ''.G5_ADMIN_URL.'/etc/coin_swap.php', 'coin_swap' , 1),
-	array('700200', '구매 내역', G5_ADMIN_URL.'/shop_admin/orderlist.php', 'scf_order', 1),
-	array('700400', '수당 출금 요청 내역', G5_ADMIN_URL.'/adm.withdrawal_request.php', 'bbs_board'),
-	array('700400', '마이닝 출금 요청 내역', G5_ADMIN_URL.'/adm.withdrawal_request_mining.php', 'bbs_board'),
+	array('700200', '회원 구매/결제 내역', G5_ADMIN_URL.'/shop_admin/orderlist.php', 'scf_order', 1),
+	array('700400', '출금 요청 내역', G5_ADMIN_URL.'/adm.withdrawal_request.php', 'bbs_board'),
+	// array('700400', '마이닝 출금 요청 내역', G5_ADMIN_URL.'/adm.withdrawal_request_mining.php', 'bbs_board'),
 	array('700600', '입금 요청 내역', G5_ADMIN_URL.'/adm.deposit_request.php', 'bbs_board'),
 	);
 }

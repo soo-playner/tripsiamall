@@ -139,8 +139,8 @@ include_once(G5_ADMIN_PATH . '/admin.head.php');
 		- 수당 초기화는 설정을 제외한 수당지급 로그,기록 관련 데이터등을 초기화<br>
 		- 회원및구매내역 초기화는 회원 보유 잔고,포인트,직급 등을 초기화하고 구매내역,상품등을 초기화합니다.<span class='red'> ※관리자제외</span><br>
 		- 입출금 초기화는 설정을 제외한 입금내역,출금내역 등을 초기화합니다.<br>
-		<br>
-		<!-- - 테스트환경생성은 전회원 10이더,10MBM 를 지급 하고, 당일기준 test20~test30까지의 m1 상품을 구매처리합니다.<span class='red'> ※관리자제외</span> -->
+		
+		- 테스트환경생성은 전회원 <strong>1,000 usdt 지급 하고, 당일기준 test5~test30까지의 p3 상품을</strong> 구매처리합니다.<span class='red'> ※관리자제외</span>
 	</p>
 </div>
 
@@ -161,37 +161,50 @@ include_once(G5_ADMIN_PATH . '/admin.head.php');
 					<td>
 						<p style="padding:0;"><input type="checkbox" id="nw_soodang_reset" name="nw_soodang_reset" <?if($nw['nw_soodang_reset']=='Y' ) {echo "checked" ;}?>/><label for="nw_soodang_reset"><span class="ui"></span><span class="nw_soodang_reset_txt">사용 설정</span></label></p>
 					</td>
-
-					<th scope="row"><label for="nw_member_reset"> 회원포인트내역 및 구매내역 초기화<strong class="sound_only"> 필수</strong></label></th>
+					<td>
+					수당 초기화는 설정을 제외한 수당지급 로그,기록 관련 데이터등을 초기화
+					</td>
+				</tr>
+				<tr>
+					<th scope="row"><label for="nw_member_reset"> 회원포인트내역 초기화 <strong class="sound_only"> 필수</strong></label></th>
 					<td>
 						<p style="padding:0;"><input type="checkbox" id="nw_member_reset" name="nw_member_reset" <?if($nw['nw_member_reset']=='Y' ) {echo "checked" ;}?>/><label for="nw_member_reset"><span class="ui"></span><span class="nw_member_reset_txt">사용 설정</span></label></p>
 					</td>
+					<td>회원및구매내역 초기화는 회원 보유 잔고,포인트,직급 등을 초기화하고 구매내역,상품등을 초기화합니다.</td>
+				</tr>
+				<tr>
+					<th scope="row"><label for="nw_order_reset"> 구매내역 초기화 <strong class="sound_only"> 필수</strong></label></th>
+					<td>
+						<p style="padding:0;"><input type="checkbox" id="nw_order_reset" name="nw_order_reset" <?if($nw['nw_order_reset']=='Y' ) {echo "checked" ;}?>/><label for="nw_order_reset"><span class="ui"></span><span class="nw_order_reset_txt">사용 설정</span></label></p>
+					</td>
+					<td>회원 구매/결제내역, 하부매출 정보등을 초기화합니다.</td>
 				</tr>
 				<tr>
 					<th scope="row"><label for="nw_asset_reset"> 입출금 내역 초기화<strong class="sound_only"> 필수</strong></label></th>
 					<td>
 						<p style="padding:0;"><input type="checkbox" id="nw_asset_reset" name="nw_asset_reset" <?if($nw['nw_asset_reset']=='Y' ) {echo "checked" ;}?>/><label for="nw_asset_reset"><span class="ui"></span><span class="nw_asset_reset_txt">사용 설정</span></label></p>
 					</td>
-
-					<th scope="row"><label for="nw_mining_reset"> 마이닝 내역 초기화<strong class="sound_only"> 필수</strong></label></th>
 					<td>
-						<p style="padding:0;"><input type="checkbox" id="nw_mining_reset" name="nw_mining_reset" <?if($nw['nw_mining_reset']=='Y' ) {echo "checked" ;}?>/><label for="nw_mining_reset"><span class="ui"></span><span class="nw_mining_reset_txt">사용 설정</span></label></p>
+					입출금 초기화는 설정을 제외한 입금내역,출금내역 등을 초기화합니다.
 					</td>
+
 				</tr>
-				<tr>
+				<!-- <tr>
 					<th scope="row"><label for="nw_binary_reset"> 후원 조직도 초기화<strong class="sound_only"> 필수</strong></label></th>
 					<td>
 						<p style="padding:0;"><input type="checkbox" id="nw_binary_reset" name="nw_binary_reset" <?if($nw['nw_binary_reset']=='Y' ) {echo "checked" ;}?>/><label for="nw_binary_reset"><span class="ui"></span><span class="nw_binary_reset_txt">사용 설정</span></label></p>
 					</td>
 
 				</tr>
-
-				<!-- <tr>
+ 				-->
+				
+				<tr>
 					<th scope="row"><label for="nw_data_test"> 테스트환경 생성 <strong class="sound_only"> 필수</strong></label></th>
 					<td>
 						<p style="padding:0;"><input type="checkbox" id="nw_data_test" name="nw_data_test" <?if($nw['nw_data_test']=='Y' ) {echo "checked" ;}?>/><label for="nw_data_test"><span class="ui"></span><span class="nw_data_test_txt">사용 설정</span></label></p>
 					</td>
-				</tr> -->
+					<td>전회원 <strong>3,000 usdt 지급 하고, 당일기준 test5~test30까지의 p3 상품을</strong> 구매처리합니다.</td>
+				</tr>
 
 			</tbody>
 		</table>
@@ -218,6 +231,14 @@ include_once(G5_ADMIN_PATH . '/admin.head.php');
 				$('.nw_member_reset_txt').html('사용함');
 			} else {
 				$('.nw_member_reset_txt').html('사용안함');
+			}
+		});
+
+		$('#nw_order_reset').on('click', function() {
+			if ($('#nw_order_reset').is(":checked")) {
+				$('.nw_order_reset_txt').html('사용함');
+			} else {
+				$('.nw_order_reset_txt').html('사용안함');
 			}
 		});
 

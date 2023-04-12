@@ -53,8 +53,11 @@ $token = get_token();
     </thead>
 
     <tbody>
-    <?for($i=0; $row=sql_fetch_array($list); $i++){
-        if($row['used'] == 2){
+
+    <?
+    
+    for($i=0; $row=sql_fetch_array($list); $i++){
+        if($row['used'] == 1){
         ?>
         <td style="text-align:center"><input type="hidden" name="idx[]" value="<?=$row['idx']?>"><?=$i?></td>
         <!-- <td style="text-align:center"><input type='checkbox' class='checkbox' name='check' <?php echo $row['used'] > 1?'checked':''; ?>>
