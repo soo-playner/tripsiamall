@@ -226,7 +226,7 @@ function return_status_tx($val)
 </form>
 <br><br> -->
 
-<input type="button" class="btn_submit excel" id="btnExport"  data-name='zeta_bonus_withdrawal' value="엑셀 다운로드" />
+<input type="button" class="btn_submit excel" id="btnExport"  data-name='hwajo_bonus_withdrawal' value="엑셀 다운로드" />
 
 <div class="local_ov01 local_ov">
 	<a href="./adm.withdrawal_request.php?<?= $qstr ?>" class="ov_listall"> 결과통계 <?= $total_count ?> 건 = <strong><?= shift_auto($total_out,$curencys[1]) ?> <?= $curencys[1] ?> </strong></a>

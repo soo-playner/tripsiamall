@@ -241,7 +241,7 @@ include_once(G5_PLUGIN_PATH.'/jquery-ui/datepicker.php');
 			<?=$html?>
 		
 			<input type="submit" class="btn_submit search" value="검색"/>
-			<input type="button" class="btn_submit excel" id="btnExport"  data-name='zeta_bonus_list' value="엑셀 다운로드" />
+			<input type="button" class="btn_submit excel" id="btnExport"  data-name='hwajo_bonus_list' value="엑셀 다운로드" />
 		
 	</div>
 </form>
