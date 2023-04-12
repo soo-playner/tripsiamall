@@ -7,8 +7,8 @@ if (G5_IS_MOBILE) {
     return;
 }
 
-Header("Location:/page.php?id=structure");
-// include_once(G5_THEME_PATH.'/dashboard.php');
+// Header("Location:/page.php?id=structure");
+include_once(G5_THEME_PATH.'/dashboard.php');
 
 ?>
 
