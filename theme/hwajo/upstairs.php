@@ -467,7 +467,7 @@ $(function(){
 					});
 				},
 				error:function(e){
-					commonModal('패키지 구매 처리 실패!','<strong> 다시시도해주세요 문제가 계속되면 관리자에게 연락주세요.</strong>',100);
+					commonModal('패키지 구매 처리 실패!','<strong> 다시 시도해주세요. 문제가 계속되면 관리자에게 연락주세요.</strong>',100);
 				}
 			});
 		}else{
