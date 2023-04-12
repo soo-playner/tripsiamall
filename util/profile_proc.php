@@ -11,7 +11,7 @@ function shift_hp($val){
 
 if(empty($_POST)){
 	//alert('Not Availabled. Please retry');
-	echo (json_encode(array("result" => "error",  "code" => "0001", "sql" => '다시시도해주세요 문제가 계속되면 관리자에게 연락주세요.')));
+	echo (json_encode(array("result" => "error",  "code" => "0001", "sql" => '다시 시도해주세요. 문제가 계속되면 관리자에게 연락주세요.')));
 	return false;
 }
 
