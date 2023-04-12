@@ -261,7 +261,7 @@ $result = sql_query($sql);
 		$("#create_dt_fr,#create_dt_to, #update_dt").datepicker({ changeMonth: true, changeYear: true, dateFormat: "yy-mm-dd", showButtonPanel: true, yearRange: "c-99:c+99", maxDate: "+0d" });
     });
 </script>
-<input type="button" class="btn_submit excel" id="btnExport"  data-name='zeta_deposit' value="엑셀 다운로드" />
+<input type="button" class="btn_submit excel" id="btnExport"  data-name='hwajo_deposit' value="엑셀 다운로드" />
 
 <div class="local_ov01 local_ov">
 	<a href="./adm.deposit_request.php?<?=$qstr?>" class="ov_listall"> 결과통계 <?=$total_count?> 건 = <strong><?=shift_auto($total_hap,$curencys[1])?></strong></a> 

@@ -4,7 +4,7 @@ $sub_menu = "600200";
 include_once('./_common.php');
 include_once('./bonus_inc.php');
 
-$debug = 1;
+// $debug = 1;
 
 auth_check($auth[$sub_menu], 'r');
 
@@ -86,10 +86,11 @@ for($i = 0; $i < $row = sql_fetch_array($member_for_paying_result); $i++){
     $mb_balance = $row['mb_balance'];
     $total_left_benefit = $mb_index - $mb_balance;
 
+    $clean_total_left_benefit = clean_number_format($total_left_benefit);
     $clean_number_mb_balance = clean_number_format($mb_balance);
     $clean_number_mb_index = clean_number_format($mb_index);
     
-    echo "<div><span class='title'>{$mb_id} ( 추천인수 : {$row['cnt']}명 [{$recommended_cnt}대] )</span> 현재총수당 : {$clean_number_mb_balance}, 수당한계점 : {$clean_number_mb_index} => 총 수용가능 수당 : {$total_left_benefit}</div><br>";
+    echo "<div><span class='title'>{$mb_id} ( 추천인수 : {$row['cnt']}명 [{$recommended_cnt}대] )</span> 현재총수당 : {$clean_number_mb_balance}, 수당한계점 : {$clean_number_mb_index} => 총 수용가능 수당 : {$clean_total_left_benefit}</div><br>";
 
     foreach($booster_member as $key => $value){
 
@@ -119,7 +120,7 @@ for($i = 0; $i < $row = sql_fetch_array($member_for_paying_result); $i++){
     $update_mb_balance_sql .= "when '{$mb_id}' then mb_balance + {$add_benefit} ";
     $update_where_sql .= "'{$mb_id}',";
 
-    $rec = "Booster bonus by step {$recommended_cnt} :: {$add_benefit} payment{$over_benefit_log}";
+    $rec = "Booster bonus by step {$recommended_cnt} :: {$add_benefit} usdt payment{$over_benefit_log}";
     $rec_adm = "{$rec} (expected : {$origin_benefit})";
 
     $log_values_sql .= "('{$code}','{$bonus_day}','{$mb_id}',{$row['mb_no']},{$add_benefit},{$row['mb_level']},{$row['grade']},

@@ -852,7 +852,7 @@ $auth_cnt = sql_num_rows($amt_auth_log);
       console.log(' 입금자 : ' + d_name + ' || 입금액 :' + d_price);
 
       if (d_name == '' || d_price == '') {
-        dialogModal('<p>입금 요청값 확인</p>', '<p>항목을 입력해주시고 다시시도해주세요.</p>', 'warning');
+        dialogModal('<p>입금 요청값 확인</p>', '<p>항목을 입력해주시고 다시 시도해주세요.</p>', 'warning');
         return false;
       }
       

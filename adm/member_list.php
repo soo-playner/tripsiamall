@@ -621,7 +621,7 @@ $stats_result = sql_fetch($stats_sql);
 		<?}else{?>
 			<a href="./member_list.php?range=all" >회원전체보기</a>
 		<?}?>
-		<a id="btnExport" data-name='zeta_member_info' class="excel" style="padding:10px 10px;">엑셀 다운로드</a>
+		<a id="btnExport" data-name='hwajo_member_info' class="excel" style="padding:10px 10px;">엑셀 다운로드</a>
 	</div>
 <?php } ?>
 

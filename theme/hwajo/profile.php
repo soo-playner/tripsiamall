@@ -416,7 +416,7 @@ $(function() {
 					}
 				},
 				error:function(e){
-					dialogModal('처리 실패!','<strong> 다시시도해주세요 문제가 계속되면 관리자에게 연락주세요.</strong>','failed',false);
+					dialogModal('처리 실패!','<strong> 다시 시도해주세요. 문제가 계속되면 관리자에게 연락주세요.</strong>','failed',false);
 				}
 			});
 
@@ -530,7 +530,7 @@ $(function() {
 				}
 			},
 			error:function(e){
-				dialogModal('처리 실패!','<strong> 다시시도해주세요 문제가 계속되면 관리자에게 연락주세요.</strong>','failed',false);
+				dialogModal('처리 실패!','<strong> 다시 시도해주세요. 문제가 계속되면 관리자에게 연락주세요.</strong>','failed',false);
 			}
 		});
 
@@ -632,7 +632,7 @@ $(function() {
 						}
 					},
 					error:function(e){
-						dialogModal('처리 실패!','<strong> 다시시도해주세요 문제가 계속되면 관리자에게 연락주세요.</strong>','failed',false);
+						dialogModal('처리 실패!','<strong> 다시 시도해주세요. 문제가 계속되면 관리자에게 연락주세요.</strong>','failed',false);
 					}
 				});
 
@@ -727,7 +727,7 @@ $(function() {
 						}
 					},
 					error:function(e){
-						dialogModal('처리 실패!','<strong> 다시시도해주세요 문제가 계속되면 관리자에게 연락주세요.</strong>','failed',false);
+						dialogModal('처리 실패!','<strong> 다시 시도해주세요. 문제가 계속되면 관리자에게 연락주세요.</strong>','failed',false);
 					}
 				});
 			});
@@ -808,7 +808,7 @@ $(function() {
 					}
 				},
 				error:function(e){
-					dialogModal('처리 실패!','<strong> 다시시도해주세요 문제가 계속되면 관리자에게 연락주세요.</strong>','failed');
+					dialogModal('처리 실패!','<strong> 다시 시도해주세요. 문제가 계속되면 관리자에게 연락주세요.</strong>','failed');
 				}
 			});
 		}); */
@@ -842,7 +842,7 @@ $(function() {
 						}
 					},
 					error:function(e){
-						dialogModal('처리 실패!','<strong> 다시시도해주세요 문제가 계속되면 관리자에게 연락주세요.</strong>','failed',false);
+						dialogModal('처리 실패!','<strong> 다시 시도해주세요. 문제가 계속되면 관리자에게 연락주세요.</strong>','failed',false);
 					}
 				});
 		});
@@ -869,13 +869,13 @@ $(function() {
 
 			<label>KYC신분증 첨부 </label>
 				<input type="file" accept="image/*" class='filebox' name="bf_file[1]"  >
-				<label for="bf_file[1]" class='kyc_label' style="font-size:11px;margin:3px;font-weight:300;">신분확인 가능한 주민등록증, 운전면허증 사진을 첨부해주세요.</label>
+				<label for="bf_file[1]" class='kyc_label' style="font-size:11px;margin:3px;">신분확인 가능한 주민등록증, 운전면허증 사진을 첨부해주세요.</label>
 
 			<hr class="hr_dash">
 
 			<label class="mt20">출금지갑주소 첨부 </label>
 			<input type="file"  accept="image/*" class='filebox' name="bf_file[2]">
-			<label for="bf_file[2]" class='kyc_label' style="font-size:11px;margin:5px;font-weight:300;">출금 지갑주소가 확인되는 캡쳐이미지,사진을 첨부해주세요.</label>
+			<label for="bf_file[2]" class='kyc_label' style="font-size:11px;margin:3px;">출금 지갑주소가 확인되는 캡쳐이미지,사진을 첨부해주세요.</label>
 
 			<!-- <div class="radio_set">
 				<input type="radio" id="wallet_type1" name="wallet_type" value="0"/><label for="wallet_type1">국내거래소 지갑</lable>
