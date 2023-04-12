@@ -17,7 +17,7 @@ $shop_item_cnt = count($shop_item);
             $where  = "AND promote != 1 ";
         }
 
-        for($i = 1; $i < $shop_item_cnt; $i++ ){
+        for($i = 1; $i <= $shop_item_cnt; $i++ ){
             $target = "package_".strtolower($item_default).$i;
             $sql_r = "SELECT count(*) as cnt from {$target} WHERE mb_id = '{$mb_id}' ".$where;
             $result = sql_fetch($sql_r)['cnt'];
