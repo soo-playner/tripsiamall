@@ -57,7 +57,6 @@ if($debug){echo "<code>{$member_for_paying_sql}</code>";}
 $member_for_paying_result = sql_query($member_for_paying_sql);
 
 $mem_list = array();
-$reader_and_member_list = array();
 
 $start_member_update_sql = "update g5_member set ";
 $update_mb_balance_sql = "";
@@ -127,9 +126,9 @@ for($i = 0; $i < $row = sql_fetch_array($member_for_paying_result); $i++){
     '{$row['mb_name']}','{$rec}','{$rec_adm}',{$mb_balance},{$row['mb_deposit_point']},now()),";
 }
     $update_mb_balance_sql .= " else mb_balance end ";
-    $update_where_sql[-1] = ")";
 
-    $log_values_sql[-1] = " ";
+    $update_where_sql = substr($update_where_sql,0,-1).")";
+    $log_values_sql = substr($log_values_sql,0,-1);
 
     $update_sql = $start_member_update_sql.$update_mb_balance_sql.$update_where_sql;
     $log_sql = $log_start_sql.$log_values_sql;

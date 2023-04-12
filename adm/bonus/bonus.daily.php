@@ -130,8 +130,9 @@ if(!$get_today){
 	$log_sql ="";
 
 	if($member_where_sql != "" && $log_values_sql != ""){
-		$member_where_sql[-1] = ")";
-		$log_values_sql[-1] = " ";
+		$member_where_sql = substr($member_where_sql,0,-1).")";
+		$log_values_sql = substr($log_values_sql,0,-1);
+
 		$member_sql = $member_start_sql.$member_balance_column_sql.$member_my_sales_cloumn_sql.$member_where_sql;
 		$log_sql = $log_start_sql.$log_values_sql;
 	}
