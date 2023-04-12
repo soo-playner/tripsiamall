@@ -77,7 +77,6 @@ if(!$get_today){
 		$clean_number_mb_balance = clean_number_format($mb_balance);
 		$clean_number_mb_index = clean_number_format($mb_index);
 		
-
 		$total_paid_list[$order_list_row['mb_id']]['total_benefit'] += $benefit;
 		$total_paid_list[$order_list_row['mb_id']]['real_benefit'] += $benefit;
 
@@ -102,10 +101,11 @@ if(!$get_today){
 		}
 
 		$clean_number_benefit = clean_number_format($benefit);
-		$rec = "Daily bonus {$order_list_row['pv']}% : {$clean_number_benefit} payment{$over_benefit_log}";
+		$rec = "Daily bonus {$order_list_row['pv']}% : {$clean_number_benefit} usdt payment{$over_benefit_log}";
 		$benefit_log = "{$clean_number_goods_price}(상품가격) * ( ({$order_list_row['pv']}(상품보너스) * 0.01 ) * {$daily_bonus_rate}(매일지급보너스) ){$over_benefit_log}";
-
+		
 		$total_paid_list[$order_list_row['mb_id']]['log'] .= "<br><span>{$benefit_log} = </span><span class='blue'>{$clean_number_benefit}</span>";
+		$total_paid_list[$order_list_row['mb_id']]['sub_log'] = "<span>현재총수당 : {$clean_number_mb_balance}, 수당한계점 : {$clean_number_mb_index} </span>";
 	
 		$log_values_sql .= "('{$code}','{$bonus_day}','{$order_list_row['mb_id']}',{$order_list_row['mb_no']},{$benefit},{$order_list_row['mb_level']},{$order_list_row['grade']},
 							'{$order_list_row['mb_name']}','{$rec}','{$benefit_log}={$clean_number_benefit}',{$mb_balance},{$order_list_row['mb_deposit_point']},now()),";
@@ -120,7 +120,7 @@ if(!$get_today){
 		$member_my_sales_cloumn_sql .= "when '{$key}' then {$value['real_benefit']} ";
 		
 		$member_where_sql .= "'{$key}',";
-		echo "<span class='title'>{$key}</span><span>현재총수당 : {$clean_number_mb_balance}, 수당한계점 : {$clean_number_mb_index} </span><br>{$value['log']}<div style='color:orange;'>당일 예정 수당 : {$value['total_benefit']}</div><div style='color:red;'>▶ 당일 실제 수당 : {$value['real_benefit']}</div><br><br>";
+		echo "<span class='title'>{$key}</span>{$value['sub_log']}<br>{$value['log']}<div style='color:orange;'>예정 수당 : {$value['total_benefit']}</div><div style='color:red;'>▶ 실제 수당 : {$value['real_benefit']}</div><br><br>";
 	}
 	
 	$member_balance_column_sql .= "else mb_balance end ";

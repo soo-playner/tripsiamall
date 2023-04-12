@@ -150,7 +150,7 @@ include_once(G5_PLUGIN_PATH.'/jquery-ui/datepicker.php');
 <div class="local_desc01 local_desc">
     <p>
 		공통 : 보너스기준일자로 각 보너스지급버튼 클릭<br>
-		<strong>직급승급 : </strong>① 마이닝 수당 전체 지급후 마지막에 승급 실행(데이터 기록)<br>
+		<!-- <strong>직급승급 : </strong>① 마이닝 수당 전체 지급후 마지막에 승급 실행(데이터 기록)<br> -->
 		<!-- <span style='margin-left:155px;'></span>② 21일~ 말일 실행시 - 이번달 2분기(15~말일) 매출로 정산<br>
 		<span style='margin-left:155px;'></span>③  1일 ~ 13일 실행시 - 지난달 2분기(15~말일) 매출로 정산
  -->
@@ -289,7 +289,7 @@ include_once(G5_PLUGIN_PATH.'/jquery-ui/datepicker.php');
 
 		<td width='80' style='text-align:center'><?=get_text($row['allowance_name']); ?></td>
 		<td width="100" class='bonus'><?=Number_format($soodang,BONUS_NUMBER_POINT) ?></td>
-		<td width="30" class='bonus'><?=$row['currency']?></td>
+		<td width="30" class='bonus'><?=$curencys[1]?></td>
 		
 
 		<td width="300"><?= $row['rec']."<br> <span class='adm'> [".$row['rec_adm']."]</span>" ?></td>
