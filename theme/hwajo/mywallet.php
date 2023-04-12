@@ -24,7 +24,7 @@ $deposit_day_limit = $deposit_setting['day_limit'];
 // 출금설정
 $withdrwal_setting = wallet_config('withdrawal');
 $withdrwal_fee = $withdrwal_setting['fee'];
-$withdrwal_min_limit = $withdrwal_setting['amt_minimum']/$coin['usdt_eth'];
+$withdrwal_min_limit = $withdrwal_setting['amt_minimum'];
 $withdrwal_max_limit = $withdrwal_setting['amt_maximum'];
 $withdrwal_day_limit = $withdrwal_setting['day_limit'];
 $withdrawal_price = $withdrwal_setting['withdraw_price'];
@@ -431,7 +431,7 @@ $auth_cnt = sql_num_rows($amt_auth_log);
     } */
   
     /* 출금*/
-    var curency_tmp = '<?= $curencys[3] ?>';
+    var curency_tmp = '<?= $curencys[0] ?>';
     var usdt_curency = '<?=$curencys[1]?>';
     var eth_curency = '<?= $curencys[0] ?>';
     var erc20_curency = '<?=$curencys[3]?>';
