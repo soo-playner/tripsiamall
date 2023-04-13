@@ -36,7 +36,7 @@ if($_POST['nw_member_reset'] == 'on'){
     
     $trunc15 = sql_query(" TRUNCATE TABLE `rank` ");
 
-    $sql_member_reset2 = " UPDATE g5_member set  mb_deposit_point = 0,grade = 0, mb_level = 0, mb_deposit_calc=0, mb_balance = 0,mb_save_point=0, mb_rate=0,mb_brecommend='',mb_brecommend_type='',mb_lr = 3,mb_4='',mb_5='',mb_6='',mb_7='',mb_8='',mb_9='' WHERE mb_level < 9 ";
+    $sql_member_reset2 = " UPDATE g5_member set  mb_deposit_point = 0,grade = 0, mb_level = 0, mb_deposit_calc=0, mb_balance = 0,mb_save_point=0,mb_shift_amt=0, mb_rate=0,mb_brecommend='',mb_brecommend_type='',mb_lr = 3,mb_4='',mb_5='',mb_6='',mb_7='',mb_8='',mb_9='' WHERE mb_level < 9 ";
     sql_query($sql_member_reset2);
 
     if($sql_member_reset2){
@@ -61,8 +61,8 @@ if($_POST['nw_order_reset'] == 'on'){
     }
     $trunc15 = sql_query(" TRUNCATE TABLE `rank` ");
 
-    $order_reset_sql = " UPDATE g5_member set  sales_day='0000-00-00', rank_note='',recom_sales=0  WHERE mb_level < 9 ";
-    sql_query($order_reset);
+    $order_reset_sql = " UPDATE g5_member set  sales_day='0000-00-00', rank_note='', rank=0, recom_sales=0, mb_index=0  WHERE mb_level < 9 ";
+    sql_query($order_reset_sql);
 
     if($order_reset_sql){
         $result = 1;
@@ -120,9 +120,10 @@ if($_POST['nw_data_test'] == 'on'){
 
     for($i=5; $i <= 30 ; $i++){
         $orderid = date("YmdHis",time()).mt_rand(0000,9999);
-        $member_id = 'test'.($i+20);
+        $member_id = 'test'.($i);
         $logic = purchase_package($member_id,2023040403,1);
-        $insert_order_sql_arry .= " ({$orderid}, '{$member_id}', 0, 1000, 1000, 1000, 'P3', 2023040403, 1000, '{$today}', '{$todate}', 'usdt', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '{$today}', 0, 0, NULL, NULL, '패키지구매', '0000-00-00', 0, 0, '', '', 0, '', 0, 0, 0, 0, '0', '', '0000-00-00 00:00:00', NULL, NULL, '', ''),";
+        $insert_order_sql_arry .= " ({$orderid}, '{$member_id}', 0, 1000, 1000, 1000, 'P3', 2023040403, 6, '{$today}', '{$todate}', 'usdt', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '{$today}', 0, 0, NULL, NULL, '패키지구매', '0000-00-00', 0, 0, '', '', 0, '', 0, 0, 0, 0, '0', '', '0000-00-00 00:00:00', NULL, NULL, '', ''),";
+        sql_query("update g5_member set mb_index = 3000 where mb_id = '{$member_id}'");
     }
 
     $result_insert_sql = substr($insert_order_sql.$insert_order_sql_arry, 0, -1);

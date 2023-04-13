@@ -40,7 +40,7 @@
             </div>
         </div>
 
-
+<!-- 
         <div style="clear:both;"></div>
         <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
         <div class='r_card_wrap content-box round mb30 mt30'>      
@@ -78,7 +78,7 @@
                 });
             });
         </script>
-        <script src="<?=G5_THEME_URL?>/_common/js/chart/apexchart.js"></script>
+        <script src="<?=G5_THEME_URL?>/_common/js/chart/apexchart.js"></script> -->
 
         <div class='r_card_wrap content-box round mt30'>
             <?$ordered_items = ordered_items($member['mb_id']);?>

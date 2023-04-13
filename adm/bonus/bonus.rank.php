@@ -2,7 +2,7 @@
 
 $sub_menu = "600200";
 include_once('./_common.php');
-// $debug = 1;
+$debug = 1;
 include_once('./bonus_inc.php');
 include_once(G5_PATH . '/util/recommend.php');
 
@@ -93,11 +93,15 @@ function grade_name($val)
     return $grade_name;
 }
 
-function limit_conditions($val)
+function limit_conditions($val,$kind='val')
 {
     if (preg_match("/^\{(.+)\}/", $val, $matches)) {
         $temp = explode(':', $matches[1]);
-        $result = $temp[0] . '그룹|' . $temp[1] . 'star 이상';
+        if($kind == 'text'){
+            $result = $temp[0] . '그룹|' . $temp[1] . 'star 이상';
+        }else{
+            $result = [$temp[0],$temp[1]];
+        }
     } else {
         $result = $val . '명 이상';
     }
@@ -174,7 +178,7 @@ for ($i = 0; $i < $grade_cnt; $i++) {
     echo "<br>" . grade_name($i + 1);
     echo  " -  [ 승급기준]  본인구매기준" . ": P" . Number_format($lvlimit_sales_level[$i]) . " 이상 ";
     echo  "/ 추천라인 산하매출" . Number_format($lvlimit_recom[$i] * $lvlimit_recom_val) . " 이상 ";
-    echo  "/ 직추천 : " . limit_conditions($lvlimit_cnt[$i]) . '<br>';
+    echo  "/ 직추천 : " . limit_conditions($lvlimit_cnt[$i],'text') . '<br>';
 }
 echo "</code><br><br><br>";
 
@@ -271,7 +275,13 @@ echo "<div class='btn' onclick='bonus_url();'>돌아가기</div>";
 
                 echo "<br><br><span class='title block'>" .grade_name($i) ."(" . $member_count . ")</span><br>";
                 echo  " -  [ 승급기준 ] 보유구매등급 : P" . ($lvlimit_sales_level[$i]) . " 이상 | 추천산하매출 : " . Number_format($lvlimit_recom[$i] * $lvlimit_recom_val) . " 이상 ";
-                echo  " | 직추천 : " . limit_conditions($lvlimit_cnt[$i]) . '<br>';
+                if($i == 0){
+                    echo  " | 직추천 : "; 
+                }else{
+                    echo " | 라인조건 : ";
+                }
+                
+                echo limit_conditions($lvlimit_cnt[$i],'text') . '<br>';
 
                 // 1STAR 예외
                 /* $lvlimit_recom_pv = 0;
@@ -374,9 +384,17 @@ echo "<div class='btn' onclick='bonus_url();'>돌아가기</div>";
                             // 하부 직급 확인
                             $cherry_pick_array = array_index_cherry_pick_diff($mem_result, array('grade', 'line'), 0);
                             $mem_cnt = $cherry_pick_array[1];
+                            $limit_array = limit_conditions($lvlimit_cnt[$i]);
+
+                            echo "<br>추천하부 ".$limit_array[1]."스타 이상 그룹수: <span class='blue'>" . $mem_cnt . "</span>";
                             
-                            echo "<br>추천하부 ".$i."스타 이상 그룹수: <span class='blue'>" . $mem_cnt . "</span>";
-                            if ($mem_cnt >= $lvlimit_cnt[$i]) {
+                            if($debug){
+                                echo "<code>";
+                                print_R($cherry_pick_array[0]);
+                                echo "</code>";
+                            }
+
+                            if ($mem_cnt >= $limit_array[0]) {
                                 $rank_cnt += 1;
                                 $rank_option3 = 1;
                                 echo "<span class='red'> == OK </span>";

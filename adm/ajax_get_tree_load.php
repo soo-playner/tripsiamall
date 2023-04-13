@@ -81,15 +81,16 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
 	}
 
 	$name_line =  "<p class='mb'><span class='user_icon lv".trim($row['mb_level'])."'>".$user_icon."</span>";
-	$name_line .= "<span class='badge grade grade_{$row['grade']}'>". $row['grade'] ." s</span>";
+	$name_line .= "<span class='badge grade grade_{$row['grade']}'><i class='ri-star-fill' style='font-size:12px;vertical-align:text-bottom'></i> ". $row['grade'] ."</span>";
 	$name_line .= "<span class='user_id' data-id='{$row['c_id']}'>". $row['c_id'] ."</span>";
 	$name_line .= "<span class='user_name'>". $row['c_name'] ."</span>";
 	if($row['mb_nick'] != ''){
 		$name_line .= "<span class='user_nick'>[ ". $row['mb_nick'] ." ]</span>";
 	}
-	$name_line .= " | <span class='mb_pv'> MH : ".Number_format($row['mb_rate'])."</span>";
-	$name_line .= " | <span class='mb_rate'> PV : ".Number_format($row['mb_pv']/10000)."</span>";
-	$name_line .= " | <span class='mb_acc'> ACC : ".Number_format($row['recom_sales']/10000)."</span>";
+	$name_line .= " | <span class='mb_pv'> D : ".Number_format($row['mb_habu_sum'])."</span>";
+	// $name_line .= " | <span class='mb_pv'> MH : ".Number_format($row['mb_rate'])."</span>";
+	$name_line .= " | <span class='mb_rate'> PV : ".Number_format($row['mb_pv'])."</span>";
+	$name_line .= " | <span class='mb_acc'> ACC : ".Number_format($row['recom_sales'])."</span>";
 	$name_line .= "</p>";
 
 	$data .= '{ id:"'.$row['c_class'].'", pId:"'.$parent_id.'", name:"'.$name_line.'", open:true, click:false},';

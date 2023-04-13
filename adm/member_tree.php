@@ -191,9 +191,10 @@ else
 </style>
 <div class="local_desc01 local_desc">
 	<p>
-		- <span class='f_green'>MH : </span>보유 마이닝해쉬 (<?=strtoupper($minings[$now_mining_coin])?>)&nbsp&nbsp
-        - <span class='f_blue'>PV : </span> 매출금액(PV), 단위 : 만원&nbsp&nbsp
-		- <span class='f_pink'>ACC : </span> 승급대상포인트 (추천 하부 3대 매출), 단위 : 만원&nbsp&nbsp
+		<!-- - <span class='f_green'>MH : </span>보유 마이닝해쉬 (<?=strtoupper($minings[$now_mining_coin])?>)&nbsp&nbsp -->
+		- <span class='f_green' style='font-weight:600'>D : </span> 직추천인 &nbsp&nbsp
+        - <span class='f_blue'>PV : </span> 매출금액(PV), 단위 : USDT &nbsp&nbsp
+		- <span class='f_pink'>ACC : </span> 승급대상포인트 (하부 매출), 단위 : USDT &nbsp&nbsp
 		<br> - 조직도 트리 - 아이디클릭시 바로가기 | 리스트(아이디제외부분) 더블클릭시 접어두기
 	</p>
 </div>
@@ -479,14 +480,14 @@ $max_depth = ($my_depth+($max_org_num*2));
 
 			
 			$name_line =  "<p class='mb'><span class='user_icon lv".trim($row['mb_level'])."'>".$user_icon."</span>";
-			$name_line .= "<span class='badge grade grade_{$row['grade']}'>". $row['grade'] ." s</span>";
+			$name_line .= "<span class='badge grade grade_{$row['grade']}'><i class='ri-star-fill' style='font-size:12px;vertical-align:text-bottom'></i> ". $row['grade'] ." </span>";
 			$name_line .= "<span class='user_id' data-id='{$row['c_id']}'>". $row['c_id'] ."</span>";
 			$name_line .= "<span class='user_name'>". $row['c_name'] ."</span>";
 			if($row['mb_nick'] != ''){
 				$name_line .= "<span class='user_nick'>[ ". $row['mb_nick'] ." ]</span>";
 			}
-			$name_line .= " | <span class='mb_recommand'> D : ".Number_format($row['mb_habu_sum'])."</span>";
-			$name_line .= " | <span class='mb_pv'> MH : ".Number_format($row['mb_rate'])."</span>";
+			$name_line .= " | <span class='mb_pv'> D : ".Number_format($row['mb_habu_sum'])."</span>";
+			// $name_line .= " | <span class='mb_pv'> MH : ".Number_format($row['mb_rate'])."</span>";
 			$name_line .= " | <span class='mb_rate'> PV : ".Number_format($row['mb_pv'])."</span>";
 			$name_line .= " | <span class='mb_acc'> ACC : ".Number_format($row['recom_sales'])."</span>";
 			$name_line .= "</p>";

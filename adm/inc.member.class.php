@@ -2,7 +2,7 @@
 
 
 
-$pv_unit = 10000;
+$pv_unit = 1;
 function pv($value){
 	global $pv_unit;
 	return number_format($value/$pv_unit);

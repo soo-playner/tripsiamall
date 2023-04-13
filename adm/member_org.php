@@ -125,11 +125,11 @@ else
 
 <div class="local_desc01 local_desc">
     <p>
-		- <span class='f_green'>MH : </span>보유 마이닝해쉬 (<?=strtoupper($minings[$now_mining_coin])?>)&nbsp&nbsp
-        - <span class='f_blue'>PV : </span> 매출금액(PV), 단위 : 만원&nbsp&nbsp
-		- <span class='f_pink'>ACC : </span> 승급대상포인트 (추천 하부 3대 매출), 단위 : 만원&nbsp&nbsp
-		- <span style='color:red'>LR </span> 추천/후원 하부 10대 매출&nbsp&nbsp
-		- <span class='f_green'>LR# </span> 추천/후원 하부 10대 해쉬 &nbsp&nbsp
+		<!-- - <span class='f_green'>MH : </span>보유 마이닝해쉬 (<?=strtoupper($minings[$now_mining_coin])?>)&nbsp&nbsp -->
+        - <span class='f_blue'>PV : </span> 매출금액(PV), 단위 : USDT &nbsp&nbsp
+		- <span class='f_pink'>ACC : </span> 승급 대상포인트 (추천 하부 매출), 단위 : USDT &nbsp&nbsp
+		- <span style='color:red'>LR </span> 추천/후원 하부 매출&nbsp&nbsp
+		<!-- - <span class='f_green'>LR# </span> 추천/후원 하부 해쉬 &nbsp&nbsp -->
 	</p>
 </div>
 
@@ -227,7 +227,7 @@ if (!$to_date) $to_date = Date("Y-m-d", time());
   <link rel="stylesheet" href="css/font-awesome.min.css">
   <link rel="stylesheet" href="jquery.orgchart.css">
   <link href="<?=G5_ADMIN_URL?>/css/scss/member_org.css" rel="stylesheet">
-  <script type="text/javascript" src="jquery.orgchart2.js"></script>
+  <script type="text/javascript" src="jquery.orgchart3.js"></script>
   <script type="text/javascript" src="js/bluebird.min.js"></script>
   <script type="text/javascript" src="js/html2canvas.min.js"></script>
   <script type="text/javascript" src="js/jspdf.min.js"></script>
@@ -274,7 +274,7 @@ if (!$to_date) $to_date = Date("Y-m-d", time());
 		background:#fff;
 		border:2px solid rgb(95, 95, 95);
 		color:#000;
-		height:195px;
+		height:175px;
 		font-weight:normal;
 		line-height:15px;
 		padding-top:5px;
@@ -303,6 +303,11 @@ if (!$to_date) $to_date = Date("Y-m-d", time());
 		line-height:30px;
 		font-family: Arial, Helvetica, sans-serif;
 	}
+
+	.orgchart .node .mb .user_name{
+		color:#555;font-size:12px;
+	}
+
 	.zoom-btn {
 	display: inline-block;
 	padding: 6px 12px;
@@ -370,7 +375,7 @@ if (!$to_date) $to_date = Date("Y-m-d", time());
 		position: absolute;
 		bottom: 6px;
 		width:136px;
-		height:30px;
+		height:20px;
 		display: inline-block;
 		left:0;
 		padding:0 5px;
@@ -517,6 +522,7 @@ $sql = "SELECT c.c_id,c.c_class,(
 	SELECT mb_no
 	FROM g5_member
 	WHERE mb_id=c.c_id) AS m_no
+	
 	,(select mb_rate FROM g5_member WHERE mb_id=c.c_id) AS mb_rate
 	,(select recom_sales FROM g5_member WHERE mb_id=c.c_id) AS recom_sales
 	,(select mb_save_point FROM g5_member WHERE mb_id=c.c_id) AS mb_save_point

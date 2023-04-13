@@ -180,8 +180,8 @@
       var $chart = $(e.delegateTarget);
       if ($(e.target).closest('.node').length || (e.touches && e.touches.length > 1)) {
 //        $chart.data('panning', false);
-//        return;
         $chart.css('cursor', 'move').data('panning', true);
+//		return;
       } else {
         $chart.css('cursor', 'move').data('panning', true);
       }
@@ -1043,15 +1043,13 @@
       } else {
 		 var temp = nodeData[opts.nodeTitle].split("|");
 		 if (temp[0]=="NO"){
-	        $nodeDiv.append('<div class="title" onclick="set_member(\''+temp[1]+'\',\''+temp[2]+'\')"><div style="padding-top:40px">바이너리레그<br><br>셋팅</div></div>')
+	        $nodeDiv.append('<div class="title" onclick="set_member(\''+temp[1]+'\',\''+temp[2]+'\')"><div style="padding-top:40px">Place<br><br>New<br><br>member</div></div>')
           .append(typeof opts.nodeContent !== 'undefined' ? '<div class="content">' + (nodeData[opts.nodeContent] || '') + '</div>' : '');
 		 }else{
-       // onclick="go_member(\''+temp[2]+'\')">
-        var html = '<div class="title"><div align=right style="display:none;padding:0px 2px 0px 0px;text-align:center;"><img src="/img/go.png" onclick="go_member(\''+temp[2]+'\')"></div>';
-        // +'<div><img src="/img/pool/'+temp[8]+'.gif" width=12 align=absmiddle></div>'
-        // + temp[9] + temp[10]
+
+        var html = '<div class="title"><div align=right style="padding:0px 2px 5px 5px;border-bottom:1px solid #111;text-align:left;"><img src="/img/go.png" onclick="go_member(\''+temp[2]+'\')"><img src="/img/edit.png" style="float:right" onclick="edit_member(\''+temp[2]+'\')"></div>';
         html += '<div style="display:none;clear:both;height:20px;text-align:center;letter-spacing: -4px;">';
-       
+        
         if(temp[9] > 0){
           html += '<img src="/img/P1.png" > ';
         }
@@ -1067,19 +1065,37 @@
         if(temp[13] > 0){
           html += '<img src="/img/P5.png" > ';
         }
-        
         html += '</div>';
-        html +='<div class="mb">' 
-        +'<img src="/img/'+temp[6]+'.png" align=absmiddle> '
-        + '<span class="orange nm"><strong>' + temp[2] + '</strong></span></div>' ;
 
-        html += '<div class="dec"><strong>Distance: ' + temp[14] + '</strong></div>';
-        html += '<div class="dec"><strong>Sponsored: ' + temp[15] + '</strong></div>';
-        html += '<div class="dec"><strong>Members: ' + temp[16] + '</strong></div>';
+        // html += "<div class='lv_icon'><span class='user_icon lv"+trim(temp[6])+"'><i class='ri-vip-crown-line'></i></span></div>";
+        html +='<p class="mb" >'
+        +"<span class='user_icon lv"+trim(temp[6])+"'><i class='ri-vip-crown-line'></i></span>"
+        // +'<img style="width:20px;" src="/img/'+temp[6]+'.png" align=absmiddle> '
+        + temp[2] + '</p>' ;
+
+        var badge_color = 'grade_'+temp[12];
+        html += "<div class='dec' style='margin-bottom:5px;'>등급: <span class='badge "+badge_color+"' style='font-size:11px;'>"+temp[12]+"S</span></div>";
+        html += '<div class="dec">스폰서(직추천): <strong>' + temp[15] + '명</strong></div>';
+
         if(temp[17] == 'B'){
-          html += '<div class="dec p"><strong>P-L:</strong> <span class="orange">' + temp[7] + '</span></div>';
-          html += '<div class="dec"><strong>P-R:</strong> <span class="orange">' + temp[8] + '</span></div>';
+          html += '<div class="dec">후원산하: <strong>' + temp[16] + '명</strong></div>';
+        }else{
+          html += '<div class="dec">추천산하: <strong>' + temp[10] + '명</strong></div>';
         }
+
+        // html += '<div class="dec mt5"><span class=f_green> MH: ' + temp[13] + '</span></div>';
+        html += '<div class="dec"><span class=f_blue><strong> PV: ' + temp[11] + '</strong></span></div>';
+        html += '<div class="dec"><span class=f_pink><strong> ACC: ' + temp[9] + '</strong></span></div>';
+
+        /* if(temp[18] == 'B'){
+          html += '<div class="box_foot">'
+          html += '<div class="dec p_left"><span class="red">' + temp[7] + '</span><br><span class="hash">#'+temp[4]+'</span></div>';
+          html += '<div class="dec p_right"><span class="red">' + temp[8] + '</span><br><span class="hash">#'+temp[5]+'</span></div>';
+          html += '</div>';
+        }else{
+          html += '<div class="box_foot"><div class="dec p_full"><span class="red">' + temp[14] + '</span></div>';
+          html += '<div class="box_foot"><div class="dec p_full"><span class="red">' + temp[14] + '</span><br><span class="hash f_green">#'+temp[17]+'</span></div>';
+        } */
         $nodeDiv.append(html).append(typeof opts.nodeContent !== 'undefined' ? '<div class="content">' + (nodeData[opts.nodeContent] || '') + '</div>' : '');
 		 }
       }

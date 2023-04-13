@@ -30,9 +30,9 @@ $list = sql_query("SELECT * from app_msg");
     <?php echo $listall ?>
     <p class='guide'>
         <!-- -이모지 : 📊 📈 📉 🎁 <br> -->
-        <span class='small strong'>딥링크 : 안드로이드폰에서 링크 클릭시 앱설치화면으로 이동 / 이미앱설치된경우 해당 앱 바로가기 </span><br>
+        <span class='small strong'>딥링크 : 안드로이드폰에서 링크 클릭시 앱설치화면으로 이동 / 이미앱설치된경우 해당 앱 바로가기 </span><br><!-- 
         - 회원가입 딥링크 : <a href="https://zetabyte.page.link/enroll">https://zetabyte.page.link/enroll</a><br>
-        - 마이풀 딥링크 : <a href="https://zetabyte.page.link/mypool">https://zetabyte.page.link/mypool</a> (로그인 세션 살아있는경우만 페이지까지 도달)
+        - 마이풀 딥링크 : <a href="https://zetabyte.page.link/mypool">https://zetabyte.page.link/mypool</a> (로그인 세션 살아있는경우만 페이지까지 도달) -->
 	</p>
     <button type='button' class='btn pollding_btn'>접어두기</button>
 </div>
