@@ -163,7 +163,6 @@ $(function() {
 	</div>
 </div> -->
 
-
 <!-- support -->
 <div class="pop_wrap notice_img_pop support_ok_pop">
 	<p class="pop_title">티켓 전송</p>
