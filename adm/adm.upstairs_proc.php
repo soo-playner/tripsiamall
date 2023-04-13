@@ -25,7 +25,7 @@ $pack_maker = $_POST['select_maker'];
 $it_supply_point = $_POST['it_supply_point'];
 
 $val = substr($pack_maker,1,1);
-$coin_val = '원';
+$coin_val = $curencys[1];
 
 if($debug){
 	$mb_id = 'test1';
