@@ -166,7 +166,7 @@
 					</ul>
 					<?php } ?> -->
 				</div>
-				<div class='col-sm-12 col-12 profile-box'>
+				<div class='col-sm-12 col-12 profile-box security'>
 					<h3 class='title b_line'>
 						<i class="p2"><img src="<?=G5_THEME_URL?>/img/security_setting.png" alt=""></i>
 						<span >보안설정</span>
@@ -317,16 +317,17 @@
 
 		<div class="pop_wrap chage_tpw_pop1 input_pop_css">
 			<form action="">
-				<label for="" >사용중인 출금 비밀번호</label>
-				<input type="password" id="current_tpw" maxlength="6">
-				<hr class="hr_dash">
-
-				<label for="" >새로운 출금 비밀번호</label>
-				<input type="password" id="new_tpw" maxlength="6">
-				<label for="" >새로운 출금 비밀번호 확인</label>
-				<input type="password" id="new_tpw_re" maxlength="6">
-				<label for="" >로그인 비밀번호</label>
-				<input type="password" id="auth_pwd" minlength='4' maxlength="20">
+				<div class="reset_input_box">
+					<label for="" >사용중인 출금 비밀번호</label>
+					<input type="password" id="current_tpw" maxlength="6">
+					<hr class="hr_dash">
+					<label for="" >새로운 출금 비밀번호</label>
+					<input type="password" id="new_tpw" maxlength="6">
+					<label for="" >새로운 출금 비밀번호 확인</label>
+					<input type="password" id="new_tpw_re" maxlength="6">
+					<label for="" >로그인 비밀번호</label>
+					<input type="password" id="auth_pwd" minlength='4' maxlength="20">
+				</div>
 				<!--
 				<div>
 					<label for="" >보안코드 입력</label>
@@ -344,19 +345,19 @@
 
 		<div class="pop_wrap chage_tpw_pop2 notice_img_pop">
 			<p class="pop_title" >인증번호 전송</p>
-			<img src="<?=G5_THEME_URL?>/_images/comform_chk.gif" alt="체크">
+			<img src="<?=G5_URL?>/img/check_basics.png" alt="체크 이미지">
 			<div >인증번호가 이메일로 전송되었습니다</div>
-			<a href="javascript:void(0);" class="back_tpw1 gray_close f_right" >창닫기</a>
+			<a href="javascript:void(0);" class="back_tpw1 gray_close f_right" >닫기</a>
 		</div>
 
 		<div class="pop_wrap chage_tpw_pop3 notice_img_pop">
 			<p class="pop_title" >거래 비밀번호 변경</p>
 			<div>
-				<img src="<?=G5_THEME_URL?>/_images/comform_chk.gif" alt="이미지">
-				<p >변경이 성공적으로 완료되었습니다</p>
+				<img src="<?=G5_URL?>/img/check_basics.png" alt="체크 이미지">
+				<p >변경이 성공적으로 완료되었습니다.</p>
 			</div>
 			<div class="pop_close_wrap">
-				<a href="javascript:void(0);" id="pin_close"  class="pop_close">창닫기</a>
+				<a href="javascript:void(0);" id="pin_close" class="btn wd inline pop_close">닫기</a>
 			</div>
 		</div>
 <script>
@@ -381,12 +382,12 @@ $(function() {
 
 
 		if(new_tpw.length < 6){
-			dialogModal('입력확인','<strong> 출금비밀번호(핀코드)는 6자리 숫자입니다.</strong>','failed');
+			dialogModal('입력확인','<strong> 출금비밀번호(핀코드)는 6자리 숫자입니다.</strong>','failed',false);
 			return false;
 		}
 
 		if(new_tpw != new_tpw_re){
-			dialogModal('입력확인','<strong> 입력한 출금비밀번호(핀코드)가 일치하지 않습니다.</strong>','failed');
+			dialogModal('입력확인','<strong> 입력한 출금비밀번호(핀코드)가 일치하지 않습니다.</strong>','failed',false);
 			return false;
 		}
 
@@ -411,11 +412,11 @@ $(function() {
 							window.location.reload();
 						})
 					}else{
-						dialogModal('처리에러!','<strong> '+ data.sql+'</strong>','failed');
+						dialogModal('처리에러!','<strong> '+ data.sql+'</strong>','failed',false);
 					}
 				},
 				error:function(e){
-					dialogModal('처리 실패!','<strong> 다시시도해주세요 문제가 계속되면 관리자에게 연락주세요.</strong>','failed');
+					dialogModal('처리 실패!','<strong> 다시 시도해주세요. 문제가 계속되면 관리자에게 연락주세요.</strong>','failed',false);
 				}
 			});
 
@@ -441,13 +442,15 @@ $(function() {
 
 	<div class="pop_wrap chage_pw_pop1 input_pop_css">
 		<form action="">
-			<label for="" >사용중인 비밀번호</label>
-			<input type="password" id="current_pw" minlength='4' maxlength="20">
-			<hr class="hr_dash">
-			<label for="" >새로운 비밀번호</label>
-			<input type="password" id="new_pw" minlength='4' maxlength="20">
-			<label for="" >새로운 비밀번호 확인</label>
-			<input type="password" id="new_pw_re" minlength='4' maxlength="20">
+			<div class="reset_input_box">
+				<label for="" >사용중인 비밀번호</label>
+				<input type="password" id="current_pw" minlength='4' maxlength="20">
+				<hr class="hr_dash">
+				<label for="" >새로운 비밀번호</label>
+				<input type="password" id="new_pw" minlength='4' maxlength="20">
+				<label for="" >새로운 비밀번호 확인</label>
+				<input type="password" id="new_pw_re" minlength='4' maxlength="20">
+			</div>
 			<!--
 			<div>
 				<label for="" >보안코드 입력</label>
@@ -466,11 +469,11 @@ $(function() {
 	<div class="pop_wrap chage_pw_pop3 notice_img_pop">
 		<p class="pop_title" >비밀번호 변경</p>
 		<div>
-			<img src="<?=G5_THEME_URL?>/_images/comform_chk.gif" alt="이미지">
-			<span >비밀번호가 성공적으로 변경되었습니다
+			<img src="<?=G5_URL?>/img/check_basics.png" alt="체크 이미지">
+			<span >비밀번호가 성공적으로 변경되었습니다.
 		</div>
 		<div class="pop_close_wrap">
-			<a href="javascript:void(0);" id="pass_close" class="pop_close">창닫기</a>
+			<a href="javascript:void(0);" id="pass_close" class="btn wd inline pop_close">닫기</a>
 		</div>
 	</div>
 
@@ -479,7 +482,6 @@ $(function() {
 
 
 $(function() {
-
 	
 	$('.ch_pw_open').click(function(){
 			//$('.chage_pw_pop').css("display","block");
@@ -524,11 +526,11 @@ $(function() {
 						window.location.reload();
 					})
 				}else{
-					dialogModal('처리 실패!','<strong> '+ data.sql+'</strong>','failed');
+					dialogModal('처리 실패!','<strong> '+ data.sql+'</strong>','failed',false);
 				}
 			},
 			error:function(e){
-				dialogModal('처리 실패!','<strong> 다시시도해주세요 문제가 계속되면 관리자에게 연락주세요.</strong>','failed');
+				dialogModal('처리 실패!','<strong> 다시 시도해주세요. 문제가 계속되면 관리자에게 연락주세요.</strong>','failed',false);
 			}
 		});
 
@@ -565,11 +567,11 @@ $(function() {
 	<div class="pop_wrap chage_email_pop1 notice_img_pop">
 		<p class="pop_title" >이메일 변경</p>
 		<div>
-			<img src="<?=G5_THEME_URL?>/_images/comform_chk.gif" alt="이미지">
-		<p> 변경이 성공적으로 완료되었습니다</p>
+			<img src="<?=G5_URL?>/img/check_basics.png" alt="체크 이미지">
+			<p> 변경이 성공적으로 완료되었습니다.</p>
 		</div>
 		<div class="pop_close_wrap">
-			<a href="javascript:parent.location.reload();" class="btn inline wd pop_close" >창닫기</a>
+			<a href="javascript:parent.location.reload();" class="btn inline wd pop_close" >닫기</a>
 		</div>
 	</div>
 
@@ -605,7 +607,7 @@ $(function() {
 			var email3 = $('.chage_email_pop #email_new_re').val();
 
 			if( email2 != email3){
-				dialogModal('입력확인','<strong> 입력한 메일주소가 일치하지 않습니다.</strong>','failed');
+				dialogModal('입력확인','<strong> 입력한 메일주소가 일치하지 않습니다.</strong>','failed',false);
 				return false;
 			}
 
@@ -626,11 +628,11 @@ $(function() {
 							$('.chage_email_pop2').css("display","none");
 							$('.chage_email_pop1').css("display","block");
 						}else{
-							dialogModal('처리 실패!','<strong> '+ data.sql+'</strong>','failed');
+							dialogModal('처리 실패!','<strong> '+ data.sql+'</strong>','failed',false);
 						}
 					},
 					error:function(e){
-						dialogModal('처리 실패!','<strong> 다시시도해주세요 문제가 계속되면 관리자에게 연락주세요.</strong>','failed');
+						dialogModal('처리 실패!','<strong> 다시 시도해주세요. 문제가 계속되면 관리자에게 연락주세요.</strong>','failed',false);
 					}
 				});
 
@@ -638,15 +640,6 @@ $(function() {
 	});
 	</script>
 <!-- 이메일 주소 변경 -->
-
-
-
-
-
-
-
-
-
 
 
 
@@ -686,11 +679,11 @@ $(function() {
 	<div class="pop_wrap num2_pop_wrap notice_img_pop">
 		<p class="pop_title" >전화번호 변경</p>
 		<div>
-			<img src="<?=G5_THEME_URL?>/_images/comform_chk.gif" alt="이미지">
-		<p >변경이 성공적으로 완료되었습니다</p>
+			<img src="<?=G5_URL?>/img/check_basics.png" alt="체크 이미지">
+			<p >변경이 성공적으로 완료되었습니다.</p>
 		</div>
 		<div class="pop_close_wrap">
-			<a href="javascript:void(0);" class="btn inline wd pop_close" >창닫기</a>
+			<a href="javascript:void(0);" class="btn inline wd pop_close" >닫기</a>
 		</div>
 	</div>
 
@@ -730,11 +723,11 @@ $(function() {
 								parent.location.reload();
 							});
 						}else{
-							dialogModal('입력확인','<strong>'+data.sql+'</strong>','failed');
+							dialogModal('입력확인','<strong>'+data.sql+'</strong>','failed',false);
 						}
 					},
 					error:function(e){
-						dialogModal('처리 실패!','<strong> 다시시도해주세요 문제가 계속되면 관리자에게 연락주세요.</strong>','failed');
+						dialogModal('처리 실패!','<strong> 다시 시도해주세요. 문제가 계속되면 관리자에게 연락주세요.</strong>','failed',false);
 					}
 				});
 			});
@@ -775,11 +768,11 @@ $(function() {
 	<div class="pop_wrap chage_name_pop3 notice_img_pop">
 		<p class="pop_title" >이름 변경</p>
 		<div>
-			<img src="<?=G5_THEME_URL?>/_images/comform_chk.gif" alt="이미지">
-			<span>변경 처리되었습니다</span>
+			<img src="<?=G5_URL?>/img/check_basics.png" alt="체크 이미지">
+			<span>변경 처리되었습니다.</span>
 		</div>
 		<div class="pop_close_wrap">
-			<a href="javascript:void(0);" class="btn inline wd pop_close">창닫기</a>
+			<a href="javascript:void(0);" class="btn inline wd pop_close">닫기</a>
 		</div>
 	</div>
 
@@ -815,7 +808,7 @@ $(function() {
 					}
 				},
 				error:function(e){
-					dialogModal('처리 실패!','<strong> 다시시도해주세요 문제가 계속되면 관리자에게 연락주세요.</strong>','failed');
+					dialogModal('처리 실패!','<strong> 다시 시도해주세요. 문제가 계속되면 관리자에게 연락주세요.</strong>','failed');
 				}
 			});
 		}); */
@@ -845,11 +838,11 @@ $(function() {
 							$('.chage_name_pop1').css("display","none");
 							$('.chage_name_pop3').css("display","block");
 						}else{
-							dialogModal('처리 실패!','<strong> '+ data.sql+'</strong>','failed');
+							dialogModal('처리 실패!','<strong> '+ data.sql+'</strong>','failed',false);
 						}
 					},
 					error:function(e){
-						dialogModal('처리 실패!','<strong> 다시시도해주세요 문제가 계속되면 관리자에게 연락주세요.</strong>','failed');
+						dialogModal('처리 실패!','<strong> 다시 시도해주세요. 문제가 계속되면 관리자에게 연락주세요.</strong>','failed',false);
 					}
 				});
 		});
@@ -865,63 +858,58 @@ $(function() {
 		
 
 	<form method="post" action="">
-		<label for="" >성명</label>
-		<input type="text" id="tax_name" maxlength="6" value="">
-		<label for="" >주민등록번호</label>
-		<input type="text" pattern="\d*" id="tax_person_number_1" maxlength="6" class="half" inputmode="number"> 
-		<label style="display:inline;font-size:22px">-</label>
-		<input type="password" pattern="\d*" id="tax_person_number_2" maxlength="7" class="half" inputmode="number">
-		<input type="hidden" id="tax_person_number_3" maxlength="7" class="half" >
+		<div class="reset_input_box">
+			<label for="" >성명</label>
+			<input type="text" id="tax_name" maxlength="6" value="">
+			<label for="" >주민등록번호</label>
+			<input type="text" pattern="\d*" id="tax_person_number_1" maxlength="6" class="half" inputmode="number"> 
+			<label style="display:inline;font-size:22px">-</label>
+			<input type="password" pattern="\d*" id="tax_person_number_2" maxlength="7" class="half" inputmode="number">
+			<input type="hidden" id="tax_person_number_3" maxlength="7" class="half" >
 
-		<div class='box'>
-		<label>KYC신분증 첨부 </label>
-			<input type="file" accept="image/*" class='filebox' name="bf_file[1]"  >
-			<label for="bf_file[1]" class='kyc_label' style="font-size:11px;margin:3px;font-weight:300;">신분확인 가능한 주민등록증, 운전면허증 사진을 첨부해주세요.</label>
-		</div>
+			<label>KYC신분증 첨부 </label>
+				<input type="file" accept="image/*" class='filebox' name="bf_file[1]"  >
+				<label for="bf_file[1]" class='kyc_label' style="font-size:11px;margin:3px;">신분확인 가능한 주민등록증, 운전면허증 사진을 첨부해주세요.</label>
 
-		<hr class="hr_dash">
+			<hr class="hr_dash">
 
-		<div class='box'>
-		<label class="mt20">출금지갑주소 첨부 </label>
+			<label class="mt20">출금지갑주소 첨부 </label>
 			<input type="file"  accept="image/*" class='filebox' name="bf_file[2]">
-			<label for="bf_file[2]" class='kyc_label' style="font-size:11px;margin:5px;font-weight:300;">출금 지갑주소가 확인되는 캡쳐이미지,사진을 첨부해주세요.</label>
-		</div>
+			<label for="bf_file[2]" class='kyc_label' style="font-size:11px;margin:3px;">출금 지갑주소가 확인되는 캡쳐이미지,사진을 첨부해주세요.</label>
 
-		<!-- <div class="radio_set">
-			<input type="radio" id="wallet_type1" name="wallet_type" value="0"/><label for="wallet_type1">국내거래소 지갑</lable>
-			<input type="radio" id="wallet_type2" name="wallet_type" value="1"/><label for="wallet_type2">해외거래소 지갑</lable>
-			<input type="radio" id="wallet_type3" name="wallet_type" value="2"/><label for="wallet_type3">기타/개인 지갑</lable>
-		</div> -->
+			<!-- <div class="radio_set">
+				<input type="radio" id="wallet_type1" name="wallet_type" value="0"/><label for="wallet_type1">국내거래소 지갑</lable>
+				<input type="radio" id="wallet_type2" name="wallet_type" value="1"/><label for="wallet_type2">해외거래소 지갑</lable>
+				<input type="radio" id="wallet_type3" name="wallet_type" value="2"/><label for="wallet_type3">기타/개인 지갑</lable>
+			</div> -->
 
-		<div class='box'>
-		<label class="mt30">출금지갑 종류선택 </label>
-			<div class="radio_set">
-				<label>
-					<input type="radio" id="wallet_type1" name="wallet_type" class="selector-item_radio" value=1>
-					<span>국내거래소 지갑</span>
-				</label>
-				<label>
-					<input type="radio" id="wallet_type1" name="wallet_type" class="selector-item_radio" value=2>
-					<span>해외거래소 지갑</span>
-				</label>
-				<label>
-					<input type="radio" id="wallet_type1" name="wallet_type" class="selector-item_radio" value=3>
-					<span>개인/기타 지갑</span>
-				</label>
-			</div>
-		</div>
+			<label class="mt30">출금지갑 종류선택 </label>
+				<div class="radio_set">
+					<label>
+						<input type="radio" id="wallet_type1" name="wallet_type" class="selector-item_radio" value=1>
+						<span>국내거래소 지갑</span>
+					</label>
+					<label>
+						<input type="radio" id="wallet_type1" name="wallet_type" class="selector-item_radio" value=2>
+						<span>해외거래소 지갑</span>
+					</label>
+					<label>
+						<input type="radio" id="wallet_type1" name="wallet_type" class="selector-item_radio" value=3>
+						<span>개인/기타 지갑</span>
+					</label>
+				</div>
 
-		<hr class="hr_dash">
-		<div class='mb15'>
-			<input type="checkbox" id="tax_person_number_agree" class="inline" name="tax_person_number_agree" value=""/>
-			<label for="tax_person_number_agree" class="inline">고유식별정보 처리 동의</label>
-			<a href="javascript:void(0);" class="inline_btn person_agree_view" >전문보기</a>
-			<div class="preclose">
-				<textarea id="tax_person_agree_content" class="textbox">
-				</textarea>
-			</div>
-			<div id="argee_content" style="display: none">
-
+			<hr class="hr_dash">
+			<div class='mb15'>
+				<input type="checkbox" id="tax_person_number_agree" class="inline" name="tax_person_number_agree" value=""/>
+				<label for="tax_person_number_agree" class="inline">고유식별정보 처리 동의</label>
+				<a href="javascript:void(0);" class="inline_btn person_agree_view" >전문보기</a>
+				<div class="preclose">
+					<textarea id="tax_person_agree_content" class="textbox">
+					</textarea>
+				</div>
+				<div id="argee_content" style="display: none">
+				</div>
 			</div>
 		</div>
 
@@ -944,7 +932,7 @@ $(function() {
 			// var upload_name = $(".upload-name").val();
 			var kyc_agree = $("#tax_person_number_agree").is(':checked');
 			if(!kyc_agree){
-				dialogModal('KYC 인증','<strong> 고유식별정보 처리방침에 동의해주세요. </strong>','warning');
+				dialogModal('KYC 인증','<strong> 고유식별정보 처리방침에 동의해주세요. </strong>','warning',false);
 				return false;
 			}
 
@@ -998,7 +986,7 @@ $(function() {
 			
 			if(fileInput[0].files.length < 1 || fileInput[1].files.length < 1){
 
-				dialogModal('KYC 인증','<strong> 신분확인이 가능한 사진과 출금지갑 인증파일을 첨부해주세요. </strong>','warning');
+				dialogModal('KYC 인증','<strong> 신분확인이 가능한 사진과 출금지갑 인증파일을 첨부해주세요. </strong>','warning',false);
 				return false;
 			}else{
 			
@@ -1049,7 +1037,7 @@ $(function() {
 					dataType: "json",
 					success: function(data) {
 						if(data.result =='success'){
-							dialogModal('KYC 인증처리',"<strong> 등록되었습니다.<br>관리자 승인까지 최대 24시간 소요될수 있습니다.</strong>",'success');
+							dialogModal('KYC 인증처리',"<strong>등록되었습니다.<br>관리자 승인까지 최대 24시간 소요될수 있습니다.</strong>",'success',false);
 
 							$('.closed').click(function(){
 								window.location.reload();
@@ -1059,16 +1047,14 @@ $(function() {
 						}
 					},
 					error:function(e){
-						dialogModal('처리 실패!','<strong> 다시시도해주세요 문제가 계속되면 관리자에게 연락주세요.</strong>','failed');
+						dialogModal('처리 실패!','<strong>다시 시도해주세요. 문제가 계속되면 관리자에게 연락주세요.</strong>','failed',false);
 					}
 				});
 			} 
 		});
 
-        $("#tax_person_number_2").on('change', function(e){
+		$("#tax_person_number_2").on('change', function(e){
 			$("#tax_person_number_3").val($("#tax_person_number_2").val()); 
 		});
 	});
 </script>
-
-

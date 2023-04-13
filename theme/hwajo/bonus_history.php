@@ -145,7 +145,7 @@ $(function(){
 
 jQuery(function($){
     $.datepicker.regional["ko"] = {
-        closeText: "close",
+        closeText: "닫기",
         prevText: "이전달",
         nextText: "다음달",
         currentText: "오늘",

@@ -22,17 +22,16 @@ $title = '회원약관';
 </body>
 <style>
     .member_term .contents{font-size:12px;overflow-y: scroll;}
-
+    .footer {position: static; padding: 0 0 20px;}
 </style>
 <main>
-	<div class="container member_term pt20 mb30">
+	<div class="container member_term pt20">
 		<p class="mb-2">서비스 이용약관</p>
         <div class="white mb-4 contents"><?=conv_content($array[0]['wr_content'],2)?></div>
         <p class="mb-2">개인정보 수집 및 이용약관</p>
         <div class="white mb-4 contents"><?=conv_content($array[1]['wr_content'],2)?></div>
-	</div>
-    
-    <div class='footer ' style='padding:50px 0 20px;'>
+	</div>    
+    <div class='footer'>
         <p class='company'> HWAJO GLOBAL ASSET <br>이메일 : <?=$config['cf_admin_email']?></p>
         <p class='copyright'>Copyright ⓒ 2023. HWAJO Co. ALL right reserved.</p>
     </div>

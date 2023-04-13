@@ -131,7 +131,7 @@ a:hover{text-decoration: none;}
 
 .btn{padding:3px 10px;margin: 0;padding: 5px;border: 1px solid #ced9de;background: #f6f9fa;font-size: 12px;cursor: pointer;}
 .sys_btn{margin-left:20px;}
-i{vertical-align: top;}}
+i{vertical-align: top;}
 </style>
 
 
@@ -308,10 +308,10 @@ function fvisit_submit(act)
         <td></td>
         <td><?=$i?>명</td>
         <td colspan='2'></td>
-        <td><?=number_format($total_hap)?><?=BALANCE_CURENCY?></td>
+        <td><?=number_format($total_hap)?><?=$curencys[1]?></td>
         <td><?=number_format($total_pv)?> PV (hash)</td>
         <td><?=number_format($membership_total)?></td>
-        <td><?=number_format($total_center_bonus)?><?=BALANCE_CURENCY?></td>
+        <td><?=number_format($total_center_bonus)?><?=$curencys[1]?></td>
     </tfoot>
 
     </table>

@@ -81,7 +81,7 @@ $result = sql_query($sql);
     .red{color:red}
     .text-center{text-align:center}
     .hash{min-width:120px;height:auto;display:block;}
-    .reg_text{border:1px solid #ccc;padding:5px 10px;width:80%;}
+    .reg_text{border:1px solid #ccc;padding:5px 10px;}
     select{padding:5px;min-width:80px;width:80%;}
     table tr td{text-align:center}
     .row_dup td{background:rgba(253,240,220,0.8)}
@@ -261,7 +261,7 @@ $result = sql_query($sql);
 		$("#create_dt_fr,#create_dt_to, #update_dt").datepicker({ changeMonth: true, changeYear: true, dateFormat: "yy-mm-dd", showButtonPanel: true, yearRange: "c-99:c+99", maxDate: "+0d" });
     });
 </script>
-<input type="button" class="btn_submit excel" id="btnExport"  data-name='zeta_deposit' value="엑셀 다운로드" />
+<input type="button" class="btn_submit excel" id="btnExport"  data-name='hwajo_deposit' value="엑셀 다운로드" />
 
 <div class="local_ov01 local_ov">
 	<a href="./adm.deposit_request.php?<?=$qstr?>" class="ov_listall"> 결과통계 <?=$total_count?> 건 = <strong><?=shift_auto($total_hap,$curencys[1])?></strong></a> 
@@ -300,12 +300,12 @@ $result = sql_query($sql);
         <!-- <th scope="col" width='5%'>센터</th> -->
         <th scope="col" width='12%'>TX ID</th>
         <th scope="col" width='5%'>입금요청금액</th>
-        <th scope="col" width='10%'>입금처리금액</th>
         <th scope="col" width='4%'>입금종류</th>
+        <th scope="col" width='8%'>입금처리금액(<?=$curencys[1]?>)</th>
         <th scope="col" width='10%'>승인여부</th>
         <th scope="col" width='8%'>요청시간</th>
         <th scope="col" width='8%'>상태변경일</th>
-        <th scope="col" width='6%'>조직도등록</th>
+        <!-- <th scope="col" width='6%'>조직도등록</th> -->
         <!-- <th scope="col" width='10%'>추가항목2</th> -->
         <th scope="col" style="width:14%;">관리자메모</th>
     </tr>
@@ -333,10 +333,15 @@ $result = sql_query($sql);
         <td class='td_id'><a href='/adm/member_form.php?sst=&sod=&sfl=&stx=&page=&w=u&mb_id=<?=$row['mb_id']?>' target='_blank'><?=$row['mb_id'] ?></a></td>
         <td style='color:#666'><?=$member_result['mb_recommend']?></td>
         <!-- <td style='color:#666'><?=$member_result['mb_center']?></td> -->
-        <td style='color:#666'><?=$row['txhash']?></td>
+
+        <td style='color:#666'>
+            <?=retrun_tx_func($row['txhash'],$row['coin'])?>
+        </td>
+
         <td><?=shift_auto($row['amt'])?></td>
-        <td><input type='text' class='reg_text input_amt_val' style='font-weight:600;color:blue;text-align:right' value='<?=shift_auto($row['in_amt'],$curencys[1])?>'></td>
         <td class='coin'><?=$row['coin']?></td>
+        <td><input type='text' class='reg_text input_amt_val' style='font-weight:600;color:blue;text-align:right' value='<?=shift_auto($row['in_amt'],$curencys[1])?>'></td>
+        
         <td>
             <!-- <?=status($row['status'])?> -->
             <select name="status" uid="<?=$row['uid']?>" class='sel_<?=$row['status']?>'>
@@ -349,7 +354,7 @@ $result = sql_query($sql);
         </td>
         <td class='time'><?=$row['create_dt']?></td>
         <td class='time'><?=$row['update_dt']?></td>
-        <td>
+        <!-- <td>
            
             <?if(!$member_binary){?>
                 <input type="button" class="inline_btn add_binary btn1" value='후원레그+' data-id='<?=$row['mb_id']?>' data-func='1'></input>
@@ -358,7 +363,7 @@ $result = sql_query($sql);
             <?if(!$member_binary2){?>
                 <input type="button" class="inline_btn add_binary btn2" value='후원레그2+' data-id='<?=$row['mb_id']?>' data-func='2'></input>
             <?}?>
-        </td>
+        </td> -->
         <!-- <td>
         <?if($member_binary || $member_binary2){?>
             <input type="button" class="inline_btn add_binary btn3" value='후원레그삭제' data-id='<?=$row['mb_id']?>' data-func='3'></input>

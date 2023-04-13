@@ -76,7 +76,7 @@ header h5{line-height: 28px;}
                     </div>
                     <div class='col-4 text-right'>
                         <span> <i class="ri-add-line"></i></span>
-                        <span><?=Number_format($rows['benefit'],BONUS_NUMBER_POINT) ?><?=BALANCE_CURENCY?></span>
+                        <span><?=Number_format($rows['benefit'],BONUS_NUMBER_POINT) ?> <?=$curencys[1]?></span>
                     </div>
                 </div>
                 <?}?>

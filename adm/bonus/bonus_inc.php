@@ -400,3 +400,17 @@ function shift_auto($val,$coin = '원'){
 		return shift_coin($val);
 	}
 }
+
+function clean_coin_format($val, $decimal = ASSETS_NUMBER_POINT){
+	$_num = (int)str_pad("1",$decimal+1,"0",STR_PAD_RIGHT);
+	return floor($val*$_num)/$_num;
+}
+
+function clean_number_format($val, $decimal = BONUS_NUMBER_POINT){
+	$_decimal = $decimal <= 0 ? 1 : $decimal;
+	$_num = number_format(clean_coin_format($val,$decimal), $_decimal);
+    $_num = rtrim($_num, 0);
+    $_num= rtrim($_num, '.');
+
+    return $_num;
+}

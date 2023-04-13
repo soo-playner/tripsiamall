@@ -13,10 +13,11 @@ login_check($member['mb_id']);
 $title = 'Mywallet';
 
 
+
 // 입금설정
 $deposit_setting = wallet_config('deposit');
 $deposit_fee = $deposit_setting['fee'];
-$deposit_min_limit = $deposit_setting['amt_minimum'];
+$deposit_min_limit = shift_auto($deposit_setting['amt_minimum']/$coin['usdt_eth'],$currencys[0]);
 $deposit_max_limit = $deposit_setting['amt_maximum'];
 $deposit_day_limit = $deposit_setting['day_limit'];
 
@@ -430,7 +431,7 @@ $auth_cnt = sql_num_rows($amt_auth_log);
     } */
   
     /* 출금*/
-    var curency_tmp = '<?= $curencys[3] ?>';
+    var curency_tmp = '<?= $curencys[0] ?>';
     var usdt_curency = '<?=$curencys[1]?>';
     var eth_curency = '<?= $curencys[0] ?>';
     var erc20_curency = '<?=$curencys[3]?>';
@@ -719,7 +720,7 @@ $auth_cnt = sql_num_rows($amt_auth_log);
     });
 
 
-    // function process_pin_mobile(){
+  // function process_pin_mobile(){
 
     //   return new Promise(
     //     function(resolve,reject){
@@ -776,7 +777,7 @@ $auth_cnt = sql_num_rows($amt_auth_log);
     //       alert('잠시 후 다시 시도해주세요.');
     //     }
     //   });
-    // }
+  // }
 
     
 
@@ -851,12 +852,12 @@ $auth_cnt = sql_num_rows($amt_auth_log);
       console.log(' 입금자 : ' + d_name + ' || 입금액 :' + d_price);
 
       if (d_name == '' || d_price == '') {
-        dialogModal('<p>입금 요청값 확인</p>', '<p>항목을 입력해주시고 다시시도해주세요.</p>', 'warning');
+        dialogModal('<p>입금 요청값 확인</p>', '<p>항목을 입력해주시고 다시 시도해주세요.</p>', 'warning');
         return false;
       }
       
       if(in_min_limit > 0 &&  Number(d_price) < Number(in_min_limit) ){
-        dialogModal('<p>최소 입금액 확인</p>', '<p>최소 입금 확인 금액은 '+ Price(in_min_limit)+coin +' 입니다. </p>', 'warning');
+        dialogModal('<p>최소 입금액 확인</p>', '<p>최소 입금 확인 금액은 '+ Price(in_min_limit)+ coin +' 입니다. </p>', 'warning');
         return false;
       }
       
@@ -907,7 +908,7 @@ $auth_cnt = sql_num_rows($amt_auth_log);
   }
 
   function copyURL(addr) {
-    dialogModal("","<p>지갑주소가 복사 되었습니다</p>","success");
+    dialogModal("","<p>지갑주소가 복사 되었습니다.</p>","success");
 
     var temp = $("<input>");
     $("body").append(temp);

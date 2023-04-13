@@ -249,7 +249,7 @@ else if ($w == 'u')
 				$admin_states = "1";
 			}
 		}else{
-			if(!$deposit_adm_content === '') {
+			if($deposit_adm_content === '') {
 				$deposit_adm_code = '관리자 차감';
 				$admin_states = "0";
 			} else {
@@ -258,7 +258,10 @@ else if ($w == 'u')
 			}
 		}
 
-		$deposit_adm_value = $deposit_code.$deposit_adm;
+		$coin = get_coins_price();
+		$deposit_adm_value = ($deposit_code.$deposit_adm) / $coin['usdt_eth'];
+		$in_deposit_adm_value = $deposit_code.$deposit_adm;
+
 		$deposit_adm_sql = "insert wallet_deposit_request set
 				mb_id             = '{$mb_id}'
 				, txhash     =  '{$deposit_adm_code}'
@@ -266,17 +269,17 @@ else if ($w == 'u')
 				, create_d    		= '{$today}'
 				, status   			= {$process_code}
 				, update_dt         = '{$todate}'
-				, coin          	= '{$curencys[1]}'
+				, coin          	= '{$curencys[0]}'
 				, fee    			= 0
 				, cost         		= 0
 				, amt    			= {$deposit_adm_value}
-				, in_amt			= {$deposit_adm_value}
+				, in_amt			= {$in_deposit_adm_value}
 				, admin_states 		= '{$admin_states}'";
 
 		$deposit_adm_result = sql_query($deposit_adm_sql);
 		
 		if($process_code == 1 && $deposit_adm_result){
-			$update_sql = "UPDATE g5_member set mb_deposit_point = mb_deposit_point  {$deposit_adm_value} WHERE mb_id = '{$mb_id}' ";
+			$update_sql = "UPDATE g5_member set mb_deposit_point = mb_deposit_point  {$in_deposit_adm_value} WHERE mb_id = '{$mb_id}' ";
 			echo $update_sql;
 			sql_query($update_sql);
 		}

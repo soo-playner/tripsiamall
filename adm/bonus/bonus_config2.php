@@ -35,8 +35,8 @@ $token = get_token();
         <th scope="col" width="120px">수당명</th>	
         <th scope="col" width="60px">수당코드</th>
         <th scope="col" width="80px">수당지급수단</th>
-        <th scope="col" width="40px">수당한계</th>
-		<th scope="col" width="120px">수당비율 (%)<br>( 콤마로 구분)</th>
+        <th scope="col" width="70px">수당한계</th>
+		<th scope="col" width="120px">수당지급율 (%)<br>( 콤마로 구분)</th>
 		<th scope="col" width="120px">지급한계(대수/%)<br>( 콤마로 구분)</th>
         <th scope="col" width="80px">수당지급방식</th>
         <th scope="col" width="80px">수당조건</th>
@@ -49,18 +49,18 @@ $token = get_token();
     
     <tr class='<?if($i == 0){echo 'first';}?>'>
    
-    <td style="text-align:center"><input type="hidden" name="idx[]" value="<?=$row['idx']?>"><?=$row['idx']?></td>
-    <td style="text-align:center"><input type='checkbox' class='checkbox' name='check' <?php echo $row['used'] > 0?'checked':''; ?>>
+    <td style=""><input type="hidden" name="idx[]" value="<?=$row['idx']?>"><?=$row['idx']?></td>
+    <td style=""><input type='checkbox' class='checkbox' name='check' <?php echo $row['used'] > 0?'checked':''; ?>>
         <input type="hidden" name="used[]" class='used' value="<?=$row['used']?>">
     </td>
-    <td style="text-align:center"><input class='bonus_input' name="name[]"  value="<?=$row['name']?>"></input></td>
-    <td style="text-align:center"><input class='bonus_input' name="code[]"  value="<?=$row['code']?>"></input></td>
+    <td style=""><input class='bonus_input' name="name[]"  value="<?=$row['name']?>"></input></td>
+    <td style=""><input class='bonus_input' name="code[]"  value="<?=$row['code']?>"></input></td>
     
-    <td style="text-align:center"><input class='bonus_input' name="kind[]"  value="<?=$row['kind']?>"></input></td>
-	<td style="text-align:center"><input class='bonus_input' name="limited[]"  value="<?=$row['limited']?>"></input></td>
-	<td style="text-align:center"><input class='bonus_input' name="rate[]"  value="<?=$row['rate']?>"></input></td>
-    <td style="text-align:center"><input class='bonus_input' name="layer[]"  value="<?=$row['layer']?>"></input></td>
-    <td style="text-align:center">
+    <td style=""><input class='bonus_input' name="kind[]"  value="<?=$row['kind']?>"></input></td>
+	<td style=""><input class='bonus_input' name="limited[]"  value="<?=$row['limited']?>"></input></td>
+	<td style=""><input class='bonus_input <?if($row['code'] == 'daily'){echo 'strong';}?>' name="rate[]"  value="<?=$row['rate']?>"></input></td>
+    <td style=""><input class='bonus_input' name="layer[]"  value="<?=$row['layer']?>"></input></td>
+    <td style="">
         <select id="bonus_source" class='bonus_source' name="source[]">
             <?php echo option_selected(0, $row['source'], "ALL"); ?>
             <?php echo option_selected(1, $row['source'], "추천인[tree]"); ?>
@@ -85,6 +85,8 @@ $token = get_token();
 
 
 <style>
+    .bonus_input.strong{border:2px solid orange}
+    .bonus_input{}
     #mining_log{width:600px;margin: 20px;}
     #mining_log .head{border:1px solid #eee;background:orange;display: flex;width:inherit}
     #mining_log .body{border:1px solid #eee;display: flex;width:inherit}
@@ -100,23 +102,7 @@ $token = get_token();
         <dd class="blue" style='color:white'>데일리보너스지급총량<br>(<?=$minings[$now_mining_coin]?>)</dd>
     </div>
 
-    <?
-        $mining_rate_result = sql_query("SELECT day,rate from soodang_mining WHERE allowance_name = 'mining' group by day order by day desc limit 0,10");
-
-        while($row = sql_fetch_array($mining_rate_result)){
-            $mining_bonus_exc_sql = "SELECT SUM(mining) as mining_total FROM soodang_mining WHERE day = '{$row['day']}' AND allowance_name != 'coin swap' ";
-            $mining_bonus_exc = sql_fetch($mining_bonus_exc_sql);
-
-            $coin_swap_exc_sql = "SELECT SUM(mining) as swap_total FROM soodang_mining WHERE day = '{$row['day']}' AND allowance_name = 'coin swap' ";
-            $coin_swap_exc = sql_fetch($coin_swap_exc_sql);
-    ?>
-    <div class='body'>
-        <dt><?=$row['day']?></dt>
-        <dd><?=$row['rate']?></dd>
-        <dd><?=shift_auto($mining_bonus_exc['mining_total'],8)?></dd>
-        <dd><?=shift_auto($coin_swap_exc['swap_total'],4)?></dd>
-    </div>
-    <?}?>
+    
 </div>
 
 <script>

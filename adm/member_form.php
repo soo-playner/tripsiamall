@@ -555,7 +555,10 @@ $rank_result = sql_fetch($rank_sql);
 		<th scope="row">보유 잔고</th>
 
 		<td colspan="1">
-			<strong><?= Number_format($mb['mb_deposit_point'] + $mb['mb_deposit_calc'] + $mb['mb_balance']) ?></strong> <?=$curencys[1]?> &nbsp&nbsp (총 입금액 : <?= Number_format($mb['mb_deposit_point']) ?> <?=$curencys[0]?>)
+			<?php $sql = "SELECT SUM(amt) as amt FROM {$g5['deposit']} WHERE mb_id = '{$mb['mb_id']}'";
+			$deposit_sum = sql_fetch($sql);
+			?>
+			<strong><?= Number_format($mb['mb_deposit_point'] + $mb['mb_deposit_calc'] + $mb['mb_balance']) ?></strong> <?=$curencys[1]?> &nbsp&nbsp (총 입금액 : <?= shift_auto($deposit_sum['amt']) ?> <?=$curencys[0]?>)
 		</td>
 		<th></th>
 		<!-- <td>
@@ -588,7 +591,7 @@ $rank_result = sql_fetch($rank_sql);
 	<tr class="ly_up padding-box fund">
 
 		<th scope="row">누적 매출 합계 (PV)</th>
-		<td colspan="1"><span class='strong soodang'><?= number_format($mb['mb_save_point']) ?> </span><?=$curencys[1]?></td>
+		<td colspan="1"><span class='strong soodang'><?= number_format($mb['mb_save_point']/3) ?> </span><?=$curencys[1]?></td>
 
 		<th scope="row">총 받은보너스(수당)</th>
 		<td colspan="1"><span class='strong bonus'>
@@ -685,7 +688,7 @@ $rank_result = sql_fetch($rank_sql);
 
 			?>
 				<button type='button' class='btn purchase_btn' value='' data-row='<?= json_encode($get_shop_item[$i], JSON_FORCE_OBJECT) ?>'>
-					<span class='pack_title color<?= $i ?>'><?= $get_shop_item[$i]['it_name'] ?></span>
+					<span class='pack_title color<?= $i + 1 ?>'><?= $get_shop_item[$i]['it_name'] ?></span>
 					<div class='pack_have'><span><?= $pack_array[$i] ?>
 				</button>
 			<?php } ?>
@@ -731,10 +734,10 @@ $rank_result = sql_fetch($rank_sql);
 				console.log(`total:${total_fund}\nprice:${item.it_cust_price}`);
 				// console.log(`it_id:${item_id}\nit_sp:${item_supply_point}\ncoin:${select_coin}`);
 
-				if (mb_item_rank == '' && item_num > 0) {
+				/* if (mb_item_rank == '' && item_num > 0) {
 					alert("MEMBERSHIP 팩을 보유하지 않았습니다.");
 					return false;
-				}
+				} */
 
 				if (confirm("해당 회원에게 " + item.it_name + " 패키지를 지급하시겠습니까?\n회원 잔고에서 " + Price(item.it_cust_price) + " <?= $curencys[1] ?> (이)가 차감됩니다.")) {} else {
 					return false;

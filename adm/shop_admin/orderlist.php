@@ -275,7 +275,7 @@ if(!sql_query(" select mb_id from {$g5['g5_shop_order_delete_table']} limit 1 ",
     <button type="button" onclick="javascript:set_date('지난달');">지난달</button>
     <button type="button" onclick="javascript:set_date('전체');">전체</button>
     <input type="submit" value="검색" class="btn_submit" style='width:100px;'> | 
-    <input type="button" class="btn_submit excel" id="btnExport"  data-name='zeta_order_list' value="엑셀 다운로드" />
+    <input type="button" class="btn_submit excel" id="btnExport"  data-name='hwajo_order_list' value="엑셀 다운로드" />
     <button type='button' class="btn cancle_log_btn" style='margin-left:10px'>취소 내역보기</button>
 </div>
 
@@ -304,33 +304,21 @@ if(!sql_query(" select mb_id from {$g5['g5_shop_order_delete_table']} limit 1 ",
     <caption>주문 내역 목록</caption>
     <thead>
     <tr>
-        <th scope="col" >
-            <label for="chkall" class="sound_only">주문 전체</label>
-            <input type="checkbox" name="chkall" value="1" id="chkall" onclick="check_all(this.form)">
-        </th>
+        <th scope="col" >no</th>
         <th scope="col" id="th_odrid" >회원ID</th>
         <th scope="col" id="odrstat" >구매(매출)일자</th>
-        <th scope="col" id="th_odrnum" rowspan="2" colspan="2"><a href="<?php echo title_sort("od_id", 1)."&amp;$qstr1"; ?>">주문번호</a></th>
-		
+        <th scope="col" width="10%" id="th_odrnum"><a href="<?php echo title_sort("od_id", 1)."&amp;$qstr1"; ?>">주문번호</a></th>
         <th scope="col" id="odrstat" >주문상태</th>
         <th scope="col" id="odrstat" ><a href="<?php echo title_sort("od_name", 1)."&amp;$qstr1"; ?>">구매상품</th>
         <th scope="col" id="th_odrall" >결제금액</th>
-
         <th scope="col" id="odrpay" >결제수단</th>
 		<th scope="col" id="th_odrcnt" >구매가격</th>
 		<th scope="col" id="th_odrcnt" >판매실적(pv)</th>
         <!-- <th scope="col" >마이닝(MH/s)</th> -->
-        <th scope="col" >관리</th>
-
+        <th scope="col" width="7%">관리</th>
     </tr>
-    <tr>
-        
-        
-        
-    </tr>
-    <tr>
-       
-    </tr>
+    <tr></tr>
+    <tr></tr>
     </thead>
     <tbody>
     <?php
@@ -422,13 +410,13 @@ if(!sql_query(" select mb_id from {$g5['g5_shop_order_delete_table']} limit 1 ",
 	/* td{width:140px !important;} */
 	</style>
     <tr class="orderlist<?php echo ' '.$bg; ?>">
-        <td rowspan="2" class="td_chk">
+        <!-- <td rowspan="2" class="td_chk">
             <input type="hidden" name="od_id[<?php echo $i ?>]" value="<?php echo $row['od_id'] ?>" id="od_id_<?php echo $i ?>">
             <label for="chk_<?php echo $i; ?>" class="sound_only">주문번호 <?php echo $row['od_id']; ?></label>
             <input type="checkbox" name="chk[]" value="<?php echo $i ?>" id="chk_<?php echo $i ?>">
-        </td>
-		
-		<td >
+        </td> -->
+        <td><?= $i + 1 ?></td>
+		<td>
             <?php if ($row['mb_id']) { ?>
             <a href="<?php echo $_SERVER['SCRIPT_NAME']; ?>?sort1=<?php echo $sort1; ?>&amp;sort2=<?php echo $sort2; ?>&amp;sel_field=mb_id&amp;search=<?php echo $row['mb_id']; ?>"><?php echo $row['mb_id']; ?></a>
             <?php } else { ?>
@@ -436,38 +424,25 @@ if(!sql_query(" select mb_id from {$g5['g5_shop_order_delete_table']} limit 1 ",
             <?php } ?>
         </td>
         <td ><?php echo $row['od_date']; ?></td>
-        <td headers="th_ordnum" class="td_odrnum2" rowspan="2" colspan="2">
+        <td headers="th_ordnum" class="td_odrnum2">
             <a href="<?php echo G5_SHOP_URL; ?>/orderinquiryview.php?od_id=<?php echo $row['od_id']; ?>&amp;uid=<?php echo $uid; ?>" class="orderitem"><?php echo $disp_od_id; ?></a>
             <?php echo $od_mobile; ?>
             <?php echo $od_paytype; ?>
         </td>
-		
-		
 		<td class="td_odrstatus" style="width:150px;">
-            <input type="hidden" name="current_status[<?php echo $i ?>]" value="<?php echo $row['od_status'] ?>">
 			<?php echo $row['od_status']; ?>
         </td>
-        <td rowspan="2" class="td_numsum " ><span class='badge t_white color<?=od_name_return_rank($row['od_name'])?>' ><?=$row['od_name']?></span></td>
-        <td rowspan="2" class="td_numsum" style='text-align:right'><?= shift_auto($row['od_cart_price'],$od_settle_case)?> <?=$od_settle_case?></td>
-        <td ><?php echo $row['od_settle_case'] ?></td>
-		<td rowspan="2" style="text-align:right;font-weight:600"><?=shift_auto($row['od_cash'],$od_settle_case)?> <?=$od_settle_case?></td>
-		<td ><?=number_format($row['upstair'])?> </td>
+        <td class="td_numsum " ><span class='badge t_white color<?=od_name_return_rank($row['od_name'])?>' ><?=$row['od_name']?></span></td>
+        <td class="td_numsum" style='text-align:right'><?= shift_auto($row['od_cart_price'],$od_settle_case)?> <?=$od_settle_case?></td>
+        <td style="text-align:center"><?php echo $row['od_settle_case'] ?></td>
+		<td style="text-align:right;font-weight:600"><?=shift_auto($row['od_cash'],$od_settle_case)?> <?=$od_settle_case?></td>
+		<td style="text-align:right"><?=number_format($row['upstair'])?> </td>
         <!-- <td > <?php echo $row['pv']; ?></td> -->
-        <td > <input type='button' class='btn od_cancle' value='구매취소' data-id="<?=$row['od_id']?>"></td>
+        <td style="text-align:center"><input type='button' class='btn od_cancle' value='구매취소' data-id="<?=$row['od_id']?>"></td>
        
-		<!-- ##end##  ## -->
-		
-		
-		<!-- 보기 삭제
-        <td  class="td_mngsmall">
-            <a href="./orderform.php?od_id=<?php echo $row['od_id']; ?>&amp;<?php echo $qstr; ?>" class="mng_mod"><span class="sound_only"><?php echo $row['od_id']; ?> </span>보기</a>
-        </td>
-		-->
     </tr>
 
     <tr class="<?php echo $bg; ?>">
-        
-
 
     </tr>
 
@@ -496,16 +471,14 @@ if(!sql_query(" select mb_id from {$g5['g5_shop_order_delete_table']} limit 1 ",
     <tr class="orderlist">
         <th scope="row" colspan="3">&nbsp;</th>
         <td><?php echo number_format($tot_odcount); ?>건</td>
-        <td></td>
         <td>
             <!-- <?php echo number_format($tot_itemcount); ?>건 -->
         </td>
         <th scope="row">합 계</th>
-        <td style='text-align:right'><?=shift_auto($tot_orderprice,$curencys[1])?> <?=$curencys[1]?></td>
+        <td class="td_numsum" style='text-align:right; padding: 7px 5px'><?=shift_auto($tot_orderprice,$curencys[1])?> <?=$curencys[1]?></td>
         <td></td>
-        <td style='text-align:right'><?=shift_auto($tot_receiptprice,$curencys[1])?> <?=$curencys[1]?></td>
+        <td style='text-align:right; padding: 7px 5px'><?=shift_auto($tot_receiptprice,$curencys[1])?> <?=$curencys[1]?></td>
         <td></td>
-		<td></td>
         <td></td>
     </tr>
     </tfoot>

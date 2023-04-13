@@ -326,6 +326,7 @@ $max_depth = ($my_depth+($max_org_num*2));
 		,(select count(mb_no) from g5_member where ".$recommend_name."=c.c_id and mb_leave_date = '') as m_child
 		,(SELECT mb_rate FROM g5_member WHERE mb_id = c.c_id) AS mb_rate
 		,(SELECT mb_save_point FROM g5_member WHERE mb_id = c.c_id) AS mb_pv
+		,(SELECT mb_habu_sum FROM g5_member WHERE mb_id = c.c_id) AS mb_habu_sum
 		,(SELECT recom_sales FROM g5_member WHERE mb_id = c.c_id) AS recom_sales
 		,(SELECT mb_child FROM g5_member WHERE mb_id=c.c_id) AS mb_children
 		,(SELECT mb_nick FROM g5_member WHERE mb_id=c.c_id) AS mb_nick
@@ -448,10 +449,10 @@ $max_depth = ($my_depth+($max_org_num*2));
 			}
 
 			$mb_my_sales=$row2['tpv'];
-			$mb_habu_sum=$row3['tpv'];
+			// $mb_habu_sum=$row3['tpv'];
 
 			if($mb_my_sales==''){ $mb_my_sales=0; }
-			if($mb_habu_sum==''){$mb_habu_sum=0;}
+			// if($mb_habu_sum==''){$mb_habu_sum=0;}
 
 			/* if ($mrow['cc_run']==0){  //업데이트가 안되었으면
 				$sql  = "update g5_member set mb_my_sales=".$mb_my_sales." , mb_habu_sum=".$mb_habu_sum."   where mb_id='".$row['c_id']."'";
@@ -484,9 +485,10 @@ $max_depth = ($my_depth+($max_org_num*2));
 			if($row['mb_nick'] != ''){
 				$name_line .= "<span class='user_nick'>[ ". $row['mb_nick'] ." ]</span>";
 			}
+			$name_line .= " | <span class='mb_recommand'> D : ".Number_format($row['mb_habu_sum'])."</span>";
 			$name_line .= " | <span class='mb_pv'> MH : ".Number_format($row['mb_rate'])."</span>";
-			$name_line .= " | <span class='mb_rate'> PV : ".Number_format($row['mb_pv']/10000)."</span>";
-			$name_line .= " | <span class='mb_acc'> ACC : ".Number_format($row['recom_sales']/10000)."</span>";
+			$name_line .= " | <span class='mb_rate'> PV : ".Number_format($row['mb_pv'])."</span>";
+			$name_line .= " | <span class='mb_acc'> ACC : ".Number_format($row['recom_sales'])."</span>";
 			$name_line .= "</p>";
 
 			

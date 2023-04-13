@@ -153,10 +153,10 @@ $listall = '<a href="'.$_SERVER['SCRIPT_NAME'].'" class="ov_listall">전체목�
         <!-- <th scope="col" id="th_img">이미지</th> -->
         <th scope="col" id="th_pc_title"><?php echo subject_sort_link('it_name', 'sca='.$sca); ?>지급상품명</a></th>
         <th scope="col" id="th_pc_title"><?php echo subject_sort_link('it_option_subject', 'sca='.$sca); ?>노출상품명</a></th>
-        <th scope="col" id="th_amt" style='width:100px;'><?php echo subject_sort_link('it_price', 'sca='.$sca); ?>상품가격($)</a></th>
-        <th scope="col" id="th_pt" style='width:140px;'><?php echo subject_sort_link('it_cust_price', 'sca='.$sca); ?>판매가격($)</a></th>
+        <th scope="col" id="th_amt" style='width:100px;'><?php echo subject_sort_link('it_price', 'sca='.$sca); ?>상품가격 (<?=$curencys[1]?>)</a></th>
+        <th scope="col" id="th_pt" style='width:140px;'><?php echo subject_sort_link('it_cust_price', 'sca='.$sca); ?>판매가격 (<?=$curencys[1]?>)</a></th>
         <th scope="col" id="th_pt" style='width:100px;'><?php echo subject_sort_link('it_point', 'sca='.$sca); ?>실적(PV)</a></th>
-        <th scope="col" id="th_pt" style='width:100px;'><?php echo subject_sort_link('it_supply_point', 'sca='.$sca); ?>MP(mining)</a></th>
+        <th scope="col" id="th_pt" style='width:100px;'><?php echo subject_sort_link('it_supply_point', 'sca='.$sca); ?>수익률</a></th>
         <th scope="col" style='width:30px;'><?php echo subject_sort_link('it_order', 'sca='.$sca); ?>노출순서</a></th>
         <th scope="col" style='width:20px;'><?php echo subject_sort_link('it_use', 'sca='.$sca, 1); ?>판매</a></th>
         <!-- <th scope="col" style='width:30px;'><?php echo subject_sort_link('it_hit', 'sca='.$sca, 1); ?>조회</a></th> -->
@@ -224,22 +224,22 @@ $listall = '<a href="'.$_SERVER['SCRIPT_NAME'].'" class="ov_listall">전체목�
         <!--판매가격-->
         <td headers="th_pt" class="td_numbig td_input" id="it_cust_price">
             <label for="it_cust_price" class="sound_only">판매가격</label>
-            <button type='button' class='vat_calc' data-num = '<?=$i?>' >vat</button>
-            <input type="text" name="it_cust_price[<?php echo $i; ?>]" value="<?=shift_auto($row['it_cust_price']) ?>" id="cust_price_<?php echo $i; ?>" class="frm_input sit_amt" size="5" style="width:100px;padding-right:5px;" inputmode = "numeric">
+            <!-- <button type='button' class='vat_calc' data-num = '<?=$i?>' >vat</button> -->
+            <input type="text" name="it_cust_price[<?php echo $i; ?>]" value="<?=shift_auto($row['it_cust_price']) ?>" id="cust_price_<?php echo $i; ?>" class="frm_input sit_amt" size="5" style="padding-right:5px;" inputmode = "numeric">
         </td>
         
 
         <!--판매가격-->
         <td headers="th_pt" class="td_numbig td_input" id="it_point">
             <label for="it_point" class="sound_only">판매실적(PV)</label>
-            <input type="text" name="it_point[<?php echo $i; ?>]" value="<?=shift_auto($row['it_point']) ?>" id="point_<?php echo $i; ?>" class="frm_input sit_amt" size="5" style="width:100px;padding-right:5px;background:#f4ffe8 !important" inputmode = "numeric">
+            <input type="text" name="it_point[<?php echo $i; ?>]" value="<?=shift_auto($row['it_point']) ?>" id="point_<?php echo $i; ?>" class="frm_input sit_amt" size="5" style="padding-right:5px;background:#f4ffe8 !important" inputmode = "numeric">
         </td>
         
 
         <!--판매가격-->
         <td headers="th_amt" class="td_numbig td_input">
             <label for="price_<?php echo $i; ?>" class="sound_only">MP</label>
-            <input type="text" name="it_supply_point[<?php echo $i; ?>]" value="<?=$row['it_supply_point']; ?>" id="supply_<?php echo $i; ?>" class="frm_input sit_amt" size="7" style="width:100px;padding-right:5px;background:#f8e8ff !important"> mh/s
+            <input type="text" name="it_supply_point[<?php echo $i; ?>]" value="<?=$row['it_supply_point']; ?>" id="supply_<?php echo $i; ?>" class="frm_input sit_amt" size="7" style="width:100px;padding-right:5px;background:#f8e8ff !important"> %
         </td>
 
         

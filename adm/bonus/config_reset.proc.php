@@ -33,34 +33,45 @@ if($_POST['nw_soodang_reset'] == 'on'){
 
 if($_POST['nw_member_reset'] == 'on'){
 
+    
+    $trunc15 = sql_query(" TRUNCATE TABLE `rank` ");
+
+    $sql_member_reset2 = " UPDATE g5_member set  mb_deposit_point = 0,grade = 0, mb_level = 0, mb_deposit_calc=0, mb_balance = 0,mb_save_point=0, mb_rate=0,mb_brecommend='',mb_brecommend_type='',mb_lr = 3,mb_4='',mb_5='',mb_6='',mb_7='',mb_8='',mb_9='' WHERE mb_level < 9 ";
+    sql_query($sql_member_reset2);
+
+    if($sql_member_reset2){
+        $result = 1;
+    }
+}
+
+
+if($_POST['nw_order_reset'] == 'on'){
+
     $trunc5 = sql_query(" TRUNCATE TABLE `g5_shop_order` ");
     $trunc6 = sql_query(" TRUNCATE TABLE `package_log`; ");
     
     $pack_cnt = sql_fetch("SELECT count(it_id) as cnt from g5_shop_item WHERE it_use > 0")['cnt'];
     $pack_name_sql = sql_fetch("SELECT it_maker from g5_shop_item WHERE it_use > 0 limit 0,1 ")['it_maker'];
     $pack_name = substr($pack_name_sql,0,1);
-   
-    for($i=0;$i<=$pack_cnt;$i++){
+    
+    for($i=0;$i<=$pack_cnt-1;$i++){
         $pack_where = "package_".$pack_name.$i;
         sql_query(" TRUNCATE TABLE {$pack_where}; ");
         
     }
     $trunc15 = sql_query(" TRUNCATE TABLE `rank` ");
 
-    $member_update_sql = " UPDATE g5_member set  mb_deposit_point = 0, mb_deposit_calc=0, mb_balance = 0,mb_save_point=0, mb_rate=0, sales_day='0000-00-00', rank_note='',mb_brecommend='',mb_brecommend_type='',mb_lr = 3 WHERE mb_level < 9 ";
-    sql_query($member_update_sql);
+    $order_reset_sql = " UPDATE g5_member set  sales_day='0000-00-00', rank_note='',recom_sales=0  WHERE mb_level < 9 ";
+    sql_query($order_reset);
 
-    $sql_member_reset2 = " UPDATE g5_member set grade = 0, mb_level = 0 WHERE mb_no > 1 ";
-    sql_query($sql_member_reset2);
-    
-    if($sql_member_reset2){
+    if($order_reset_sql){
         $result = 1;
     }
 }
 
 if($_POST['nw_asset_reset'] == 'on'){
 
-    $trunc2 = sql_query(" TRUNCATE TABLE `{$g5['widthdrawal']}` ");
+    $trunc2 = sql_query(" TRUNCATE TABLE `{$g5['withdrawal']}` ");
     $trunc3 = sql_query(" TRUNCATE TABLE `{$g5['deposit']}` ");
 
     if($trunc3){
@@ -99,26 +110,25 @@ if($_POST['nw_binary_reset'] == 'on'){
 
 if($_POST['nw_data_test'] == 'on'){
     
-    $mb_deposit_point = 10;
+    $mb_deposit_point = 3000;
     $member_update_sql = " UPDATE g5_member set mb_deposit_point = {$mb_deposit_point}, mb_deposit_calc = 0 WHERE mb_no > 0 ";
     $update_member = sql_query($member_update_sql);
     
    if($update_member){
 
-    
     $insert_order_sql = " INSERT INTO `g5_shop_order` (od_id, mb_id, mb_no, od_cart_price, upstair, od_cash, od_name, od_tno, pv, od_time, od_date, od_settle_case, od_email, od_tel, od_hp, od_zip1, od_zip2, od_addr1, od_addr2, od_addr3, od_addr_jibeon, od_b_name, od_b_tel, od_b_hp, od_b_zip1, od_b_zip2, od_b_addr1, od_b_addr2, od_b_addr3, od_b_addr_jibeon, od_memo, od_cart_count, od_cart_coupon, od_send_cost, od_send_coupon, od_receipt_price, od_cancel_price, od_receipt_point, od_receipt_cash, od_refund_price, od_bank_account, od_receipt_time, od_coupon, od_misu, od_shop_memo, od_mod_history, od_status, od_hope_date, od_test, od_mobile, od_pg, od_app_no, od_escrow, od_casseqno, od_tax_flag, od_tax_mny, od_vat_mny, od_free_mny, od_delivery_company, od_invoice, od_invoice_time, od_cash_no, od_cash_info, od_pwd, od_ip) VALUE " ;
 
-    for($i=0; $i <= 10 ; $i++){
+    for($i=5; $i <= 30 ; $i++){
         $orderid = date("YmdHis",time()).mt_rand(0000,9999);
         $member_id = 'test'.($i+20);
-        $logic = purchase_package($member_id,2021011491,1);
-        $insert_order_sql_arry .= " ({$orderid}, '{$member_id}', 0, 246, 1.05688, 232.76, 'M1', 2021011491, 1230, '{$today}', '{$todate}', 'eth', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '{$today}', 0, 0, NULL, NULL, '패키지구매', '0000-00-00', 0, 0, '', '', 0, '', 0, 0, 0, 0, '0', '', '0000-00-00 00:00:00', NULL, NULL, '', ''),";
+        $logic = purchase_package($member_id,2023040403,1);
+        $insert_order_sql_arry .= " ({$orderid}, '{$member_id}', 0, 1000, 1000, 1000, 'P3', 2023040403, 1000, '{$today}', '{$todate}', 'usdt', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '{$today}', 0, 0, NULL, NULL, '패키지구매', '0000-00-00', 0, 0, '', '', 0, '', 0, 0, 0, 0, '0', '', '0000-00-00 00:00:00', NULL, NULL, '', ''),";
     }
 
     $result_insert_sql = substr($insert_order_sql.$insert_order_sql_arry, 0, -1);
 
     if($debug){
-        print_R($result_insert_sql);
+        // print_R($result_insert_sql);
         $result = 1;
     }else{
         $result = sql_query($result_insert_sql);

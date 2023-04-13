@@ -124,18 +124,15 @@ $result = sql_query($sql);
 								<div class="r_card r_card_<?=$i?>" data-row=<?=json_encode($data_arr,JSON_UNESCAPED_UNICODE)?>>
 									<p class="title">
 										<span style='vertical-align:middle'><?=$row[$i-1]['it_name']?></span>
-										<?if($i!=1){?>
 										<span style='font-size:13px;float:right;line-height:36px;'><?=$row[$i-1]['it_option_subject']?></span>
-										<?}?>
 									</p>
+									
 									<div class="b_blue_bottom"></div>
 									<div >
-										<!-- <div class='hash'>
-											<?=$row[$i-1]['it_supply_point']?> <span class='f_small'>mh/s</span>
-										</div> -->
+										
 										<div class=" text_wrap">
 											<div class="it_price"><?=shift_auto($row[$i-1]['it_price'],$curencys[1])?> <?=$curencys[1]?></div>
-											<!-- <div class='origin_price'>VAT <?=shift_auto($row[$i-1]['it_price']*0.1,$curencys[1])?> <?=$curencys[1]?></div> -->
+											<div class='origin_price'>수익률: <?=$row[$i-1]['it_supply_point']?> %</div>
 										</div>
 									</div>
 								</div>
@@ -177,7 +174,7 @@ $result = sql_query($sql);
 					<div class='col-5 my_cash_wrap'>
 						<!-- <input type='radio' value='eth' class='radio_btn' name='currency'><input type="text" id="trade_money_eth" class="trade_money" placeholder="0" min=5 data-currency='eth' readonly> -->
 						<div>
-							<input type="text" id="total_coin_val" class='input_price' value="<?=$available_fund?>" readonly>
+							<input type="text" id="total_coin_val" class='input_price' value="<?=shift_auto($available_fund,$curencys[1])?>" readonly>
 							<span class="currency-right coin"><?=$curencys[1]?></span>
 						</div>
 					</div>
@@ -470,7 +467,7 @@ $(function(){
 					});
 				},
 				error:function(e){
-					commonModal('패키지 구매 처리 실패!','<strong> 다시시도해주세요 문제가 계속되면 관리자에게 연락주세요.</strong>',100);
+					commonModal('패키지 구매 처리 실패!','<strong> 다시 시도해주세요. 문제가 계속되면 관리자에게 연락주세요.</strong>',100);
 				}
 			});
 		}else{

@@ -11,7 +11,7 @@ function shift_hp($val){
 
 if(empty($_POST)){
 	//alert('Not Availabled. Please retry');
-	echo (json_encode(array("result" => "error",  "code" => "0001", "sql" => '다시시도해주세요 문제가 계속되면 관리자에게 연락주세요.')));
+	echo (json_encode(array("result" => "error",  "code" => "0001", "sql" => '다시 시도해주세요. 문제가 계속되면 관리자에게 연락주세요.')));
 	return false;
 }
 
@@ -60,9 +60,9 @@ if($category == 'auto_purchase'){
 	if($purchase_have){
 		$purchase_sql = "UPDATE g5_shop_cart set ct_option = '{$_POST['q_chk']}' where mb_id = '{$member['mb_id']}' ";
 		$purchase_result= sql_query($purchase_sql);
-		echo (json_encode(array("result" => "success",  "code" => "0000", "sql" => 'change purchase complete')));
+		echo (json_encode(array("result" => "success",  "code" => "0000", "sql" => '변경이 완료되었습니다.')));
 	}else{
-		echo (json_encode(array("result" => "error",  "code" => "0004", "sql" => 'No purchase details.')));
+		echo (json_encode(array("result" => "error",  "code" => "0004", "sql" => '구매 내역이 없습니다.')));
 	}
 }
 
@@ -77,7 +77,7 @@ if($category == 'pw'){
 		$pass_result= sql_query($pass_sql);
 
 		if( $pass_result){
-			echo (json_encode(array("result" => "success",  "code" => "0000", "sql" => 'change purchase complete')));
+			echo (json_encode(array("result" => "success",  "code" => "0000", "sql" => '비밀번호 변경이 완료되었습니다.')));
 		}else{
 			echo (json_encode(array("result" => "error",  "code" => "0003", "sql" => '죄송합니다. 문제가 발생하였습니다. 나중에 다시 시도해주세요.')));
 			return false;
@@ -99,14 +99,14 @@ if($category == 'tpw'){
 			$pass_result= sql_query($pass_sql);
 
 			if( $pass_result){
-				echo (json_encode(array("result" => "success",  "code" => "0000", "sql" => 'change purchase complete')));
+				echo (json_encode(array("result" => "success",  "code" => "0000", "sql" => '변경이 완료되었습니다.')));
 			}else{
 				echo (json_encode(array("result" => "error",  "code" => "0003", "sql" => '죄송합니다. 문제가 발생하였습니다. 나중에 다시 시도해주세요.')));
 				return false;
 			}
 		}else{
 			//alert('The current email address is incorrect <br> Check current email.');
-			echo (json_encode(array("result" => "error",  "code" => "0002", "sql" => 'Current transaction password does not match.')));
+			echo (json_encode(array("result" => "error",  "code" => "0002", "sql" => '현재 출금 비밀번호와 일치하지 않습니다.')));
 			return false;
 		}
 
@@ -124,14 +124,14 @@ if($category == 'name'){
 		$name_result = sql_query($name_sql);
 
 		if( $name_result ){
-			echo (json_encode(array("result" => "success",  "code" => "0000", "sql" => 'change wallet address complete')));
+			echo (json_encode(array("result" => "success",  "code" => "0000", "sql" => '지갑 주소 변경이 완료되었습니다.')));
 		}else{
 			echo (json_encode(array("result" => "error",  "code" => "0003", "sql" => '죄송합니다. 문제가 발생하였습니다. 나중에 다시 시도해주세요.')));
 			return false;
 		}
 
 	}else{
-		echo (json_encode(array("result" => "error",  "code" => "0002", "sql" => 'Current login password or pin code does not match.')));
+		echo (json_encode(array("result" => "error",  "code" => "0002", "sql" => '현재 로그인 비밀번호 또는 PIN 코드가 일치하지 않습니다.')));
 		return false;
 	}
 
