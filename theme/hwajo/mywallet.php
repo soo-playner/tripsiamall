@@ -292,8 +292,8 @@ $auth_cnt = sql_num_rows($amt_auth_log);
           <div class="col-12 coin_select_wrap mb20">
             <label class="sub_title">- 출금코인 선택</label>
             <select class="form-control" name="" id="select_coin">
-              <option value="<?=$curencys[0]?>" selected><?=$curencys[0]?></option>  
-              <option value="<?=$curencys[3]?>"><?=$curencys[3]?></option>
+              <option value="<?=$curencys[3]?>" selected><?=$curencys[3]?></option>  
+              <option value="<?=$curencys[0]?>"><?=$curencys[0]?></option>
             </select>
           </div> 
           <div class='col-12'><label class="sub_title">- 출금정보 (최초 1회입력)</label></div>
@@ -431,7 +431,7 @@ $auth_cnt = sql_num_rows($amt_auth_log);
     } */
   
     /* 출금*/
-    var curency_tmp = '<?= $curencys[0] ?>';
+    var curency_tmp = '<?= $curencys[3] ?>';
     var usdt_curency = '<?=$curencys[1]?>';
     var eth_curency = '<?= $curencys[0] ?>';
     var erc20_curency = '<?=$curencys[3]?>';
