@@ -132,7 +132,7 @@ $result = sql_query($sql);
 										
 										<div class=" text_wrap">
 											<div class="it_price"><?=shift_auto($row[$i-1]['it_price'],$curencys[1])?> <?=$curencys[1]?></div>
-											<div class='origin_price'>수익률: <?=$row[$i-1]['it_supply_point']?> %</div>
+											<div class='origin_price'>수익률: <?=$row[$i-1]['it_supply_point']?>%</div>
 										</div>
 									</div>
 								</div>

@@ -252,7 +252,7 @@ $auth_cnt = sql_num_rows($amt_auth_log);
         </div>
       </div>
       <!-- 입금 요청 내역 -->
-      <div class="history_box content-box mt40">
+      <div class="history_box content-box">
         <h3 class="hist_tit wallet_title">입금 내역</h3>
         <div class="b_line2"></div>
         <? if (sql_num_rows($result_deposit) == 0) { ?>
@@ -345,7 +345,7 @@ $auth_cnt = sql_num_rows($amt_auth_log);
       </div>
 
       <!-- 출금내역 -->
-      <div class="history_box content-box mt40">
+      <div class="history_box content-box">
         <h3 class="hist_tit wallet_title">출금 내역</h3>
         <div class="b_line2"></div>
 
