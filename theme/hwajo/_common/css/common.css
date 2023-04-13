@@ -2111,7 +2111,6 @@ a.more i {
   margin-bottom: 5px;
   font-size: 12px;
   position: relative;
-  height: 10px;
   margin: 2px 0 5px;
 }
 .certificate ul li p {
@@ -2125,7 +2124,6 @@ a.more i {
 }
 
 .profile-box ul li span {
-  line-height: 42px;
   font-size: 14px;
 }
 
@@ -2140,6 +2138,7 @@ a.more i {
   border-radius: 5px;
   color: #333;
   font-weight: normal;
+	margin-top: 20px;
 }
 
 .b_line {
@@ -2228,7 +2227,6 @@ a.more i {
 .profile-box .ch_tpw_open,
 .profile-box .ch_wallet_open {
   font-size: 28px;
-  padding-top: 10px;
   cursor: pointer;
 }
 
