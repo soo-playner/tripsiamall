@@ -115,38 +115,37 @@ $(function() {
 		<li>rose99</li>
 		<li>roserose</li>
 	</ul>
-	<a class="search_result_close btn_basic pop_close" data-i18n='popup.창닫기'>Close</a>
+	<a class="search_result_close btn inline wd btn_basic pop_close" data-i18n='popup.창닫기'>닫기</a>
 </div>
 
-
 <div class="pop_wrap email_pop_wrap notice_img_pop">
-	<p class="pop_title"data-i18n='popup.인증번호 전송'>Email verification</p>
-	<img src="<?=G5_THEME_URL?>/_images/comform_chk.gif" alt="체크">
-	<div data-i18n='popup.인증번호가 이메일로 전송되었습니다'>Security code sent to your email</div>
-	<a href="javascript:void(0);" class="btn inline wd pop_close" data-i18n='popup.창닫기'>Close</a>
+	<p class="pop_title"data-i18n='popup.인증번호 전송'>인증번호 전송</p>
+	<img src="<?=G5_URL?>/img/check_basics.png" alt="체크 이미지">
+	<div data-i18n='popup.인증번호가 이메일로 전송되었습니다'>인증번호가 이메일로 전송되었습니다.</div>
+	<a href="javascript:void(0);" class="btn inline wd pop_close" data-i18n='popup.창닫기'>닫기</a>
 </div>
 
 
 
 <div class="pop_wrap notice_img_pop enroll_ok_pop">
-	<p class="pop_title" data-i18n='popup.신규 회원등록 완료'>new member signup</p>
+	<p class="pop_title" data-i18n='popup.신규 회원등록 완료'>신규 회원 등록 완료</p>
 	<div>
-		<img src="<?=G5_THEME_URL?>/_images/comform_chk.gif" alt="이미지">
-		<span data-i18n='popup.신규회원등록이 완료되었습니다'>signup completed successfully.</span>
+		<img src="<?=G5_URL?>/img/check_basics.png" alt="체크 이미지">
+		<span data-i18n='popup.신규회원등록이 완료되었습니다'>신규 회원 등록이 완료되었습니다.</span>
 	</div>
 	<div class="pop_close_wrap">
-		<a href="javascript:void(0);" class="btn inline wd pop_close"  data-i18n='popup.창닫기'>Close</a>
+		<a href="javascript:void(0);" class="btn inline wd pop_close"  data-i18n='popup.창닫기'>닫기</a>
 	</div>
 </div>
 
 <div class="pop_wrap notice_img_pop enroll_cancel_pop">
 	<p class="pop_title">회원 등록 실패</p>
 	<div>
-		<img src="<?=G5_URL?>/img/notice.svg" alt="이미지">
+		<img src="<?=G5_URL?>/img/notice.svg" alt="경고 이미지">
 		<span>회원 등록 실패</span>
 	</div>
 	<div class="pop_close_wrap">
-		<a href="javascript:location.href='/';" class="btn inline wd pop_close" data-i18n='popup.창닫기'>창닫기</a>
+		<a href="javascript:location.href='/';" class="btn inline wd pop_close" data-i18n='popup.창닫기'>닫기</a>
 	</div>
 </div>
 
@@ -156,7 +155,7 @@ $(function() {
 <!-- <div class="pop_wrap notice_img_pop ava_pop_wrap">
 	<p class="pop_title">설정 저장</p>
 	<div>
-		<img src="<?=G5_THEME_URL?>/_images/comform_chk.gif" alt="이미지">
+		<img src="<?=G5_URL?>/img/check_basics.png" alt="체크 이미지">
 		<span>적립 비율이 성공적으로 변경되었습니다</span>
 	</div>
 	<div class="pop_close_wrap">
@@ -169,11 +168,11 @@ $(function() {
 <div class="pop_wrap notice_img_pop support_ok_pop">
 	<p class="pop_title">티켓 전송</p>
 	<div>
-		<img src="<?=G5_THEME_URL?>/_images/comform_chk.gif" alt="이미지">
-		<span>티켓이 성공적으로 전송되었습니다</span>
+		<img src="<?=G5_URL?>/img/check_basics.png" alt="체크 이미지">
+		<span>티켓이 성공적으로 전송되었습니다.</span>
 	</div>
 	<div class="pop_close_wrap">
-		<a href="javascript:void(0);" class="btn inline wd pop_close" data-i18n='popup.창닫기'>Close</a>
+		<a href="javascript:void(0);" class="btn inline wd pop_close" data-i18n='popup.창닫기'>닫기</a>
 	</div>
 </div>
 
@@ -181,36 +180,36 @@ $(function() {
 
 <!-- send coin -->
 <div class="pop_wrap send_tran_pop">
-	<p class="pop_title"  data-i18n='popup.거래 승인'>Confirm the transaction</p>
+	<p class="pop_title"  data-i18n='popup.거래 승인'>거래 승인</p>
 	<div>
-		<p data-i18n='popup.거래 비밀번호를 입력하여 송금을 확인합니다'>Please enter the transaction password to verify the transaction</p>
-		<input type="text" placeholder="Transaction Password">
+		<p data-i18n='popup.거래 비밀번호를 입력하여 송금을 확인합니다'>거래 비밀번호를 입력하여 송금을 확인합니다.</p>
+		<input type="password" placeholder="출금 비밀번호를 입력해주세요.">
 	</div>
 	<div class="pop_close_wrap">
-		<a href="javascript:void(0);" class="btn inline wd pop_close" data-i18n='popup.취소'>Cancle</a>
-		<input type="button" value="Approve" class="not_btn_style">
+		<a href="javascript:void(0);" class="btn inline wd pop_close" data-i18n='popup.취소'>취소</a>
+		<input type="button" value="승인" style="margin: 8px 0 0 0;" class="btn blue inline wd">
 	</div>
 </div>
 
 <div class="pop_wrap notice_img_pop low_bal_pop">
-	<p class="pop_title" data-i18n='popup.지갑 잔고 부족'>Insufficient Funds</p>
+	<p class="pop_title" data-i18n='popup.지갑 잔고 부족'>지갑 잔고 부족</p>
 	<div>
-		<img src="<?=G5_THEME_URL?>/_images/notice_pop.gif" alt="이미지">
-		<span data-i18n='popup.지갑에 잔고가 부족합니다'>Not enough balance</span>
+		<img src="<?=G5_URL?>/img/notice.svg" alt="경고 이미지">
+		<span data-i18n='popup.지갑에 잔고가 부족합니다'>지갑에 잔고가 부족합니다.</span>
 	</div>
 	<div class="pop_close_wrap">
-		<a href="javascript:void(0);" class="btn inline wd pop_close" data-i18n='popup.창닫기'>Close</a>
+		<a href="javascript:void(0);" class="btn inline wd pop_close" data-i18n='popup.창닫기'>닫기</a>
 	</div>
 </div>
 
 <div class="pop_wrap notice_img_pop low_gas_pop">
-	<p class="pop_title" data-i18n='popup.지갑 잔고 부족'>Insufficient Funds</p>
+	<p class="pop_title" data-i18n='popup.지갑 잔고 부족'>지갑 잔고 부족</p>
 	<div>
-		<img src="<?=G5_THEME_URL?>/_images/notice_pop.gif" alt="이미지">
-		<span data-i18n='popup.지갑에 개스비가 부족합니다.'>Insufficient funds to pay gas</span>
+		<img src="<?=G5_URL?>/img/notice.svg" alt="경고 이미지">
+		<span data-i18n='popup.지갑에 가스비가 부족합니다.'>가스를 지불할 자금이 부족합니다.</span>
 	</div>
 	<div class="pop_close_wrap">
-		<a href="javascript:void(0);" class="pop_close gray_close" data-i18n='popup.창닫기'>Close</a>
+		<a href="javascript:void(0);" class="btn inline wd pop_close" data-i18n='popup.창닫기'>닫기</a>
 	</div>
 </div>
 
@@ -219,13 +218,13 @@ $(function() {
 
 <!-- send chk -->
 <div class="pop_wrap notice_img_pop send_coin_ok_pop">
-	<p class="pop_title" data-i18n='popup.지갑잔고 부족'>Insufficient Funds</p>
+	<p class="pop_title" data-i18n='popup.지갑잔고 부족'>지갑잔고 부족</p>
 	<div>
-		<img src="<?=G5_THEME_URL?>/_images/notice_pop.gif" alt="이미지">
-		<span data-i18n='popup.지갑에 잔고가 부족합니다.'>Not enough balance</span>
+		<img src="<?=G5_URL?>/img/notice.svg" alt="경고 이미지">
+		<span data-i18n='popup.지갑에 잔고가 부족합니다.'>지갑에 잔고가 부족합니다.</span>
 	</div>
 	<div class="pop_close_wrap">
-		<a href="javascript:void(0);" class="pop_close gray_close" data-i18n='popup.창닫기'>Close</a>
+		<a href="javascript:void(0);" class="btn inline wd wdpop_close" data-i18n='popup.창닫기'>닫기</a>
 	</div>
 </div>
 
@@ -238,7 +237,7 @@ $(function() {
 <div class="pop_wrap notice_img_pop logout_pop" style="z-index:9999;">
 	<p class="pop_title"  data-i18n="popup.로그 아웃">로그아웃</p>
 	<div>
-		<img src="<?=G5_URL?>/img/notice.svg" alt="이미지">
+		<img src="<?=G5_URL?>/img/notice.svg" alt="경고 이미지">
 		<span >로그아웃 하시겠습니까?</span>
 	</div>
 	<div class="pop_close_wrap">

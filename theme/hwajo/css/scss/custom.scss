@@ -1884,6 +1884,10 @@ a.btn_cancle,
         }
     }
 
+    input[type="password"] {
+        color: #000;
+    }
+
     .user.selected,
     .btn-primary {
         background: #FECE00;
@@ -4172,6 +4176,22 @@ a.btn_cancle,
     .pop_wrap {
         background: $main-background;
         border: none;
+        color: #fff;
+
+        .btn.blue {
+            &:hover {
+                background: #fbe591 !important;
+            }
+        }
+
+        &.send_tran_pop {
+            .pop_title+div {
+                background: transparent;
+            }
+            input[type="password"] {
+                color: #000;
+            }
+        }
 
         input {
             border: none;

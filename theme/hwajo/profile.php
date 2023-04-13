@@ -345,19 +345,19 @@
 
 		<div class="pop_wrap chage_tpw_pop2 notice_img_pop">
 			<p class="pop_title" >인증번호 전송</p>
-			<img src="<?=G5_THEME_URL?>/_images/comform_chk.gif" alt="체크">
+			<img src="<?=G5_URL?>/img/check_basics.png" alt="체크 이미지">
 			<div >인증번호가 이메일로 전송되었습니다</div>
-			<a href="javascript:void(0);" class="back_tpw1 gray_close f_right" >창닫기</a>
+			<a href="javascript:void(0);" class="back_tpw1 gray_close f_right" >닫기</a>
 		</div>
 
 		<div class="pop_wrap chage_tpw_pop3 notice_img_pop">
 			<p class="pop_title" >거래 비밀번호 변경</p>
 			<div>
-				<img src="<?=G5_THEME_URL?>/_images/comform_chk.gif" alt="이미지">
-				<p >변경이 성공적으로 완료되었습니다</p>
+				<img src="<?=G5_URL?>/img/check_basics.png" alt="체크 이미지">
+				<p >변경이 성공적으로 완료되었습니다.</p>
 			</div>
 			<div class="pop_close_wrap">
-				<a href="javascript:void(0);" id="pin_close"  class="pop_close">창닫기</a>
+				<a href="javascript:void(0);" id="pin_close" class="btn wd inline pop_close">닫기</a>
 			</div>
 		</div>
 <script>
@@ -469,11 +469,11 @@ $(function() {
 	<div class="pop_wrap chage_pw_pop3 notice_img_pop">
 		<p class="pop_title" >비밀번호 변경</p>
 		<div>
-			<img src="<?=G5_THEME_URL?>/_images/comform_chk.gif" alt="이미지">
-			<span >비밀번호가 성공적으로 변경되었습니다
+			<img src="<?=G5_URL?>/img/check_basics.png" alt="체크 이미지">
+			<span >비밀번호가 성공적으로 변경되었습니다.
 		</div>
 		<div class="pop_close_wrap">
-			<a href="javascript:void(0);" id="pass_close" class="pop_close">창닫기</a>
+			<a href="javascript:void(0);" id="pass_close" class="btn wd inline pop_close">닫기</a>
 		</div>
 	</div>
 
@@ -567,11 +567,11 @@ $(function() {
 	<div class="pop_wrap chage_email_pop1 notice_img_pop">
 		<p class="pop_title" >이메일 변경</p>
 		<div>
-			<img src="<?=G5_THEME_URL?>/_images/comform_chk.gif" alt="이미지">
-		<p> 변경이 성공적으로 완료되었습니다</p>
+			<img src="<?=G5_URL?>/img/check_basics.png" alt="체크 이미지">
+			<p> 변경이 성공적으로 완료되었습니다.</p>
 		</div>
 		<div class="pop_close_wrap">
-			<a href="javascript:parent.location.reload();" class="btn inline wd pop_close" >창닫기</a>
+			<a href="javascript:parent.location.reload();" class="btn inline wd pop_close" >닫기</a>
 		</div>
 	</div>
 
@@ -679,11 +679,11 @@ $(function() {
 	<div class="pop_wrap num2_pop_wrap notice_img_pop">
 		<p class="pop_title" >전화번호 변경</p>
 		<div>
-			<img src="<?=G5_THEME_URL?>/_images/comform_chk.gif" alt="이미지">
-		<p >변경이 성공적으로 완료되었습니다</p>
+			<img src="<?=G5_URL?>/img/check_basics.png" alt="체크 이미지">
+			<p >변경이 성공적으로 완료되었습니다.</p>
 		</div>
 		<div class="pop_close_wrap">
-			<a href="javascript:void(0);" class="btn inline wd pop_close" >창닫기</a>
+			<a href="javascript:void(0);" class="btn inline wd pop_close" >닫기</a>
 		</div>
 	</div>
 
@@ -768,11 +768,11 @@ $(function() {
 	<div class="pop_wrap chage_name_pop3 notice_img_pop">
 		<p class="pop_title" >이름 변경</p>
 		<div>
-			<img src="<?=G5_THEME_URL?>/_images/comform_chk.gif" alt="이미지">
-			<span>변경 처리되었습니다</span>
+			<img src="<?=G5_URL?>/img/check_basics.png" alt="체크 이미지">
+			<span>변경 처리되었습니다.</span>
 		</div>
 		<div class="pop_close_wrap">
-			<a href="javascript:void(0);" class="btn inline wd pop_close">창닫기</a>
+			<a href="javascript:void(0);" class="btn inline wd pop_close">닫기</a>
 		</div>
 	</div>
 
@@ -1058,5 +1058,3 @@ $(function() {
 		});
 	});
 </script>
-
-

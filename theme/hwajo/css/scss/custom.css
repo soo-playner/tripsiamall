@@ -1583,6 +1583,9 @@ a.btn_cancle,
 .dark #referral .user.selected {
   border: none;
 }
+.dark input[type=password] {
+  color: #000;
+}
 .dark .user.selected,
 .dark .btn-primary {
   background: #FECE00;
@@ -3156,6 +3159,16 @@ a.btn_cancle,
 .dark .pop_wrap {
   background: #212429;
   border: none;
+  color: #fff;
+}
+.dark .pop_wrap .btn.blue:hover {
+  background: #fbe591 !important;
+}
+.dark .pop_wrap.send_tran_pop .pop_title + div {
+  background: transparent;
+}
+.dark .pop_wrap.send_tran_pop input[type=password] {
+  color: #000;
 }
 .dark .pop_wrap input {
   border: none;

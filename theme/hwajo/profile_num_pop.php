@@ -149,7 +149,7 @@
 			<div class="pop_wrap num1_pop_wrap notice_img_pop">
 				<p class="pop_title">전화번호 인증</p>	
 				<div>
-					<img src="_images/comform_chk.gif" alt="이미지">
+					<img src="<?=G5_URL?>/img/check_basics.png" alt="체크 이미지">
 					인증번호가 전송되었습니다.
 				</div>
 				<div class="pop_close_wrap">
@@ -160,7 +160,7 @@
 			<div class="pop_wrap num2_pop_wrap notice_img_pop">
 				<p class="pop_title">전화번호 변경</p>	
 				<div>
-					<img src="_images/comform_chk.gif" alt="이미지">
+					<img src="<?=G5_URL?>/img/check_basics.png" alt="체크 이미지">
 					변경이 성공적으로 완료되었습니다.
 				</div>
 				<div class="pop_close_wrap">

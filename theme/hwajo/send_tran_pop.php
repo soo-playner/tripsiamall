@@ -70,7 +70,7 @@
 			<div class="pop_wrap send_tran_pop">
 				<p class="pop_title">거래 요청 확인하기</p>	
 				<div>
-					<p>트랙잭션 비밀번호를 입력하십시오.</p>
+					<p>출금 비밀번호를 입력하십시오.</p>
 					<input type="password">
 				</div>
 				<div class="pop_close_wrap">
