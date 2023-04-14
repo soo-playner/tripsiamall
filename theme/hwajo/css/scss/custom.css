@@ -1507,6 +1507,11 @@ a.btn_cancle,
   background: #fde58e;
   color: #000;
 }
+.dark #ui-datepicker-div.ui-datepicker .ui-datepicker-prev span,
+.dark #ui-datepicker-div.ui-datepicker .ui-datepicker-next span {
+  -webkit-filter: brightness(2.5);
+          filter: brightness(2.5);
+}
 .dark #ui-datepicker-div.ui-datepicker .ui-state-active {
   background: #f9d448;
   color: #000;

@@ -1779,6 +1779,11 @@ a.btn_cancle,
             }
         }
 
+        .ui-datepicker-prev span,
+        .ui-datepicker-next span {
+            filter: brightness(2.5);
+        }
+
         .ui-state-active {
             background: #f9d448;
             color: #000;
