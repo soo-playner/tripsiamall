@@ -963,10 +963,20 @@ $(function() {
 				rule += 1;
 			}
 
-			if($('#reg_mb_hp')[0] && !$('#reg_mb_hp').val()) {
-				dialogModal('KYC 인증','<strong> 휴대폰 번호를 입력해주세요. </strong>','warning',false);
-				return false;
+			var mb_hp_rule = /([0-9]{3})([0-9]{3,4})([0-9]{4})$/;
+			if($('#reg_mb_hp')[0]) {
+				if(!$('#reg_mb_hp').val()) {
+					dialogModal('KYC 인증','<strong> 휴대폰 번호를 입력해주세요. </strong>','warning',false);
+					return false;
+				}
+				
+				if(!$('#reg_mb_hp').val().match(mb_hp_rule)) {
+					dialogModal('KYC 인증','<strong> 올바른 휴대폰번호를 입력해주세요. </strong>','warning',false);
+					return false;
+				}
 			}
+
+			
 
 			// console.log("파일업로드1 :: " + fileInput[0].files.length);
 			// console.log("파일업로드2 :: " + fileInput[1].files.length);
