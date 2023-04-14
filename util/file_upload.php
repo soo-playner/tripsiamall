@@ -94,6 +94,15 @@ if ($member['mb_id']) {
     $wr_password = $member['mb_password'];
     $wr_email = addslashes($member['mb_email']);
     $wr_homepage = addslashes(clean_xss_tags($member['mb_homepage']));
+
+		// 가입 시 휴대폰번호 입력 안했을 시 휴대폰번호 update 
+		
+		$mb_hp = trim(str_replace('-', '', $_POST['mb_hp']));
+		if($mb_hp != '') {
+			$hp_update_sql = "UPDATE {$g5['member_table']} SET mb_hp = '{$mb_hp}' WHERE mb_id = '{$mb_id}'";
+			sql_query($hp_update_sql);
+		}
+		
 } else {
     $mb_id = '';
     // 비회원의 경우 이름이 누락되는 경우가 있음

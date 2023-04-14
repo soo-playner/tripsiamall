@@ -860,12 +860,16 @@ $(function() {
 	<form method="post" action="">
 		<div class="reset_input_box">
 			<label for="" >성명</label>
-			<input type="text" id="tax_name" maxlength="6" value="">
+			<input type="text" id="tax_name" maxlength="6" value="" style="color: #000">
 			<label for="" >주민등록번호</label>
-			<input type="text" pattern="\d*" id="tax_person_number_1" maxlength="6" class="half" inputmode="number"> 
+			<input type="text" pattern="\d*" id="tax_person_number_1" maxlength="6" class="half" inputmode="number" style="color: #000"> 
 			<label style="display:inline;font-size:22px">-</label>
 			<input type="password" pattern="\d*" id="tax_person_number_2" maxlength="7" class="half" inputmode="number">
 			<input type="hidden" id="tax_person_number_3" maxlength="7" class="half" >
+			<?php if(!$member['mb_hp']) { ?> 
+			<label for="" >휴대폰번호</label>
+			<input type="text" name="mb_hp" id="reg_mb_hp" class='cabinet' pattern="[0-9]*" maxlength="11" style="color: #000" placeholder="'-' 제외한 숫자만 입력해주세요." inputmode="number"/>
+			<?php } ?>
 
 			<label>KYC신분증 첨부 </label>
 				<input type="file" accept="image/*" class='filebox' name="bf_file[1]"  >
@@ -924,8 +928,15 @@ $(function() {
 <script type="text/javascript">
 	$(function(){  
 		$("#kyc_rec_btn").on('click',function(){
+			
 			var kyc_name = $("#tax_name").val();
-			var kyc_person_number = $("#tax_person_number_1").val()+'-'+$('#tax_person_number_3').val()
+			var kyc_person_number = $("#tax_person_number_1").val()+'-'+$('#tax_person_number_3').val();
+			if($('#reg_mb_hp')[0]) {
+				var kyc_mb_hp = $("#reg_mb_hp").val();
+			} else {
+				var kyc_mb_hp = '<?= $member['mb_hp'] ?>';
+			}
+			
 			
 			var fileInput = $(".filebox");
 			
@@ -939,17 +950,22 @@ $(function() {
 			var rule = 0;
 			var person_number_rule1 = /^(?:[0-9]{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[1,2][0-9]|3[0,1]))/;
 			if(!$("#tax_person_number_1").val().match(person_number_rule1)){
-				alert("올바른 주민등록번호를 입력해주세요 ");
+				dialogModal('KYC 인증','<strong> 올바른 주민등록번호를 입력해주세요. </strong>','warning',false);
 				return false;
 			}else{
 				rule += 1;
 			}
 			var person_number_rule2 = /^[1-4][0-9]{6}$/;
 			if(!$("#tax_person_number_2").val().match(person_number_rule2)){
-				alert("주민등록번호 형식이 맞지 않습니다.\n올바른 주민등록번호를 입력해주세요 ");
+				dialogModal('KYC 인증','<strong> 주민등록번호 형식이 맞지 않습니다.\n올바른 주민등록번호를 입력해주세요. </strong>','warning',false);
 				return false;
 			}else{
 				rule += 1;
+			}
+
+			if($('#reg_mb_hp')[0] && !$('#reg_mb_hp').val()) {
+				dialogModal('KYC 인증','<strong> 휴대폰 번호를 입력해주세요. </strong>','warning',false);
+				return false;
 			}
 
 			// console.log("파일업로드1 :: " + fileInput[0].files.length);
@@ -995,6 +1011,7 @@ $(function() {
 				formData.append("wr_subject",kyc_name);
 				formData.append("wr_content", kyc_person_number);
 				formData.append("wr_wallet_type", wallet_type);
+				formData.append("mb_hp", kyc_mb_hp);
 
 
 				for (var i = 0; i < fileInput.length; i++) {
