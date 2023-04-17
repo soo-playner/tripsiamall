@@ -866,10 +866,10 @@ $(function() {
 			<label style="display:inline;font-size:22px">-</label>
 			<input type="password" pattern="\d*" id="tax_person_number_2" maxlength="7" class="half" inputmode="number">
 			<input type="hidden" id="tax_person_number_3" maxlength="7" class="half" >
-			<?php if(!$member['mb_hp']) { ?> 
+		
 			<label for="" >휴대폰번호</label>
 			<input type="text" name="mb_hp" id="reg_mb_hp" class='cabinet' pattern="[0-9]*" maxlength="11" style="color: #000" placeholder="'-' 제외한 숫자만 입력해주세요." inputmode="number"/>
-			<?php } ?>
+		
 
 			<label>KYC신분증 첨부 </label>
 				<input type="file" accept="image/*" class='filebox' name="bf_file[1]"  >

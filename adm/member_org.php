@@ -305,7 +305,10 @@ if (!$to_date) $to_date = Date("Y-m-d", time());
 	}
 
 	.orgchart .node .mb .user_name{
-		color:#555;font-size:12px;
+		color:#555;
+		font-size:12px;
+		display:block;
+		line-height:20px;
 	}
 
 	.zoom-btn {

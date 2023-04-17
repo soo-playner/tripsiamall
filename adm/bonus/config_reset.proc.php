@@ -54,7 +54,7 @@ if($_POST['nw_order_reset'] == 'on'){
     $pack_name_sql = sql_fetch("SELECT it_maker from g5_shop_item WHERE it_use > 0 limit 0,1 ")['it_maker'];
     $pack_name = substr($pack_name_sql,0,1);
     
-    for($i=0;$i<=$pack_cnt-1;$i++){
+    for($i=0;$i<=$pack_cnt;$i++){
         $pack_where = "package_".$pack_name.$i;
         sql_query(" TRUNCATE TABLE {$pack_where}; ");
         

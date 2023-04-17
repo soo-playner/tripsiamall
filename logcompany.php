@@ -16,6 +16,7 @@ define('CONFIG_MAIL_ADDR','wizclass.inc@gmail.com');
 define('USE_WALLET',TRUE);
 define('ETH_ADDRESS','0x00000005');
 
+define('Mining_solution', false);
 
 // 기준통화설정
 $curencys = ['eth','usdt','krw','hwajo'];
