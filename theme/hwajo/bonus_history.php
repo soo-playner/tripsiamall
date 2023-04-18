@@ -163,5 +163,7 @@ jQuery(function($){
     };
 	$.datepicker.setDefaults($.datepicker.regional["ko"]);
 });
+
+collapseClosed();
 </script>
 

@@ -929,5 +929,5 @@ $auth_cnt = sql_num_rows($amt_auth_log);
       });
   } 
 
-  
+  collapseClosed()
 </script>

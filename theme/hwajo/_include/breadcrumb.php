@@ -220,7 +220,7 @@ $title = 'Dashboard';
 
 					</ul>
 
-					<!-- <ul class="row" style="margin:0 20px;">
+					<ul class="row" style="margin:0 10px;">
 						<li class="col-12">
 							
 							<dd class="value">
@@ -233,9 +233,9 @@ $title = 'Dashboard';
 									<p class='end'>300%</p>
 								</div>
 							</dd>
-							<dt class="title" >수당한계</dt>
+							<dt class="title" style="font-size:10px;" >수당한계</dt>
 						</li>
-					</ul> -->
+					</ul>
 
 					<ul class="row">
 						<li class="rank_title">다음승급조건달성</li>
@@ -282,7 +282,6 @@ $title = 'Dashboard';
 <script>
 		function collapse(id, mode) {
 			
-
 			$('.fold_img_wrap img').attr('src','<?=G5_THEME_URL?>/img/arrow_up_'+Theme+'.png');
 			
 			var user_height = $('#collapseExample').height();
@@ -290,7 +289,7 @@ $title = 'Dashboard';
 			if ($(id).css("display") == "none") {
 				$(id).css("display", "block");
 				$(id).animate({
-					height: user_height + 150
+					height: user_height + 200
 				}, 500, function() {
 					$('.fold_wrap p').text('접기');
 				});
@@ -304,6 +303,18 @@ $title = 'Dashboard';
 				});
 				animateRotate(180);
 			}
+		}
+
+		function collapseClosed(){
+			target = $('#collapseExample');
+
+			target.animate({
+				height: "0px",
+			}, 0, function() {
+				target.css("display", "none");
+				$('.fold_wrap p').text('펼쳐보기');
+			});
+			animateRotate(180);
 		}
 
 		function animateRotate(d) {
@@ -327,7 +338,7 @@ $title = 'Dashboard';
 		}
 
 	$(document).ready(function(){
-		// move(<?=bonus_per()?>,1);
+		move(<?=$bonus_per?>,1);
 
 		// 공지사항 - 하단공지로 사용안함
 		var notice_open = getCookie('notice');

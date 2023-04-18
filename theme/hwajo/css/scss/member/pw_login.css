@@ -8,7 +8,6 @@
     opacity: 1;
   }
 }
-
 @keyframes slidein {
   from {
     margin-top: 50px;
@@ -19,32 +18,26 @@
     opacity: 1;
   }
 }
-
 .login_wrap {
   width: 85%;
   margin: 0 auto;
   text-align: center;
 }
-
 .login_wrap .logo_login_div img {
   max-width: 220px;
 }
-
 .login_wrap form label {
   margin-bottom: 10px;
   display: block;
   text-align: left;
   font-size: 14px;
 }
-
 .login_wrap form input {
   color: black;
 }
-
 .login_wrap form .login_btn_bottom {
   margin-top: 2vh;
 }
-
 .login_wrap form .login_btn_bottom a.btn_basic_block {
   padding: 0px;
   margin: 30px 0px 10px;
@@ -85,5 +78,4 @@ a.desc {
     max-width: 767px;
     margin: 0 auto;
   }
-}
-/*# sourceMappingURL=pw_login.css.map */
+}/*# sourceMappingURL=pw_login.css.map */

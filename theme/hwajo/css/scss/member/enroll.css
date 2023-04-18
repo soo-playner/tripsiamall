@@ -19,23 +19,19 @@
     opacity: 1;
   }
 }
-
 .enroll_wrap {
   width: 100%;
   margin: 0 auto;
   font-size: 15px;
-  letter-spacing: -.3px;
+  letter-spacing: -0.3px;
 }
-
 .enroll_wrap .referzone {
   background: #fff;
   margin: 20px 0;
   border-radius: 5px;
-  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
-          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
   border: 2px solid #545878;
 }
-
 .enroll_wrap .referzone input[type=text] {
   color: black;
   border-bottom: none;
@@ -44,68 +40,52 @@
   border-radius: 0;
   margin-top: 0px;
 }
-
-.enroll_wrap .referzone input::-webkit-input-placeholder {
+.enroll_wrap .referzone input::-moz-placeholder {
   color: #666;
 }
-
 .enroll_wrap .referzone input:-ms-input-placeholder {
   color: #666;
 }
-
-.enroll_wrap .referzone input::-ms-input-placeholder {
-  color: #666;
-}
-
 .enroll_wrap .referzone input::placeholder {
   color: #666;
 }
-
 .enroll_wrap .referzone.blue {
   background: #204f83;
   color: white;
 }
-
 .enroll_wrap .pw_ul > li {
   width: 49%;
   min-height: 244px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   background: #f2f3f4;
   padding: 15px;
   border-radius: 10px;
 }
-
 .enroll_wrap .pw_ul ul li {
   padding-left: 20px;
   font-weight: bold;
 }
-
 .enroll_wrap .o_li {
   background: url("../../../_images/okay_icon.gif");
   background-size: 13px;
   background-repeat: no-repeat;
   background-position: center left;
 }
-
 .enroll_wrap .x_li {
   background: url("../../../_images/x_icon.gif");
   background-size: 13px;
   background-repeat: no-repeat;
   background-position: center left;
 }
-
 .enroll_wrap .check_appear_title {
   color: #006df3;
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 10px;
 }
-
 .enroll_wrap .agreement_btn {
   text-align: center;
 }
-
 .enroll_wrap #nation_number {
   height: 48px;
   width: 100%;
@@ -115,21 +95,18 @@
   border-left: 0;
   border-right: 0;
 }
-
 .enroll_wrap .in_btn_ly {
   position: relative;
   float: right;
   margin-right: 10px;
   margin-top: -52px;
 }
-
 .enroll_wrap .in_btn_ly2 {
   position: relative;
   float: right;
   margin-top: -35px;
   margin-right: 10px;
 }
-
 .enroll_wrap .agreement_ly {
   background: #fff;
   padding: 15px;
@@ -138,15 +115,12 @@
   font-size: 12px;
   border-radius: 10px;
 }
-
 .enroll_wrap .btn_input_wrap {
   padding: 0px;
 }
-
 .enroll_wrap #personal {
   position: relative;
 }
-
 .enroll_wrap .phone_num {
   position: absolute;
   left: 1%;
@@ -154,7 +128,6 @@
   z-index: 2;
   display: inline;
 }
-
 .enroll_wrap input + label > i {
   font-size: 20px;
 }
@@ -168,8 +141,7 @@
   display: inline-block;
   width: 21px;
 }
-
-.checkbox_wrap input[type="checkbox"] {
+.checkbox_wrap input[type=checkbox] {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -179,10 +151,9 @@
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
-
-.checkbox_wrap input[type="checkbox"] + label::before {
+.checkbox_wrap input[type=checkbox] + label::before {
   /* 가짜 체크박스 */
-  content: ' ';
+  content: " ";
   display: inline-block;
   width: 15px;
   /* 체크박스의 너비를 지정 */
@@ -196,9 +167,8 @@
   background: #fafafa;
   border: 1px solid #000;
 }
-
-.checkbox_wrap input[type="checkbox"]:checked + label::before {
-  content: '\2714';
+.checkbox_wrap input[type=checkbox]:checked + label::before {
+  content: "✔";
   color: #000;
 }
 
@@ -233,15 +203,12 @@
   border: black solid 1px;
   border-radius: 3px;
 }
-
 #service_checkbox + label span, #private_checkbox + label span {
   position: absolute;
   display: block;
   font-weight: bold;
-  -webkit-transform: translate(22px, -3px);
-          transform: translate(22px, -3px);
+  transform: translate(22px, -3px);
 }
-
 #service_checkbox:checked + label, #private_checkbox:checked + label {
   background: url("/img/check_basics.png") no-repeat center/17px 18px;
   background-repeat: no-repeat;
@@ -263,5 +230,4 @@
 .btn2_wrap {
   width: 100%;
   height: 60px;
-}
-/*# sourceMappingURL=enroll.css.map */
+}/*# sourceMappingURL=enroll.css.map */

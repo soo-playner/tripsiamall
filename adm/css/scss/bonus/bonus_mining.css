@@ -100,7 +100,7 @@
 }
 
 .view_btn:hover {
-  background: #f9a62e;
+  background: rgb(249, 166, 46);
   cursor: pointer;
 }
 
@@ -211,10 +211,9 @@
 }
 
 .gold {
-  color: #b68e0c;
+  color: rgb(182, 142, 12);
 }
 
 select, .frm_input {
   height: 36px;
-}
-/*# sourceMappingURL=bonus_mining.css.map */
+}/*# sourceMappingURL=bonus_mining.css.map */

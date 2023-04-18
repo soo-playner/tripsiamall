@@ -26,8 +26,7 @@ tfoot td {
 }
 
 .bonus_input {
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   text-shadow: none;
   padding: 10px;
   border: 0;
@@ -54,5 +53,4 @@ hr {
   display: block;
   background: #333;
   margin: 20px 0;
-}
-/*# sourceMappingURL=bonus_config2.css.map */
+}/*# sourceMappingURL=bonus_config2.css.map */

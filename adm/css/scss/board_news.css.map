@@ -1,9 +1,1 @@
-{
-    "version": 3,
-    "mappings": "AAEA,AAAA,UAAU,CAAC,IAAI,CAAA;EAAC,UAAU,EAAC,eAAe;CAAE;;AAC5C,AAAA,IAAI,CAAA;EAAC,UAAU,EAAC,eAAe;CAAE;;AACjC,AAAA,MAAM,CAAC,IAAI,CAAC,IAAI,CAAA;EAAC,UAAU,EAAC,eAAe;CAAE;;AAC7C,AAAA,WAAW,CAAA;EAAC,KAAK,EAAC,IAAI;EAAC,WAAW,EAAE,GAAG;CAAE",
-    "sources": [
-        "board_news.scss"
-    ],
-    "names": [],
-    "file": "board_news.css"
-}
+{"version":3,"sources":["board_news.scss","board_news.css"],"names":[],"mappings":"AAEA;EAAgB,2BAAA;ACAhB;;ADCA;EAAK,2BAAA;ACGL;;ADFA;EAAiB,2BAAA;ACMjB;;ADLA;EAAY,WAAA;EAAW,gBAAA;ACUvB","file":"board_news.css"}

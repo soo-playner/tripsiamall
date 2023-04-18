@@ -494,6 +494,7 @@ $(function(){
 
 });
 
+collapseClosed();
 </script>
 
 

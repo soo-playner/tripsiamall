@@ -1,7 +1,7 @@
 .btn_menu {
   padding: 5px;
   border: 1px solid #ced9de;
-  background: #f6f9fa;
+  background: rgb(246, 249, 250);
   cursor: pointer;
 }
 
@@ -17,5 +17,4 @@
 
 .user_name {
   margin-left: 50px;
-}
-/*# sourceMappingURL=member_tree.css.map */
+}/*# sourceMappingURL=member_tree.css.map */

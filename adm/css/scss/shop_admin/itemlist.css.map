@@ -1,9 +1,1 @@
-{
-    "version": 3,
-    "mappings": "AAEA,AAAA,KAAK,CAAC,EAAE,CAAA;EAAC,KAAK,EAAC,GAAG;CAAE;;AACpB,AAAA,KAAK,CAAC,EAAE,AAAA,IAAI,CAAA;EAAC,KAAK,EAAC,eAAe;CAAG",
-    "sources": [
-        "itemlist.scss"
-    ],
-    "names": [],
-    "file": "itemlist.css"
-}
+{"version":3,"sources":["itemlist.scss","itemlist.css"],"names":[],"mappings":"AAEA;EAAS,UAAA;ACAT;;ADCA;EAAa,sBAAA;ACGb","file":"itemlist.css"}

@@ -4,11 +4,11 @@
   min-height: 50vh;
 }
 
-input[type="radio"] + label {
+input[type=radio] + label {
   color: #999;
 }
 
-input[type="radio"]:checked + label {
+input[type=radio]:checked + label {
   color: #e50000;
   font-weight: bold;
   font-size: 14px;
@@ -40,8 +40,8 @@ table.regTb td {
   bdata_test-right: solid 1px #ddd;
 }
 
-table.regTb input[type="text"],
-table.regTb input[type="password"] {
+table.regTb input[type=text],
+table.regTb input[type=password] {
   padding: 0;
   padding-left: 8px;
   height: 23px;
@@ -62,11 +62,11 @@ table.regTb label {
   cursor: pointer;
 }
 
-table.regTb input[type="radio"] + label {
+table.regTb input[type=radio] + label {
   color: #999;
 }
 
-table.regTb input[type="radio"]:checked + label {
+table.regTb input[type=radio]:checked + label {
   color: #e50000;
   font-weight: bold;
 }
@@ -81,7 +81,7 @@ tfoot {
 span.help {
   font-size: 11px;
   font-weight: normal;
-  color: #2667b8;
+  color: rgb(38, 103, 184);
 }
 
 .name {
@@ -95,7 +95,7 @@ span.help {
 }
 
 .currency {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 16px;
   font-weight: 900;
   letter-spacing: 1px;
@@ -114,5 +114,4 @@ span.help {
   display: block;
   margin: 20px auto;
   text-align: right;
-}
-/*# sourceMappingURL=config_reset.css.map */
+}/*# sourceMappingURL=config_reset.css.map */

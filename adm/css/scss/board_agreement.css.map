@@ -1,9 +1,1 @@
-{
-    "version": 3,
-    "mappings": "AAEA,AAAA,UAAU,CAAC,IAAI,CAAA;EAAC,UAAU,EAAC,eAAe;CAAE;;AAC5C,AAAA,IAAI,CAAA;EAAC,UAAU,EAAC,eAAe;CAAE;;AACjC,AAAA,MAAM,CAAC,IAAI,CAAC,IAAI,CAAA;EAAC,UAAU,EAAC,eAAe;CAAE;;AAC7C,AAAA,WAAW,CAAA;EAAC,KAAK,EAAC,IAAI;EAAC,WAAW,EAAE,GAAG;CAAE",
-    "sources": [
-        "board_agreement.scss"
-    ],
-    "names": [],
-    "file": "board_agreement.css"
-}
+{"version":3,"sources":["board_agreement.scss","board_agreement.css"],"names":[],"mappings":"AAEA;EAAgB,2BAAA;ACAhB;;ADCA;EAAK,2BAAA;ACGL;;ADFA;EAAiB,2BAAA;ACMjB;;ADLA;EAAY,WAAA;EAAW,gBAAA;ACUvB","file":"board_agreement.css"}

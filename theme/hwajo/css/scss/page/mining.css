@@ -8,7 +8,6 @@
     opacity: 1;
   }
 }
-
 @keyframes slidein {
   from {
     margin-top: 50px;
@@ -19,11 +18,9 @@
     opacity: 1;
   }
 }
-
 #mining .myitemform {
   display: contents;
 }
-
 #mining h3.title {
   margin: 20px 0 0px;
   vertical-align: middle;
@@ -33,29 +30,24 @@
   padding-left: 10px;
   display: inline-block;
 }
-
 #mining .all_view {
   float: right;
   background: white;
   margin-top: 15px;
 }
-
 #mining .all_view:hover {
   background: #492191;
   color: white;
 }
-
 #mining .mining_wrap {
   margin: 20px 0 0 0;
 }
-
 #mining .mining_ico {
   height: 40px;
   width: 40px;
   display: inline-block;
   vertical-align: middle;
 }
-
 #mining .mining_ico img {
   width: 100%;
   height: 100%;
@@ -68,87 +60,69 @@
 #withdraw {
   background: #ec2b38;
 }
-
 #withdraw .polding_btn {
   color: white;
 }
-
 #withdraw .polding_btn div {
   display: inline-block;
 }
-
 #withdraw .polding_btn .wallet_title {
   font-weight: 600;
   font-size: 16px;
 }
-
 #withdraw .polding_btn .max_with {
   margin-left: 10px;
   font-size: 11px;
 }
-
 #withdraw .polding_btn .btn_title {
   line-height: 30px;
   text-align: center;
 }
-
 #withdraw .polding_btn .caret_box {
   vertical-align: top;
   float: right;
 }
-
 #withdraw .polding_btn .caret_box i {
   font-size: 16px;
 }
-
 #withdraw.open {
   background: white;
 }
-
 #withdraw.open .polding_btn {
   color: black;
 }
-
 #withdraw.open .polding_btn .caret_box {
   background: #f4f1f5;
   border-radius: 5px;
 }
-
 #withdraw .input_shift_value .button_wrap {
   float: right;
 }
-
 #withdraw .input_shift_value .currency-right {
   margin-top: 14px;
   margin-right: 10px;
 }
-
 #withdraw .input_shift_value .fee {
   font-size: 13px;
   margin-bottom: 10px;
   margin-top: -5px;
 }
-
 #withdraw .input_shift_value .fee #active_amt, #withdraw .input_shift_value .fee #fee_val {
   color: #ec2b38;
 }
-
 #withdraw .input_shift_value .fee i {
   font-size: 18px;
   color: #ec2b38;
 }
-
 #withdraw .hidden {
   display: none;
 }
-
 #withdraw .polding .comment {
   float: right;
   font-size: 11px;
   line-height: 30px;
   color: red;
 }
-
 #withdraw #withdrawal_btn {
   background: #ec2b38;
   color: white;
@@ -158,36 +132,29 @@
   float: right;
   color: #492191;
 }
-
 #mining_history .hist_tit {
   color: #492191;
 }
-
 #mining_history ul {
   margin-top: 15px;
   border-top: 1px dashed #e1e1e1;
   padding: 15px 0;
   margin: 0;
 }
-
 #mining_history ul li {
   padding: 0;
 }
-
 #mining_history .badge {
   _background: #eff3f9;
   color: white;
   font-weight: 300;
 }
-
 #mining_history .hist_td {
   line-height: 30px;
 }
-
 #mining_history .hist_value {
   font-size: 12px;
 }
-
 #mining_history .hist_rec {
   font-size: 11px;
   color: #767676;
@@ -196,43 +163,35 @@
 #mining_amt_log {
   padding: 15px 0;
 }
-
 #mining_amt_log .hist_tit {
   width: 100%;
   color: #ec2b38;
 }
-
 #mining_amt_log .mymining_total {
   color: #ec2b38;
 }
-
 #mining_amt_log ul li span {
   display: inline-block;
   line-height: 26px;
   float: left;
   font-size: 12px;
 }
-
 #mining_amt_log .amt_total {
   color: #ec2b38;
   font-weight: 600;
   font-size: 13px;
 }
-
 #mining_amt_log .amt {
   font-size: 13px;
 }
-
 #mining_amt_log .hist_bank {
   color: black;
   background: ghostwhite;
   border-radius: 5px;
 }
-
 #mining_amt_log .result {
   font-size: 15px;
 }
-
 #mining_amt_log i {
   font-size: 18px;
   margin-right: 5px;
@@ -240,7 +199,6 @@
   vertical-align: sub;
   color: #333;
 }
-
 #mining_amt_log p {
   display: inline-block;
 }
@@ -273,17 +231,13 @@
   font-size: 13px;
   border-bottom: 4px solid #073a69;
 }
-
 .content-box.mining_history {
   font-size: 13px;
   border-left: 4px solid #073a69;
 }
-
 .content-box .m_hist_exp {
   font-size: 11px;
 }
-
 .content-box .hist_value2 {
   font-size: 13px;
-}
-/*# sourceMappingURL=mining.css.map */
+}/*# sourceMappingURL=mining.css.map */
