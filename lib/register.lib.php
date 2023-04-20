@@ -172,10 +172,10 @@ function valid_mb_hp($reg_mb_hp)
     if(!$reg_mb_hp)
         return "휴대폰번호를 입력해 주십시오.";
     else {
-        // if(preg_match("/^01[0-9]{8,9}$/", $reg_mb_hp))
-        //     return "";
-        // else
-        //     return "휴대폰번호를 올바르게 입력해 주십시오.";
+        if(preg_match("/^01[0-9]{8,9}$/", $reg_mb_hp))
+            return "";
+        else
+            return "휴대폰번호를 올바르게 입력해 주십시오.";
     }
 }
 

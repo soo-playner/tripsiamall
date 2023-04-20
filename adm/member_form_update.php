@@ -25,11 +25,11 @@ $od_id = date("YmdHis",time());
 
 // 휴대폰번호 체크
 $mb_hp = hyphen_hp_number($_POST['mb_hp']);
-if($mb_hp) {
+/* if($mb_hp) {
 	$result = exist_mb_hp($mb_hp, $mb_id);
 	if ($result)
 		alert($result);
-}
+} */
 
 // 인증정보처리
 if($_POST['mb_certify_case'] && $_POST['mb_certify']) {
