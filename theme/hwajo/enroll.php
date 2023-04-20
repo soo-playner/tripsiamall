@@ -26,8 +26,8 @@ if ($_GET['recom_referral']) {
 	}
 }
 
-$_rand_num = sprintf("%06d", rand(000000, 999999));
-$rand_num = base64_encode($_rand_num);
+// $_rand_num = sprintf("%06d", rand(000000, 999999));
+// $rand_num = base64_encode($_rand_num);
 ?>
 
 <link href="<?= G5_THEME_URL ?>/css/scss/enroll.css" rel="stylesheet">
@@ -119,10 +119,20 @@ $rand_num = base64_encode($_rand_num);
 			return decodeURIComponent(atob(str));
 		}
 
+		check_phone = 0;
+
 		//SMS발송
 		$('#hp_button').click(function() {
 
+			let rand_num = String(Math.floor(Math.random()*1000000)).padStart(6, "0");
+			let rand_encode = btoa(rand_num);
+
 			let mb_hp = document.querySelector('#reg_mb_hp').value;
+
+			let data = {
+				mb_hp: mb_hp,
+				rand_num: rand_encode
+			}
 
 			if (mb_hp == "") {
 				dialogModal("휴대폰 인증", "휴대폰번호를 입력해주세요.", "failed");
@@ -135,11 +145,6 @@ $rand_num = base64_encode($_rand_num);
 				return false;
 			}
 
-			let data = {
-				mb_hp: mb_hp,
-				rand_num: "<?= $rand_num ?>"
-			}
-
 			$.ajax({
 				type: "POST",
 				url: "/util/register_auth_phone.php",
@@ -149,18 +154,20 @@ $rand_num = base64_encode($_rand_num);
 					result = JSON.parse(res);
 					if (result.code == "200") {
 						let count = count_down();
-						if ("<?= HANDLE_STATES == 'test' ?>") $('#auth_number').val("<?= $_rand_num ?>");
+						if ("<?= HANDLE_STATES == 'test' ?>") $('#auth_number').val(rand_num);
 
 						$('#auth_number_confirm').on('click', function() {
-							if ($('#auth_number').val() == decode("<?= $rand_num ?>")) {
+							if ($('#auth_number').val() == decode(rand_encode)) {
 								clearInterval(count);
-								$('#timer_down').hide();
-								$('#auth_number').attr("readonly", true);
 								dialogModal("휴대폰 인증", "휴대폰 인증이 완료되었습니다.", "success");
+								$('#auth_wrap').hide();
+								$('#auth_number').val("").attr("readonly", true);
+								check_phone = 1;
 								$('#reg_mb_hp').attr("readonly", true);
 								$('#auth_number_confirm').attr("disabled", true);
 							} else {
 								dialogModal("휴대폰 인증", "인증번호를 확인해주세요.", "failed");
+								check_phone = 0;
 							}
 						});
 
@@ -335,6 +342,11 @@ $rand_num = base64_encode($_rand_num);
 				$("#reg_mb_id").val(temp.replace(re, ""));
 			}
 			check_id = 0;
+		});
+
+		$("#reg_mb_hp").bind("keyup", function() {
+			check_phone = 0;
+			console.log(check_phone);
 		});
 
 		/*이용약관동의*/
@@ -659,6 +671,14 @@ $rand_num = base64_encode($_rand_num);
 		//아이디 중복체크
 		if (check_id == 0) {
 			commonModal('ID 중복확인', '<strong>아이디 중복확인을 해주세요. </strong>', 80);
+			return false;
+		}
+
+		if (check_phone == 0) {
+			commonModal('휴대폰 인증', '<strong>휴대폰 인증을 해주세요. </strong>', 80);
+			$('#hp_button').attr("disabled", false);
+			$('#auth_number').attr("readonly", false);
+			$('#auth_number_confirm').attr("disabled", false);
 			return false;
 		}
 

@@ -19,6 +19,6 @@ if($mb_hp && $rand_num){
 
 }
 
-echo json_encode(array("code"=>$code, "msg"=>$msg, "sms"=>$SMS));
+echo json_encode(array("code"=>$code, "msg"=>$msg));
 
 ?>
