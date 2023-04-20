@@ -2,16 +2,21 @@
 include_once("../common.php");
 
 $mb_id = $_POST['mb_id'];
-$to_email = $_POST['user_email'];
-$auth_number = $_POST['auth_number'];
+$to_email = $_POST['mb_email'];
 
-$sql = "SELECT * FROM g5_member WHERE mb_id = '{$mb_id}' AND mb_email = '{$to_email}'";
-$result = sql_query($sql);
-$cnt = sql_num_rows($result);
-if($cnt < 1 ){
+$sql = "SELECT mb_id,mb_email, count(mb_id) as cnt FROM {$g5['member_table']} WHERE mb_id = '{$mb_id}' AND mb_email = '{$to_email}'";
+$row = sql_fetch($sql);
+
+if($row['cnt'] <= 0 ){
     echo json_encode(array("code"=>"00002"));
     return;
 }
+
+$to_id = $row['mb_id'];
+
+$auth_number = sprintf("%06d", rand(000000, 999999));
+$sql = "update {$g5['member_table']} set mail_invalid = '{$auth_number}' where mb_id = '{$mb_id}' and mb_email = '{$to_email}'";
+sql_query($sql);
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
