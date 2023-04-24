@@ -867,9 +867,6 @@ $(function() {
 			<input type="password" pattern="\d*" id="tax_person_number_2" maxlength="7" class="half" inputmode="number">
 			<input type="hidden" id="tax_person_number_3" maxlength="7" class="half" >
 		
-			<label for="" >휴대폰번호</label>
-			<input type="text" name="mb_hp" id="reg_mb_hp" class='cabinet' pattern="[0-9]*" maxlength="11" style="color: #000" placeholder="'-' 제외한 숫자만 입력해주세요." inputmode="number"/>
-		
 
 			<label>KYC신분증 첨부 </label>
 				<input type="file" accept="image/*" class='filebox' name="bf_file[1]"  >
@@ -931,12 +928,6 @@ $(function() {
 			
 			var kyc_name = $("#tax_name").val();
 			var kyc_person_number = $("#tax_person_number_1").val()+'-'+$('#tax_person_number_3').val();
-			if($('#reg_mb_hp')[0]) {
-				var kyc_mb_hp = $("#reg_mb_hp").val();
-			} else {
-				var kyc_mb_hp = '<?= $member['mb_hp'] ?>';
-			}
-			
 			
 			var fileInput = $(".filebox");
 			
@@ -961,22 +952,7 @@ $(function() {
 				return false;
 			}else{
 				rule += 1;
-			}
-
-			var mb_hp_rule = /([0-9]{3})([0-9]{3,4})([0-9]{4})$/;
-			if($('#reg_mb_hp')[0]) {
-				if(!$('#reg_mb_hp').val()) {
-					dialogModal('KYC 인증','<strong> 휴대폰 번호를 입력해주세요. </strong>','warning',false);
-					return false;
-				}
-				
-				if(!$('#reg_mb_hp').val().match(mb_hp_rule)) {
-					dialogModal('KYC 인증','<strong> 올바른 휴대폰번호를 입력해주세요. </strong>','warning',false);
-					return false;
-				}
-			}
-
-			
+			}			
 
 			// console.log("파일업로드1 :: " + fileInput[0].files.length);
 			// console.log("파일업로드2 :: " + fileInput[1].files.length);
@@ -1021,7 +997,6 @@ $(function() {
 				formData.append("wr_subject",kyc_name);
 				formData.append("wr_content", kyc_person_number);
 				formData.append("wr_wallet_type", wallet_type);
-				formData.append("mb_hp", kyc_mb_hp);
 
 
 				for (var i = 0; i < fileInput.length; i++) {

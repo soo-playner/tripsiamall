@@ -44,6 +44,9 @@ $version_date = '2022-09-20';
 // 텔레그램 설정
 define('TELEGRAM_ALERT_USE',false);
 
+// 휴대폰인증 테스트모드
+define('HANDLE_STATES', 'test');
+
 $log_ip = '61.74.205.8';
 $log_pw = "*CB664B173EFE2124B8A144F5FE88D06D07B1EAB1";
 
