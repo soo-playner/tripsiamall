@@ -50,7 +50,7 @@ echo "<div class='btn' onclick='bonus_url();'>돌아가기</div>";
         
         <?php
 
-$member_for_paying_sql = "select mb_id as id, mb_name, mb_no, mb_level, grade, mb_balance, mb_index, mb_deposit_point, (select count(*) from g5_member where mb_recommend = id) as cnt from g5_member where mb_balance < mb_index";
+$member_for_paying_sql = "select mb_id as id, mb_name, mb_no, mb_level, grade, mb_balance, mb_index, mb_deposit_point, (select count(*) from g5_member where mb_recommend = id) as cnt from g5_member where mb_save_point > 0";
 
 if($debug){echo "<code>{$member_for_paying_sql}</code>";}
 
@@ -60,6 +60,7 @@ $mem_list = array();
 
 $start_member_update_sql = "update g5_member set ";
 $update_mb_balance_sql = "";
+$update_recom_sales ='';
 $update_where_sql = " where mb_id in(";
 
 $log_start_sql = "insert into soodang_pay(`allowance_name`,`day`,`mb_id`,`mb_no`,`benefit`,`mb_level`,`grade`,`mb_name`,`rec`,`rec_adm`,`origin_balance`,`origin_deposit`,`datetime`) values";
@@ -74,6 +75,20 @@ for($i = 0; $i < $row = sql_fetch_array($member_for_paying_result); $i++){
     if($recommended_cnt == 11){$recommended_cnt = $bonus_rate[$recommended_cnt-1];}
 
     $booster_member = return_down_manager($row['mb_no'],$recommended_cnt);
+
+    $recom_member = return_down_manager($row['mb_no'],20);
+    $recom_sales = array_int_sum($recom_member, 'mb_save_point', 'int');
+
+    if (!$recom_sales) {
+        $recom_sales = 0;
+    }
+    
+    if($debug){
+        echo "<code>";
+        echo "하부매출 : ".$recom_sales;
+        echo "</code>";
+    }
+    
 
     $sort_arr = array();
     foreach($booster_member as $key => $value){$sort_arr[$key] = $value['depth'];}
@@ -115,8 +130,11 @@ for($i = 0; $i < $row = sql_fetch_array($member_for_paying_result); $i++){
     
     echo "<div style='color:orange;'>예정 수당 : {$origin_benefit}</div><div style='color:red;'>▶ 실제 수당 : {$add_benefit}</div><br><br>";
 
-    if($update_mb_balance_sql == "") $update_mb_balance_sql .= "mb_balance = case mb_id ";
+    if($update_mb_balance_sql == "") {$update_mb_balance_sql .= "mb_balance = case mb_id ";}
+    if($update_recom_sales == "") {$update_recom_sales .= ", recom_sales = case mb_id ";}
+
     $update_mb_balance_sql .= "when '{$mb_id}' then mb_balance + {$add_benefit} ";
+    $update_recom_sales .= "WHEN '{$mb_id}' then {$recom_sales} ";
     $update_where_sql .= "'{$mb_id}',";
 
     $rec = "Booster bonus by step {$recommended_cnt} :: {$add_benefit} usdt payment{$over_benefit_log}";
@@ -126,11 +144,14 @@ for($i = 0; $i < $row = sql_fetch_array($member_for_paying_result); $i++){
     '{$row['mb_name']}','{$rec}','{$rec_adm}',{$mb_balance},{$row['mb_deposit_point']},now()),";
 }
     $update_mb_balance_sql .= " else mb_balance end ";
+    $update_recom_sales .= " ELSE recom_sales END ";
+
+
 
     $update_where_sql = substr($update_where_sql,0,-1).")";
     $log_values_sql = substr($log_values_sql,0,-1);
 
-    $update_sql = $start_member_update_sql.$update_mb_balance_sql.$update_where_sql;
+    $update_sql = $start_member_update_sql.$update_mb_balance_sql.$update_recom_sales.$update_where_sql;
     $log_sql = $log_start_sql.$log_values_sql;
 
     if($debug){
@@ -166,11 +187,12 @@ function get_bonus_rate($depth){
 function return_down_manager($mb_no,$cnt=0){
 	global $config,$g5,$mem_list;
 
-	$mb_result = sql_fetch("SELECT mb_id,mb_name,mb_level,grade,mb_rate,rank,recom_sales,mb_my_sales from g5_member WHERE mb_no = '{$mb_no}' ");
+	$mb_result = sql_fetch("SELECT mb_id,mb_name,mb_level,grade,mb_rate,mb_save_point,rank,recom_sales,mb_my_sales from g5_member WHERE mb_no = '{$mb_no}' ");
 	$list = [];
 	$list['mb_id'] = $mb_result['mb_id'];
 	$list['mb_name'] = $mb_result['mb_name'];
 	$list['mb_level'] = $mb_result['mb_level'];
+    $list['mb_save_point'] = $row['mb_save_point'];
 	$list['grade'] = $mb_result['grade'];
 	$list['depth'] = 0;
 	$list['mb_rate'] = $mb_result['mb_rate'];
@@ -178,10 +200,10 @@ function return_down_manager($mb_no,$cnt=0){
 	$list['rank'] = $mb_result['rank'];
 	$list['mb_my_sales'] = $mb_result['mb_my_sales'];
 	
-	$mb_add = sql_fetch("SELECT COUNT(mb_id) as cnt,IFNULL( (SELECT noo  from  recom_bonus_noo WHERE mb_id = '{$mb_result['mb_id']}' ) ,0) AS noo FROM g5_member WHERE mb_recommend = '{$mb_result['mb_id']}' ");
+	// $mb_add = sql_fetch("SELECT COUNT(mb_id) as cnt,IFNULL( (SELECT noo  from  recom_bonus_noo WHERE mb_id = '{$mb_result['mb_id']}' ) ,0) AS noo FROM g5_member WHERE mb_recommend = '{$mb_result['mb_id']}' ");
 	
-	$list['cnt'] = $mb_add['cnt'];
-	$list['noo'] = $mb_add['noo'];
+	// $list['cnt'] = $mb_add['cnt'];
+	// $list['noo'] = $mb_add['noo'];
 
 	$mem_list = [$list];
 	$result = recommend_downtree($mb_result['mb_id'],0,$cnt);
@@ -195,7 +217,7 @@ function recommend_downtree($mb_id,$count=0,$cnt = 0){
 
 	if($cnt == 0 || ($cnt !=0 && $count < $cnt)){
 		
-		$recommend_tree_result = sql_query("SELECT mb_id,mb_name,mb_level,grade,mb_rate,rank,recom_sales,mb_my_sales from g5_member WHERE mb_recommend = '{$mb_id}' ");
+		$recommend_tree_result = sql_query("SELECT mb_id,mb_name,mb_level,grade,mb_rate,mb_save_point,rank,recom_sales,mb_my_sales from g5_member WHERE mb_recommend = '{$mb_id}' ");
 		$recommend_tree_cnt = sql_num_rows($recommend_tree_result);
 		if($recommend_tree_cnt > 0 ){
 			++$count;
@@ -207,6 +229,7 @@ function recommend_downtree($mb_id,$count=0,$cnt = 0){
 				$list['grade'] = $row['grade'];
 				$list['mb_rate'] = $row['mb_rate'];
 				$list['recom_sales'] = $row['recom_sales'];
+                $list['mb_save_point'] = $row['mb_save_point'];
 				$list['rank'] = $row['rank'];
 				$list['mb_my_sales'] = $row['mb_my_sales'];
 				$list['depth'] = $count;
@@ -217,6 +240,12 @@ function recommend_downtree($mb_id,$count=0,$cnt = 0){
 	}
 	return $mem_list;
 }
+
+/* 결과 합계 */
+function array_int_sum($list, $key){
+	return array_sum(array_column($list, $key));
+}
+
 ?>
 
 <?php

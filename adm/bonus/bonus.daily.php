@@ -29,7 +29,7 @@ if($debug){
 $order_list_sql = "select s.*, m.mb_level, m.grade, m.mb_name, m.mb_balance, m.mb_deposit_point, m.mb_index
 from g5_shop_order s 
 join g5_member m 
-on s.mb_id = m.mb_id where m.mb_balance < m.mb_index";
+on s.mb_id = m.mb_id where m.mb_save_point > 0";
 
 $order_list_result = sql_query($order_list_sql);
 
@@ -102,7 +102,7 @@ if(!$get_today){
 
 		$clean_number_benefit = clean_number_format($benefit);
 		$rec = "Daily bonus {$order_list_row['pv']}% : {$clean_number_benefit} usdt payment{$over_benefit_log}";
-		$benefit_log = "{$clean_number_goods_price}(상품가격) * ( (({$order_list_row['pv']}(상품보너스) * 0.01 )/ 30(일)) * {$daily_bonus_rate}(매일지급보너스) ){$over_benefit_log}";
+		$benefit_log = "{$clean_number_goods_price}(상품가격) * ( ( {$order_list_row['pv']}% [상품지급률]) / 30 ){$over_benefit_log}";
 		
 		$total_paid_list[$order_list_row['mb_id']]['log'] .= "<br><span>{$benefit_log} = </span><span class='blue'>{$clean_number_benefit}</span>";
 		$total_paid_list[$order_list_row['mb_id']]['sub_log'] = "<span>현재총수당 : {$clean_number_mb_balance}, 수당한계점 : {$clean_number_mb_index} </span>";

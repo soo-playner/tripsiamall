@@ -2,7 +2,7 @@
 
 $sub_menu = "600200";
 include_once('./_common.php');
-$debug = 1;
+// $debug = 1;
 include_once('./bonus_inc.php');
 include_once(G5_PATH . '/util/recommend.php');
 
