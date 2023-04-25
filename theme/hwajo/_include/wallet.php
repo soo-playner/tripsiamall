@@ -37,11 +37,11 @@ $total_withraw = $total_bonus - $total_shift_amt;
 $available_fund = $total_deposit;
 
 // 마이닝합계
-$mining_acc = $member[$mining_target];
+/* $mining_acc = $member[$mining_target];
 $mining_amt = $member[$mining_amt_target];
 
 $mining_total = calculate_math($mining_acc - $mining_amt,COIN_NUMBER_POINT);
-
+ */
 
 // 이전자산
 $before_mining_total = ($member[$before_mining_target] - $member[$before_mining_amt_target]);
@@ -53,6 +53,8 @@ $pre_setting = sql_fetch($bonus_sql);
 $limited = $pre_setting['limited'];
 $limited_per = ($limited/100)/100;
 
+// 수당제외금액 (직급수당)
+$mb_balance_ignore = $member['mb_balance_ignore'];
 
 
 $day_mint_sql = "SELECT rate from  {$g5['bonus_config']} WHERE code = 'mining' ";
@@ -218,7 +220,7 @@ function express_nick_name($mb_id){
 
 // 보너스 수당-한계 퍼센트
 function bonus_per($mb_id ='',$mb_balance='', $mb_limit = ''){
-	global $member,$limited_per;
+	global $member,$limited_per,$mb_balance_ignore;
 
 	if($mb_id == ''){
 		if($member['mb_save_point'] != 0 && $member['mb_balance'] !=0 && $limited_per != 0){
@@ -228,7 +230,7 @@ function bonus_per($mb_id ='',$mb_balance='', $mb_limit = ''){
 		}
 	}else{
 		if($mb_limit != 0 && $mb_balance !=0 && $limited_per != 0){
-			$bonus_per = ($mb_balance/($mb_limit * $limited_per));
+			$bonus_per = (($mb_balance-$mb_balance_ignore)/($mb_limit * $limited_per));
 		}else{
 			$bonus_per = 0;
 		}
@@ -630,16 +632,26 @@ function string_shift_code($val){
 }
 
 // 사용중 아이템(패키지)
-function get_shop_item($table=null){
+function get_shop_item($table=null,$used = 1){
 	$array = array();
 	$sql = "SELECT * FROM g5_shop_item";
-	$sql .= " WHERE it_use = 1 ORDER BY it_order";
+	
+	
+	if($used == 1){
+		$average = " it_use = 1 ";
+	}else{
+		$average = " it_use >= 0 ";
+	}
+
+	$sql .= " WHERE ".$average;
 
 	if($table != null){
 		$table = strtoupper($table);
-		$sql .= " WHERE it_use = 1 AND it_name='{$table}' ";
+		$sql .= " AND it_name='{$table}' ";
 	}
-	
+
+	$sql .= " ORDER BY it_order";
+
 	$result = sql_query($sql);
 
 	while($row = sql_fetch_array($result)){

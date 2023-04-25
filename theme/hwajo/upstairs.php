@@ -84,15 +84,15 @@ $result = sql_query($sql);
 						if(count($row) == 0) {
 							echo "<div class='no_data'>패키지 상품이 존재하지 않습니다</div>";
 						}else{
+							
 
 							/*패키지상품구매체크*/
-							if($member['rank_note'] == ''){
+							if($member['rank'] == 0 || round($bonus_per) > 96){
 								$start_pack = 1;
-								// $max_count = 1;
 								$max_count = count($row);
 							}else{
-								$start_pack = 1;
-								$max_count = count($row);
+								$start_pack = $member['rank'];
+								$max_count = $member['rank'];
 							}
 						
 							for($i=$start_pack; $i <= $max_count; $i++){
@@ -114,7 +114,7 @@ $result = sql_query($sql);
 								"sign" => $sign
 							));
 
-							if($row[$i-1]['it_id'] == '2021091720'){
+							if($start_pack != 1){
 								$row_col = 'col-12 col-lg-12';
 							}else{
 								$row_col = 'col-6 col-lg-4';
@@ -132,7 +132,7 @@ $result = sql_query($sql);
 										
 										<div class=" text_wrap">
 											<div class="it_price"><?=shift_auto($row[$i-1]['it_price'],$curencys[1])?> <?=$curencys[1]?></div>
-											<div class='origin_price'>수익률: <?=$row[$i-1]['it_supply_point']?>%</div>
+											<div class='origin_price' style="font-size:14px;">수익률 : <?=$row[$i-1]['it_supply_point']?> %</div>
 										</div>
 									</div>
 								</div>
