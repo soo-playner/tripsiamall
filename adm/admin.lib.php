@@ -207,7 +207,7 @@ function get_theme_config_value($dir, $key='*')
 function get_member_level_select($name, $start_id=0, $end_id=4, $selected="", $event="")
 {
     global $g5;
-	$level_name=array("일반회원","정회원","센터회원",'인정회원','정회원','','','','','관리자',"슈퍼관리자");
+	$level_name=array("일반회원","정회원","센터회원",'지사','지점','본사','','','','관리자',"-");
 	//$level_name=array("Black","Red","Yellow","Green");
     $str = "\n<select id=\"{$name}\" name=\"{$name}\"";
     if ($event) $str .= " $event";
@@ -240,7 +240,7 @@ function get_grade_select($name, $start_id=0, $end_id=6, $selected="", $event=""
     global $g5;
     //$level_name=array("Freshman","Miner","0Star","1Star","2Star","3Star","4Star","5Star","6Star","manager","admin");
     
-	$level_name=array("0star","1star","2star","3star","4star","5star","6star");
+	$level_name=array("0star","1star","2star","3star","4star","5star","6star","7star");
     $str = "\n<select id=\"{$name}\"  name=\"{$name}\"";
     if ($event) $str .= " $event";
     $str .= ">\n";

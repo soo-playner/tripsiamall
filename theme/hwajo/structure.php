@@ -98,9 +98,10 @@ var gradeMap = {
 		 $(document).on('click','.lvl-username' ,function(e) {
 			// console.log($(this).text());
 
-			getList($(this).text(), 'name');
-			getLeg('<?=$tree_id?>', $(this).text());
-			$('.search_container').removeClass("active");
+			// getList($(this).text(), 'name');
+			// getLeg('<?=$tree_id?>', $(this).text());
+			// $('.search_container').removeClass("active");
+
 		 });
 
 
@@ -458,7 +459,7 @@ var gradeMap = {
 					row.find('.level').html(' <i class="ri-star-fill pack_f_'+member.grade +'"></i> ' + member.grade);
 					row.find('.lvl-container').attr('class',"gr_"+member.grade);
 					row.find('.direct_cnt').html("<i class='ri-user-received-2-line'></i>" + member.cnt);
-					row.find('.package').addClass('color'+member.grade);
+					row.find('.package').addClass('color'+member.rank);
 					row.find('.package').html("<i class='ri-vip-diamond-fill'></i>" + member.rank);
 					// row.find('.pv').html(" 매출 : <strong class='hp'>" + Price(member.mb_rate)+' mh/s </strong>');
 					row.find('.acc').html("승급포인트 : <strong class='pv'>"+ Price(Number(member.recom_sales)) + ' ' + curency  + "</strong>");
@@ -528,7 +529,7 @@ var gradeMap = {
 				</div>
 
 				<div class="btn_input_wrap">
-					<div class="bin_top">추천 계보</div>
+					<div class="bin_top">추천 코드 계보</div>
 					<div class='legbox'>
 						<div class="leg-view-container">
 							<div class="gray"></div>
@@ -538,7 +539,7 @@ var gradeMap = {
 				
 				<!-- <div class="desc font_red" style='font-size:11px'>[ 금액단위 : 만원 ]</div> -->
 				<div class="main-container content-box tree-container nomargin">
-					<div class="bin_top">추천 조직도</div>					
+					<div class="bin_top">추천 등록 코드</div>					
 					<div id="levelStructure" class="accordion_wrap"></div>
 				</div>
 				<div style="display:none;" id="dup">
@@ -575,7 +576,7 @@ var gradeMap = {
 
 	<script>
 		$(function(){
-			$(".top_title h3").html("<span >추천조직도</span>")
+			$(".top_title h3").html("<span >추천등록코드</span>")
 		});
 
 

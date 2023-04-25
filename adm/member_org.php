@@ -127,8 +127,8 @@ else
     <p>
 		<!-- - <span class='f_green'>MH : </span>보유 마이닝해쉬 (<?=strtoupper($minings[$now_mining_coin])?>)&nbsp&nbsp -->
         - <span class='f_blue'>PV : </span> 매출금액(PV), 단위 : USDT &nbsp&nbsp
-		- <span class='f_pink'>ACC : </span> 승급 대상포인트 (추천 하부 매출), 단위 : USDT &nbsp&nbsp
-		- <span style='color:red'>LR </span> 추천/후원 하부 매출&nbsp&nbsp
+		- <span class='f_pink'>ACC : </span> 승급 대상포인트 (하부 매출), 단위 : USDT &nbsp&nbsp
+		<!-- - <span style='color:red'>LR </span> 추천/후원 하부 매출&nbsp&nbsp -->
 		<!-- - <span class='f_green'>LR# </span> 추천/후원 하부 해쉬 &nbsp&nbsp -->
 	</p>
 </div>
@@ -181,8 +181,8 @@ if (!$to_date) $to_date = Date("Y-m-d", time());
 				
 				<input type="radio" id="gubun1" name="gubun" style="display:none" onclick="document.sForm2.submit();" value=""<?if ($gubun=="") echo " checked"?>> 
 				<label for="gubun1" class='btn search_btn <?if($_GET['gubun']=='')echo 'active';?>' >추천조직</label>
-				<input type="radio" id="gubun2" name="gubun" style="display:none" onclick="document.sForm2.submit();" value="B"<?if ($gubun=="B") echo " checked"?>>
-				<label for="gubun2" class='btn search_btn <?if($_GET['gubun']=='B')echo 'active';?>'>후원조직</label>
+				<!-- <input type="radio" id="gubun2" name="gubun" style="display:none" onclick="document.sForm2.submit();" value="B"<?if ($gubun=="B") echo " checked"?>>
+				<label for="gubun2" class='btn search_btn <?if($_GET['gubun']=='B')echo 'active';?>'>후원조직</label> -->
 				</td>
 			</tr>
 			
@@ -205,8 +205,8 @@ if (!$to_date) $to_date = Date("Y-m-d", time());
 					<!-- <option value="mb_name"<?php echo get_selected($_GET['sfl'], "mb_name"); ?>>이름</option> -->
 					</select>
 				<div style="padding-top:5px">
-				<label for="stx" class="sound_only">검색어<strong class="sound_only"> 필수</strong></label>
-				<input type="text" name="stx" value="<?php echo $stx ?>" id="stx"  class="required frm_input" style="width:100%;" onkeypress="event.keyCode==13?btn_search():''">
+				<label for="stx" class="sound_only" >검색어<strong class="sound_only"> 필수</strong></label>
+				<input type="text" name="stx" value="<?php echo $stx ?>" id="stx"  class="required frm_input" style="padding:0 5px;" onkeypress="event.keyCode==13?btn_search():''">
 				</div>
 				</td>
 			</tr>

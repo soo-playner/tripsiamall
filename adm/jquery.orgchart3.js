@@ -1071,7 +1071,7 @@
         html +='<p class="mb" >'
         +"<span class='user_icon lv"+trim(temp[6])+"'><i class='ri-vip-crown-line'></i></span>"
         // +'<img style="width:20px;" src="/img/'+temp[6]+'.png" align=absmiddle> '
-        + temp[2] + "<span class='user_name'>["+ temp[3] +"]</span></p>";
+        + temp[2] + "<span class='user_name'>[ "+ temp[3] +"]</span></p>";
 
         var badge_color = 'grade_'+temp[12];
         html += "<div class='dec' style='margin-bottom:5px;'>등급: <span class='badge "+badge_color+"' style='font-size:11px;'>"+temp[12]+"S</span></div>";
