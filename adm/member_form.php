@@ -591,7 +591,7 @@ $rank_result = sql_fetch($rank_sql);
 	<tr class="ly_up padding-box fund">
 
 		<th scope="row">누적 매출 합계 (PV)</th>
-		<td colspan="1"><span class='strong soodang'><?= number_format($mb['mb_save_point']/3) ?> </span><?=$curencys[1]?></td>
+		<td colspan="1"><span class='strong soodang'><?= number_format($mb['mb_save_point']) ?> </span><?=$curencys[1]?></td>
 
 		<th scope="row">총 받은보너스(수당)</th>
 		<td colspan="1"><span class='strong bonus'>
@@ -682,13 +682,13 @@ $rank_result = sql_fetch($rank_sql);
 			}
 
 			$pack_array = package_have_return($mb['mb_id']);
-			$get_shop_item = get_shop_item();
+			$get_shop_item = get_shop_item(null,0);
 
 			for ($i = 0; $i < count($pack_array); $i++) {
-
+				
 			?>
 				<button type='button' class='btn purchase_btn' value='' data-row='<?= json_encode($get_shop_item[$i], JSON_FORCE_OBJECT) ?>'>
-					<span class='pack_title color<?= $i + 1 ?>'><?= $get_shop_item[$i]['it_name'] ?></span>
+					<span class='pack_title color<?= $i?>'><?= $get_shop_item[$i]['it_name'] ?></span>
 					<div class='pack_have'><span><?= $pack_array[$i] ?>
 				</button>
 			<?php } ?>

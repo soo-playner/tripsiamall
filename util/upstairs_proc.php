@@ -96,8 +96,10 @@ if($rst && $logic){
 		$update_rank = $val;
 	}
 
-	// 해당 패키지로 받을 수 있는 수당 한도(300%)
-	$max_limit_point = $it_point * 3;
+	// 해당 패키지로 받을 수 있는 수당 한도()
+
+	$max_limit_point = $it_point * ($limited/100);
+
 	
 	$update_point .= ", mb_rate = ( mb_rate + {$pv}) ";
 	$update_point .= ", mb_save_point = ( mb_save_point + {$it_point}) ";
