@@ -1,14 +1,4 @@
 @charset "UTF-8";
-@-webkit-keyframes slidein {
-  from {
-    margin-top: 50px;
-    opacity: 0.7;
-  }
-  to {
-    margin-top: 0;
-    opacity: 1;
-  }
-}
 @keyframes slidein {
   from {
     margin-top: 50px;
@@ -60,7 +50,6 @@
 }
 .profile-box ul li label {
   font-weight: 120;
-  color: #492191;
   letter-spacing: -0.5px;
   margin-bottom: 5px;
   font-size: 12px;
@@ -88,7 +77,6 @@
   font-size: 16px;
   float: left;
   clear: left;
-  color: #29386b;
   font-weight: bold;
 }
 .profile-box ul li span {
@@ -101,7 +89,6 @@
 .profile-box .title {
   font-size: 16px;
   font-weight: bold;
-  color: #29386b;
   border-bottom: 2px solid #f1f4fb;
 }
 .profile-box .title i {
@@ -150,4 +137,4 @@
   .profile-box ul li p {
     font-size: 14px;
   }
-}/*# sourceMappingURL=profile.css.map */
+}

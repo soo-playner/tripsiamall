@@ -1,4 +1,4 @@
-@charset "utf-8";
+
 @import "./_variable";
 @import "./_mixin";
 
@@ -2504,9 +2504,16 @@ a.btn_cancle,
                             color: #fff;
                             font-size: 14px;
 
-                            i {
-                                color: $main-colors;
+                            i{
+                                &.value_no{
+                                    color:white;
+                                }
+                                
+                                &.value_yes  {
+                                    color: $main-colors;
+                                }
                             }
+                            
                         }
                     }
 

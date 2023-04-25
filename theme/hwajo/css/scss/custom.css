@@ -34,11 +34,6 @@ body.modal-open {
   padding-right: 0 !important;
 }
 
-::-moz-selection {
-  background-color: #ffd965;
-  color: #000;
-}
-
 ::selection {
   background-color: #ffd965;
   color: #000;
@@ -245,9 +240,7 @@ header .top_title #mode_select {
   border: 1px solid #2c3037;
   background: #fff url("../../img/select_arrow_dark.png") no-repeat right 10px center;
   background-size: 10px;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  appearance: none;
   border-radius: 25px;
   padding: 0;
   width: 100px;
@@ -736,6 +729,7 @@ a.btn_cancle,
 #mining_swap .pop_btn .caret_box {
   vertical-align: top;
   float: right;
+  -webkit-box-flex: 3;
   flex-grow: 3;
   vertical-align: top;
   text-align: right;
@@ -768,6 +762,7 @@ a.btn_cancle,
 #mining_withdraw .polding_btn .caret_box {
   vertical-align: top;
   float: right;
+  -webkit-box-flex: 3;
   flex-grow: 3;
   vertical-align: top;
   text-align: right;
@@ -950,8 +945,7 @@ a.btn_cancle,
 }
 .mypool #minings .nav_con {
   display: none;
-  -webkit-animation: slidein 0.5s ease-out;
-          animation: slidein 0.5s ease-out;
+  animation: slidein 0.5s ease-out;
 }
 .mypool #minings .nav_con.active {
   display: block;
@@ -1144,6 +1138,7 @@ a.btn_cancle,
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
   padding: 6px;
+  -webkit-box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.03);
   box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.03);
 }
 .structure_wrap .accordion_wrap dt div {
@@ -1190,10 +1185,7 @@ a.btn_cancle,
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  user-select: none;
 }
 .checkbox-group .checkbox {
   padding-right: 0.2rem;
@@ -1209,8 +1201,7 @@ a.btn_cancle,
 
 .checkbox-input {
   clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(100%);
-          clip-path: inset(100%);
+  clip-path: inset(100%);
   height: 1px;
   overflow: hidden;
   position: absolute;
@@ -1921,7 +1912,10 @@ a.btn_cancle,
   color: #fff;
   font-size: 14px;
 }
-.dark .breadcrumb .user-info .total_view_wrap .total_view_top li .value i {
+.dark .breadcrumb .user-info .total_view_wrap .total_view_top li .value i.value_no {
+  color: white;
+}
+.dark .breadcrumb .user-info .total_view_wrap .total_view_top li .value i.value_yes {
   color: #ffd965;
 }
 .dark .breadcrumb .user-info .total_view_wrap .total_view_top .remain_mining {
@@ -2559,8 +2553,7 @@ a.btn_cancle,
 }
 .dark .mypool #minings .nav_con {
   display: none;
-  -webkit-animation: slidein 0.5s ease-out;
-          animation: slidein 0.5s ease-out;
+  animation: slidein 0.5s ease-out;
 }
 .dark .mypool #minings .nav_con.active {
   display: block;
@@ -3063,17 +3056,6 @@ a.btn_cancle,
   border: none;
   color: #fff;
 }
-
-.dark .content-box .caret,.dark .content-box .more_btn{
-  background:#363636;
-  margin-left:10px;
-  color:white
-}
-
-
-.content-box .caret,.content-box .more_btn{
-  margin-left:10px;
-}
 .dark .pop_wrap .btn.blue:hover {
   background: #fbe591 !important;
 }
@@ -3184,4 +3166,4 @@ a.btn_cancle,
   .regist_latest .card_title {
     width: 220px;
   }
-}/*# sourceMappingURL=custom.css.map */
+}

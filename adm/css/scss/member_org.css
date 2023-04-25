@@ -68,10 +68,7 @@
   vertical-align: middle;
   touch-action: manipulation;
   cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  user-select: none;
   color: #fff;
   background-color: #364fa0;
   border: 1px solid transparent;
@@ -91,10 +88,7 @@
   vertical-align: middle;
   touch-action: manipulation;
   cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  user-select: none;
   color: #fff;
   background-color: #364fa0;
   border: 1px solid transparent;
@@ -114,10 +108,7 @@
   vertical-align: middle;
   touch-action: manipulation;
   cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  user-select: none;
   color: #fff;
   background-color: #5cb85c;
   border: 1px solid transparent;
@@ -127,4 +118,4 @@
 
 .oc-export-btn {
   display: none;
-}/*# sourceMappingURL=member_org.css.map */
+}

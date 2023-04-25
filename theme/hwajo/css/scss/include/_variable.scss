@@ -57,30 +57,30 @@ $main-theme-type: tera-theme; // 테마 모드 설정
     $content-box-background: #ffffff !global;
     $content-box-color: #000000 !global;
 } @else if($main-theme-type == tera-theme) {
-    $main-point-color: #492191 !global;
-    $main-button-color:#967adb !global;
-    $main-button-color2:#36307d !global;
-    $main-sub-button-color:#4a8ed1 !global;
-    $main-sub-button-color2:#225991 !global;
-    $deposit-btn-background: #302783 !global;
-    $deposit2-btn-background: #516feb !global;
-    $withdraw-btn-background: #ec2b38 !global;
-    $purchase-btn-background: #302783 !global;
-    $timer-background: #5d96c6 !global;
-    $main-background-depth1-color:#eff3f9 !global;
-    $main-background-depth2-color:#fff !global;
-    $main-background-depth3-color:#fff !global;
-    $header-background:#fff !global; 
-    $gnb-background: #fff !global; 
-    $gnb-title-color: #29386b !global; 
-    $breadcrumb-background: #fff !global;
-    $breadcrumb-usercontent-background: aliceblue !global;
-    $breadcrumb-updown-background: #492191 !global;
-    $badge-background-color: #5d96c6 !global;
-    $notice-background-color: #5d96c6 !global;
-    $main-title-color: #29386b !global;
-    $content-box-background: #ffffff !global;
-    $content-box-color: #000000 !global;
+    $main-point-color: #492191 ;
+    $main-button-color:#967adb ;
+    $main-button-color2:#36307d ;
+    $main-sub-button-color:#4a8ed1 ;
+    $main-sub-button-color2:#225991 ;
+    $deposit-btn-background: #302783 ;
+    $deposit2-btn-background: #516feb ;
+    $withdraw-btn-background: #ec2b38 ;
+    $purchase-btn-background: #302783 ;
+    $timer-background: #5d96c6 ;
+    $main-background-depth1-color:#eff3f9 ;
+    $main-background-depth2-color:#fff ;
+    $main-background-depth3-color:#fff ;
+    $header-background:#fff ; 
+    $gnb-background: #fff ; 
+    $gnb-title-color: #29386b ; 
+    $breadcrumb-background: #fff ;
+    $breadcrumb-usercontent-background: aliceblue ;
+    $breadcrumb-updown-background: #492191 ;
+    $badge-background-color: #5d96c6 ;
+    $notice-background-color: #5d96c6 ;
+    $main-title-color: #29386b ;
+    $content-box-background: #ffffff ;
+    $content-box-color: #000000 ;
 }
 
 // 테마 백그라운드 설정 끝
