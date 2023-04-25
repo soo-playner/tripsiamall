@@ -26,7 +26,7 @@ if($debug){
 	}
 }
 
-$order_list_sql = "select s.*, m.mb_level, m.grade, m.mb_name, m.mb_balance, m.mb_deposit_point, m.mb_index
+$order_list_sql = "select s.*, m.mb_level, m.grade, m.mb_name, m.mb_balance,m.mb_balance_ignore, m.mb_deposit_point, m.mb_index
 from g5_shop_order s 
 join g5_member m 
 on s.mb_id = m.mb_id where m.mb_save_point > 0";
@@ -68,13 +68,14 @@ if(!$get_today){
 	for($i = 0; $i < $order_list_row = sql_fetch_array($order_list_result); $i++){
 		$goods_price = $order_list_row['upstair'];
 		$mb_balance = $order_list_row['mb_balance'];
+		$mb_balance_ignore = $order_list_row['mb_balance_ignore'];
 		$mb_index = $order_list_row['mb_index'];
 		$benefit = $goods_price *((($order_list_row['pv'] * 0.01)/30) * $daily_bonus_rate);
 
 		$total_benefit = $mb_balance + $benefit + $total_paid_list[$order_list_row['mb_id']]['total_benefit'];
 
 		$clean_number_goods_price = clean_number_format($goods_price);
-		$clean_number_mb_balance = clean_number_format($mb_balance);
+		$clean_number_mb_balance = clean_number_format($mb_balance - $mb_balance_ignore);
 		$clean_number_mb_index = clean_number_format($mb_index);
 		
 		$total_paid_list[$order_list_row['mb_id']]['total_benefit'] += $benefit;
@@ -120,7 +121,7 @@ if(!$get_today){
 		$member_my_sales_cloumn_sql .= "when '{$key}' then {$value['real_benefit']} ";
 		
 		$member_where_sql .= "'{$key}',";
-		echo "<span class='title'>{$key}</span>{$value['sub_log']}<br>{$value['log']}<div style='color:orange;'>예정 수당 : {$value['total_benefit']}</div><div style='color:red;'>▶ 실제 수당 : {$value['real_benefit']}</div><br><br>";
+		echo "<span class='title'>{$key}</span>{$value['sub_log']}<br>{$value['log']}<div style='color:orange;'>발생 수당 : {$value['total_benefit']}</div><div style='color:red;'>▶ 수당지급 : {$value['real_benefit']}</div><br><br>";
 	}
 	
 	$member_balance_column_sql .= "else mb_balance end ";

@@ -50,7 +50,7 @@ echo "<div class='btn' onclick='bonus_url();'>돌아가기</div>";
         
         <?php
 
-$member_for_paying_sql = "select mb_id as id, mb_name, mb_no, mb_level, grade, mb_balance, mb_index, mb_deposit_point, (select count(*) from g5_member where mb_recommend = id) as cnt from g5_member where mb_save_point > 0";
+$member_for_paying_sql = "select mb_id as id, mb_name, mb_no, mb_level, grade, mb_balance, mb_index,mb_balance_ignore, mb_deposit_point, (select count(*) from g5_member where mb_recommend = id) as cnt from g5_member where mb_save_point > 0";
 
 if($debug){echo "<code>{$member_for_paying_sql}</code>";}
 
@@ -98,10 +98,13 @@ for($i = 0; $i < $row = sql_fetch_array($member_for_paying_result); $i++){
 
     $mb_index = $row['mb_index'];
     $mb_balance = $row['mb_balance'];
+	$mb_balance_ignore = $row['mb_balance_ignore'];
+
     $total_left_benefit = $mb_index - $mb_balance;
 
     $clean_total_left_benefit = clean_number_format($total_left_benefit);
-    $clean_number_mb_balance = clean_number_format($mb_balance);
+    $clean_number_mb_balance = clean_number_format($mb_balance - $mb_balance_ignore);
+    
     $clean_number_mb_index = clean_number_format($mb_index);
     
     echo "<div><span class='title'>{$mb_id} ( 추천인수 : {$row['cnt']}명 [{$recommended_cnt}대] )</span> 현재총수당 : {$clean_number_mb_balance}, 수당한계점 : {$clean_number_mb_index} => 총 수용가능 수당 : {$clean_total_left_benefit}</div><br>";
@@ -128,7 +131,7 @@ for($i = 0; $i < $row = sql_fetch_array($member_for_paying_result); $i++){
         $over_benefit_log = " (over benefit : {$clean_over_benefit} / {$clean_number_mb_index})";
     }
     
-    echo "<div style='color:orange;'>예정 수당 : {$origin_benefit}</div><div style='color:red;'>▶ 실제 수당 : {$add_benefit}</div><br><br>";
+    echo "<div style='color:orange;'>발생 수당 : {$origin_benefit}</div><div style='color:red;'>▶ 수당 지급: {$add_benefit}</div><br><br>";
 
     if($update_mb_balance_sql == "") {$update_mb_balance_sql .= "mb_balance = case mb_id ";}
     if($update_recom_sales == "") {$update_recom_sales .= ", recom_sales = case mb_id ";}

@@ -7,7 +7,7 @@ include_once('./bonus_inc.php');
 auth_check($auth[$sub_menu], 'r');
 
 
-$debug = 1;
+// $debug = 1;
 
 
 // $month = date('m', $timestr);
@@ -275,7 +275,7 @@ function  excute(){
     
                     if($record_result){
                         
-                        $balance_up = "update g5_member set mb_balance = mb_balance + {$benefit_limit}  where mb_id = '".$mb_id."'";
+                        $balance_up = "update g5_member set mb_balance = mb_balance + {$benefit_limit}, mb_balance_ignore = mb_balance_ignore + {$benefit_limit}  where mb_id = '".$mb_id."'";
 
                         // 디버그 로그
                         if($debug){
