@@ -203,7 +203,7 @@ $title = 'Dashboard';
 						</li>
 					</ul>
 
-					<ul class="row">
+					<ul class="row mb10">
 						<li class="rank_title">다음승급조건달성</li>
 
 						<li class="col-4">
@@ -255,7 +255,7 @@ $title = 'Dashboard';
 			if ($(id).css("display") == "none") {
 				$(id).css("display", "block");
 				$(id).animate({
-					height: user_height + 200
+					height: user_height + 210
 				}, 500, function() {
 					$('.fold_wrap p').text('접기');
 				});

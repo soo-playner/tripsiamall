@@ -1912,8 +1912,11 @@ a.btn_cancle,
   color: #fff;
   font-size: 14px;
 }
+.dark .breadcrumb .user-info .total_view_wrap .total_view_top li .value i {
+  font-weight: 100;
+}
 .dark .breadcrumb .user-info .total_view_wrap .total_view_top li .value i.value_no {
-  color: white;
+  color: rgba(255, 255, 255, 0.75);
 }
 .dark .breadcrumb .user-info .total_view_wrap .total_view_top li .value i.value_yes {
   color: #ffd965;

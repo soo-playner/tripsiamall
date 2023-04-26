@@ -2505,8 +2505,9 @@ a.btn_cancle,
                             font-size: 14px;
 
                             i{
+                                font-weight:100;
                                 &.value_no{
-                                    color:white;
+                                    color:rgba(255,255,255,0.75);
                                 }
                                 
                                 &.value_yes  {
