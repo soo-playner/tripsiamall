@@ -110,7 +110,7 @@
 	<link href="<?=G5_THEME_URL?>/css/scss/radio_set_<?=$_COOKIE['mode']?>.css" rel="stylesheet">
     <main>
         <div class='container profile nomargin nopadding'>
-			<section class="profile_wrap content-box6">
+			<section class="profile_wrap content-box6" style="height: 100%">
 				<div class="col-sm-12 col-12 profile-box">
 					<h3 class='title b_line'>
 						<i class='p1'><img src="<?=G5_THEME_URL?>/img/personl_information.png" alt=""></i>
@@ -246,7 +246,7 @@
 					</ul>
 				</div> -->
 
-				<div class='col-sm-12 col-12 profile-box' style="padding-bottom:80px;">
+				<div class='col-sm-12 col-12 profile-box'>
 					<h3 class='title b_line'>
 						<i class="p3"><img src="<?=G5_THEME_URL?>/img/recommendation_information.png" alt=""></i>
 						<span >추천인 정보</span>
@@ -264,8 +264,20 @@
 							<p ><?=get_name($member['mb_center'])?></p>
 						</li>
 					</ul> -->
-
 				</div>
+
+				<div class='col-sm-12 col-12 profile-box'>
+					<ul class='row mt10'>
+						<li class='col-sm-9 col-8'>
+							<p style="margin-top: 20px">회원 탈퇴</p>
+						</li>
+						<li class='col-sm-3 col-4 text-right'>
+							<button class="btn" onclick="location.href='page.php?id=member_leave'">회원 탈퇴</button>
+						</li>
+					</ul>
+				</div>
+
+				
 
 
 			</section>

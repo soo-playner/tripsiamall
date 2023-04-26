@@ -2941,7 +2941,6 @@ function conv_unescape_nl($str)
 // 회원 삭제
 function member_delete($mb_id)
 {
-	echo "회원삭제";
 
 	global $config;
 	global $g5;
@@ -2952,7 +2951,7 @@ function member_delete($mb_id)
 	sql_query($move_sql);
 
 	// 삭제일 기록
-	$del_date_update = "UPDATE g5_member_del set mb_leave_date = '".date('Ymd', G5_SERVER_TIME)."' ";
+	$del_date_update = "UPDATE g5_member_del set mb_leave_date = '".date('Ymd', G5_SERVER_TIME)."' WHERE mb_id = '".$mb_id."'";
 	sql_query($del_date_update);
 
 	$del_sql = "DELETE FROM g5_member WHERE mb_id = '{$mb_id}'  ";

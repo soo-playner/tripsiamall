@@ -1403,6 +1403,28 @@ a.desc {
   color: #fff;
 }
 
+.dark .main_title {
+  color: #fff;
+}
+
+.dark .member_leave label {
+  color: #fff;
+}
+
+.dark .member_leave input {
+  color: #000;
+}
+
+.member_leave .btn_wrap a {
+  background: #000;
+  color: #fff;
+}
+
+.dark .member_leave .btn_wrap a {
+  background: #fff;
+  color: #000;
+}
+
 .enroll_wrap .pw_ul ul li {
   padding-left: 20px;
 }
@@ -5673,4 +5695,107 @@ input#file-upload-button {
 	100% {
 		box-shadow: #FECE00 25px -10px, 50px 10px, 75px 0px, 100px 10px;
 	}
+}
+
+.member_leave {
+  padding: 10px 30px 60px;
+}
+.member_leave .main_title {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.member_leave .info_text {
+  font-size: 15px;
+}
+@media (min-width: 320px) and (max-width: 757px) {
+  .member_leave .info_text {
+    font-size: 14px;
+  }
+}
+.member_leave .info_text br:not(.block) {
+  display: none;
+}
+@media (min-width: 320px) and (max-width: 757px) {
+  .member_leave .info_text br:not(.block) {
+    display: block;
+  }
+}
+@media all and (max-width: 580px) {
+  .member_leave .info_text br:not(.block) {
+    display: none;
+  }
+}
+.member_leave .info_text.red {
+  color: #ff4646;
+  margin-top: 15px;
+}
+.member_leave .leave_info_wrap {
+  margin-top: 40px;
+}
+@media (min-width: 320px) and (max-width: 757px) {
+  .member_leave .leave_info_wrap {
+    margin-top: 30px;
+  }
+}
+.member_leave .leave_info_wrap label {
+  font-size: 14px;
+  font-weight: bold;
+  width: 100%;
+}
+.member_leave .leave_info_wrap input {
+  margin-top: 15px;
+  width: 100%;
+  max-width: 100%;
+  font-weight: normal;
+}
+.member_leave .leave_info_wrap input::-webkit-input-placeholder {
+  font-weight: normal;
+  color: #babfc7;
+}
+.member_leave .leave_info_wrap input::-moz-placeholder {
+  font-weight: normal;
+  color: #babfc7;
+}
+.member_leave .leave_info_wrap input:-ms-input-placeholder {
+  font-weight: normal;
+  color: #babfc7;
+}
+.member_leave .leave_info_wrap input::-ms-input-placeholder {
+  font-weight: normal;
+  color: #babfc7;
+}
+.member_leave .leave_info_wrap input::placeholder {
+  font-weight: normal;
+  color: #babfc7;
+}
+.member_leave .btn_wrap {
+  margin-top: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+@media (min-width: 320px) and (max-width: 757px) {
+  .member_leave .btn_wrap {
+    margin-top: 30px;
+  }
+}
+.member_leave .btn_wrap .btn_cancel,
+.member_leave .btn_wrap .btn_leave {
+  border: none;
+  outline: none;
+  width: 49%;
+  display: inline-block;
+  border-radius: 5px;
+  color: #fff;
+  text-align: center;
+  line-height: 45px;
+}
+@media (min-width: 320px) and (max-width: 757px) {
+  .member_leave .btn_wrap .btn_cancel,
+  .member_leave .btn_wrap .btn_leave {
+    font-size: 14px;
+  }
 }
