@@ -1,5 +1,6 @@
 <?php
 include_once('./_common.php');
+include_once(G5_THEME_PATH.'/_include/wallet.php');
 include_once(G5_THEME_PATH.'/_include/gnb.php');
 ?>
 
