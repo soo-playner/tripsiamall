@@ -3,6 +3,12 @@ include_once('./_common.php');
 include_once(G5_THEME_PATH.'/_include/gnb.php');
 ?>
 
+<style>
+  #wrapper {
+    background: #fff;
+  }
+</style>
+
 <div class='container member_leave'>
   <h1 class="main_title">HWAJO 탈퇴</h1>
   <p class="info_text">회원 탈퇴를 하시면 회원님의 모든 정보와 활동 기록, <br />충전/적립/사용 내역이 삭제됩니다. 삭제된 정보는<br /> 복구할 수 없으니 신중하게 결정해주세요.</p>

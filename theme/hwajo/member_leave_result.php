@@ -53,7 +53,7 @@ include_once(G5_THEME_PATH.'/_include/head.php');
         <p>회원탈퇴가 완료되었습니다.</p>
         <p>감사합니다.</p>
       </div>
-      <a href="/" class="btn btn_wd btn-agree main_btn" style="background: #8b734b; color: #fff">처음으로</a>
+      <a href="/" class="btn btn_wd btn-agree main_btn" style="background: #3b86ff; color: #fff">처음으로</a>
   </div>
 </body>
 

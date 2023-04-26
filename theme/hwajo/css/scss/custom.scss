@@ -1404,6 +1404,84 @@ a.btn_cancle,
     }
 }
 
+// 회원탈퇴
+.member_leave {
+    padding: 10px 30px 60px;
+
+    .main_title {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+    .info_text {
+        font-size: 15px;
+        color: #686767;
+
+        @include mobile {
+            font-size: 14px;
+        }
+
+        &.red {
+            margin-top: 15px;
+            color: #ff4646;
+        }
+
+        br:not(.block) {
+            display: none;
+        }
+    }
+    .leave_info_wrap {
+        margin-top: 40px;
+
+        @include mobile {
+            margin-top: 30px;
+        }
+
+        label {
+            font-size: 14px;
+            font-weight: bold;
+            width: 100%;
+        }
+        input {
+            padding: 12px 10px;
+            border: 1px solid #dfe4ec;
+            box-shadow: none;
+        }
+    }
+    .btn_wrap {
+        margin-top: 50px;
+        display: flex;
+        justify-content: space-between;
+        
+        @include mobile {
+            margin-top: 30px;
+        }
+
+        .btn_cancel,
+        .btn_leave {
+            bottom: none;
+            outline: none;
+            width: 49%;
+            display: inline-block;
+            text-align: center;
+            line-height: 45px;
+
+            @include mobile {
+                font-size: 14px;
+            }
+        }
+        .btn_cancel {
+            background: #e6ecf3 !important;
+            color: #333 !important;
+        }
+        .btn_leave {
+            background: #3b86ff !important;
+        }
+    }
+}
+.dark .member_leave .btn_wrap .btn_leave {
+    color: #fff !important;
+}
+
 // 추천조직도
 .structure_wrap {
     .toggle {
