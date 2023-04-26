@@ -1,0 +1,212 @@
+@import "https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500,700&display=swap&subset=korean";
+.post {
+  font-family: "Noto Sans KR" !important;
+  margin: 0 auto;
+  padding: 24px;
+  color: #333;
+  background-color: #fff;
+  max-width: 700px;
+}
+.post h1, .post h2, .post h3, .post h4, .post h5, .post h6, .post li, .post p, .post td {
+  word-break: break-all !important;
+  margin: 0 !important;
+}
+.post h1, .post h2, .post h3, .post h4, .post h5, .post h6 {
+  font-weight: 500 !important;
+}
+.post h1 {
+  font-size: 22pt !important;
+  line-height: 26pt !important;
+}
+.post h2 {
+  font-size: 18pt !important;
+  line-height: 24pt !important;
+}
+.post h3 {
+  font-size: 15pt !important;
+  line-height: 22pt !important;
+}
+.post p, .post li, .post td {
+  font-size: 14px;
+  color: #425363;
+  line-height: 1.6 !important;
+}
+.post font[color="#ff0000"],
+.post span[style="color: #ff0000;"],
+.post span[style="color: rgba(255, 0, 0);"],
+.post span[style="color: rgb(255, 0, 0);"] {
+  color: #ec6878 !important;
+}
+.post font[color="#0000ff"],
+.post span[style="color: #0000ff;"],
+.post span[style="color: rgba(0, 0, 255);"],
+.post span[style="color: rgb(0, 0, 255);"] {
+  color: #396eff !important;
+}
+.post img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+.post table {
+  border-collapse: collapse !important;
+  min-width: 80% !important;
+  width: inherit !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+}
+.post table tr:first-child td {
+  background-color: #f1f2f2 !important;
+}
+.post table td {
+  border: 1px solid #bdbdbd !important;
+  vertical-align: middle !important;
+  padding: 8px !important;
+}
+.post a {
+  color: #396eff !important;
+  word-break: break-all !important;
+  white-space: pre-wrap !important;
+  display: inline-block !important;
+}
+.post blockquote {
+  color: #777;
+  margin-left: 2px;
+  padding-left: 10px;
+  border-left: 5px solid #ddd;
+}
+
+.terms {
+  margin: 0 auto;
+  padding: 24px;
+  max-width: 700px;
+}
+.terms h1, .terms h2, .terms h3, .terms h4, .terms h5, .terms h6, .terms li, .terms p, .terms td {
+  word-break: break-all !important;
+  margin: 0 !important;
+}
+.terms h1, .terms h2, .terms h3, .terms h4, .terms h5, .terms h6 {
+  font-weight: 500 !important;
+}
+.terms h1 {
+  font-size: 22pt !important;
+  line-height: 26pt !important;
+}
+.terms h2 {
+  font-size: 18pt !important;
+  line-height: 24pt !important;
+}
+.terms h3 {
+  font-size: 15pt !important;
+  line-height: 22pt !important;
+}
+.terms p, .terms li, .terms td {
+  font-size: 14px;
+  color: #425363;
+  line-height: 1.6 !important;
+}
+.terms font[color="#ff0000"],
+.terms span[style="color: #ff0000;"],
+.terms span[style="color: rgba(255, 0, 0);"],
+.terms span[style="color: rgb(255, 0, 0);"] {
+  color: #ec6878 !important;
+}
+.terms font[color="#0000ff"],
+.terms span[style="color: #0000ff;"],
+.terms span[style="color: rgba(0, 0, 255);"],
+.terms span[style="color: rgb(0, 0, 255);"] {
+  color: #396eff !important;
+}
+.terms img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+.terms table {
+  border-collapse: collapse !important;
+  min-width: 80% !important;
+  width: inherit !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+}
+.terms table tr:first-child td {
+  background-color: #f1f2f2 !important;
+}
+.terms table td {
+  border: 1px solid #bdbdbd !important;
+  vertical-align: middle !important;
+  padding: 8px !important;
+}
+
+.note-editor {
+  font-family: "Noto Sans KR" !important;
+  margin: 0 auto;
+  color: #333;
+  background-color: #eee;
+}
+.note-editor h1, .note-editor h2, .note-editor h3, .note-editor h4, .note-editor h5, .note-editor h6, .note-editor li, .note-editor p, .note-editor td {
+  word-break: break-all !important;
+  margin: 0 !important;
+}
+.note-editor h1, .note-editor h2, .note-editor h3, .note-editor h4, .note-editor h5, .note-editor h6 {
+  font-weight: 500 !important;
+}
+.note-editor h1 {
+  font-size: 22pt !important;
+  line-height: 26pt !important;
+}
+.note-editor h2 {
+  font-size: 18pt !important;
+  line-height: 24pt !important;
+}
+.note-editor h3 {
+  font-size: 15pt !important;
+  line-height: 22pt !important;
+}
+.note-editor p, .note-editor li, .note-editor td {
+  font-size: 14px;
+  color: #425363;
+  line-height: 1.6 !important;
+}
+.note-editor font[color="#ff0000"],
+.note-editor span[style="color: #ff0000;"],
+.note-editor span[style="color: rgba(255, 0, 0);"],
+.note-editor span[style="color: rgb(255, 0, 0);"] {
+  color: #ec6878 !important;
+}
+.note-editor font[color="#0000ff"],
+.note-editor span[style="color: #0000ff;"],
+.note-editor span[style="color: rgba(0, 0, 255);"],
+.note-editor span[style="color: rgb(0, 0, 255);"] {
+  color: #396eff !important;
+}
+.note-editor img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+.note-editor table {
+  border-collapse: collapse !important;
+  min-width: 80% !important;
+  width: inherit !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+}
+.note-editor table tr:first-child td {
+  background-color: #f1f2f2 !important;
+}
+.note-editor table td {
+  border: 1px solid #bdbdbd !important;
+  vertical-align: middle !important;
+  padding: 8px !important;
+}
+
+.note-editable {
+  height: inherit !important;
+  padding: 0 !important;
+}
+
+.note-editing-area {
+  max-width: 700px;
+  min-height: 700px;
+  margin: 0 auto;
+  padding: 24px;
+  background-color: white;
+}
