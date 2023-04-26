@@ -615,7 +615,7 @@ $stats_result = sql_fetch($stats_sql); */
 		
 		<a href="./member_table_depth.php" id="member_depth">회원추천/직추천갱신</a>
 		<a href="./member_table_fixtest.php">추천관계검사</a>
-		<a href="./member_list.php?mode=del" >삭제/탈퇴 회원보기</a>
+		<a href="./del_member_list.php" >삭제/탈퇴 회원보기</a>
 		<a href="./member_form.php" id="member_add">회원직접추가</a>
 		<?if($range == 'all'){?>
 			<a href="./member_list.php?range=" >회원전체보기</a>
