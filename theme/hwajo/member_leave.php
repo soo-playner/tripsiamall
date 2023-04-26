@@ -5,7 +5,7 @@ include_once(G5_THEME_PATH.'/_include/gnb.php');
 
 <div class='container member_leave'>
   <h1 class="main_title">HWAJO 탈퇴</h1>
-  <p class="info_text">회원 탈퇴를 하시면 회원님의 모든 정보와 활동 기록, <br />코인 충전/적립/사용 내역이 삭제됩니다. 삭제된 정보는<br /> 복구할 수 없으니 신중하게 결정해주세요.</p>
+  <p class="info_text">회원 탈퇴를 하시면 회원님의 모든 정보와 활동 기록, <br />충전/적립/사용 내역이 삭제됩니다. 삭제된 정보는<br /> 복구할 수 없으니 신중하게 결정해주세요.</p>
   <p class="info_text red">
   ! 보유중이신 수량은 회원 탈퇴 시 전액 환불해 드립니다. <br class="block" />단, 회원이 서비스 탈퇴 시 수량 잔액이 환불 수수료 미만으로 <br />남아 있을 경우 수량 잔액의 환불은 불가능하며, 회원은 환불없이<br /> 탈퇴가 가능합니다.
   </p>
