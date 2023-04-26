@@ -6,10 +6,10 @@ define('CONFIG_SUB_TITLE','Hwajo Global asset');
 
 
 // 메일설정
-define('CONFIG_MAIL_ACCOUNT','wizclass.inc');
-// define('CONFIG_MAIL_PW','willsoft0780!@');
-define('CONFIG_MAIL_PW','izmvwaprbjxgftme');
-define('CONFIG_MAIL_ADDR','wizclass.inc@gmail.com');
+define('CONFIG_MAIL_ACCOUNT','hwajoasset');
+define('CONFIG_MAIL_PW','fqendcfluafulcyp');
+define('CONFIG_MAIL_ADDR','hwajoasset@gmail.com');
+
 
 // 이더사용 및 회사지갑 설정
 // False 설정시 현금사용
