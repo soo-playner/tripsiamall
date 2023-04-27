@@ -14,10 +14,9 @@ if($is_admin){
 		var $idx='<?=$_GET['idx']?>';
 		var topicOption = {
 			0 : '일반',
-			1 : '해킹',
+			1 : '입출금',
 			2 : '보너스',
-			3 : '지갑',
-			4 : '계좌'
+			3 : '계정관련'
 		};
 		var $selected;
 
@@ -271,10 +270,9 @@ if($is_admin){
 									</div>
 									<select class="custom-select" name="topic" id="topic">
 										<option value="0" selected >일반</option>
-										<option value="1" >해킹</option>
+										<option value="1" >입출금</option>
 										<option value="2" >보너스</option>
-										<option value="3" >지갑</option>
-										<option value="4" >계좌</option>
+										<option value="3" >계정관련</option>
 									</select>
 								</div>
 								<div class="input-group mb-3">
@@ -353,6 +351,7 @@ if($is_admin){
 		</div>
 		<div class="gnb_dim"></div>
 	</section>
+
 </main>
 
 	<script>
