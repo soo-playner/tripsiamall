@@ -267,12 +267,11 @@
 				</div>
 
 				<div class='col-sm-12 col-12 profile-box'>
+					
 					<ul class='row mt10'>
-						<li class='col-sm-9 col-8'>
-							<p style="margin-top: 20px">회원 탈퇴</p>
-						</li>
-						<li class='col-sm-3 col-4 text-right'>
-							<button class="btn" onclick="location.href='page.php?id=member_leave'">회원 탈퇴</button>
+						
+						<li class='col-12 '>
+							<button class="btn wd" onclick="location.href='page.php?id=member_leave'">회원 탈퇴</button>
 						</li>
 					</ul>
 				</div>

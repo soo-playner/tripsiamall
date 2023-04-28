@@ -356,6 +356,9 @@ a.btn {
 .btn.inline {
   margin: 0;
   max-height: 44px;
+  margin-left:5px;
+  vertical-align: baseline;
+  background:transparent;
 }
 
 .btn.blue {
@@ -2061,7 +2064,7 @@ a.more i {
 .exp_per {
   position: absolute;
   z-index: 10;
-  margin-top: -5px;
+  margin-top: -3px;
   width: 100%;
   font-weight: 300;
   color: #999;
@@ -3444,7 +3447,7 @@ input.input_price {
   border-left: 3px solid cornflowerblue;
 }
 
-#direct.content-box {
+#grade.content-box {
   border-left: 3px solid sienna;
 }
 
@@ -3456,7 +3459,7 @@ input.input_price {
   border-left: 3px solid slategray;
 }
 
-#center.content-box {
+#booster.content-box {
   border-left: 3px solid teal;
 }
 

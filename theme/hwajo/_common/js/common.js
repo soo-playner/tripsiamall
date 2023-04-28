@@ -18,6 +18,8 @@ $(function () {
 var debug = "";
 var thisTheme = "dark";
 
+
+
 if (getCookie('mode')) {
 	var Theme = getCookie('mode');
 } else {
@@ -379,12 +381,13 @@ function dialogModal(title, htmlBody, category, dim = true) {
 
 // 테마 변경 함수
 function mode_init() {
+	
 	var url = location.href;
-	if (getCookie('mode')) {
+	/* if (getCookie('mode')) {
 		var Theme = getCookie('mode');
 	} else {
 		var Theme = thisTheme;
-	}
+	} */
 
 	if ($('.top_title').children().length == 1) {
 		$.removeCookie('mode', { path: '/' });
@@ -421,6 +424,7 @@ function mode_change(mode) {
 	var url = location.href;
 
 	setCookie('mode', mode, 1, '/');
+	Theme = mode;
 
 	profile_icon1 = "<img src='" + g5_theme_url + "/img/person_information_" + mode + ".png'/>";
 	profile_icon2 = "<img src='" + g5_theme_url + "/img/security_setting_" + mode + ".png'/>";

@@ -52,7 +52,7 @@ if(!isset($g5['title'])){
 	<link href="<?=G5_THEME_URL?>/_common/css/gnb.css?ver=20220504_12" rel="stylesheet">
 	
 	<!-- 커스텀 SCSS 추가 -->
-	<link href="<?=G5_THEME_URL?>/css/scss/custom.css?ver=<?=G5_TIME_YMD?>" rel="stylesheet">
+	<link href="<?=G5_THEME_URL?>/css/scss/custom.css?ver=<?=G5_TIME_YMD?>2" rel="stylesheet">
 
 
 	<!-- JQuery  기본 설정 //-->

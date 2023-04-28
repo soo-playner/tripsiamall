@@ -1473,14 +1473,14 @@ a.btn_cancle,
             background: #e6ecf3 !important;
             color: #333 !important;
         }
-        .btn_leave {
+        /* .btn_leave {
             background: #3b86ff !important;
-        }
+        } */
     }
 }
-.dark .member_leave .btn_wrap .btn_leave {
+/* .dark .member_leave .btn_wrap .btn_leave {
     color: #fff !important;
-}
+} */
 
 // 추천조직도
 .structure_wrap {
@@ -2751,6 +2751,9 @@ a.btn_cancle,
                     color: #fff;
                 }
             }
+            .wallet_addr{
+                color: #fac707 !important;
+            }
 
             .sel_price {
                 background: $main-background3;
@@ -3506,6 +3509,17 @@ a.btn_cancle,
         .hist_value2 {
             font-size: 13px;
         }
+
+        .btn{
+            &.inline{
+                background:transparent;
+                color:rgba(255,255,255,0.5);
+                &:hover{
+                    background:rgba(0,0,0,0.15);
+                }
+            }
+
+        }
     }
 
     // mypool
@@ -3679,7 +3693,7 @@ a.btn_cancle,
             }
 
             .mbId {
-                border-color: rgba(255, 255, 255, 0.7);
+                border-color: rgba(255, 255, 255, 0.5);
             } 
         }
     }
@@ -3713,6 +3727,8 @@ a.btn_cancle,
 
         .content-box {
             background: $main-background2;
+
+
         }
 
         .bin_top {

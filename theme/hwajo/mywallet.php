@@ -245,8 +245,8 @@ $auth_cnt = sql_num_rows($amt_auth_log);
           </div>
         
           <div class='col-sm-12 col-12 '>
-            <button class="btn btn_wd font_white deposit_request" data-currency="<?=$curencys[0]?>">
-              <span >입금확인요청</span>
+            <button class="btn btn_wd deposit_request b_sub" data-currency="<?=$curencys[0]?>">
+              입금확인요청
             </button>
           </div>
         </div>

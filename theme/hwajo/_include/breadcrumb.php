@@ -195,8 +195,8 @@ $title = 'Dashboard';
 								</div>
 								
 								<div class='exp_per'>
-									<p class='start'>0%</p>
-									<p class='end'>250%</p>
+									<p class='start'>0 %</p>
+									<p class='end'><?=$limited?> %</p>
 								</div>
 							</dd>
 							<dt class="title" style="font-size:10px;" >수당한계</dt>
@@ -246,7 +246,10 @@ $title = 'Dashboard';
 <script src="https://cdnjs.cloudflare.com/ajax/libs/egjs-jquery-transform/2.0.0/transform.min.js" integrity="sha512-vOc3jz0QulHRiyMXfp676lHxeSuzUhfuw//VUX12odAmlUbnKiXH4GQxBRqwKhF3Mkswqr5ILY9MtEM4ZwcS2A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <!-- 펼쳐보기 -->
 <script>
+	
 		function collapse(id, mode) {
+			console.log("Theme :" + Theme);
+			console.log(getCookie('mode'));
 			
 			$('.fold_img_wrap img').attr('src','<?=G5_THEME_URL?>/img/arrow_up_'+Theme+'.png');
 			

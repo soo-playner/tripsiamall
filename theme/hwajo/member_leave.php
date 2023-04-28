@@ -11,10 +11,10 @@ include_once(G5_THEME_PATH.'/_include/gnb.php');
 </style>
 
 <div class='container member_leave'>
-  <h1 class="main_title">HWAJO 탈퇴</h1>
-  <p class="info_text">회원 탈퇴를 하시면 회원님의 모든 정보와 활동 기록, <br />충전/적립/사용 내역이 삭제됩니다. 삭제된 정보는<br /> 복구할 수 없으니 신중하게 결정해주세요.</p>
+  <h1 class="main_title">회원(계정) 탈퇴</h1>
+  <p class="info_text">회원(계정) 탈퇴를 하시면 회원님의 모든 정보와 활동 기록, <br />포인트/보너스/잔고 및 사용 내역이 삭제됩니다. 삭제된 정보는<br /> 복구할 수 없으니 신중하게 결정해주세요.</p>
   <p class="info_text red">
-  ! 보유중이신 수량은 회원 탈퇴 시 전액 환불해 드립니다. <br class="block" />단, 회원이 서비스 탈퇴 시 수량 잔액이 환불 수수료 미만으로 <br />남아 있을 경우 수량 잔액의 환불은 불가능하며, 회원은 환불없이<br /> 탈퇴가 가능합니다.
+  ! 계정탈퇴 및 회원포인트 관련 문의는 회원탈퇴 전 반드시 1:1 문의사항을 이용해주세요. 회원 탈퇴 진행후에는 처리되지 않습니다.
   </p>
 
   <div class="leave_info_wrap">
@@ -43,7 +43,7 @@ include_once(G5_THEME_PATH.'/_include/gnb.php');
   </div>
   <div class="btn_wrap" style="margin-bottom: 28px">
     <a href="javascript:history.back()" class="btn_cancel">취소</a>
-    <a href="javascript:void(0)" class="btn_leave main_btn2" onclick="memberLeave()">회원탈퇴</a>
+    <a href="javascript:void(0)" class="btn_leave b_sub" onclick="memberLeave()">회원(계정)탈퇴</a>
   </div>
 </div>
 <script>
