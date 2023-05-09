@@ -105,6 +105,10 @@ $result = sql_query($sql);
 
     .time{font-size:11px;letter-spacing: -0.5px;}
 
+    .regTb tr:hover td {
+        background: papayawhip;
+    }
+
 </style>
 <script src="../excel/tabletoexcel/xlsx.core.min.js"></script>
 <script src="../excel/tabletoexcel/FileSaver.min.js"></script>
@@ -328,7 +332,7 @@ $result = sql_query($sql);
         $in_amt = shift_auto($row['in_amt']);
     ?>
    
-    <tr class=" <?=$row_dup?>">
+    <tr class="bg0">
         <td ><?php echo $row['uid'] ?></td>
         <td class='td_id'><a href='/adm/member_form.php?sst=&sod=&sfl=&stx=&page=&w=u&mb_id=<?=$row['mb_id']?>' target='_blank'><?=$row['mb_id'] ?></a></td>
         <td style='color:#666'><?=$member_result['mb_recommend']?></td>

@@ -479,16 +479,18 @@ function shift_auto($val,$type = 'eth'){
 function get_coins_price(){
 	$result = array();
 	$url_list = array(
-		'https://api.upbit.com/v1/ticker?markets=KRW-ETH&markets=USDT-ETH'
+		'https://api.upbit.com/v1/ticker?markets=KRW-ETH&markets=USDT-ETH&markets=USDT-ETC'
 		);
 
 	$data = multi_curl($url_list);
 	
 	$eth_krw = $data[0][0]['trade_price'];
 	$usdt_eth = $data[0][1]['trade_price'];
+	$usdt_etc = $data[0][2]['trade_price'];
 
 	$result['usdt_krw'] = $eth_krw / $usdt_eth;
 	$result['usdt_eth'] = $usdt_eth;
+	$result['usdt_etc'] = $usdt_etc;
 	$result['eth_krw'] = $eth_krw;
 
 	return $result;

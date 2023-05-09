@@ -19,7 +19,7 @@ define('ETH_ADDRESS','0x00000005');
 define('Mining_solution', false);
 
 // 기준통화설정
-$curencys = ['eth','usdt','krw','hwajo'];
+$curencys = ['eth','usdt','krw','hwajo','etc'];
 
 define('ASSETS_NUMBER_POINT',8); // 입금 단위
 define('BONUS_NUMBER_POINT',2); // 수당계산,정산기준단위
