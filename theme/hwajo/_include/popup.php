@@ -63,6 +63,8 @@ $(function() {
 	}
 
 	$('.enroll_cancel_pop_open').click(function() {
+		
+		dimShow()
 		$('.enroll_cancel_pop').css("display", "block");
 	});
 	$('.search_result_btn').click(function() {

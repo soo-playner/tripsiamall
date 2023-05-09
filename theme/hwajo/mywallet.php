@@ -188,20 +188,26 @@ $auth_cnt = sql_num_rows($amt_auth_log);
     box-shadow: inset 1px 1px 1px rgb(0 0 0 / 50%);
     border: 0;
     text-align: center;
-    width: 50%;
-  }
+    width: 50%;}
+  .time_remained{display:block;text-align:center}
+  .processcode{color:red;display:block;text-align:center;font-size:13px;}
 
-  .time_remained {
-    display: block;
-    text-align: center
-  }
+  #upbit_curency{margin-bottom:20px;margin-top:-20px;}
+  
+  .coin_icon{background:white;border-radius: 50%;padding:5px;}
+  .upbit_logo{width:65px;display: inline-block;margin-left:10px;}
 
-  .processcode {
-    color: red;
-    display: block;
-    text-align: center;
-    font-size: 13px;
-  }
+  .checkbox-tile{width:100%}
+
+  .refresh_btn{flex:auto;text-align:right;line-height:24px;}
+  #coin_refresh{line-height:30px;}
+  .checkbox-tile{display:block;text-align:center}
+
+  .dark #coin_refresh:hover i{color:#FECE00}
+  .dark #upbit_curency {color:white;}
+  .dark .checkbox-tile{color:rgba(255,255,255,0.75);}
+
+  #curency_usdt_eth{display:inline;}
 </style>
 
 <main>
@@ -216,26 +222,49 @@ $auth_cnt = sql_num_rows($amt_auth_log);
         </div>
       </div>
     </div>
+
+    <section id='upbit_curency' class='upbit_curency'>
+    <h3 class="title" style="margin:30px 0 0;display:flex;line-height:44px;">코인시세 By 
+        <div class='upbit_logo'><img src="<?=G5_THEME_URL?>/img/icon_bi_upbit.svg"></div>
+        <!-- <div class="refresh_btn">
+            <a id="coin_refresh" class="btn inline"><i class="ri-restart-fill" style="font-size:28px;"></i></a>
+        </div> -->
+    </h3>
+    <div class="checkbox-group">
+      <div class='checkbox-tile'>1 USDT = <span id='curency_usdt_eth'><?=shift_auto(1/$coin['usdt_eth'])?></span> <?=$curencys[0]?> </div>
+    </div>
+    </section>
+
     <!-- 입금 -->
     <section id='deposit' class='loadable'>
       <div class="content-box round">
         <h3 class="wallet_title">입금지갑주소</h3>
         <div class="row ">
-          <!-- <div class='col-12 text-center bank_info'>
+            
+          <!-- 
+          <div class='col-12 text-center bank_info'>
             <?= $bank_name ?> : <input type="text" id="bank_account" class="bank_account" value="<?= $bank_account ?>" title='bank_account' disabled />(<?= $account_name ?>)
-            <? if ($sel_price) { ?>
+            <?if ($sel_price) { ?>
               <div class='sel_price'>입금액 : <span class='price'><?= Number_format($sel_price) ?><?= ASSETS_CURENCY ?></span></div>
-            <? } ?>
+            <?}?>
           </div>
           <div class='col-12'>
             <button class="btn wd line_btn " style="background: #f5f5f5;" id="accountCopy" onclick="copyURL('#bank_account')">
               <span > 계좌복사 </span>
             </button>
           </div> -->
-          <!-- 이더전용입금 -->
+          <!-- 이더전용입금 -->          
           <div class="wallet qrBox col-12">
-            <div class="eth_qr_img qr_img" id="my_eth_qr"></div>
-          </div>
+              <div class="eth_qr_img qr_img" id="my_eth_qr"></div>
+          </div> 
+
+          <?if ($sel_price) { ?>
+            <div class='sel_price col-12'>입금액 : <span class='price'><?=shift_auto(($sel_price/$coin['usdt_eth']),$curencys[0])?> <?=$curencys[0] ?></span>
+            <br>
+            <span style="font-size:12px;line-height:14px;font-weight:300;letter-spacing:0px;">= <?=shift_auto(($sel_price/$coin['usdt_eth'])* $coin['eth_krw'],'krw')?> 원 </span>
+            </div>
+          <?}?>
+         
           <div class='qrBox_right col-12'>
             <input type="text" id="my_eth_wallet" class="wallet_addr text-center" value="<?= $company_wallet ?>" title='my address' disabled />
             <button class="btn wd line_btn" id="accountCopy" onclick="copyURL('#my_eth_wallet')">
@@ -244,10 +273,12 @@ $auth_cnt = sql_num_rows($amt_auth_log);
           </div>
         </div>
       </div>
+
       <div class="col-sm-12 col-12 content-box round mt20" id="eth">
         <h3 class="wallet_title">입금확인요청 </h3> <span class='desc'> - 입금후 1회만 요청해주세요</span>
         <div style="clear:both"></div>
         <div class="row">
+          <!--
           <div class="col-12 coin_select_wrap mb20">
             <label class="sub_title">- 입금코인 선택</label>
             <select class="form-control" name="" id="select_deposit_coin">
@@ -257,6 +288,9 @@ $auth_cnt = sql_num_rows($amt_auth_log);
               <option value="<?= $curencys[1] ?>"><?= $curencys[1] ?></option>
             </select>
           </div>
+          -->
+          <input type="hidden" name="data-currency" value="<?=$curencys[4]?>"/>
+
           <div class="btn_ly qrBox_right "></div>
           <div class="col-sm-12 col-12 withdraw mt20">
             <input type="text" id="deposit_name" class='b_ghostwhite' placeholder="TXID를 입력해주세요">
@@ -272,6 +306,7 @@ $auth_cnt = sql_num_rows($amt_auth_log);
           </div>
         </div>
       </div>
+
       <!-- 입금 요청 내역 -->
       <div class="history_box content-box">
         <h3 class="hist_tit wallet_title">입금 내역</h3>
@@ -538,11 +573,11 @@ $auth_cnt = sql_num_rows($amt_auth_log);
       document.querySelector('#sendValue').value = "";
     });
 
-    document.querySelector('#select_deposit_coin').addEventListener('change', (e) => {
+    /* document.querySelector('#select_deposit_coin').addEventListener('change', (e) => {
       currency_tmp = e.target.value;
       $('#deposit-currency-right').text(currency_tmp);
       $('.deposit_request').attr('data-currency', currency_tmp);
-    });
+    }); */
 
     /*핀 입력*/
     $('#pin_open').on('click', function(e) {
@@ -921,7 +956,7 @@ $auth_cnt = sql_num_rows($amt_auth_log);
   });
 
 
-
+  
 
   function switch_func(n) {
     $('.loadable').removeClass('active');

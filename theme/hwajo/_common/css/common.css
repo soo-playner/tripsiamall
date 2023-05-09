@@ -2401,9 +2401,10 @@ input:checked + .slider:before {
 .mywallet .sel_price {
   font-size: 16px;
   background: white;
-  margin: 20px 10px 0 10px;
+  margin: 15px 0;
   padding: 10px;
   border: 1px solid #ddd;
+  text-align:center;
 }
 
 /* .mywallet .sel_price .price{color:#29386b;text-align:center;} */

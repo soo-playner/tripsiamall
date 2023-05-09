@@ -47,7 +47,7 @@ if(!isset($g5['title'])){
 	
 	<link href="<?=G5_URL?>/css/bootstrap.min.css" rel="stylesheet">
 	<link href="<?=G5_THEME_URL?>/_common/css/normalize.css" rel="stylesheet">
-	<link href="<?=G5_THEME_URL?>/_common/css/common.css?ver=20220504_11" rel="stylesheet">
+	<link href="<?=G5_THEME_URL?>/_common/css/common.css?ver=<?=G5_TIME_YMD?>" rel="stylesheet">
 	<link href="<?=G5_THEME_URL?>/_common/css/jquery-ui.min.css" rel="stylesheet">
 	<link href="<?=G5_THEME_URL?>/_common/css/gnb.css?ver=20220504_12" rel="stylesheet">
 	

@@ -609,6 +609,7 @@ if ($_GET['recom_referral']) {
 	// submit 최종 폼체크
 	function fregisterform_submit() {
 		var f = $('#fregisterform')[0];
+		var email_states = "<?=EMAIL_STATES?>";
 
 		//console.log(recommend_search);
 		/*
@@ -674,7 +675,8 @@ if ($_GET['recom_referral']) {
 			return false;
 		}
 
-		if (check_phone == 0) {
+
+		if (check_phone == 0 && email_states != 'test') {
 			commonModal('휴대폰 인증', '<strong>휴대폰 인증을 해주세요. </strong>', 80);
 			$('#hp_button').attr("disabled", false);
 			$('#auth_number').attr("readonly", false);
@@ -709,30 +711,35 @@ if ($_GET['recom_referral']) {
 		}
 
 		// 메일인증 체크
-		$.ajax({
-			type: "POST",
-			url: "/mail/check_mail_for_register.php",
-			cache: false,
-			async: false,
-			dataType: "json",
-			data: {
-				user_email: $('#reg_mb_email').val()
-			},
-			success: function(res) {
-				if (res.result == "OK") {
-					mail_check = 1;
-					f.submit();
-				} else {
-					mail_check = 0;
-					dialogModal("Email Auth", res.res, 'failed');
+		
+		if(email_states == 'test'){
+			f.submit();
+		}else{
+			$.ajax({
+				type: "POST",
+				url: "/mail/check_mail_for_register.php",
+				cache: false,
+				async: false,
+				dataType: "json",
+				data: {
+					user_email: $('#reg_mb_email').val()
+				},
+				success: function(res) {
+					if (res.result == "OK") {
+						mail_check = 1;
+						f.submit();
+					} else {
+						mail_check = 0;
+						dialogModal("Email Auth", res.res, 'failed');
 
+					}
+
+				},
+				error: function(e) {
+					console.log(e)
 				}
-
-			},
-			error: function(e) {
-				console.log(e)
-			}
-		});
+			});
+		}
 	}
 </script>
 
@@ -798,10 +805,13 @@ if ($_GET['recom_referral']) {
 
 				<input type="email" id="reg_mb_email" name="mb_email" class='cabinet' required placeholder="이메일 주소" />
 				<span class='cabinet_inner' style=''>※수신가능한 이메일주소를 직접 입력해주세요</span>
-				<div class='in_btn_ly'><input type="button" id='EmailChcek' class='btn_round check' value="이메일 전송"></div>
+				<?if(EMAIL_STATES != 'test'){?>																																		
+					<div class='in_btn_ly'><input type="button" id='EmailChcek' class='btn_round check' value="이메일 전송"></div>
+				<?}?>
 
 				<input type="text" name="mb_hp" id="reg_mb_hp" class='cabinet' pattern="[0-9]*" required placeholder="휴대폰번호" />
 				<span class='cabinet_inner' style=''>※'-'를 제외한 숫자만 입력해주세요</span>
+				
 				<div class='in_btn_ly btn_round'><input type="button" id="hp_button" class='btn_round check' value="인증번호 전송"></div>
 				<!-- 폰인증 -->
 
@@ -876,7 +886,7 @@ if ($_GET['recom_referral']) {
 
 
 			<div class="btn2_wrap mb40" style='width:100%;height:60px'>
-				<input class="btn btn_double enroll_cancel_pop_open btn_cancle pop_open" type="button" value="취소">
+				<input class="btn btn_double enroll_cancel_pop_open" type="button" value="취소">
 				<input class="btn btn_double btn_secondary" type="button" onclick="fregisterform_submit();" value="신규 회원 등록하기">
 			</div>
 
@@ -892,6 +902,7 @@ if ($_GET['recom_referral']) {
 </div>
 </section>
 
+<div class="dim"></div>
 <div class="gnb_dim"></div>
 
 

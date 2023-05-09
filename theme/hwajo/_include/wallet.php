@@ -9,7 +9,7 @@ $nw_upstair = $nw['nw_upstair'];
 
 
 /*날짜선택 기본값 지정 : 3개월전~ 오늘*/
-if (empty($fr_date)) {$fr_date = date("Y-m-d", strtotime(date("Y-m-d")."-3 month"));}
+if (empty($fr_date)) {$fr_date = date("Y-m-d", strtotime(date("Y-m-d")."-1 week"));}
 if (empty($to_date)) {$to_date =  date("Y-m-d", strtotime(date("Y-m-d")));}
 
 /* 시세업데이트 시간*/

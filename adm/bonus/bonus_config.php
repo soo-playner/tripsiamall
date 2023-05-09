@@ -26,9 +26,11 @@ $token = get_token();
 
 <div class="local_desc01 local_desc">
     <p>
-        - 마케팅수당설정<br>
-        - 마이닝 : 1MH/S 당 지급량 (고정값)(<?=strtoupper($minings[$now_mining_coin])?>)<br>
-        - 마이닝매칭 : 마이닝지급량의 % 입력
+        - 마케팅수당설정 - 관리자외 설정금지<br>
+        - 수당한계 : 0 또는 값이 없으면 제한없음.<br>
+        - 데일리 : ( 수당비율 * 회원별 보유상품수익률) 지급 <strong>[ <?=strtoupper($minings[$now_mining_coin])?> ] </strong><br>
+        - 부스터 : (직추천수 = 지급대수) 일때 대상의 (데일리보너스의 50% * 지급율)<br>
+        - 승급 및 직급 보너스: 산하매출 & 직급유지 & 조건 달성시 승급
 	</p>
 </div>
 
@@ -102,7 +104,8 @@ $token = get_token();
     #mining_log dd{border-left:1px solid #eee;}
 </style>
 
-<div id='mining_log'>
+
+<!-- <div id='mining_log'>
     마이닝 지급량 기록 (최근 10일)
     <div class='head'>
         <dt>지급일</dt>
@@ -129,7 +132,7 @@ $token = get_token();
     </div>
     <?}?>
 </div>
-
+ -->
 <script>
 
     function frmconfig_check(f){

@@ -414,11 +414,13 @@ function serviceModal(){
 		$('.enroll_ok_pop_open').click(function() {
 			$('.enroll_ok_pop').css("display", "block");
 		});
+		 
 		$('.enroll_cancel_pop_open').click(function() {
+			dimShow();
 			$('.enroll_cancel_pop').css("display", "block");
 		});
 
-
+		/*
 		//send coin
 		$('.send_tran_open').click(function(){
 			$('.send_tran_pop').css("display","block");
@@ -449,7 +451,7 @@ function serviceModal(){
 		//avatar
 		$('.ava_pop_open').click(function() {
 			$('.ava_pop_wrap').css("display", "block");
-		});
+		}); */
 
 		//support
 		$('.support_ok_pop_open').click(function() {
