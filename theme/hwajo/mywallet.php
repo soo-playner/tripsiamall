@@ -278,7 +278,7 @@ $auth_cnt = sql_num_rows($amt_auth_log);
         <h3 class="wallet_title">입금확인요청 </h3> <span class='desc'> - 입금후 1회만 요청해주세요</span>
         <div style="clear:both"></div>
         <div class="row">
-          <!--
+          
           <div class="col-12 coin_select_wrap mb20">
             <label class="sub_title">- 입금코인 선택</label>
             <select class="form-control" name="" id="select_deposit_coin">
@@ -288,8 +288,7 @@ $auth_cnt = sql_num_rows($amt_auth_log);
               <option value="<?= $curencys[1] ?>"><?= $curencys[1] ?></option>
             </select>
           </div>
-          -->
-          <input type="hidden" name="data-currency" value="<?=$curencys[4]?>"/>
+          
 
           <div class="btn_ly qrBox_right "></div>
           <div class="col-sm-12 col-12 withdraw mt20">
@@ -573,11 +572,11 @@ $auth_cnt = sql_num_rows($amt_auth_log);
       document.querySelector('#sendValue').value = "";
     });
 
-    /* document.querySelector('#select_deposit_coin').addEventListener('change', (e) => {
+    document.querySelector('#select_deposit_coin').addEventListener('change', (e) => {
       currency_tmp = e.target.value;
       $('#deposit-currency-right').text(currency_tmp);
       $('.deposit_request').attr('data-currency', currency_tmp);
-    }); */
+    });
 
     /*핀 입력*/
     $('#pin_open').on('click', function(e) {
