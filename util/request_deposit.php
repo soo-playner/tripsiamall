@@ -21,7 +21,15 @@ WHERE mb_id ='{$mb_id}' AND create_d = '{$now_date}' AND in_amt = {$d_price} ");
 
 if($pre_result['cnt'] < 1){
   $get_coins_price = get_coins_price();
-  $usdt = $get_coins_price['usdt_eth'];
+  if($coin == 'etc') {
+    $usdt = $get_coins_price['usdt_etc'];
+  } else if ($coin == 'hwajo') {
+    $usdt = 1;
+  } else if ($coin == 'eth') {
+    $usdt = $get_coins_price['usdt_eth'];
+  } else {
+    $usdt = 1;
+  }
   $point = $usdt * $d_price;
   $sql = "INSERT INTO wallet_deposit_request(mb_id, txhash, create_dt,create_d,status,coin,cost,amt,in_amt) 
   VALUES('$mb_id','$txhash','$now_datetime','$now_date',0,'$coin', {$usdt},{$d_price},{$point})";
