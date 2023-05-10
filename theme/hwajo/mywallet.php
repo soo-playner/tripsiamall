@@ -12,7 +12,12 @@ if ($nw['nw_with'] == 'N') {
 login_check($member['mb_id']);
 $title = 'Mywallet';
 
+$company = sql_fetch("select * from wallet_coin_price where idx = 1");
+$withdrawal_price = $company['current_cost'] * $coin['usdt_krw'];
 
+if($company['used'] > 0){
+  // 거래소 시세로 화조 코인 불러오는 부분
+}
 
 // 입금설정
 $deposit_setting = wallet_config('deposit');
@@ -27,7 +32,6 @@ $withdrwal_fee = $withdrwal_setting['fee'];
 $withdrwal_min_limit = $withdrwal_setting['amt_minimum'];
 $withdrwal_max_limit = $withdrwal_setting['amt_maximum'];
 $withdrwal_day_limit = $withdrwal_setting['day_limit'];
-$withdrawal_price = $withdrwal_setting['withdraw_price'];
 
 $company_wallet = wallet_config('wallet_addr')['wallet_addr'];
 
@@ -282,8 +286,8 @@ $auth_cnt = sql_num_rows($amt_auth_log);
           <div class="col-12 coin_select_wrap mb20">
             <label class="sub_title">- 입금코인 선택</label>
             <select class="form-control" name="" id="select_deposit_coin">
-              <option value="<?= $curencys[4] ?>" selected><?= $curencys[4] ?></option>
-              <option value="<?= $curencys[3] ?>"><?= $curencys[3] ?></option>
+              <option value="<?= $curencys[3] ?>" selected><?= $curencys[3] ?></option>
+              <option value="<?= $curencys[4] ?>"><?= $curencys[4] ?></option>
               <option value="<?= $curencys[0] ?>"><?= $curencys[0] ?></option>
               <option value="<?= $curencys[1] ?>"><?= $curencys[1] ?></option>
             </select>
@@ -295,12 +299,12 @@ $auth_cnt = sql_num_rows($amt_auth_log);
             <input type="text" id="deposit_name" class='b_ghostwhite' placeholder="TXID를 입력해주세요">
 
             <input type="text" id="deposit_value" class='b_ghostwhite' placeholder="입금수량을 입력해주세요">
-            <label class='currency-right' id="deposit-currency-right"><?= $curencys[4] ?></label>
+            <label class='currency-right' id="deposit-currency-right"><?= $curencys[3] ?></label>
           </div>
 
           <div class='col-sm-12 col-12 '>
-            <button class="btn btn_wd deposit_request b_sub" data-currency="<?=$curencys[0]?>">
-              입금확인요청
+            <button class="btn btn_wd font_white deposit_request" data-currency="<?= $curencys[3] ?>">
+              <span>입금확인요청</span>
             </button>
           </div>
         </div>
@@ -348,6 +352,7 @@ $auth_cnt = sql_num_rows($amt_auth_log);
             <label class="sub_title">- 출금코인 선택</label>
             <select class="form-control" name="" id="select_coin">
               <option value="<?= $curencys[3] ?>" selected><?= $curencys[3] ?></option>
+              <option value="<?= $curencys[4] ?>"><?= $curencys[4] ?></option>
               <option value="<?= $curencys[0] ?>"><?= $curencys[0] ?></option>
             </select>
           </div>
@@ -394,7 +399,7 @@ $auth_cnt = sql_num_rows($amt_auth_log);
             <button id="pin_open" class="btn wd yellow form-send-button">인증</button>
           </div>
           <div class="col-7">
-            <button type="button" class="btn wd btn_wd form-send-button" id="Withdrawal_btn" data-toggle="modal" data-target="" disabled>출금 신청</button>
+            <button type="button" class="btn wd btn_wd form-send-button" id="Withdrawal_btn" data-toggle="modal" data-target="" data-currency="<?=$curencys[3];?>" disabled>출금 신청</button>
           </div>
         </div>
       </div>
@@ -489,6 +494,7 @@ $auth_cnt = sql_num_rows($amt_auth_log);
     var curency_tmp = '<?= $curencys[3] ?>';
     var usdt_curency = '<?= $curencys[1] ?>';
     var eth_curency = '<?= $curencys[0] ?>';
+    var etc_curency = '<?= $curencys[4] ?>';
     var erc20_curency = '<?= $curencys[3] ?>';
     var mb_block = Number("<?= $member['mb_block'] ?>"); // 차단
 
@@ -523,8 +529,12 @@ $auth_cnt = sql_num_rows($amt_auth_log);
 
       if (curency_tmp == eth_curency) {
         shift_coin_value = <?= ASSETS_NUMBER_POINT ?>;
-        swap_coin_price = real_withdraw_val / <?= $coin['usdt_eth'] ?>;
-        swap_fee_val = real_fee_val / <?= $coin['usdt_eth'] ?>;
+        swap_coin_price = real_withdraw_val / <?= $coin['eth_usdt'] ?>;
+        swap_fee_val = real_fee_val / <?= $coin['eth_usdt'] ?>;
+      } else if (curency_tmp == etc_curency) {
+        shift_coin_value = <?= ASSETS_NUMBER_POINT ?>;
+        swap_coin_price = real_withdraw_val / <?= $coin['usdt_etc'] ?>;
+        swap_fee_val = real_fee_val / <?= $coin['usdt_etc'] ?>;
       }
 
       fixed_amt = Number(swap_coin_price).toFixed(shift_coin_value);
@@ -570,6 +580,7 @@ $auth_cnt = sql_num_rows($amt_auth_log);
       $('#withdrawal_bank_account').val(wallet_addr);
       $('.fee').css('display', 'none');
       document.querySelector('#sendValue').value = "";
+      $('#Withdrawal_btn').attr('data-currency', curency_tmp);
     });
 
     document.querySelector('#select_deposit_coin').addEventListener('change', (e) => {
@@ -756,7 +767,7 @@ $auth_cnt = sql_num_rows($amt_auth_log);
           fixed_fee: fixed_fee,
           fixed_amt: fixed_amt,
           bank_account: withdrawal_bank_account,
-          cost: Number(<?= $coin['usdt_krw'] ?> * inputVal)
+          /* cost: Number($(this).data('currency') * inputVal) */
         },
         success: function(res) {
           if (res.result == "success") {
