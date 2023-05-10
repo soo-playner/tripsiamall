@@ -85,7 +85,7 @@ $result = sql_query($sql);
 							echo "<div class='no_data'>패키지 상품이 존재하지 않습니다</div>";
 						}else{
 							
-
+							
 							/*패키지상품구매체크*/
 							if($member['rank'] == 0 || round($bonus_per) > 96){
 								$start_pack = 1;
@@ -94,7 +94,7 @@ $result = sql_query($sql);
 								$start_pack = $member['rank'];
 								$max_count = $member['rank'];
 							}
-						
+							
 							for($i=$start_pack; $i <= $max_count; $i++){
 
 							$origin_price = $usd_price * $row[$i-1]['it_price'];
