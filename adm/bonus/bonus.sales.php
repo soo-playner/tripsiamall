@@ -7,9 +7,9 @@ include_once('./bonus_inc.php');
 auth_check($auth[$sub_menu], 'r');
 
 
-// $debug = 1;
+//$debug = 1;
 
-$yesterday = date('Y-m-d', $timestr - 86400 );
+$yesterday = date('Y-m-d', $timestr);
 
 // 직급 수당
 $bonus_row = bonus_pick($code);

@@ -59,7 +59,7 @@ if (!defined('_GNUBOARD_')) exit;
   })();
   ChannelIO('boot', {
     "pluginKey": "51140d30-e453-4d07-b997-8a144c03ec0f",
-    "memberId": "Zetabyte",
+    "memberId": "Hwajoglobalasset",
   });
 </script>
 <!-- End Channel Plugin -->

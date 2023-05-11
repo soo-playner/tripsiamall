@@ -348,8 +348,8 @@ $auth_cnt = sql_num_rows($amt_auth_log);
           <div class="col-12 coin_select_wrap mb20">
             <label class="sub_title">- 출금코인 선택</label>
             <select class="form-control" name="" id="select_coin">
-              <option value="<?= $curencys[3] ?>" selected><?= $curencys[3] ?></option>
-              <option value="<?= $curencys[0] ?>"><?= $curencys[0] ?></option>
+              <option value="<?= $curencys[0] ?>" selected><?= $curencys[0] ?></option>
+              <option value="<?= $curencys[3] ?>"><?= $curencys[3] ?></option>
             </select>
           </div>
           <div class='col-12'><label class="sub_title">- 출금정보 (최초 1회입력)</label></div>
