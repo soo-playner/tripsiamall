@@ -1,5 +1,5 @@
 <?php
-include_once('./_common.php');
+include('./_common.php');
 
 check_admin_token();
 
@@ -13,11 +13,12 @@ if(!$mb_id || !$it_id){
 $sql = "select od_id, count(*) as cnt from g5_shop_order where mb_id = '{$mb_id}' and od_tno = {$it_id} order by od_date asc limit 0,1";
 $row = sql_fetch($sql);
 
-if($row['cnt'] < 0){
+if($row['cnt'] <= 0){
     echo json_encode(array("code"=>0001));
 }
 
 $_POST['od_id'] = $row['od_id'];
+$_POST['mb_id'] = $mb_id;
 
 include_once("../util/package_upgrade.php");
 ?>

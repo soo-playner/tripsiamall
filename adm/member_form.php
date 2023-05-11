@@ -608,7 +608,7 @@ $rank_result = sql_fetch($rank_sql);
 				<span style="margin-right: 20px;">
 					<input type="checkbox" name="b_autopack" value="1" <?=$mb['b_autopack'] ? "checked" : "" ?>/>
 				</span>
-				<input type="text" value="<?=$mb['b_autopack'] ? $mb['q_autopack'] : $limited?>" class="frm_input wide" name="q_autopack"/> % <span style="color:red;">(제한 : <?=$mb['mb_index']?>)</span>
+				<input type="text" value="<?=$mb['q_autopack'] ? $mb['q_autopack'] : $limited?>" class="frm_input wide" name="q_autopack"/> % <span style="color:red;">(제한 : <?=shift_auto($mb['mb_index'], $curencys[1])?>)</span>
 			</td>
 	</tr>
 
@@ -820,7 +820,7 @@ $rank_result = sql_fetch($rank_sql);
 
 					data = {
 						"mb_id": '<?= $mb['mb_id'] ?>',
-						"select_pack_name": item.it_id,
+						"it_id": item.it_id,
 						"token" : token
 					};
 
@@ -842,13 +842,13 @@ $rank_result = sql_fetch($rank_sql);
 							location.reload();
 
 						} else {
-							alert('처리되지않았습니다.');
+							alert(data.message);
 							// location.reload();
 
 						}
 					},
 					error: function(e) {
-						alert('처리에러');
+						alert('처리 에러');
 					}
 				});
 
