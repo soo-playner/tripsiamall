@@ -25,24 +25,26 @@ $up_pack_info = sql_fetch("SELECT *, COUNT(*) AS cnt FROM {$g5['g5_shop_item_tab
 
 // 2-2. 업그레이드할 패키지가 없다면(최상위 패키지 이용 중이라면) failed
 if ($up_pack_info['cnt'] <= 0) {
-	echo json_encode(array("result" => "failed", "code" => "200", "message" => "최상위 패키지를 이용 중이므로 더 이상 업그레이드하실 수 없습니다."));
+	echo json_encode(array("result" => "failed", "code" => "200", "message" => "최상위 패키지에서 더 이상 업그레이드하실 수 없습니다."));
 	return false;
 }
 
 // 3. 회원 잔고 확인
-$mb_info = sql_fetch("SELECT mb_balance + mb_deposit_point + mb_deposit_calc AS balance FROM {$g5['member_table']} WHERE mb_id = '{$mb_id}'");
+$mb_info = sql_fetch("SELECT mb_balance - mb_shift_amt AS balance FROM {$g5['member_table']} WHERE mb_id = '{$mb_id}'");
 
 // 3-1. 구매 가능 잔고가 부족할 경우 failed
-if(((int)$up_pack_info['it_cust_price'] - (int)$exist_package['od_cart_price']) > (int)$mb_info['balance']) {
+if(((int)$up_pack_info['it_cust_price'] - (int)$exist_package['od_cart_price']) > floor($mb_info['balance'])) {
 	echo json_encode(array("result" => "failed", "code" => "200", "message" => "구매 가능한 잔고가 부족합니다."));
 	return false;
 }
 
 // 구매가능하다면
+// 1. 업그레이드 전 데이터 별도 보관
 $up_log_sql = "INSERT INTO g5_shop_order_upgrade (SELECT * from {$g5['g5_shop_order_table']} WHERE od_id = '{$od_id}')";
 $up_log_result = sql_query($up_log_sql);
 $idx = sql_insert_id();
 
+// 2. 패키지 업그레이드 진행
 $pack_update_sql = "UPDATE {$g5['g5_shop_order_table']} SET
 		od_cart_price				= " . $up_pack_info['it_cust_price'] . ",
 		od_cash    					= " . $up_pack_info['it_price'] . ",
@@ -59,17 +61,20 @@ $pack_update_sql = "UPDATE {$g5['g5_shop_order_table']} SET
 
 sql_query($pack_update_sql);
 
+// 3. 상위 패키지 테이블로 이동 및 기존 패키지 테이블에서 삭제
 $prev_pack = strtolower($exist_package['od_name']);
 $next_pack = strtolower($up_pack_info['it_maker']);
-$move_package = "INSERT INTO package_{$next_pack} (SELECT * from package_{$prev_pack} WHERE od_id = '{$od_id}')";
+$move_package = "INSERT INTO package_{$next_pack} (idx, mb_id, it_name, nth, cdate, cdatetime, pdate, od_id, promote)
+ SELECT idx, mb_id, it_name, nth, cdate, cdatetime, pdate, od_id, promote from package_{$prev_pack} WHERE od_id = '{$od_id}'";
 $del_prev_pack = "DELETE FROM package_{$prev_pack} WHERE od_id = '{$od_id}'";
 sql_query($move_package);
 sql_query($del_prev_pack);
 
+// 4. 회원 지갑에서 업그레이드 금액만큼 차감
 $update_point = " UPDATE g5_member SET mb_deposit_calc = (mb_deposit_calc + {$exist_package['od_cart_price']} - {$up_pack_info['it_price']}) ";
 
 // 해당 패키지로 받을 수 있는 수당 한도()
-$sql = "SELECT q_autopack,b_autopack FROM g5_member WHERE mb_id = '{$mb_id}'";
+$sql = "SELECT q_autopack,b_autopack,rank FROM g5_member WHERE mb_id = '{$mb_id}'";
 $row = sql_fetch($sql);
 if ($row['b_autopack'] > 0) {
 	$limited = $row['q_autopack'];
@@ -77,17 +82,18 @@ if ($row['b_autopack'] > 0) {
 
 $max_limit_point = ($limited / 100);
 
-$rank_num = substr($up_pack_info['it_maker'], 1, 1);
+$pack_rank_num = substr($up_pack_info['it_maker'], 1, 1);
 $update_point .= ", mb_rate = ( mb_rate - {$exist_package['pv']} + {$up_pack_info['it_supply_point']}) ";
 $update_point .= ", mb_save_point = ( mb_save_point - {$exist_package['od_cart_price']} + {$up_pack_info['it_price']}) ";
 $update_point .= ", mb_index = ABS(mb_deposit_calc) * $max_limit_point";
-$update_point .= ", rank = '{$rank_num}', rank_note = '{$up_pack_info['it_maker']}', sales_day = '{$now_datetime}' ";
+if($pack_rank_num >= $row['rank']) {
+	$update_point .= ", rank = '{$pack_rank_num}', rank_note = '{$up_pack_info['it_maker']}', sales_day = '{$now_datetime}' ";
+}
 $update_point .= " WHERE mb_id ='" . $mb_id . "'";
-
-// echo $update_point;
 
 sql_query($update_point);
 
+// 5. promote 컬럼 1로 변경처리
 $promote_update_sql = "UPDATE package_{$next_pack} SET promote = 1 WHERE od_id = '{$od_id}";
 sql_query($promote_update_sql);
 
