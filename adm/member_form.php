@@ -608,7 +608,7 @@ $rank_result = sql_fetch($rank_sql);
 				<span style="margin-right: 20px;">
 					<input type="checkbox" name="b_autopack" value="1" <?=$mb['b_autopack'] ? "checked" : "" ?>/>
 				</span>
-				<input type="text" value="<?=$mb['q_autopack'] ? $mb['q_autopack'] : $limited?>" class="frm_input wide" name="q_autopack"/> % <span style="color:red;">(제한 : <?=$mb['mb_index']?>)</span>
+				<input type="text" value="<?=$mb['b_autopack'] ? $mb['q_autopack'] : $limited?>" class="frm_input wide" name="q_autopack"/> % <span style="color:red;">(제한 : <?=$mb['mb_index']?>)</span>
 			</td>
 	</tr>
 

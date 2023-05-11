@@ -89,12 +89,12 @@ $temp_mp_9 = $_POST['temp_mb_9'];
 $_POST['mb_week_dividend'] != "" ? $mb_week_dividend = $_POST['mb_week_dividend'] : $mb_week_dividen = '0';
 
 $use_limit_paid = 0;
-$limit_paid = $_POST['q_autopack'];
-$mb_index = "mb_index = mb_index";
+
 if(isset($_POST['b_autopack'])){
 	$use_limit_paid = 1;	
-	$mb_index = "mb_index = abs(mb_deposit_calc) * ({$limit_paid}/100)";
+	$limited = $_POST['q_autopack'];
 }
+$mb_index = "mb_index = abs(mb_deposit_calc) * ({$limited}/100)";
 
 
 $sql_common = "  mb_name = '{$_POST['mb_name']}',
@@ -148,7 +148,7 @@ $sql_common = "  mb_name = '{$_POST['mb_name']}',
 				 eth_my_wallet = '{$_POST['eth_my_wallet']}',
 				 {$mb_index},
 				 b_autopack = {$use_limit_paid},
-				 q_autopack = {$limit_paid}";
+				 q_autopack = {$limited}";
 
 if ($w == '')
 {
