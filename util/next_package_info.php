@@ -23,5 +23,3 @@ if($pp_result['cnt'] > 0 && $np_result['cnt'] > 0) {
 } else {
   echo json_encode(array("result" => "failed"));
 }
-
-
