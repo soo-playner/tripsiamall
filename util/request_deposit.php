@@ -23,12 +23,13 @@ if($pre_result['cnt'] < 1){
   $get_coins_price = get_coins_price();
   if($coin == 'etc') {
     $usdt = $get_coins_price['usdt_etc'];
-  } else if ($coin == 'hwajo') {
-    $usdt = 1;
+  } else if ($coin == 'hja') {
+    $result = sql_fetch("SELECT current_cost, used FROM wallet_coin_price WHERE idx = '1'");
+    $usdt = $result['used'] == '1' ? $result['current_cost'] : 1;
   } else if ($coin == 'eth') {
     $usdt = $get_coins_price['usdt_eth'];
   } else {
-    $usdt = 1;
+    $usdt = null;
   }
   $point = $usdt * $d_price;
   $sql = "INSERT INTO wallet_deposit_request(mb_id, txhash, create_dt,create_d,status,coin,cost,amt,in_amt) 
@@ -43,7 +44,7 @@ if($pre_result['cnt'] < 1){
 
   // 입금알림 텔레그램 API
   if(TELEGRAM_ALERT_USE){
-    curl_tele_sent('[HWAJO][입금요청] '.$mb_id.'('.$txhash.') 님의 '.Number_format($d_price).'입금요청이 있습니다.');
+    curl_tele_sent('[HWAJO][입금요청] '.$mb_id.'('.$txhash.') 님의 '.shift_auto($point, $curencys[1]).'입금요청이 있습니다.');
   }
   
   if($result){

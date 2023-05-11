@@ -1,7 +1,7 @@
 <?
 include_once(G5_THEME_PATH.'/_include/wallet.php');
 
-$shop_item = get_shop_item();
+$shop_item = get_shop_item(null, 0);
 
 $item_default = substr($shop_item[0]['it_maker'],0,1);
 $shop_item_cnt = count($shop_item);
@@ -18,7 +18,7 @@ $shop_item_cnt = count($shop_item);
             $where  = "AND promote != 1 ";
         }
 
-        for($i = 0; $i <= $shop_item_cnt; $i++ ){
+        for($i = 0; $i < $shop_item_cnt; $i++ ){
             $target = "package_".strtolower($item_default).$i;
             $sql_r = "SELECT count(*) as cnt from {$target} WHERE mb_id = '{$mb_id}' ".$where;
             $result = sql_fetch($sql_r)['cnt'];

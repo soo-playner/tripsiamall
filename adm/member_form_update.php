@@ -10,8 +10,7 @@ if ($w == 'u')
 auth_check($auth[$sub_menu], 'w');
 
 //check_admin_token();
-print_R($_POST);
-
+// print_R($_POST);
 $mb_id = trim($_POST['mb_id']);
 if($_POST['mb_name'] == ''){
 	$mb_name = $mb_id;
@@ -89,6 +88,15 @@ $_POST['account_name'] != "" ? $account_name = $_POST['account_name'] : $account
 $temp_mp_9 = $_POST['temp_mb_9'];
 $_POST['mb_week_dividend'] != "" ? $mb_week_dividend = $_POST['mb_week_dividend'] : $mb_week_dividen = '0';
 
+$use_limit_paid = 0;
+
+if(isset($_POST['b_autopack'])){
+	$use_limit_paid = 1;	
+	$limited = $_POST['q_autopack'];
+}
+$mb_index = "mb_index = abs(mb_deposit_calc) * ({$limited}/100)";
+
+
 $sql_common = "  mb_name = '{$_POST['mb_name']}',
 				 mb_nick = '{$_POST['mb_nick']}',
 				 mb_email = '{$_POST['mb_email']}',
@@ -137,7 +145,10 @@ $sql_common = "  mb_name = '{$_POST['mb_name']}',
 				 kyc_regdt = '{$kyc_admin_time}',
 				 mb_week_dividend = '{$mb_week_dividend}',
 				 mb_wallet = '{$_POST['mb_wallet']}',
-				 eth_my_wallet = '{$_POST['eth_my_wallet']}' ";
+				 eth_my_wallet = '{$_POST['eth_my_wallet']}',
+				 {$mb_index},
+				 b_autopack = {$use_limit_paid},
+				 q_autopack = {$limited}";
 
 if ($w == '')
 {
@@ -330,7 +341,7 @@ else if ($w == 'u')
 					 {$sql_tr_password}
 					 {$sql_certify}
 				where mb_id = '{$mb_id}' ";
-	print_R($sql);
+
 	sql_query($sql);
 }
 else

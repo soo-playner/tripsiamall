@@ -602,7 +602,17 @@ $rank_result = sql_fetch($rank_sql);
 	<tr class="ly_up padding-box fund">
 		<th scope="row">출금총액</th>
 		<td colspan="1"><span class='strong amt'><?= number_format($mb['mb_shift_amt']) . " " . $curencys[1]?></span></td>
+
+		<th scope="row">수당제한비율</th>
+			<td colspan="1">
+				<span style="margin-right: 20px;">
+					<input type="checkbox" name="b_autopack" value="1" <?=$mb['b_autopack'] ? "checked" : "" ?>/>
+				</span>
+				<input type="text" value="<?=$mb['q_autopack'] ? $mb['q_autopack'] : $limited?>" class="frm_input wide" name="q_autopack"/> % <span style="color:red;">(제한 : <?=shift_auto($mb['mb_index'], $curencys[1])?>)</span>
+			</td>
 	</tr>
+
+
 
 
 	<tr class="ly_up padding-box">
@@ -654,8 +664,20 @@ $rank_result = sql_fetch($rank_sql);
 				color: red
 			}
 		</style>
-
+		
 		<td colspan="3">
+		<div style="display: flex; margin-left: 21%;padding: 2px 0px;">
+			<div style="display: flex;width: 15%;justify-content: space-between;">
+				<span>
+					<input type="radio" id="purchase" name="purchase_upgrade" value="purchase" checked/>
+					<label for="purchase">상품구매</label>
+				</span>
+				<span>
+					<input type="radio" id="upgrade" name="purchase_upgrade" value="upgrade"/>
+					<label for="upgrade">상품업그레이드</label>
+				</span>
+			</div>
+		</div>
 			최고보유 패키지 :
 			<!-- <span class='badge t_white color<?= max_item_level_array($mb['mb_id'], 'number') ?>' style='padding:15px;'><?= max_item_level_array($mb['mb_id']) ?></span> -->
 			<span class='badge t_white <?= rank_return($mb['rank'], 'color') ?>' style='padding:15px;'><?= rank_return($mb['rank']) ?></span>
@@ -723,66 +745,114 @@ $rank_result = sql_fetch($rank_sql);
 			//패키지구매처리
 			$('.purchase_btn').on('click', function() {
 
-				var func = 'new';
-				var item = $(this).data('row');
-				var mb_item_rank = '<?= $mb['rank_note'] ?>';
-				var item_num = item.it_maker.substr(1, 1);
+				let is_checked_radio = "purchase";
+				let url = "";
+				let data = {};
+				let success_alert = "";
+				let item = $(this).data('row');
 
-				console.log(mb_item_rank);
-				console.log(item_num);
+				document.getElementsByName('purchase_upgrade').forEach((el)=>{
+					if(el.checked == true){
+						is_checked_radio = el.value;
+					}
+				});
 
-				console.log(`total:${total_fund}\nprice:${item.it_cust_price}`);
-				// console.log(`it_id:${item_id}\nit_sp:${item_supply_point}\ncoin:${select_coin}`);
+				if(is_checked_radio == "purchase"){  // 상품구매
 
-				/* if (mb_item_rank == '' && item_num > 0) {
-					alert("MEMBERSHIP 팩을 보유하지 않았습니다.");
-					return false;
-				} */
+					var func = 'new';
+					
+					var mb_item_rank = '<?= $mb['rank_note'] ?>';
+					var item_num = item.it_maker.substr(1, 1);
 
-				if (confirm("해당 회원에게 " + item.it_name + " 패키지를 지급하시겠습니까?\n회원 잔고에서 " + Price(item.it_cust_price) + " <?= $curencys[1] ?> (이)가 차감됩니다.")) {} else {
-					return false;
-				}
+					console.log(mb_item_rank);
+					console.log(item_num);
 
-				if (Number(total_fund) < Number(item.it_cust_price)) {
-					alert("회원 잔고가 부족합니다.\n잔고지급후 사용해주세요.");
-					return false;
+					console.log(`total:${total_fund}\nprice:${item.it_cust_price}`);
+					// console.log(`it_id:${item_id}\nit_sp:${item_supply_point}\ncoin:${select_coin}`);
+
+					/* if (mb_item_rank == '' && item_num > 0) {
+						alert("MEMBERSHIP 팩을 보유하지 않았습니다.");
+						return false;
+					} */
+
+					if (confirm("해당 회원에게 " + item.it_name + " 패키지를 지급하시겠습니까?\n회원 잔고에서 " + Price(item.it_cust_price) + " <?= $curencys[1] ?> (이)가 차감됩니다.")) {} else {
+						return false;
+					}
+
+					if (Number(total_fund) < Number(item.it_cust_price)) {
+						alert("회원 잔고가 부족합니다.\n잔고지급후 사용해주세요.");
+						return false;
+					}
+
+					url = "./adm.upstairs_proc.php";
+
+					data = {
+							"mb_id": '<?= $mb['mb_id'] ?>',
+							"mb_no": '<?= $mb['mb_no'] ?>',
+							"rank": '<?= $mb['rank'] ?>',
+							"func": func,
+							"input_val": item.it_cust_price,
+							"output_val": item.it_price,
+							"select_pack_name": item.it_name,
+							"select_pack_id": item.it_id,
+							"select_maker": item.it_maker,
+							"it_point": item.it_point,
+							"it_supply_point": item.it_supply_point
+						};
+					
+					success_alert = "구매처리되었습니다.";
+
+	
+				}else{ // 상품 업그레이드
+
+					if (confirm("해당 회원의 " + item.it_name + " 패키지를 업그레이드 하시겠습니까?")) {} else {
+						return false;
+					}
+					
+					const token = get_ajax_token();
+
+					if(!token) {
+						alert("토큰 정보가 올바르지 않습니다.");
+						return false;
+					}
+
+					url = "./package_upgrade.php";
+
+					data = {
+						"mb_id": '<?= $mb['mb_id'] ?>',
+						"it_id": item.it_id,
+						"token" : token
+					};
+
+					success_alert = "해당상품이 업그레이드 되었습니다.";
+
 				}
 
 				$.ajax({
 					type: "POST",
-					url: "./adm.upstairs_proc.php",
+					url: url,
 					cache: false,
 					async: false,
 					dataType: "json",
-					data: {
-						"mb_id": '<?= $mb['mb_id'] ?>',
-						"mb_no": '<?= $mb['mb_no'] ?>',
-						"rank": '<?= $mb['rank'] ?>',
-						"func": func,
-						"input_val": item.it_cust_price,
-						"output_val": item.it_price,
-						"select_pack_name": item.it_name,
-						"select_pack_id": item.it_id,
-						"select_maker": item.it_maker,
-						"it_point": item.it_point,
-						"it_supply_point": item.it_supply_point
-					},
+					data: data,
 					success: function(data) {
 
 						if (data.code == 0000) {
-							alert('구매처리되었습니다.');
+							alert(success_alert);
 							location.reload();
 
 						} else {
-							alert('처리되지않았습니다.');
-							location.reload();
+							alert(data.message);
+							// location.reload();
 
 						}
 					},
 					error: function(e) {
-						alert('처리에러');
+						alert('처리 에러');
 					}
 				});
+
+
 			});
 		});
 	</script>

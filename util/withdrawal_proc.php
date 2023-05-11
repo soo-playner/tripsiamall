@@ -22,7 +22,14 @@ $select_coin 		= $_POST['select_coin'];
 $fixed_amt = $_POST['fixed_amt'];
 $fixed_fee = $_POST['fixed_fee'];
 $coin = get_coins_price();
-$market_price = shift_auto($coin['usdt_krw'] / $coin['eth_krw']);
+if($select_coin == 'hja') {
+	$result = sql_fetch("SELECT current_cost, used FROM wallet_coin_price WHERE idx = '1'");
+  $market_price = $total_amt * ($result['used'] == '1' ? $result['current_cost'] : 1);
+} else if ($select_coin == 'etc') {
+	$market_price = shift_auto($coin['usdt_krw'] / $coin['etc_krw']);
+} else {
+	$market_price = shift_auto($coin['eth_usdt'] / $coin['eth_krw']);
+}
 /* $cost = str_replace(',','',shift_auto($_POST['cost'],$curencys[2])); */
 
 /* 원화계좌출금*/
@@ -177,6 +184,10 @@ if($debug){
 	$amt_result = sql_query($amt_query);
 }
 
+// 출금알림 텔레그램 API
+if(TELEGRAM_ALERT_USE){
+	curl_tele_sent('[HWAJO][출금요청] '.$mb_id.'('.$bank_account.') 님의 '.shift_auto($fixed_amt, $select_coin). ' ' . $select_coin . ' 출금요청이 있습니다.');
+}
 
 if($rst && $amt_result){
 	echo (json_encode(array("result" => "success", "code" => "1000")));

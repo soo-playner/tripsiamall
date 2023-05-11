@@ -93,6 +93,12 @@ if($rst && $logic){
 		$update_rank = $val;
 	}
 
+	$sql = "select q_autopack,b_autopack from g5_member where mb_id = '{$mb_id}'";
+	$row = sql_fetch($sql);
+	if($row['b_autopack'] > 0){ 
+		$limited = $row['q_autopack'];
+	}
+
 	// 해당 패키지로 받을 수 있는 수당 한도(300%)
 	$max_limit_point = $it_point * ($limited/100);
 	

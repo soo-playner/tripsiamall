@@ -97,7 +97,11 @@ if($rst && $logic){
 	}
 
 	// 해당 패키지로 받을 수 있는 수당 한도()
-
+	
+	if($member['b_autopack'] > 0){ 
+		$limited = $member['q_autopack'];
+	}
+	
 	$max_limit_point = $it_point * ($limited/100);
 
 	

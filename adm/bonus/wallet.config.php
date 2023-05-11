@@ -24,8 +24,7 @@ if($_POST['w'] == 'u'){
 		$amt_minimum = $_POST['amt_minimum'][$i];
 		$amt_maximum = $_POST['amt_maximum'][$i];
 		$day_limit = $_POST['day_limit'][$i];
-		$withdraw_price = $_POST['withdraw_price'][$i] ? $_POST['withdraw_price'][$i] : 0;
-
+	
 		$bank_name = $_POST['bank_name'][0];
 		$bank_account = $_POST['bank_account'][0];
 		$account_name = $_POST['account_name'][0];
@@ -55,8 +54,7 @@ if($_POST['w'] == 'u'){
 			fee = '{$fee}',
 			amt_minimum = '{$amt_minimum}',
 			amt_maximum = '{$amt_maximum}',
-			day_limit = '{$day_limit}',
-			withdraw_price = {$withdraw_price}
+			day_limit = '{$day_limit}'
 			where idx = $idx ;";
 		}
 		
@@ -101,15 +99,11 @@ $res = sql_query($coin_price_sql);
 			<th>최소값 제한 (고정값)</th>
 			<th>최대값 제한 (%)</th>
 			<th>출금회수제한(일)</th>
-			<th>코인시세(원)</th>
         </colgroup>
 		</thead>
 
         <tbody>
-			<? while($row = sql_fetch_array($res)){ 
-					$type = "hidden";
-					$value = 0;
-				?>
+			<? while($row = sql_fetch_array($res)){ ?>
 				<?if($row['idx'] != 4){?>
 				<tr id='<?=$row['function']?>'>
 					<input type='hidden' name='w' value='u'/>
@@ -124,12 +118,6 @@ $res = sql_query($coin_price_sql);
 						<td ><input type='text' name='amt_minimum[]' value="<?=$row['amt_minimum']?>"/></td>
 						<td ><input type='text' name='amt_maximum[]' value="<?=$row['amt_maximum']?>"/></td>
 						<td ><input type='text' name='day_limit[]' value="<?=$row['day_limit']?>"/></td>
-						<?php if($row['function'] == 'withdrawal') {
-								$type="text";
-								$value = $row['withdraw_price'];
-							}	
-						?>
-						<td ><input type='<?=$type?>' name='withdraw_price[]' value="<?=$value?>"/></td>
 					<?}?>
 				</tr>
 				<?}?>

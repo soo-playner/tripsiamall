@@ -276,7 +276,7 @@ $ord_rev = $ord_array[($ord_key + 1) % 2]; // 내림차순→오름차순, 오�
 				<th style="width:7%;">출금수수료</th>
 
 				<th style="width:7%;">출금액</th>
-				<th style="width:7%;">출금시세<br>(1<?=$curencys[1]?> 당 <?=$curencys[0]?>)</th>
+				<!-- <th style="width:7%;">출금시세<br>(1<?=$curencys[1]?> 당 수량)</th> -->
 
 				<!-- <th style="width:5%;">적용코인시세</th> -->
 
@@ -350,17 +350,17 @@ $ord_rev = $ord_array[($ord_key + 1) % 2]; // 내림차순→오름차순, 오�
 						</td> -->
 
 						<!-- 수수료 -->
-						<td><span style='display:block;font-size:11px;'><?= shift_auto($row['fee'], $row['coin']) ?></span></td>
+						<td><span style='display:block;font-size:11px;'><?= shift_auto($row['fee'], $row['coin']) . ' ' . $row['coin']?></span></td>
 
 
 						<td class="td_amt" style="color:red">
 							<!-- <input type="hidden" value="<?= shift_auto($row['out_amt']) ?>" name="out_amt[]"> -->
-							<?= shift_auto($row['amt'], $row['coin']) ?> 
+							<?= shift_auto($row['amt'], $row['coin']) . ' ' . $row['coin']?> 
 						</td>
 
 						<!-- 출금시세 -->
 						<!-- <td class="gray" style='font-size:11px;'><span><?= shift_auto($row['cost'], $curencys[2]) ?></span></td> -->
-						<td class="gray" style='font-size:11px;'><span><?= $row['cost'] ?></span></td>
+						<!-- <td class="gray" style='font-size:11px;'><span><?= $row['cost'] . ' ' . $row['coin']?></span></td> -->
 
 						<td style="font-size:11px;"><?= timeshift($row['create_dt']) ?></td>
 						<td>
@@ -402,7 +402,7 @@ $total_fee = $row['feehap']; -->
 				<td colspan=1><?= shift_auto($total_arr[0]['amt_total'],$curencys[0]) ?><br><?= shift_auto($total_arr[1]['amt_total'],$curencys[3]) ?></td>
 				<td><?= shift_auto($total_arr[0]['feehap'],$curencys[0]) ?><br><?= shift_auto($total_arr[1]['feehap'],$curencys[3]) ?></td>
 				<td colspan=1><?= shift_auto($total_arr[0]['hap'],$curencys[0]) ?><br><?= shift_auto($total_arr[1]['hap'],$curencys[3]) ?></td>
-				<td colspan=5></td>
+				<td colspan=4></td>
 			</tfoot>
 		</table>
 	</div>
