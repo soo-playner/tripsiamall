@@ -94,7 +94,8 @@ if(isset($_POST['b_autopack'])){
 	$use_limit_paid = 1;	
 	$limited = $_POST['q_autopack'];
 }
-$mb_index = "mb_index = abs(mb_deposit_calc) * ({$limited}/100)";
+
+$mb_index = "mb_index = (select ifnull(sum(od_cart_price),0)*({$limited}/100) from g5_shop_order where mb_id = '{$mb_id}')";
 
 
 $sql_common = "  mb_name = '{$_POST['mb_name']}',
