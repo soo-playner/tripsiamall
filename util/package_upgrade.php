@@ -41,8 +41,7 @@ if(((int)$up_pack_info['it_cust_price'] - (int)$exist_package['od_cart_price']) 
 // 구매가능하다면
 // 1. 업그레이드 전 데이터 별도 보관
 $up_log_sql = "INSERT INTO g5_shop_order_upgrade (SELECT * from {$g5['g5_shop_order_table']} WHERE od_id = '{$od_id}')";
-$up_log_result = sql_query($up_log_sql);
-$idx = sql_insert_id();
+sql_query($up_log_sql);
 
 // 2. 패키지 업그레이드 진행
 $pack_update_sql = "UPDATE {$g5['g5_shop_order_table']} SET
@@ -57,7 +56,7 @@ $pack_update_sql = "UPDATE {$g5['g5_shop_order_table']} SET
 		od_date           = '" . $now_date . "',
 		od_status					= '패키지업그레이드',
 		od_pg							= '" . $exist_package['od_name'] . '->' . $up_pack_info['it_maker'] . "',
-		od_app_no							= '" . $idx . "'  WHERE od_id = '" . $od_id . "'";
+		od_app_no							= '" . $exist_package['no'] . "'  WHERE od_id = '" . $od_id . "'";
 
 sql_query($pack_update_sql);
 
@@ -71,7 +70,7 @@ sql_query($move_package);
 sql_query($del_prev_pack);
 
 // 4. 회원 지갑에서 업그레이드 금액만큼 차감
-$update_point = " UPDATE g5_member SET mb_deposit_calc = (mb_deposit_calc + {$exist_package['od_cart_price']} - {$up_pack_info['it_price']}) ";
+$update_point = " UPDATE g5_member SET mb_shift_amt = (mb_shift_amt + {$up_pack_info['it_price']} - {$exist_package['od_cart_price']}) ";
 
 // 해당 패키지로 받을 수 있는 수당 한도()
 $sql = "SELECT q_autopack,b_autopack,rank FROM g5_member WHERE mb_id = '{$mb_id}'";
@@ -80,21 +79,19 @@ if ($row['b_autopack'] > 0) {
 	$limited = $row['q_autopack'];
 }
 
-$max_limit_point = ($limited / 100);
-
 $pack_rank_num = substr($up_pack_info['it_maker'], 1, 1);
 $update_point .= ", mb_rate = ( mb_rate - {$exist_package['pv']} + {$up_pack_info['it_supply_point']}) ";
 $update_point .= ", mb_save_point = ( mb_save_point - {$exist_package['od_cart_price']} + {$up_pack_info['it_price']}) ";
-$update_point .= ", mb_index = ABS(mb_deposit_calc) * $max_limit_point";
+$update_point .= ", mb_index = (SELECT ifnull(sum(od_cart_price),0)*({$limited}/100) FROM {$g5['g5_shop_order_table']} WHERE mb_id = '{$mb_id}')";
+
 if($pack_rank_num >= $row['rank']) {
 	$update_point .= ", rank = '{$pack_rank_num}', rank_note = '{$up_pack_info['it_maker']}', sales_day = '{$now_datetime}' ";
 }
 $update_point .= " WHERE mb_id ='" . $mb_id . "'";
-
 sql_query($update_point);
 
 // 5. promote 컬럼 1로 변경처리
-$promote_update_sql = "UPDATE package_{$next_pack} SET promote = 1 WHERE od_id = '{$od_id}";
-sql_query($promote_update_sql);
+// $promote_update_sql = "UPDATE package_{$next_pack} SET promote = 1 WHERE od_id = '{$od_id}'";
+// sql_query($promote_update_sql);
 
 echo json_encode(array("result" => "success", "code" => "0000", "message" => "패키지 업그레이드가 완료되었습니다."));
