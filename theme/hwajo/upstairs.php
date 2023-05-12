@@ -300,7 +300,7 @@ $result = sql_query($sql);
 		-->
 
 			<!-- <div class="col-sm-12 col-12 content-box round secondary mt20" > -->
-
+				
 			<div class="history_box content-box mt40">
 				<h3 class="hist_tit title" style="margin-top: 0;">Package 구매 내역</h3>
 
@@ -328,7 +328,10 @@ $result = sql_query($sql);
 							<div class="row">
 								<h2 class="pack_name pack_f_<?= substr($od_name, 1, 1) ?>"><?= strtoupper($row['od_name']) ?> </h2>
 								<!-- <span class='hist_sub_price'><?= shift_auto($row['od_cash'], $od_settle_case) ?> <?= $od_settle_case ?></span> -->
+								<?php if($od_name != "P0"){?>
 								<button class="btn upgradeBtn" style="margin: 0 0 0 auto" data-od_id="<?= $row['od_id'] ?>">업그레이드</button>
+
+								<?php } ?>
 							</div>
 						</div>
 					</div>

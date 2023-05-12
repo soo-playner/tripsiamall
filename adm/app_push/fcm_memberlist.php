@@ -17,6 +17,10 @@ if ($_GET['sst'] == "total_fund") {
 	$sub_sql = " , (mb_deposit_point + mb_deposit_calc + mb_balance) as total_fund";
 }
 
+if ($_GET['sst'] == "shift_amt") {
+	$sub_sql = " , (mb_shift_amt - mb_fee) as shift_amt";
+}
+
 if ($_GET['sst'] == "deposit_point") {
 	$sub_sql = " , (mb_deposit_point) as deposit_point";
 }
@@ -593,13 +597,13 @@ $stats_result = sql_fetch($stats_sql); */
 					<th scope="col" rowspan="2" id="" class="center"><?= subject_sort_link('mb_name') ?>이름</a></th>
 					<th scope="col" rowspan="2" id="mb_list_mobile" class="center"><?php echo subject_sort_link('mb_recommend') ?>추천인</th>
 					<th scope="col" rowspan="2" id="mb_list_mobile" class="center"><?php echo subject_sort_link('mb_habu_sum') ?>직추천</th>
-					<th scope="col" rowspan="2" id="" class="bonus_eth"><?= subject_sort_link('mb_balance') ?>현재잔고</th>
-					<th scope="col" rowspan="2" id="" class="bonus_calc"><?= subject_sort_link('mining') ?>총입금액</th>
-					<th scope="col" rowspan="2" id="" class="" style="background: skyblue"><?= subject_sort_link('mb_rate') ?>사용금액<br>(출금포함)<br></th>
-					<th scope="col" rowspan="2" id="" class="bonus_usdt"><?= subject_sort_link('mb_bonus_total') ?>출금총액<br>(+수수료)<br></th>
-					<th scope="col" rowspan="2" id="" class="gold"><?= subject_sort_link('mb_bonus_total') ?>수당합계</th>
-					<th scope="col" rowspan="2" id="" class="bonus_aa"><?= subject_sort_link('mb_bonus_total') ?>누적매출<br>(PV)</th>
-					<th scope="col" rowspan="2" id="" class=""><?= subject_sort_link('mb_bonus_total') ?>상위보유패키지</th>
+					<th scope="col" rowspan="2" id="" class="bonus_eth"><?= subject_sort_link('total_fund') ?>현재잔고</th>
+					<th scope="col" rowspan="2" id="" class="bonus_calc"><?= subject_sort_link('deposit_point') ?>총입금액</th>
+					<th scope="col" rowspan="2" id="" class="" style="background: skyblue"><?= subject_sort_link('mb_deposit_calc') ?>사용금액</th>
+					<th scope="col" rowspan="2" id="" class="bonus_usdt"><?= subject_sort_link('shift_amt') ?>출금총액<br>(+수수료)<br></th>
+					<th scope="col" rowspan="2" id="" class="gold"><?= subject_sort_link('mb_balance') ?>수당합계</th>
+					<th scope="col" rowspan="2" id="" class="bonus_aa"><?= subject_sort_link('mb_save_point') ?>누적매출<br>(PV)</th>
+					<th scope="col" rowspan="2" id="" class=""><?= subject_sort_link('rank') ?>상위보유패키지</th>
 					<th scope="col" id="mb_list_member"><?php echo subject_sort_link('mb_today_login', '', 'desc') ?>최종접속</a></th>
 					<th scope="col" rowspan="2" id="" class=''><?= subject_sort_link('fcm_token', '', 'desc') ?>앱설치/푸쉬</a></th>
 					<th scope="col" rowspan="2" id="mb_list_mng">관리</th>
@@ -702,7 +706,7 @@ $stats_result = sql_fetch($stats_sql); */
 
 						<td headers="mb_list_auth" class="td_mbstat" rowspan="2"><?= Number_format($row['mb_deposit_point']) ?></td>
 						<td headers="mb_list_auth" class="td_mbstat" style='color:red' rowspan="2"><?= Number_format($row['mb_deposit_calc']) ?></td>
-						<td headers="mb_list_auth" class="td_mbstat" style='color:red' rowspan="2"><?= Number_format($row['mb_shift_amt']) ?></td>
+						<td headers="mb_list_auth" class="td_mbstat" style='color:red' rowspan="2"><?= Number_format($row['mb_shift_amt']-$row['mb_fee']) ?></td>
 						<td headers="mb_list_auth" class="td_mbstat" rowspan="2"><?= Number_format($total_bonus) ?></td>
 
 						<td headers="mb_list_auth" class="td_mbstat" rowspan="2"><?= Number_format($row['mb_save_point']) ?></td>
