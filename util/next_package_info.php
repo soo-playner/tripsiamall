@@ -8,7 +8,7 @@ $prev_package = "SELECT od_cart_price, od_tno, COUNT(*) AS cnt FROM {$g5['g5_sho
 $pp_result = sql_fetch($prev_package);
 
 $np_num = intval($pp_result['od_tno']) + 1;
-$next_package = "SELECT it_cust_price, COUNT(*) AS cnt FROM {$g5['g5_shop_item_table']} WHERE it_id = '{$np_num}'";
+$next_package = "SELECT it_id, it_cust_price, COUNT(*) AS cnt FROM {$g5['g5_shop_item_table']} WHERE it_id = '{$np_num}'";
 
 $np_result = sql_fetch($next_package);
 
@@ -18,7 +18,8 @@ if($pp_result['cnt'] > 0 && $np_result['cnt'] > 0) {
   echo json_encode(array(
     "result" => "success", 
     "it_cust_price" => "{$np_result['it_cust_price']}",
-    "diff_price" => "$diff_price"
+    "diff_price" => "$diff_price",
+    "it_id" => "{$np_result['it_id']}"
   ));
 } else {
   echo json_encode(array("result" => "failed"));

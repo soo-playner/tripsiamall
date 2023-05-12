@@ -39,7 +39,7 @@ $total_page  = ceil($total_count / $rows);
 if ($page < 1) $page = 1; // 페이지가 없으면 첫 페이지
 $from_record = ($page - 1) * $rows; // 시작 열
 
-$sql = "SELECT mb_id, od_cart_price, od_receipt_time, od_name, od_cash, od_settle_case, upstair, od_status,od_date,pv
+$sql = "SELECT mb_id, od_id, od_cart_price, od_receipt_time, od_name, od_cash, od_settle_case, upstair, od_status,od_date,pv
 {$sql_common}
 {$sql_search} ";
 
@@ -187,8 +187,9 @@ $result = sql_query($sql);
 					</div>
 				</div>
 
-				<div class="submit mt20">
+				<div class="mt20">
 					<button id="purchase" class="btn wd main_btn b_blue b_darkblue round" >구매</button>
+					<button id="upgrade" class="btn wd main_btn b_blue b_darkblue round" >업그레이드</button>
 					<button id="go_wallet_btn" class="btn wd main_btn b_green b_skyblue round" >입금</button>
 				</div>
 				
@@ -291,7 +292,7 @@ $result = sql_query($sql);
 			?>
 				
 			<div class="hist_con">
-				<div class="hist_con_row1">
+				<div class="hist_con_row1" data-od_id="<?=$row['od_id']?>">
 					<div class="row">
 						<span class="hist_date"><?= $row['od_receipt_time'] ?></span>
 						<span class="hist_value"><?=shift_auto($row['od_cart_price'],$od_settle_case)?> <?=$od_settle_case?></span>
@@ -329,6 +330,8 @@ $(function(){
 
 $(function(){
 
+	var it_id = ''
+
 	var mb_id = "<?=$member['mb_id']?>";
 	var mb_no = "<?=$member['mb_no']?>";
 
@@ -350,6 +353,10 @@ $(function(){
 	} */
 	
 	// 패키지 리스트 선택
+
+	
+	$('#upgrade').hide()
+
 	$('.r_card').on('click',function(){
 		data = $(this).data('row');
 		console.log(data);
@@ -491,7 +498,90 @@ $(function(){
 			go_to_url('mywallet');
 		}
 	});
+2
+	// 상품 업그레이드
+	$('.hist_con').on('click',function(){
+		const od_id = $(this).find('.hist_con_row1').data('od_id')
+		$.post("/util/next_package_info.php",
+    	{ od_id},
+			function(data) {
+				console.log(data)
+				let {it_cust_price,diff_price,it_id} = JSON.parse(data)
+				// console.log(it_id)
+				$('#trade_total').val(it_cust_price+' <?=$curencys[1]?>')
+				$('#shift_dollor').val(diff_price)
+				$('#shift_won').text( 'VAT 포함 : ' + Price(it_cust_price) + ' <?=$curencys[1]?>' );
+				$('#upgrade').show()
+				$('#purchase').hide()
+				it_price = it_cust_price
+				it_id = it_id
+				console.log(it_id)
+			}
+		);
+	});
+	
 
+	$('#upgrade').on('click',function(){
+		var nw_purchase = '<?=$nw_purchase?>'; // 점검코드
+		
+		
+		// 부분시스템 점검
+		if(nw_purchase == 'N'){
+			dialogModal('구매 처리 실패','<strong>현재 이용 가능 시간이 아닙니다.</strong>','warning');
+			if(debug) console.log('error : 1');
+			return false;
+		}
+
+		// 잔고 확인 
+		/* if(price_calc < 0){
+			dialogModal('구매 가능 잔고 확인','<strong>구매 가능 잔고가 부족합니다.</strong>','warning');
+			if(debug) console.log('error : 4' );
+			return false;
+		} */
+
+		/* if (confirm(it_name + '팩을 구매 하시겠습니까?')) {
+			} else {
+				return false;
+			} 
+		*/
+		
+		dialogModal('Package 업그레이드 확인','<strong>'+ it_name + '팩을 업그레이드 하시겠습니까?</strong>','confirm');
+
+		$('#modal_confirm').on('click',function(){
+			dimHide();
+
+			if(processing){
+			$.ajax({
+				type: "POST",
+				url: "/adm/package_upgrade.php",
+				dataType: "json",
+				async : false,
+				data:  {
+					mb_id: <?= $member['mb_id'] ?>,
+					it_id: it_id,
+				},
+				success: function(data) {
+
+					// 중복클릭방지
+					processing = false;
+					$('#upgrade').attr("disabled", true);
+
+					dialogModal('패키지 구매 처리','<strong>패키지 상품 구매처리가 정상 처리되었습니다.</strong>','success');
+
+					$('.closed').on('click', function(){
+						location.href="<?=G5_URL?>/page.php?id=upstairs";
+					});
+				},
+				error:function(e){
+					commonModal('패키지 구매 처리 실패!','<strong> 다시 시도해주세요. 문제가 계속되면 관리자에게 연락주세요.</strong>',100);
+				}
+			});
+		}else{
+			commonModal('패키지 구매','<strong> 구매 처리 진행중입니다. 잠시 기다려주세요.</strong>',80);
+		}
+
+		});
+	})
 });
 
 collapseClosed();
