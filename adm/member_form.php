@@ -595,7 +595,7 @@ $rank_result = sql_fetch($rank_sql);
 
 		<th scope="row">총 받은보너스(수당)</th>
 		<td colspan="1"><span class='strong bonus'>
-				<input type="hidden" class='no-input' name="mb_balance" value="<?= number_format($mb['mb_balance']) ?>" readonly> <?= number_format($mb['mb_balance']) ?> </span><?=$curencys[1]?> <span style="color:red;">(남은 수당: <?=number_format($mb['mb_balance'] - $mb['mb_fee'])?> [패지키 구매: <?=number_format($mb['mb_fee'])?>])</span></td>
+				<input type="hidden" class='no-input' name="mb_balance" value="<?= number_format($mb['mb_balance']) ?>" readonly> <?= number_format($mb['mb_balance']) ?> </span><?=$curencys[1]?> <span style="color:red;">(남은 수당: <?=number_format($mb['mb_balance'] - $mb['mb_fee'])?> [패키지 구매: <?=number_format($mb['mb_fee'])?>])</span></td>
 
 	</tr>
 
