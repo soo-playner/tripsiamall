@@ -387,7 +387,6 @@ $result = sql_query($sql);
 
 		$('.r_card').on('click', function() {
 			data = $(this).data('row');
-			console.log(data);
 
 			it_id = data[0].it_id;
 			it_name = data[0].it_name;
@@ -398,10 +397,11 @@ $result = sql_query($sql);
 			won_price = data[0].it_cust_price;
 			func = "new";
 			od_id = "";
-			origin_bal = '<?= $available_fund ?>';
+			origin_bal = '<?= shift_auto($available_fund, $curencys[1]) ?>';
 			price_calc = origin_bal.replace(/,/g, '') - won_price.replace(/,/g, '');
 			$('#upgrade').hide().attr("disabled", true);;
 			$('#purchase').show().attr("disabled", false);
+			$('#total_coin_val').val(origin_bal);
 			// change_coin = "원";
 
 			change_coin_status();
@@ -544,8 +544,8 @@ $result = sql_query($sql);
 					res = JSON.parse(data);
 					if (res.result == 'success') {
 						$('.change_title').text('PACKAGE 업그레이드');
-						$('#trade_total').val(res.it_cust_price + ' <?= $curencys[1] ?>')
-						$('#shift_dollor').val(res.diff_price)
+						$('#trade_total').val(res.it_cust_price + '<?= $curencys[1] ?>')
+						$('#shift_dollor').val(Price(parseFloat(upgrade_price_calc.replace(/,/g , '')) - parseFloat(res.diff_price.replace(/,/g , ''))));
 						$('#shift_won').text('VAT 포함 : ' + Price(res.it_cust_price) + ' <?= $curencys[1] ?>');
 						$('#upgrade').show().attr("disabled", false);
 						$('#purchase').hide().attr("disabled", true);
@@ -568,7 +568,7 @@ $result = sql_query($sql);
 
 		$('#upgrade').on('click', function() {
 			var nw_purchase = '<?= $nw_purchase ?>'; // 점검코드
-			console.log(parseInt(upgrade_price_calc.replace(/,/g , '')));
+			console.log(parseFloat(upgrade_price_calc.replace(/,/g , '')));
 			// 부분시스템 점검
 			if (nw_purchase == 'N') {
 				dialogModal('구매 처리 실패', '<strong>현재 이용 가능 시간이 아닙니다.</strong>', 'warning');
@@ -576,7 +576,7 @@ $result = sql_query($sql);
 			}
 
 			// 잔고 확인 
-			if (parseInt(upgrade_price_calc.replace(/,/g , '')) < it_price) {
+			if (parseFloat(upgrade_price_calc.replace(/,/g , '')) < it_price) {
 				dialogModal('구매 가능 잔고 확인', '<strong>구매 가능 잔고가 부족합니다.</strong>', 'warning');
 				return false;
 			}
