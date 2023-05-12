@@ -27,6 +27,8 @@ if($select_coin == 'hja') {
   $market_price = $total_amt * ($result['used'] == '1' ? $result['current_cost'] : 1);
 } else if ($select_coin == 'etc') {
 	$market_price = shift_auto($coin['usdt_krw'] / $coin['etc_krw']);
+} else if ($select_coin == 'usdt') {
+	$market_price = 1;
 } else {
 	$market_price = shift_auto($coin['eth_usdt'] / $coin['eth_krw']);
 }

@@ -81,8 +81,9 @@ if ($row['b_autopack'] > 0) {
 
 $pack_rank_num = substr($up_pack_info['it_maker'], 1, 1);
 $update_point .= ", mb_rate = ( mb_rate - {$exist_package['pv']} + {$up_pack_info['it_supply_point']}) ";
-$update_point .= ", mb_save_point = ( mb_save_point - {$exist_package['od_cart_price']} + {$up_pack_info['it_price']}) ";
+$update_point .= ", mb_save_point = ( mb_save_point + {$up_pack_info['it_point']} - {$exist_package['upstair']}) ";
 $update_point .= ", mb_index = (SELECT ifnull(sum(od_cart_price),0)*({$limited}/100) FROM {$g5['g5_shop_order_table']} WHERE mb_id = '{$mb_id}')";
+$update_point .= ", mb_fee = ( mb_fee + {$up_pack_info['it_price']} - {$exist_package['od_cart_price']})";
 
 if($pack_rank_num >= $row['rank']) {
 	$update_point .= ", rank = '{$pack_rank_num}', rank_note = '{$up_pack_info['it_maker']}', sales_day = '{$now_datetime}' ";

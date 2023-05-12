@@ -354,6 +354,7 @@ $auth_cnt = sql_num_rows($amt_auth_log);
               <option value="<?= $curencys[3] ?>" selected><?= $curencys[3] ?></option>
               <option value="<?= $curencys[4] ?>"><?= $curencys[4] ?></option>
               <option value="<?= $curencys[0] ?>"><?= $curencys[0] ?></option>
+              <option value="<?= $curencys[1] ?>"><?= $curencys[1] ?></option>
             </select>
           </div>
           <div class='col-12'><label class="sub_title">- 출금정보 (최초 1회입력)</label></div>
@@ -535,6 +536,10 @@ $auth_cnt = sql_num_rows($amt_auth_log);
         shift_coin_value = <?= ASSETS_NUMBER_POINT ?>;
         swap_coin_price = real_withdraw_val / <?= $coin['usdt_etc'] ?>;
         swap_fee_val = real_fee_val / <?= $coin['usdt_etc'] ?>;
+      } else if (curency_tmp == usdt_curency) {
+        shift_coin_value = <?= ASSETS_NUMBER_POINT ?>;
+        swap_coin_price = real_withdraw_val;
+        swap_fee_val = real_fee_val;
       }
 
       fixed_amt = Number(swap_coin_price).toFixed(shift_coin_value);
