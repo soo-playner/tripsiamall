@@ -6,10 +6,10 @@ include_once(G5_PATH . '/util/package.php');
 
 login_check($member['mb_id']);
 
-if($nw['nw_purchase'] == 'Y'){
+if ($nw['nw_purchase'] == 'Y') {
 	$nw_purchase = 'Y';
 	// include_once(G5_PATH.'/service_pop.php');
-}else{
+} else {
 	$nw_purchase = 'N';
 	alert("현재 서비스를 이용할수없습니다.");
 }
@@ -47,24 +47,42 @@ $sql .= "order by od_receipt_time desc limit {$from_record}, {$rows} ";
 $result = sql_query($sql);
 ?>
 
-<link rel="stylesheet" href="<?=G5_THEME_URL?>/css/default.css">
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<link rel="stylesheet" href="<?= G5_THEME_URL ?>/css/default.css">
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
 <style>
-.product_buy_wrap .title{padding-right:0;}
-.mining_ico{vertical-align: middle;}
-.mining_ico, .mining_ico img{margin-left:5px;height:22px;}
-.hash{color:white;font-weight:300;font-size:18px;letter-spacing:-0.25px;margin:5px 0 -10px;font-family:"Helvetica Neue","Apple SD Gothic Neo",sans-serif;    font-family: "Helvetica Neue","Apple SD Gothic Neo",sans-serif;
-    background: rgba(0,0,0,0.2);
-    padding: 0px 15px 2px 20px;
-    border-radius: 10px;
-    box-shadow: inset 1px 1px 2px rgb(0 0 0 / 80%), 1px 1px 1px rgb(255 255 255 / 30%);
-    text-align: center;}
+	.product_buy_wrap .title {
+		padding-right: 0;
+	}
 
+	.mining_ico {
+		vertical-align: middle;
+	}
+
+	.mining_ico,
+	.mining_ico img {
+		margin-left: 5px;
+		height: 22px;
+	}
+
+	.hash {
+		color: white;
+		font-weight: 300;
+		font-size: 18px;
+		letter-spacing: -0.25px;
+		margin: 5px 0 -10px;
+		font-family: "Helvetica Neue", "Apple SD Gothic Neo", sans-serif;
+		font-family: "Helvetica Neue", "Apple SD Gothic Neo", sans-serif;
+		background: rgba(0, 0, 0, 0.2);
+		padding: 0px 15px 2px 20px;
+		border-radius: 10px;
+		box-shadow: inset 1px 1px 2px rgb(0 0 0 / 80%), 1px 1px 1px rgb(255 255 255 / 30%);
+		text-align: center;
+	}
 </style>
 
-<?include_once(G5_THEME_PATH.'/_include/breadcrumb.php');?>
+<? include_once(G5_THEME_PATH . '/_include/breadcrumb.php'); ?>
 
 <main>
 	<div class="container upstairs">
@@ -72,131 +90,135 @@ $result = sql_query($sql);
 			<div class="package_wrap mt20">
 				<div class="box-header">
 					<div class="col-9">
-						<h3 class="title upper" >패키지 상품</h3>
+						<h3 class="title upper">패키지 상품</h3>
 					</div>
 				</div>
 				<div class="box-body round">
 					<div class="r_card_wrap ">
 						<div class="row nopadding nomargin">
-						<? 
-						$row = get_shop_item();
+							<?
+							$row = get_shop_item();
 
-						if(count($row) == 0) {
-							echo "<div class='no_data'>패키지 상품이 존재하지 않습니다</div>";
-						}else{
-							
-							
-							/*패키지상품구매체크*/
-							if($member['rank'] == 0 || round($bonus_per) > 96){
-								$start_pack = 1;
-								$max_count = count($row);
-							}else{
-								$start_pack = $member['rank'];
-								$max_count = $member['rank'];
-							}
-							
-							for($i=$start_pack; $i <= $max_count; $i++){
+							if (count($row) == 0) {
+								echo "<div class='no_data'>패키지 상품이 존재하지 않습니다</div>";
+							} else {
 
-							$origin_price = $usd_price * $row[$i-1]['it_price'];
-							$sign = "원";
 
-							$data_arr = array();
-							array_push($data_arr, array(
-								"it_id"=>$row[$i-1]['it_id'],
-								"it_name"=>$row[$i-1]['it_name'],
-								"it_price"=>$row[$i-1]['it_price'],
-								"it_point"=>$row[$i-1]['it_point'],
-								"it_cust_price"=>$row[$i-1]['it_cust_price'],
-								"it_maker"=>$row[$i-1]['it_maker'],
-								"it_supply_point"=>$row[$i-1]['it_supply_point'],
-								"it_option_subject"=>$row[$i-1]['it_option_subject'],
-								"it_model"=>$row[$i-1]['it_model'],
-								"sign" => $sign
-							));
+								/*패키지상품구매체크*/
+								if ($member['rank'] == 0 || round($bonus_per) > 96) {
+									$start_pack = 1;
+									$max_count = count($row);
+								} else {
+									$start_pack = $member['rank'];
+									$max_count = $member['rank'];
+								}
 
-							if($start_pack != 1){
-								$row_col = 'col-12 col-lg-12';
-							}else{
-								$row_col = 'col-6 col-lg-4';
-							}
-						?>
-							<div class="<?=$row_col?> r_card_box">
-								<div class="r_card r_card_<?=$i?>" data-row=<?=json_encode($data_arr,JSON_UNESCAPED_UNICODE)?>>
-									<p class="title">
-										<span style='vertical-align:middle'><?=$row[$i-1]['it_name']?></span>
-										<span style='font-size:13px;float:right;line-height:36px;'><?=$row[$i-1]['it_option_subject']?></span>
-									</p>
-									
-									<div class="b_blue_bottom"></div>
-									<div >
-										
-										<div class=" text_wrap">
-											<div class="it_price"><?=shift_auto($row[$i-1]['it_price'],$curencys[1])?> <?=$curencys[1]?></div>
-											<div class='origin_price' style="font-size:14px;">수익률 : <?=$row[$i-1]['it_supply_point']?> %</div>
+								for ($i = $start_pack; $i <= $max_count; $i++) {
+
+									$origin_price = $usd_price * $row[$i - 1]['it_price'];
+									$sign = "원";
+
+									$data_arr = array();
+									array_push($data_arr, array(
+										"it_id" => $row[$i - 1]['it_id'],
+										"it_name" => $row[$i - 1]['it_name'],
+										"it_price" => $row[$i - 1]['it_price'],
+										"it_point" => $row[$i - 1]['it_point'],
+										"it_cust_price" => $row[$i - 1]['it_cust_price'],
+										"it_maker" => $row[$i - 1]['it_maker'],
+										"it_supply_point" => $row[$i - 1]['it_supply_point'],
+										"it_option_subject" => $row[$i - 1]['it_option_subject'],
+										"it_model" => $row[$i - 1]['it_model'],
+										"sign" => $sign
+									));
+
+									if ($start_pack != 1) {
+										$row_col = 'col-12 col-lg-12';
+									} else {
+										$row_col = 'col-6 col-lg-4';
+									}
+							?>
+									<div class="<?= $row_col ?> r_card_box">
+										<div class="r_card r_card_<?= $i ?>" data-row=<?= json_encode($data_arr, JSON_UNESCAPED_UNICODE) ?>>
+											<p class="title">
+												<span style='vertical-align:middle'><?= $row[$i - 1]['it_name'] ?></span>
+												<span style='font-size:13px;float:right;line-height:36px;'><?= $row[$i - 1]['it_option_subject'] ?></span>
+											</p>
+
+											<div class="b_blue_bottom"></div>
+											<div>
+
+												<div class=" text_wrap">
+													<div class="it_price"><?= shift_auto($row[$i - 1]['it_price'], $curencys[1]) ?> <?= $curencys[1] ?></div>
+													<div class='origin_price' style="font-size:14px;">수익률 : <?= $row[$i - 1]['it_supply_point'] ?> %</div>
+												</div>
+											</div>
 										</div>
 									</div>
-								</div>
-							</div>
-						<?}
-						} ?>
+							<? }
+							} ?>
 						</div>
 					</div>
 				</div>
 
-				
-			<div class="pakage_sale content-box round mt20" id="pakage_sale">
-				<ul class="row">
-					<li class="col-12">
-						<h3 class="tit upper" >Package 상품구매</h3>
-					</li>
-					<!-- <li class="col-4">
+
+				<div class="pakage_sale content-box round mt20" id="pakage_sale">
+					<ul class="row">
+						<li class="col-12">
+							<h3 class="tit upper change_title">Package 상품구매</h3>
+						</li>
+						<!-- <li class="col-4">
 						<select class="form-control" name="" id="coin_select">
 							<option value="eth" selected>ETH</option>
 							<option value="mbm">MBM</option>
 						</select>
 					</li> -->
-				</ul>
-				<div class='row' style="align-items: center;">
-					<div class='col-5 current_currency coin'>선택 상품 금액 </div>
-					
-					<div class='col-1 shift_usd'><i class="ri-exchange-fill exchange"></i></div>
-					
-					<div class='col-6'>
-						<input type="text" id="trade_total" class="trade_money input_price" placeholder="0" min=5 readonly>
-						<!-- <span class='currency-right coin'><?=BALANCE_CURENCY?></span> -->
-						<div id='shift_won'></div>
-					</div>
-				</div>
+					</ul>
+					<div class='row' style="align-items: center;">
+						<div class='col-5 current_currency coin'>선택 상품 금액 </div>
 
-				<div class='row select_box' id='usd' style='margin-top:10px'>
-					<div class='col-12'><h3 class='tit'> 구매가능잔고</h3></div>
+						<div class='col-1 shift_usd'><i class="ri-exchange-fill exchange"></i></div>
 
-					<div class='col-5 my_cash_wrap'>
-						<!-- <input type='radio' value='eth' class='radio_btn' name='currency'><input type="text" id="trade_money_eth" class="trade_money" placeholder="0" min=5 data-currency='eth' readonly> -->
-						<div>
-							<input type="text" id="total_coin_val" class='input_price' value="<?=shift_auto($available_fund,$curencys[1])?>" readonly>
-							<span class="currency-right coin"><?=$curencys[1]?></span>
+						<div class='col-6'>
+							<input type="text" id="trade_total" class="trade_money input_price" placeholder="0" min=5 readonly>
+							<!-- <span class='currency-right coin'><?= BALANCE_CURENCY ?></span> -->
+							<div id='shift_won'></div>
 						</div>
 					</div>
-						
-					<div class='col-1 shift_usd'><div class='ex_dollor'><i class="ri-arrow-right-fill"></i></div></div>
 
-					<div class='col-6'>
-						<input type="text" id='shift_dollor' class='input_price red' readOnly>
-						<span class="currency-right coin "><?=$curencys[1]?></span>
+					<div class='row select_box' id='usd' style='margin-top:10px'>
+						<div class='col-12'>
+							<h3 class='tit'> 구매가능잔고</h3>
+						</div>
+
+						<div class='col-5 my_cash_wrap'>
+							<!-- <input type='radio' value='eth' class='radio_btn' name='currency'><input type="text" id="trade_money_eth" class="trade_money" placeholder="0" min=5 data-currency='eth' readonly> -->
+							<div>
+								<input type="text" id="total_coin_val" class='input_price' value="<?= shift_auto($available_fund, $curencys[1]) ?>" readonly>
+								<span class="currency-right coin"><?= $curencys[1] ?></span>
+							</div>
+						</div>
+
+						<div class='col-1 shift_usd'>
+							<div class='ex_dollor'><i class="ri-arrow-right-fill"></i></div>
+						</div>
+
+						<div class='col-6'>
+							<input type="text" id='shift_dollor' class='input_price red' readOnly>
+							<span class="currency-right coin "><?= $curencys[1] ?></span>
+						</div>
 					</div>
-				</div>
 
-				<div class="mt20">
-					<button id="purchase" class="btn wd main_btn b_blue b_darkblue round" >구매</button>
-					<button id="upgrade" class="btn wd main_btn b_blue b_darkblue round" >업그레이드</button>
-					<button id="go_wallet_btn" class="btn wd main_btn b_green b_skyblue round" >입금</button>
+					<div class="mt20">
+						<button id="purchase" class="btn wd main_btn b_blue b_darkblue round">구매</button>
+						<button id="upgrade" class="btn wd main_btn b_blue b_darkblue round">업그레이드</button>
+						<button id="go_wallet_btn" class="btn wd main_btn b_green b_skyblue round">입금</button>
+					</div>
+
 				</div>
-				
 			</div>
-		</div>
 
-		<!--
+			<!--
 		<div class="box-header ">
 			<div class='col-9'>
 				<h3 class="title upper" style='line-height:40px' >내 보유 패키지</h3>
@@ -204,38 +226,43 @@ $result = sql_query($sql);
 		</div>
 			
 		 <?
-		$ordered_items = ordered_items($member['mb_id']);
-		if(count($ordered_items) == 0) { ?>
+			$ordered_items = ordered_items($member['mb_id']);
+			if (count($ordered_items) == 0) { ?>
 				<div class="no_data box_on">내 보유 상품이 존재하지 않습니다</div>
-		<?}else{?>
+		<? } else { ?>
 				
 		<div class="box-body row slide_product">
-		<?php	  
-		for($i = 0; $i < count($ordered_items); $i++){	
-			$color_num = substr($ordered_items[$i]['it_maker'],1,1); 
-			
-			if(count($ordered_items) > 3){$spread_average = 3;}else{$spread_average = 1;}
+		<?php
+				for ($i = 0; $i < count($ordered_items); $i++) {
+					$color_num = substr($ordered_items[$i]['it_maker'], 1, 1);
+
+					if (count($ordered_items) > 3) {
+						$spread_average = 3;
+					} else {
+						$spread_average = 1;
+					}
 		?>		
 
-			<div class="content-box3 product_buy_wrap pack_<?=$color_num?> col-11">
+			<div class="content-box3 product_buy_wrap pack_<?= $color_num ?> col-11">
 				<li class="row">
-					<p class="title col-12"><?=strtoupper($ordered_items[$i]['it_name'])?></p>
+					<p class="title col-12"><?= strtoupper($ordered_items[$i]['it_name']) ?></p>
 				</li>
 				<li class="row">
-					<p class="value col-8">구매일 : <?=$ordered_items[$i]['od_time']?></p>
+					<p class="value col-8">구매일 : <?= $ordered_items[$i]['od_time'] ?></p>
 				</li>
 			</div>
 
-		<?php 
-			echo "<script>slide_color('$color_num')</script>";
-		} }?>
+		<?php
+					echo "<script>slide_color('$color_num')</script>";
+				}
+			} ?>
 		</div> 
 		
 			
 			<!-- 내 보유 상품 슬라이드 
 			<script>
 				$(document).ready(function(){
-					var spread_average = '<?=$spread_average?>';
+					var spread_average = '<?= $spread_average ?>';
 					$('.slide_product').slick({
 						slide: 'div',
 						speed: 300,
@@ -272,49 +299,50 @@ $result = sql_query($sql);
 		</div>
 		-->
 
-		<!-- <div class="col-sm-12 col-12 content-box round secondary mt20" > -->
+			<!-- <div class="col-sm-12 col-12 content-box round secondary mt20" > -->
 
-		<div class="history_box content-box mt40">
-			<h3 class="hist_tit title" style="margin-top: 0;">Package 구매 내역</h3>
+			<div class="history_box content-box mt40">
+				<h3 class="hist_tit title" style="margin-top: 0;">Package 구매 내역</h3>
 
-			<?if(sql_num_rows($result) == 0) {?>	
-				<div class="no_data"> Package 구매 내역이 존재하지 않습니다</div>
-			<?}?>
+				<? if (sql_num_rows($result) == 0) { ?>
+					<div class="no_data"> Package 구매 내역이 존재하지 않습니다</div>
+				<? } ?>
 
-			<?while( $row = sql_fetch_array($result) ){
-				if(strlen($row['od_name']) > 2){
-					$od_name = "P0";
-				}else{
-					$od_name = $row['od_name'];
-				}
+				<? while ($row = sql_fetch_array($result)) {
+					if (strlen($row['od_name']) > 2) {
+						$od_name = "P0";
+					} else {
+						$od_name = $row['od_name'];
+					}
 
-				$od_settle_case = $row['od_settle_case'];
-			?>
-				
-			<div class="hist_con">
-				<div class="hist_con_row1" data-od_id="<?=$row['od_id']?>">
-					<div class="row">
-						<span class="hist_date"><?= $row['od_receipt_time'] ?></span>
-						<span class="hist_value"><?=shift_auto($row['od_cart_price'],$od_settle_case)?> <?=$od_settle_case?></span>
+					$od_settle_case = $row['od_settle_case'];
+				?>
+
+					<div class="hist_con">
+						<div class="hist_con_row1">
+							<div class="row">
+								<span class="hist_date"><?= $row['od_receipt_time'] ?></span>
+								<span class="hist_value"><?= shift_auto($row['od_cart_price'], $od_settle_case) ?> <?= $od_settle_case ?></span>
+							</div>
+
+							<div class="row">
+								<h2 class="pack_name pack_f_<?= substr($od_name, 1, 1) ?>"><?= strtoupper($row['od_name']) ?> </h2>
+								<!-- <span class='hist_sub_price'><?= shift_auto($row['od_cash'], $od_settle_case) ?> <?= $od_settle_case ?></span> -->
+								<button class="btn upgradeBtn" style="margin: 0 0 0 auto" data-od_id="<?= $row['od_id'] ?>">업그레이드</button>
+							</div>
+						</div>
 					</div>
+				<? } ?>
 
-					<div class="row">
-						<h2 class="pack_name pack_f_<?=substr($od_name,1,1)?>"><?= strtoupper($row['od_name']) ?> </h2>
-						<!-- <span class='hist_sub_price'><?=shift_auto($row['od_cash'],$od_settle_case)?> <?=$od_settle_case?></span> -->
-					</div>
-				</div>
+				<?php
+				$pagelist = get_paging($config['cf_write_pages'], $page, $total_page, "{$_SERVER['SCRIPT_NAME']}?id=upstairs&$qstr");
+				echo $pagelist;
+				?>
 			</div>
-			<?}?>
-
-			<?php
-			$pagelist = get_paging($config['cf_write_pages'], $page, $total_page, "{$_SERVER['SCRIPT_NAME']}?id=upstairs&$qstr");
-			echo $pagelist;
-			?>
 		</div>
-	</div>
 </main>
 
-<?php include_once(G5_THEME_PATH.'/_include/tail.php'); ?>
+<?php include_once(G5_THEME_PATH . '/_include/tail.php'); ?>
 
 <div class="gnb_dim"></div>
 
@@ -323,268 +351,275 @@ $result = sql_query($sql);
 
 <!-- <script src="<?= G5_THEME_URL ?>/_common/js/timer.js"></script> -->
 <script>
-
-$(function(){
-	$(".top_title h3").html("<span >패키지구매</span>")
-});
-
-$(function(){
-
-	var it_id = ''
-
-	var mb_id = "<?=$member['mb_id']?>";
-	var mb_no = "<?=$member['mb_no']?>";
-
-	// 시세
-	var vat_price = 1.1;
-	var usd_price = vat_price;
-	
-	// 패키지
-	var data, it_id, it_name, it_price, func, od_id, it_supply_point, input_val, won_price,origin_bal,price_calc;
-	var processing = true;
-
-	/* window.onload = function(){
-		getTime("<?=$next_rate_time?>");
-		$('.select_box').removeClass('active');
-		$('.select_box').first().addClass('active');
-		$('.select_box').first().find('.radio_btn').prop('checked', true); 
-		var radioVal = $('input[name="currency"]:checked').val();
-		$('.current_currency > .txt').text(radioVal);
-	} */
-	
-	// 패키지 리스트 선택
-
-	
-	$('#upgrade').hide()
-
-	$('.r_card').on('click',function(){
-		data = $(this).data('row');
-		console.log(data);
-
-		it_id = data[0].it_id;
-		it_name = data[0].it_name;
-		it_maker = data[0].it_maker;
-		it_price = data[0].it_price; //상품가격
-		it_point = data[0].it_point; //PV
-		it_supply_point = data[0].it_supply_point; //MP 
-		won_price = data[0].it_cust_price;
-		func = "new";
-		od_id = "";
-		origin_bal = '<?=$available_fund?>';
-		price_calc = origin_bal.replace(/,/g,'') - won_price.replace(/,/g,'') ;
-		// change_coin = "원";
-
-		change_coin_status();
+	$(function() {
+		$(".top_title h3").html("<span >패키지구매</span>")
 	});
 
-	/* $('#coin_select').on('change',function(){
-		change_coin_status()
-	}) */
+	$(function() {
 
-	/* $('.upgade').click(function(){
-		data = $(this).data('row_ordered');
-		if(data.it_name != "M6"){
-			it_id = data.upgrade_id
-			it_name = data.it_name+"->"+data.upgrade_name
-			it_price = data.upgrade_price - data.it_price
+		var it_name = '';
+		var od_id = '';
 
-			it_supply_point = data.it_supply_point
-			func = "upgrade"
-			od_id = data.row.od_id
-			change_coin_status()
-		}else{
-			alert("Worng Way")
-		}
-	}); */
+		var mb_id = "<?= $member['mb_id'] ?>";
+		var mb_no = "<?= $member['mb_no'] ?>";
 
-	function change_coin_status(){
-		$('#trade_total').val(Price(it_price) + ' <?=$curencys[1]?>');
-		$('#shift_won').text( 'VAT 포함 : ' + Price(won_price) + ' <?=$curencys[1]?>' );
-		$('#shift_dollor').val( Price(price_calc) );
+		// 시세
+		var vat_price = 1.1;
+		var usd_price = vat_price;
 
-		// 상품구매로 이동
-		var scrollPosition = $('#pakage_sale').offset().top;
-		window.scrollTo({top: scrollPosition, behavior: 'smooth'});
-	}
+		// 패키지
+		var data, it_id, it_name, it_price, func, od_id, it_supply_point, input_val, won_price, origin_bal, price_calc, upgrade_price_calc;
+		var processing = true;
 
-
-	// 패키지구매
-	$('#purchase').on('click', function(){
-		var nw_purchase = '<?=$nw_purchase?>'; // 점검코드
-		
-		// 부분시스템 점검
-		if(nw_purchase == 'N'){
-			dialogModal('구매 처리 실패','<strong>현재 이용 가능 시간이 아닙니다.</strong>','warning');
-			if(debug) console.log('error : 1');
-			return false;
-		}
-
-		// 금액이 0 일때
-		if( it_price == undefined || it_price == 0){
-			dialogModal('구매 상품 확인','<strong>구매 상품을 선택해주세요.</strong>','warning');
-			if(debug) console.log('error : 2' );
-			return false;
-		}
-
-		// 잔고 확인 
-		if(price_calc < 0){
-			dialogModal('구매 가능 잔고 확인','<strong>구매 가능 잔고가 부족합니다.</strong>','warning');
-			if(debug) console.log('error : 4' );
-			return false;
-		}
-
-		/* if (confirm(it_name + '팩을 구매 하시겠습니까?')) {
-			} else {
-				return false;
-			} 
-		*/
-
-		
-		dialogModal('Package 상품구매 확인','<strong>'+ it_name + '팩을 구매 하시겠습니까?</strong>','confirm');
-
-		$('#modal_confirm').on('click',function(){
-			dimHide();
-
-			if(processing){
-			$.ajax({
-				type: "POST",
-				url: "/util/upstairs_proc.php",
-				dataType: "json",
-				async : false,
-				data:  {
-					"func" : func,
-					"input_val" : won_price,
-					"output_val" : it_price,
-					"select_pack_name" : it_name,
-					"select_pack_id" : it_id,
-					"select_maker" : it_maker,
-					"it_point" : it_point,
-					"it_supply_point" : it_supply_point
-				},
-				success: function(data) {
-
-					// 중복클릭방지
-					processing = false;
-					$('#purchase').attr("disabled", true);
-
-					dialogModal('패키지 구매 처리','<strong>패키지 상품 구매처리가 정상 처리되었습니다.</strong>','success');
-
-					$('.closed').on('click', function(){
-						location.href="<?=G5_URL?>/page.php?id=upstairs";
-					});
-				},
-				error:function(e){
-					commonModal('패키지 구매 처리 실패!','<strong> 다시 시도해주세요. 문제가 계속되면 관리자에게 연락주세요.</strong>',100);
-				}
-			});
-		}else{
-			commonModal('패키지 구매','<strong> 구매 처리 진행중입니다. 잠시 기다려주세요.</strong>',80);
-		}
-		
-		});
-		
-		
-
-	});
-
-	// 입금하기
-	$('#go_wallet_btn').click(function(e){
-		if(won_price > 0){
-			if(price_calc < 0){
-				price_calc = price_calc * -1;
-			}
-			go_to_url('mywallet'+'&sel_price='+price_calc);
-		}else{
-			go_to_url('mywallet');
-		}
-	});
-2
-	// 상품 업그레이드
-	$('.hist_con').on('click',function(){
-		const od_id = $(this).find('.hist_con_row1').data('od_id')
-		$.post("/util/next_package_info.php",
-    	{ od_id},
-			function(data) {
-				console.log(data)
-				let {it_cust_price,diff_price,it_id} = JSON.parse(data)
-				// console.log(it_id)
-				$('#trade_total').val(it_cust_price+' <?=$curencys[1]?>')
-				$('#shift_dollor').val(diff_price)
-				$('#shift_won').text( 'VAT 포함 : ' + Price(it_cust_price) + ' <?=$curencys[1]?>' );
-				$('#upgrade').show()
-				$('#purchase').hide()
-				it_price = it_cust_price
-				it_id = it_id
-				console.log(it_id)
-			}
-		);
-	});
-	
-
-	$('#upgrade').on('click',function(){
-		var nw_purchase = '<?=$nw_purchase?>'; // 점검코드
-		
-		
-		// 부분시스템 점검
-		if(nw_purchase == 'N'){
-			dialogModal('구매 처리 실패','<strong>현재 이용 가능 시간이 아닙니다.</strong>','warning');
-			if(debug) console.log('error : 1');
-			return false;
-		}
-
-		// 잔고 확인 
-		/* if(price_calc < 0){
-			dialogModal('구매 가능 잔고 확인','<strong>구매 가능 잔고가 부족합니다.</strong>','warning');
-			if(debug) console.log('error : 4' );
-			return false;
+		/* window.onload = function(){
+			getTime("<?= $next_rate_time ?>");
+			$('.select_box').removeClass('active');
+			$('.select_box').first().addClass('active');
+			$('.select_box').first().find('.radio_btn').prop('checked', true); 
+			var radioVal = $('input[name="currency"]:checked').val();
+			$('.current_currency > .txt').text(radioVal);
 		} */
 
-		/* if (confirm(it_name + '팩을 구매 하시겠습니까?')) {
-			} else {
-				return false;
-			} 
-		*/
-		
-		dialogModal('Package 업그레이드 확인','<strong>'+ it_name + '팩을 업그레이드 하시겠습니까?</strong>','confirm');
+		// 패키지 리스트 선택
 
-		$('#modal_confirm').on('click',function(){
-			dimHide();
 
-			if(processing){
-			$.ajax({
-				type: "POST",
-				url: "/adm/package_upgrade.php",
-				dataType: "json",
-				async : false,
-				data:  {
-					mb_id: <?= $member['mb_id'] ?>,
-					it_id: it_id,
-				},
-				success: function(data) {
+		$('#upgrade').hide()
 
-					// 중복클릭방지
-					processing = false;
-					$('#upgrade').attr("disabled", true);
+		$('.r_card').on('click', function() {
+			data = $(this).data('row');
+			console.log(data);
 
-					dialogModal('패키지 구매 처리','<strong>패키지 상품 구매처리가 정상 처리되었습니다.</strong>','success');
+			it_id = data[0].it_id;
+			it_name = data[0].it_name;
+			it_maker = data[0].it_maker;
+			it_price = data[0].it_price; //상품가격
+			it_point = data[0].it_point; //PV
+			it_supply_point = data[0].it_supply_point; //MP 
+			won_price = data[0].it_cust_price;
+			func = "new";
+			od_id = "";
+			origin_bal = '<?= $available_fund ?>';
+			price_calc = origin_bal.replace(/,/g, '') - won_price.replace(/,/g, '');
+			$('#upgrade').hide().attr("disabled", true);;
+			$('#purchase').show().attr("disabled", false);
+			// change_coin = "원";
 
-					$('.closed').on('click', function(){
-						location.href="<?=G5_URL?>/page.php?id=upstairs";
-					});
-				},
-				error:function(e){
-					commonModal('패키지 구매 처리 실패!','<strong> 다시 시도해주세요. 문제가 계속되면 관리자에게 연락주세요.</strong>',100);
-				}
+			change_coin_status();
+		});
+
+		/* $('#coin_select').on('change',function(){
+			change_coin_status()
+		}) */
+
+		/* $('.upgade').click(function(){
+			data = $(this).data('row_ordered');
+			if(data.it_name != "M6"){
+				it_id = data.upgrade_id
+				it_name = data.it_name+"->"+data.upgrade_name
+				it_price = data.upgrade_price - data.it_price
+
+				it_supply_point = data.it_supply_point
+				func = "upgrade"
+				od_id = data.row.od_id
+				change_coin_status()
+			}else{
+				alert("Worng Way")
+			}
+		}); */
+
+		function change_coin_status() {
+			$('#trade_total').val(Price(it_price) + ' <?= $curencys[1] ?>');
+			$('#shift_won').text('VAT 포함 : ' + Price(won_price) + ' <?= $curencys[1] ?>');
+			$('#shift_dollor').val(Price(price_calc));
+
+			// 상품구매로 이동
+			var scrollPosition = $('#pakage_sale').offset().top;
+			window.scrollTo({
+				top: scrollPosition,
+				behavior: 'smooth'
 			});
-		}else{
-			commonModal('패키지 구매','<strong> 구매 처리 진행중입니다. 잠시 기다려주세요.</strong>',80);
 		}
 
+
+		// 패키지구매
+		$('#purchase').on('click', function() {
+			var nw_purchase = '<?= $nw_purchase ?>'; // 점검코드
+
+			// 부분시스템 점검
+			if (nw_purchase == 'N') {
+				dialogModal('구매 처리 실패', '<strong>현재 이용 가능 시간이 아닙니다.</strong>', 'warning');
+				if (debug) console.log('error : 1');
+				return false;
+			}
+
+			// 금액이 0 일때
+			if (it_price == undefined || it_price == 0) {
+				dialogModal('구매 상품 확인', '<strong>구매 상품을 선택해주세요.</strong>', 'warning');
+				if (debug) console.log('error : 2');
+				return false;
+			}
+
+			// 잔고 확인 
+			if (price_calc < 0) {
+				dialogModal('구매 가능 잔고 확인', '<strong>구매 가능 잔고가 부족합니다.</strong>', 'warning');
+				if (debug) console.log('error : 4');
+				return false;
+			}
+
+			/* if (confirm(it_name + '팩을 구매 하시겠습니까?')) {
+				} else {
+					return false;
+				} 
+			*/
+
+
+			dialogModal('Package 상품구매 확인', '<strong>' + it_name + '팩을 구매 하시겠습니까?</strong>', 'confirm');
+
+			$('#modal_confirm').on('click', function() {
+				dimHide();
+
+				if (processing) {
+					$.ajax({
+						type: "POST",
+						url: "/util/upstairs_proc.php",
+						dataType: "json",
+						async: false,
+						data: {
+							"func": func,
+							"input_val": won_price,
+							"output_val": it_price,
+							"select_pack_name": it_name,
+							"select_pack_id": it_id,
+							"select_maker": it_maker,
+							"it_point": it_point,
+							"it_supply_point": it_supply_point
+						},
+						success: function(data) {
+
+							// 중복클릭방지
+							processing = false;
+							$('#purchase').attr("disabled", true);
+
+							dialogModal('패키지 구매 처리', '<strong>패키지 상품 구매처리가 정상 처리되었습니다.</strong>', 'success');
+
+							$('.closed').on('click', function() {
+								location.href = "<?= G5_URL ?>/page.php?id=upstairs";
+							});
+						},
+						error: function(e) {
+							commonModal('패키지 구매 처리 실패!', '<strong> 다시 시도해주세요. 문제가 계속되면 관리자에게 연락주세요.</strong>', 100);
+						}
+					});
+				} else {
+					commonModal('패키지 구매', '<strong> 구매 처리 진행중입니다. 잠시 기다려주세요.</strong>', 80);
+				}
+
+			});
+
+
+
 		});
-	})
-});
 
-collapseClosed();
+		// 입금하기
+		$('#go_wallet_btn').click(function(e) {
+			if (won_price > 0) {
+				if (price_calc < 0) {
+					price_calc = price_calc * -1;
+				}
+				go_to_url('mywallet' + '&sel_price=' + price_calc);
+			} else {
+				go_to_url('mywallet');
+			}
+		});
+
+		// 상품 업그레이드
+		$('.upgradeBtn').on('click', function() {
+			od_id = $(this).data('od_id')
+			it_name = $(this).siblings('.pack_name').html();
+			upgrade_price_calc = '<?= shift_auto($total_withraw, $curencys[1]) ?>';
+			$.post("/util/next_package_info.php", {
+					od_id
+				},
+				function(data) {
+					res = JSON.parse(data);
+					if (res.result == 'success') {
+						$('.change_title').text('PACKAGE 업그레이드');
+						$('#trade_total').val(res.it_cust_price + ' <?= $curencys[1] ?>')
+						$('#shift_dollor').val(res.diff_price)
+						$('#shift_won').text('VAT 포함 : ' + Price(res.it_cust_price) + ' <?= $curencys[1] ?>');
+						$('#upgrade').show().attr("disabled", false);
+						$('#purchase').hide().attr("disabled", true);
+						$('#total_coin_val').val(upgrade_price_calc);
+						it_price = res.it_cust_price
+					} else {
+						dialogModal('Package 업그레이드 확인', res.message, 'warning');
+						return false;
+					}
+
+				}
+			);
+			var scrollPosition = $('#pakage_sale').offset().top;
+			window.scrollTo({
+				top: scrollPosition,
+				behavior: 'smooth'
+			});
+		});
+
+
+		$('#upgrade').on('click', function() {
+			var nw_purchase = '<?= $nw_purchase ?>'; // 점검코드
+			console.log(parseInt(upgrade_price_calc.replace(/,/g , '')));
+			// 부분시스템 점검
+			if (nw_purchase == 'N') {
+				dialogModal('구매 처리 실패', '<strong>현재 이용 가능 시간이 아닙니다.</strong>', 'warning');
+				return false;
+			}
+
+			// 잔고 확인 
+			if (parseInt(upgrade_price_calc.replace(/,/g , '')) < it_price) {
+				dialogModal('구매 가능 잔고 확인', '<strong>구매 가능 잔고가 부족합니다.</strong>', 'warning');
+				return false;
+			}
+
+			dialogModal('Package 업그레이드 확인', '<strong>' + it_name + '팩을 업그레이드 하시겠습니까?</strong>', 'confirm');
+
+			$('#modal_confirm').on('click', function() {
+				dimHide();
+
+
+				if (processing) {
+					$.ajax({
+						type: "POST",
+						url: "/util/package_upgrade.php",
+						dataType: "json",
+						async: false,
+						data: {
+							mb_id: '<?= $member['mb_id'] ?>',
+							od_id: od_id,
+						},
+						success: function(data) {
+
+							// 중복클릭방지
+							processing = false;
+							$('#upgrade').attr("disabled", true);
+
+							dialogModal('Package 업그레이드 확인', '<strong>패키지 상품 업그레이드가 정상 처리되었습니다.</strong>', 'success');
+
+							$('.closed').on('click', function() {
+								location.href="<?= G5_URL ?>/page.php?id=upstairs";
+							});
+						},
+						error: function(e) {
+							commonModal('Package 업그레이드 확인', '<strong> 다시 시도해주세요. 문제가 계속되면 관리자에게 연락주세요.</strong>', 100);
+						}
+					});
+				} else {
+					commonModal('패키지 구매', '<strong> 업그레이드 처리 진행중입니다. 잠시 기다려주세요.</strong>', 80);
+				}
+
+			});
+		})
+	});
+
+	collapseClosed();
 </script>
-
-
