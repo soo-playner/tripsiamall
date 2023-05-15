@@ -218,46 +218,6 @@ $result = sql_query($sql);
 				</div>
 			</div>
 
-		<!--
-		<div class="box-header ">
-			<div class='col-9'>
-				<h3 class="title upper" style='line-height:40px' >내 보유 패키지</h3>
-			</div>
-		</div>
-		-->
-		 <?
-			$ordered_items = ordered_items($member['mb_id']);
-			if (count($ordered_items) == 0) { ?>
-				<div class="no_data box_on">내 보유 상품이 존재하지 않습니다</div>
-		<? } else { ?>
-				
-		<div class="box-body row slide_product">
-		<?php
-				for ($i = 0; $i < count($ordered_items); $i++) {
-					$color_num = substr($ordered_items[$i]['it_maker'], 1, 1);
-
-					if (count($ordered_items) > 3) {
-						$spread_average = 3;
-					} else {
-						$spread_average = 1;
-					}
-		?>		
-
-			<div class="content-box3 product_buy_wrap pack_<?= $color_num ?> col-11">
-				<li class="row">
-					<p class="title col-12"><?= strtoupper($ordered_items[$i]['it_name']) ?></p>
-				</li>
-				<li class="row">
-					<p class="value col-8">구매일 : <?= $ordered_items[$i]['od_time'] ?></p>
-				</li>
-			</div>
-
-		<?php
-					echo "<script>slide_color('$color_num')</script>";
-				}
-			} ?>
-
-		</div> 
 		
 			
 			
@@ -291,9 +251,9 @@ $result = sql_query($sql);
 							<div class="row">
 								<h2 class="pack_name pack_f_<?= substr($od_name, 1, 1) ?>"><?= strtoupper($row['od_name']) ?> </h2>
 								<!-- <span class='hist_sub_price'><?= shift_auto($row['od_cash'], $od_settle_case) ?> <?= $od_settle_case ?></span> -->
-								<?php if($od_name != "P0"){?>
-								<button class="btn upgradeBtn" style="margin: 0 0 0 auto" data-od_id="<?= $row['od_id'] ?>">업그레이드</button>
 
+								<?php if($od_name != "P0" || $od_name != "P8"){?>
+									<button class="btn upgradeBtn" style="margin: 0 0 0 auto" data-od_id="<?= $row['od_id'] ?>">업그레이드</button>
 								<?php } ?>
 							</div>
 						</div>

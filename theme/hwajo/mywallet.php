@@ -177,6 +177,45 @@ $result_withdraw = sql_query($sql);
 $amt_auth_log = sql_query("SELECT * from {$g5['withdrawal']} WHERE mb_id = '{$member['mb_id']}'  AND status = 1 ");
 $auth_cnt = sql_num_rows($amt_auth_log);
 
+
+// 코인종류 TX
+function curency_txt($value,$kind = 'deposit'){
+  $result = '';
+  
+  if($kind == 'deposit'){
+    switch(strtolower($value)){
+      case 'eth':
+        $result = 'Etherium (ERC-20)';
+        break;
+      case 'etc':
+        $result = 'EtheriumClassic (ETC)';
+        break;
+      case 'usdt':
+        $result = 'USDT (TetherUS)';
+        break;
+      case 'hja':
+        $result = 'Hwajoglobalasset (HJA)';
+        break;
+    }
+  }else{
+    switch(strtolower($value)){
+      case 'eth':
+        $result = 'Etherium (BEP-20)';
+        break;
+      case 'etc':
+        $result = 'EtheriumClassic (ETC)';
+        break;
+      case 'usdt':
+        $result = 'USDT (TetherUS)';
+        break;
+      case 'hja':
+        $result = 'Hwajoglobalasset (HJA)';
+        break;
+    }
+  }
+  return $result;
+}
+
 ?>
 
 
@@ -286,10 +325,10 @@ $auth_cnt = sql_num_rows($amt_auth_log);
           <div class="col-12 coin_select_wrap mb20">
             <label class="sub_title">- 입금코인 선택</label>
             <select class="form-control" name="" id="select_deposit_coin">
-              <option value="<?= $curencys[3] ?>" selected><?= $curencys[3] ?></option>
-              <option value="<?= $curencys[4] ?>"><?= $curencys[4] ?></option>
-              <option value="<?= $curencys[0] ?>"><?= $curencys[0] ?></option>
-              <option value="<?= $curencys[1] ?>"><?= $curencys[1] ?></option>
+              <option value="<?= $curencys[0] ?>" selected><?= curency_txt($curencys[0]) ?></option>
+              <option value="<?= $curencys[4] ?>"><?= curency_txt($curencys[4]) ?></option>
+              <option value="<?= $curencys[3] ?>"><?= curency_txt($curencys[3]) ?></option>
+              <option value="<?= $curencys[1] ?>"><?= curency_txt($curencys[1]) ?></option>
             </select>
           </div>
           
@@ -351,10 +390,10 @@ $auth_cnt = sql_num_rows($amt_auth_log);
           <div class="col-12 coin_select_wrap mb20">
             <label class="sub_title">- 출금코인 선택</label>
             <select class="form-control" name="" id="select_coin">
-              <option value="<?= $curencys[3] ?>" selected><?= $curencys[3] ?></option>
-              <option value="<?= $curencys[4] ?>"><?= $curencys[4] ?></option>
-              <option value="<?= $curencys[0] ?>"><?= $curencys[0] ?></option>
-              <option value="<?= $curencys[1] ?>"><?= $curencys[1] ?></option>
+              <option value="<?= $curencys[0] ?>" selected><?= curency_txt($curencys[0],'withdraw') ?></option>
+              <option value="<?= $curencys[4] ?>"><?= curency_txt($curencys[4],'withdraw') ?></option>
+              <option value="<?= $curencys[3] ?>"><?= curency_txt($curencys[3],'withdraw') ?></option>
+              <option value="<?= $curencys[1] ?>"><?= curency_txt($curencys[1],'withdraw') ?></option>
             </select>
           </div>
           <div class='col-12'><label class="sub_title">- 출금정보 (최초 1회입력)</label></div>
