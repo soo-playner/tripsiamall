@@ -433,6 +433,11 @@ a.btn_cancle,
   background: #6214ab !important;
 }
 
+.color8,
+.r_card_8 {
+  background: #cfa21c !important;
+}
+
 .pack_f_0 {
   color: #555 !important;
 }
@@ -463,6 +468,10 @@ a.btn_cancle,
 
 .pack_f_7 {
   color: #6214ab !important;
+}
+
+.pack_f_8 {
+  color: #cfa21c !important;
 }
 
 .red {
@@ -3091,7 +3100,7 @@ a.btn_cancle,
 }
 .dark .r_card.r_card_7,
 .dark .pack_7 {
-  background: linear-gradient(135deg, #bda253, #cfa21c) !important;
+  background: linear-gradient(135deg, #492191, #8734d4) !important;
 }
 .dark .color0 {
   background: #736ad0 !important;
@@ -3115,10 +3124,13 @@ a.btn_cancle,
   background: #7e524b !important;
 }
 .dark .color7 {
+  background: #492191 !important;
+}
+.dark .color8 {
   background: #bda253 !important;
 }
 .dark .color10 {
-  background: #bda253 !important;
+  background: #492191 !important;
 }
 .dark .pack_f_1 {
   color: #736ad0 !important;
@@ -3139,7 +3151,7 @@ a.btn_cancle,
   color: #7e524b !important;
 }
 .dark .pack_f_7 {
-  color: #bda253 !important;
+  color: #492191 !important;
 }
 .dark .pop_wrap {
   background: #212429;

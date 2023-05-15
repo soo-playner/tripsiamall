@@ -17,6 +17,22 @@ if(!$check_bonus_day){
     return false;
 }
 
+
+// php 버전 대응 패치
+if( !function_exists( 'array_column' ) ):
+    
+    function array_column( array $input, $column_key, $index_key = null ) {
+    
+        $result = array();
+        foreach( $input as $k => $v )
+            $result[ $index_key ? $v[ $index_key ] : $k ] = $v[ $column_key ];
+        
+        return $result;
+    }
+endif;
+
+
+
 // 데일리수당
 $bonus_row = bonus_pick($code);
 
@@ -43,6 +59,7 @@ echo "<strong>".$bonus_day."</strong><br><br>";
 echo "<div class='btn' onclick='bonus_url();'>돌아가기</div>";
 ?>
 
+
 <html>
     <body>
         <header>정산시작</header>    
@@ -67,7 +84,7 @@ $log_start_sql = "insert into soodang_pay(`allowance_name`,`day`,`mb_id`,`mb_no`
 $log_values_sql = "";
 
 for($i = 0; $i < $row = sql_fetch_array($member_for_paying_result); $i++){
-
+    
     $mb_id = $row['id'];
     $recommended_cnt = $row['cnt'];
 
@@ -77,7 +94,12 @@ for($i = 0; $i < $row = sql_fetch_array($member_for_paying_result); $i++){
     $booster_member = return_down_manager($row['mb_no'],$recommended_cnt);
 
     $recom_member = return_down_manager($row['mb_no'],20);
+    
+
     $recom_sales = array_int_sum($recom_member, 'mb_save_point', 'int');
+    
+    
+    
 
     if (!$recom_sales) {
         $recom_sales = 0;
@@ -244,11 +266,11 @@ function recommend_downtree($mb_id,$count=0,$cnt = 0){
 	return $mem_list;
 }
 
+
 /* 결과 합계 */
 function array_int_sum($list, $key){
 	return array_sum(array_column($list, $key));
 }
-
 ?>
 
 <?php
