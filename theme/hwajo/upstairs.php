@@ -123,8 +123,8 @@ $result = sql_query($sql);
 							<div class="<?=$row_col?> r_card_box">
 								<div class="r_card r_card_<?=$i?>" data-row=<?=json_encode($data_arr,JSON_UNESCAPED_UNICODE)?>>
 									<p class="title">
-										<span style='vertical-align:middle'><?=$row[$i-1]['it_name']?></span>
-										<span style='font-size:13px;float:right;line-height:36px;'><?=$row[$i-1]['it_option_subject']?></span>
+										<span style='vertical-align:middle'><?=$row[$i-1]['it_option_subject']?></span>
+										<span style='font-size:13px;float:right;line-height:36px;'><?=$row[$i-1]['it_name']?></span>
 									</p>
 									
 									<div class="b_blue_bottom"></div>
@@ -482,7 +482,7 @@ $(function(){
 
 	// 입금하기
 	$('#go_wallet_btn').click(function(e){
-		if(won_price > 0){
+		if(won_price < 0){
 			if(price_calc < 0){
 				price_calc = price_calc * -1;
 			}
