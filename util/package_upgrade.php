@@ -83,7 +83,7 @@ if (floor($mb_info['sum_deposit']) >= $package_price) {
 } 
 // 4-2. deposit_point 잔고가 부족하여 부족한 차액만큼 mb_balance 잔고에서 끌어와 구매할 때
 else if ($package_price >= floor($mb_info['sum_deposit']) && floor($mb_info['balance']) >= $calc_point) {
-	$update_point = " UPDATE g5_member SET mb_deposit_calc = (mb_deposit_calc - ({$package_price} - {$calc_point})) ";
+	$update_point = " UPDATE g5_member SET mb_deposit_calc = (mb_deposit_calc - ({$package_price})) ";
 	$update_point .= ", mb_fee = ( mb_fee + {$calc_point}) ";
 }
 
