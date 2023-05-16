@@ -470,7 +470,7 @@ $result = sql_query($sql);
 					res = JSON.parse(data);
 					if (res.result == 'success') {
 						$('.change_title').text('PACKAGE 업그레이드');
-						$('#trade_total').val(res.it_cust_price + '<?= $curencys[1] ?>')
+						$('#trade_total').val(res.it_cust_price + ' <?= $curencys[1] ?>')
 						$('#shift_dollor').val(Price(parseFloat(upgrade_price_calc.replace(/,/g , '')) - parseFloat(res.diff_price.replace(/,/g , ''))));
 						$('#shift_won').text('VAT 포함 : ' + Price(res.it_cust_price) + ' <?= $curencys[1] ?>');
 						$('#upgrade').show().attr("disabled", false);
@@ -529,7 +529,7 @@ $result = sql_query($sql);
 							processing = false;
 							$('#upgrade').attr("disabled", true);
 
-							dialogModal('Package 업그레이드 확인', '<strong>패키지 상품 업그레이드가 정상 처리되었습니다.</strong>', 'success');
+							dialogModal('Package 업그레이드 확인', `<strong>${data.message}</strong>`, `${data.result}`);
 
 							$('.closed').on('click', function() {
 								location.href="<?= G5_URL ?>/page.php?id=upstairs";
