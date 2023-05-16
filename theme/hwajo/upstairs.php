@@ -539,7 +539,7 @@ $result = sql_query($sql);
 		$('.upgradeBtn').on('click', function() {
 			od_id = $(this).data('od_id')
 			it_name = $(this).siblings('.pack_name').html();
-			upgrade_price_calc = '<?= shift_auto($total_withraw, $curencys[1]) ?>';
+			upgrade_price_calc = '<?= shift_auto($available_fund, $curencys[1]) ?>';
 			$.post("/util/next_package_info.php", {
 					od_id
 				},
