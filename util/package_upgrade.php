@@ -30,7 +30,7 @@ if ($up_pack_info['cnt'] <= 0) {
 }
 
 // 3. 회원 잔고 확인
-$mb_info = sql_fetch("SELECT mb_deposit_point + mb_deposit_calc AS sum_deposit, 
+$mb_info = sql_fetch("SELECT mb_deposit_point + mb_deposit_calc + mb_fee AS sum_deposit, 
 mb_balance - mb_shift_amt - mb_fee AS sum_soodang, 
 mb_balance + mb_deposit_point + mb_deposit_calc - mb_shift_amt AS balance 
 FROM {$g5['member_table']} 
@@ -78,13 +78,13 @@ $package_price = (int)$up_pack_info['it_price'] - (int)$exist_package['od_cart_p
 $calc_point = $package_price - floor($mb_info['sum_deposit']);
 
 // 4-1. deposit_point 잔고로 구매 가능할 때
-if (floor($mb_info['sum_deposit']) >= $package_price) {
-	$update_point = " UPDATE g5_member SET mb_deposit_calc = (mb_deposit_calc - ({$package_price})) ";	
+if (floor($mb_info['sum_deposit']) > 0 && floor($mb_info['sum_deposit']) >= $package_price) {
+	$update_point = " UPDATE g5_member SET mb_deposit_calc = (mb_deposit_calc - {$package_price}) ";	
 } 
 // 4-2. deposit_point 잔고가 부족하여 부족한 차액만큼 mb_balance 잔고에서 끌어와 구매할 때
 else if ($package_price >= floor($mb_info['sum_deposit']) && floor($mb_info['balance']) >= $calc_point) {
-	$update_point = " UPDATE g5_member SET mb_deposit_calc = (mb_deposit_calc - ({$package_price})) ";
-	$update_point .= ", mb_fee = ( mb_fee + {$calc_point}) ";
+	$update_point = " UPDATE g5_member SET mb_deposit_calc = (mb_deposit_calc - {$package_price}) ";
+	$update_point .= ", mb_fee = (mb_fee + {$calc_point}) ";
 }
 
 // 해당 패키지로 받을 수 있는 수당 한도()
