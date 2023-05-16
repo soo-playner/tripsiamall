@@ -32,12 +32,12 @@ if ($up_pack_info['cnt'] <= 0) {
 // 3. 회원 잔고 확인
 $mb_info = sql_fetch("SELECT mb_deposit_point + mb_deposit_calc AS sum_deposit, 
 mb_balance - mb_shift_amt - mb_fee AS sum_soodang, 
-mb_balance + mb_deposit_point + mb_deposit_calc - mb_shift_amt - mb_fee AS balance 
+mb_balance + mb_deposit_point + mb_deposit_calc - mb_shift_amt AS balance 
 FROM {$g5['member_table']} 
 WHERE mb_id = '{$mb_id}'");
 
-// 3-1. 구매 가능 잔고가 부족할 경우 failed
-if(((int)$up_pack_info['it_cust_price'] - (int)$exist_package['od_cart_price']) >= floor($mb_info['balance'])) {
+// 3-1. 구매 가능 잔고가 부족할 경우 failed 30000 - 10000 > 20000
+if(((int)$up_pack_info['it_cust_price'] - (int)$exist_package['od_cart_price']) > floor($mb_info['balance'])) {
 	echo json_encode(array("result" => "failed", "code" => "200", "message" => "구매 가능한 잔고가 부족합니다."));
 	return false;
 }

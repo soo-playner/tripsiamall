@@ -386,11 +386,11 @@ $result = sql_query($sql);
 			}
 
 			// 잔고 확인 
-			if (price_calc < 0) {
-				dialogModal('구매 가능 잔고 확인', '<strong>구매 가능 잔고가 부족합니다.</strong>', 'warning');
-				if (debug) console.log('error : 4');
-				return false;
-			}
+			// if (price_calc < 0) {
+			// 	dialogModal('구매 가능 잔고 확인', '<strong>구매 가능 잔고가 부족합니다.</strong>', 'warning');
+			// 	if (debug) console.log('error : 4');
+			// 	return false;
+			// }
 
 			/* if (confirm(it_name + '팩을 구매 하시겠습니까?')) {
 				} else {
@@ -426,7 +426,14 @@ $result = sql_query($sql);
 							processing = false;
 							$('#purchase').attr("disabled", true);
 
-							dialogModal('패키지 구매 처리', '<strong>패키지 상품 구매처리가 정상 처리되었습니다.</strong>', 'success');
+							let alert = "패키지 상품 구매처리가 정상 처리되었습니다.";
+							let state = "success";
+							if(data.code == "0001"){
+								alert = data.sql;
+								state = "failed";
+							}
+							
+							dialogModal('패키지 구매 처리', `<strong>${alert}</strong>`, state);
 
 							$('.closed').on('click', function() {
 								location.href = "<?= G5_URL ?>/page.php?id=upstairs";

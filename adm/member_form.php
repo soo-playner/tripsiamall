@@ -601,7 +601,7 @@ $rank_result = sql_fetch($rank_sql);
 
 	<tr class="ly_up padding-box fund">
 		<th scope="row">출금총액</th>
-		<td colspan="1"><span class='strong amt'><?= number_format($mb['mb_shift_amt']-$mb['mb_fee']) . " " . $curencys[1]?></span></td>
+		<td colspan="1"><span class='strong amt'><?= number_format($mb['mb_shift_amt']) . " " . $curencys[1]?></span></td>
 
 		<th scope="row">수당제한비율</th>
 			<td colspan="1">
@@ -739,7 +739,7 @@ $rank_result = sql_fetch($rank_sql);
 				$('#math_code').val(value);
 			});
 
-			var total_fund = '<?= $mb['mb_deposit_point'] + $mb['mb_deposit_calc'] ?>';
+			var total_fund = '<?= $mb['mb_deposit_point'] + $mb['mb_deposit_calc'] + $mb['mb_balance'] - $mb['mb_shift_amt']?>';
 			var mb_grade = '<?= $mb['grade'] ?>';
 
 			//패키지구매처리
