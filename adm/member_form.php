@@ -558,7 +558,7 @@ $rank_result = sql_fetch($rank_sql);
 			<?php $sql = "SELECT SUM(amt) as amt FROM {$g5['deposit']} WHERE mb_id = '{$mb['mb_id']}'";
 			$deposit_sum = sql_fetch($sql);
 			?>
-			<strong><?= Number_format($mb['mb_deposit_point'] + $mb['mb_deposit_calc'] + $mb['mb_balance'] - $mb['mb_shift_amt']) ?></strong> <?=$curencys[1]?> &nbsp&nbsp (총 입금액 : <?= shift_auto($deposit_sum['amt']) ?> <?=$curencys[0]?>)
+			<strong><?= shift_auto($mb['mb_deposit_point'] + $mb['mb_deposit_calc'] + $mb['mb_balance'] - $mb['mb_shift_amt'],$curencys[1]) ?></strong> <?=$curencys[1]?> &nbsp&nbsp (총 입금액 : <?= shift_auto($deposit_sum['amt']) ?> <?=$curencys[0]?>)
 		</td>
 		<th></th>
 		<!-- <td>
@@ -595,13 +595,13 @@ $rank_result = sql_fetch($rank_sql);
 
 		<th scope="row">총 받은보너스(수당)</th>
 		<td colspan="1"><span class='strong bonus'>
-				<input type="hidden" class='no-input' name="mb_balance" value="<?= number_format($mb['mb_balance']) ?>" readonly> <?= number_format($mb['mb_balance']) ?> </span><?=$curencys[1]?> <span style="color:red;">(남은 수당: <?=number_format($mb['mb_balance'] - $mb['mb_fee'])?> [패키지 차감: <?=number_format($mb['mb_fee'])?>])</span></td>
+				<input type="hidden" class='no-input' name="mb_balance" value="<?= shift_auto($mb['mb_balance'],$curencys[1]) ?>" readonly> <?= shift_auto($mb['mb_balance'],$curencys[1]) ?> </span><?=$curencys[1]?> <span style="color:red;">(남은 수당: <?=shift_auto($mb['mb_balance'] - $mb['mb_fee'],$curencys[1])?> [패키지 차감: <?=number_format($mb['mb_fee'])?>])</span></td>
 
 	</tr>
 
 	<tr class="ly_up padding-box fund">
 		<th scope="row">출금총액</th>
-		<td colspan="1"><span class='strong amt'><?= number_format($mb['mb_shift_amt']) . " " . $curencys[1]?></span></td>
+		<td colspan="1"><span class='strong amt'><?= shift_auto($mb['mb_shift_amt'],$curencys[1]) . " " . $curencys[1]?></span></td>
 
 		<th scope="row">수당제한비율</th>
 			<td colspan="1">

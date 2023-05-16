@@ -22,13 +22,8 @@ if($_GET['mode'] == 'del'){
 $sub_sql = "";
 
 if ($_GET['sst'] == "total_fund") {
-	$sub_sql = " , (mb_deposit_point + mb_deposit_calc + mb_balance) as total_fund";
+	$sub_sql = " , (mb_deposit_point + mb_deposit_calc + mb_balance - mb_shift_amt) as total_fund";
 }
-
-if ($_GET['sst'] == "shift_amt") {
-	$sub_sql = " , (mb_shift_amt - mb_fee) as shift_amt";
-}
-
 
 if ($_GET['sst'] == "deposit_point") {
 	$sub_sql = " , (mb_deposit_point) as deposit_point";
@@ -681,7 +676,7 @@ while ($l_row = sql_fetch_array($get_lc)) {
 					<th scope="col" id="mb_list_auth" class="bonus_eth" rowspan="2"><?php echo subject_sort_link('total_fund') ?>현재잔고<br></a></th>
 					<th scope="col" id="mb_list_auth2" class="bonus_calc" rowspan="2"><?php echo subject_sort_link('deposit_point') ?>총입금액 <br></th>
 					<th scope="col" id="mb_list_auth2" class="bonus_bb" rowspan="2"><?php echo subject_sort_link('mb_deposit_calc') ?>사용금액</th>
-					<th scope="col" id="mb_list_auth2" class="bonus_usdt" style='color:white !important' rowspan="2"><?php echo subject_sort_link('shift_amt') ?>출금총액<br>(+수수료)<br></th>
+					<th scope="col" id="mb_list_auth2" class="bonus_usdt" style='color:white !important' rowspan="2"><?php echo subject_sort_link('mb_shift_amt') ?>출금총액<br>(+수수료)<br></th>
 					<!-- <th scope="col" id="mb_list_auth2" class="bonus_bb bonus_calc"  rowspan="2"><?php echo subject_sort_link('deposit_calc') ?>USE <br>출금 및 구매사용</th> -->
 					<th scope="col" id="mb_list_auth2" class="bonus_bb bonus_benefit" rowspan="2"><?php echo subject_sort_link('mb_balance') ?> 수당합계</th>
 					<th scope="col" id="mb_list_auth2" class="bonus_aa" rowspan="2"><?php echo subject_sort_link('mb_save_point') ?> 누적매출<br>(PV)</th>
@@ -733,7 +728,7 @@ while ($l_row = sql_fetch_array($get_lc)) {
 
 					$total_deposit = $row['mb_deposit_point'] + $row['mb_deposit_calc'];
 					$total_bonus = $row['mb_balance'];
-					$total_fund = $total_deposit + $total_bonus;
+					$total_fund = $total_deposit + $total_bonus - $row['mb_shift_amt'];
 
 
 					// 보너스 수당 - 한계 
@@ -814,7 +809,7 @@ while ($l_row = sql_fetch_array($get_lc)) {
 						<td headers="mb_list_auth" class="td_mbstat" rowspan="2"><?= Number_format($total_fund) ?></td>
 						<td headers="mb_list_auth" class="td_mbstat" rowspan="2"><?= Number_format($row['mb_deposit_point']) ?></td>
 						<td headers="mb_list_auth" class="td_mbstat" style='color:red' rowspan="2"><?= Number_format($row['mb_deposit_calc']) ?></td>
-						<td headers="mb_list_auth" class="td_mbstat" style='color:red' rowspan="2"><?= Number_format($row['mb_shift_amt']-$row['mb_fee']) ?></td>
+						<td headers="mb_list_auth" class="td_mbstat" style='color:red' rowspan="2"><?= Number_format($row['mb_shift_amt']) ?></td>
 						<td headers="mb_list_auth" class="td_mbstat" rowspan="2"><?= Number_format($total_bonus) ?></td>
 						<td headers="mb_list_auth" class="td_mbstat" rowspan="2"><?= Number_format($row['mb_save_point']) ?></td>
 						<!-- <td headers="mb_list_auth" class="td_mbstat" rowspan="2" style="min-width:50px;width:50px;"><?= Number_format($row['mb_rate']) ?></td>
