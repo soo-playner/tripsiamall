@@ -197,7 +197,7 @@ function curency_txt($value,$kind = 'deposit'){
         $result = 'USDT (TetherUS)';
         break;
       case 'hja':
-        $result = 'Hwajoglobalasset (HJA)';
+        $result = 'Hwajo-asset (HJA)';
         break;
     }
   }else{
@@ -212,7 +212,7 @@ function curency_txt($value,$kind = 'deposit'){
         $result = 'USDT (TetherUS)';
         break;
       case 'hja':
-        $result = 'Hwajoglobalasset (HJA)';
+        $result = 'Hwajo-asset (HJA)';
         break;
     }
   }
@@ -254,6 +254,15 @@ function curency_txt($value,$kind = 'deposit'){
   .dark .checkbox-tile{color:rgba(255,255,255,0.75);}
 
   #curency_usdt_eth{display:inline;}
+
+  #select_deposit_coin,#select_coin{height:44px;border:2px solid #1f9df5}
+  .txt-box{
+    font-size:12px;color:red;
+  }
+
+  .dark .txt-box{
+    color:#fac707;
+  }
   .in_coin i{font-size:16px;}
   .in_coin{margin-top:-10px;font-size:13px;}
 </style>
@@ -336,6 +345,10 @@ function curency_txt($value,$kind = 'deposit'){
               <option value="<?= $curencys[1] ?>"><?= curency_txt($curencys[1]) ?></option>
             </select>
           </div>
+
+          <div class='txt-box deposit_alert col-12'>
+            선택된 입금코인은 ETH (ERC-20) 입니다.<br> ETH (BEP-20) 입금시 처리되지 않으니 반드시 확인후 입금하시기 바랍니다.
+          </div>
           
 
           <div class="btn_ly qrBox_right "></div>
@@ -356,7 +369,7 @@ function curency_txt($value,$kind = 'deposit'){
    
 
           <div class='col-sm-12 col-12 '>
-            <button class="btn btn_wd font_white deposit_request" data-currency="<?= $curencys[3] ?>">
+            <button class="btn btn_wd font_white deposit_request" data-currency="<?= $curencys[0] ?>">
               <span>입금확인요청</span>
             </button>
           </div>
@@ -410,6 +423,11 @@ function curency_txt($value,$kind = 'deposit'){
               <option value="<?= $curencys[1] ?>"><?= curency_txt($curencys[1],'withdraw') ?></option>
             </select>
           </div>
+
+          <div class='txt-box withrawal_alert col-12 mb10'>
+            선택된 출금코인은 ETH (BEP-20) 입니다.<br> ETH (ERC-20) 주소 기재시 정상출금 되지 않으니 반드시 주소 확인후 기재 바랍니다.
+          </div>
+
           <div class='col-12'><label class="sub_title">- 출금정보 (최초 1회입력)</label></div>
           <!-- <div class='col-6'>
             <input type="text" id="withdrawal_bank_name" class="b_ghostwhite " placeholder="은행명" value="<?= $member['bank_name'] ?>">
@@ -546,7 +564,7 @@ function curency_txt($value,$kind = 'deposit'){
     } */
 
     /* 출금*/
-    var curency_tmp = '<?= $curencys[3] ?>';
+    var curency_tmp = '<?= $curencys[0] ?>';
     var usdt_curency = '<?= $curencys[1] ?>';
     var eth_curency = '<?= $curencys[0] ?>';
     var etc_curency = '<?= $curencys[4] ?>';
@@ -641,7 +659,18 @@ function curency_txt($value,$kind = 'deposit'){
 
 
     });
+    $('#select_deposit_coin').on('change',function(){
+      if(this.value == 'eth'){
+        $('.deposit_alert').css('display','block');
+      }else{
+        $('.deposit_alert').css('display','none');
+      }
+    });
 
+    /* $('#select_coin').on('change',function(){
+      
+    }); */
+    
     function input_change_eth(obj) {
       let pattern = /^\d+(\.)?(\d{0,8})?$/;
       let korean_check_pattern = /[가-힣ㄱ-ㅎㅏ-ㅣ\x20]/g;
@@ -662,6 +691,13 @@ function curency_txt($value,$kind = 'deposit'){
       $('.fee').css('display', 'none');
       document.querySelector('#sendValue').value = "";
       $('#Withdrawal_btn').attr('data-currency', curency_tmp);
+      
+
+      if($('#select_coin').val() == 'eth'){
+        $('.withrawal_alert').css('display','block');
+      }else{
+        $('.withrawal_alert').css('display','none');
+      }
     });
 
     document.querySelector('#select_deposit_coin').addEventListener('change', (e) => {

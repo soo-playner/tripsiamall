@@ -907,7 +907,7 @@ $(function() {
 					</label>
 					<label>
 						<input type="radio" id="wallet_type1" name="wallet_type" class="selector-item_radio" value=3>
-						<span>개인/기타 지갑</span>
+						<span>개인/기타 지갑(메타마스크등)</span>
 					</label>
 				</div>
 

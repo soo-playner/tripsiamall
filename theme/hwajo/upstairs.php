@@ -211,7 +211,7 @@ $result = sql_query($sql);
 
 					<div class="mt20">
 						<button id="purchase" class="btn wd main_btn b_blue b_darkblue round">구매</button>
-						<button id="upgrade" class="btn wd main_btn b_blue b_darkblue round">업그레이드</button>
+						<!-- <button id="upgrade" class="btn wd main_btn b_blue b_darkblue round">업그레이드</button> -->
 						<button id="go_wallet_btn" class="btn wd main_btn b_green b_skyblue round">입금</button>
 					</div>
 
@@ -253,7 +253,7 @@ $result = sql_query($sql);
 								<!-- <span class='hist_sub_price'><?= shift_auto($row['od_cash'], $od_settle_case) ?> <?= $od_settle_case ?></span> -->
 
 								<?php if($od_name != "P0" || $od_name != "P8"){?>
-									<button class="btn upgradeBtn" style="margin: 0 0 0 auto" data-od_id="<?= $row['od_id'] ?>" data-price="<?=$row['od_cart_price']?>">업그레이드</button>
+									<!-- <button class="btn upgradeBtn" style="margin: 0 0 0 auto" data-od_id="<?= $row['od_id'] ?>">업그레이드</button> -->
 								<?php } ?>
 							</div>
 						</div>
@@ -455,7 +455,7 @@ $result = sql_query($sql);
 
 	// 입금하기
 	$('#go_wallet_btn').click(function(e){
-		if(won_price < 0){
+		if(won_price > 0){
 			if(price_calc < 0){
 				price_calc = price_calc * -1;
 			}
