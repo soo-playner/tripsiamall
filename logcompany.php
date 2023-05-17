@@ -36,7 +36,7 @@ $before_mining_amt_target = $before_mining_target.'_amt';
 $now_mining_coin = 2;
 $mining_target = 'mb_mining_'.$now_mining_coin;
 $mining_amt_target = $mining_target.'_amt';
-
+ 
 $secret_key = "wizclass0780";
 $version_date = '2022-09-20';
 

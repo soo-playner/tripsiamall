@@ -194,7 +194,7 @@ function curency_txt($value,$kind = 'deposit'){
         $result = 'USDT (TetherUS)';
         break;
       case 'hja':
-        $result = 'Hwajoglobalasset (HJA)';
+        $result = 'Hwajo-asset (HJA)';
         break;
     }
   }else{
@@ -209,7 +209,7 @@ function curency_txt($value,$kind = 'deposit'){
         $result = 'USDT (TetherUS)';
         break;
       case 'hja':
-        $result = 'Hwajoglobalasset (HJA)';
+        $result = 'Hwajo-asset (HJA)';
         break;
     }
   }
@@ -351,11 +351,11 @@ function curency_txt($value,$kind = 'deposit'){
             <input type="text" id="deposit_name" class='b_ghostwhite' placeholder="TXID를 입력해주세요">
 
             <input type="text" id="deposit_value" class='b_ghostwhite' placeholder="입금수량을 입력해주세요">
-            <label class='currency-right' id="deposit-currency-right"><?= $curencys[3] ?></label>
+            <label class='currency-right' id="deposit-currency-right"><?= $curencys[0] ?></label>
           </div>
 
           <div class='col-sm-12 col-12 '>
-            <button class="btn btn_wd font_white deposit_request" data-currency="<?= $curencys[3] ?>">
+            <button class="btn btn_wd font_white deposit_request" data-currency="<?= $curencys[0] ?>">
               <span>입금확인요청</span>
             </button>
           </div>
@@ -549,7 +549,7 @@ function curency_txt($value,$kind = 'deposit'){
     } */
 
     /* 출금*/
-    var curency_tmp = '<?= $curencys[3] ?>';
+    var curency_tmp = '<?= $curencys[0] ?>';
     var usdt_curency = '<?= $curencys[1] ?>';
     var eth_curency = '<?= $curencys[0] ?>';
     var etc_curency = '<?= $curencys[4] ?>';
@@ -631,13 +631,9 @@ function curency_txt($value,$kind = 'deposit'){
       }
     });
 
-    $('#select_coin').on('change',function(){
-      if(this.value == 'eth'){
-        $('.withrawal_alert').css('display','block');
-      }else{
-        $('.withrawal_alert').css('display','none');
-      }
-    });
+    /* $('#select_coin').on('change',function(){
+      
+    }); */
     
     function input_change_eth(obj) {
       let pattern = /^\d+(\.)?(\d{0,8})?$/;
@@ -659,6 +655,13 @@ function curency_txt($value,$kind = 'deposit'){
       $('.fee').css('display', 'none');
       document.querySelector('#sendValue').value = "";
       $('#Withdrawal_btn').attr('data-currency', curency_tmp);
+      
+
+      if($('#select_coin').val() == 'eth'){
+        $('.withrawal_alert').css('display','block');
+      }else{
+        $('.withrawal_alert').css('display','none');
+      }
     });
 
     document.querySelector('#select_deposit_coin').addEventListener('change', (e) => {

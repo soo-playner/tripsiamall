@@ -448,7 +448,7 @@ $result = sql_query($sql);
 
 	// 입금하기
 	$('#go_wallet_btn').click(function(e){
-		if(won_price < 0){
+		if(won_price > 0){
 			if(price_calc < 0){
 				price_calc = price_calc * -1;
 			}
