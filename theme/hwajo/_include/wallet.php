@@ -480,7 +480,8 @@ function get_coins_price(){
 	$result = array();
 	$url_list = array(
 		'https://api.upbit.com/v1/ticker?markets=KRW-ETH&markets=KRW-ETC&markets=USDT-ETH&markets=USDT-ETC',
-		"https://pro-api.coinmarketcap.com/v1/tools/price-conversion?CMC_PRO_API_KEY=9a0e9663-df7f-431b-9561-d46935376d5b&amount=1&symbol=eth"
+		"https://pro-api.coinmarketcap.com/v1/tools/price-conversion?CMC_PRO_API_KEY=9a0e9663-df7f-431b-9561-d46935376d5b&amount=1&symbol=eth",
+		"https://api.bitforex.com/api/v1/market/ticker?symbol=coin-usdt-hja"
 		);
 
 	$data = multi_curl($url_list);
@@ -496,6 +497,7 @@ function get_coins_price(){
 	$result['eth_krw'] = $eth_krw;
 	$result['etc_krw'] = $etc_krw;
 	$result['eth_usdt'] = $data[1]['data']['quote']['USD']['price'];
+	$result['hja'] = $data[2]['data']['last'];
 
 	return $result;
 }
