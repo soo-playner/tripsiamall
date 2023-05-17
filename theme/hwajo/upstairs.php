@@ -253,7 +253,7 @@ $result = sql_query($sql);
 								<!-- <span class='hist_sub_price'><?= shift_auto($row['od_cash'], $od_settle_case) ?> <?= $od_settle_case ?></span> -->
 
 								<?php if($od_name != "P0" || $od_name != "P8"){?>
-									<button class="btn upgradeBtn" style="margin: 0 0 0 auto" data-od_id="<?= $row['od_id'] ?>">업그레이드</button>
+									<button class="btn upgradeBtn" style="margin: 0 0 0 auto" data-od_id="<?= $row['od_id'] ?>" data-price="<?=$row['od_cart_price']?>">업그레이드</button>
 								<?php } ?>
 							</div>
 						</div>
@@ -285,7 +285,7 @@ $result = sql_query($sql);
 
 		var it_name = '';
 		var od_id = '';
-
+		var prev_goods_price = 0;
 		var mb_id = "<?= $member['mb_id'] ?>";
 		var mb_no = "<?= $member['mb_no'] ?>";
 
@@ -467,7 +467,8 @@ $result = sql_query($sql);
 
 		// 상품 업그레이드
 		$('.upgradeBtn').on('click', function() {
-			od_id = $(this).data('od_id')
+			od_id = $(this).data('od_id');
+			prev_goods_price = this.dataset.price;
 			it_name = $(this).siblings('.pack_name').html();
 			upgrade_price_calc = '<?= shift_auto($available_fund, $curencys[1]) ?>';
 			$.post("/util/next_package_info.php", {
@@ -509,7 +510,7 @@ $result = sql_query($sql);
 			}
 
 			// 잔고 확인 
-			if (parseFloat(upgrade_price_calc.replace(/,/g , '')) < it_price) {
+			if (parseFloat(upgrade_price_calc.replace(/,/g , '')) < it_price-prev_goods_price) {
 				dialogModal('구매 가능 잔고 확인', '<strong>구매 가능 잔고가 부족합니다.</strong>', 'warning');
 				return false;
 			}
