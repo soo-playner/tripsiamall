@@ -7,7 +7,7 @@ define('CONFIG_SUB_TITLE','Hwajo Global asset');
 
 // 메일설정
 define('CONFIG_MAIL_ACCOUNT','hwajoasset');
-define('CONFIG_MAIL_PW','fqendcfluafulcyp');
+define('CONFIG_MAIL_PW','elqeritlyovmksmp');
 define('CONFIG_MAIL_ADDR','hwajoasset@gmail.com');
 
 
@@ -42,14 +42,17 @@ $version_date = '2022-09-20';
 
 
 // 텔레그램 설정
-define('TELEGRAM_ALERT_USE',false);
+define('TELEGRAM_ALERT_USE',true);
 
-// 휴대폰인증 테스트모드
-define('HANDLE_STATES', 'real');
 
 $log_ip = '61.74.205.8';
 $log_pw = "*CB664B173EFE2124B8A144F5FE88D06D07B1EAB1";
 
+// 휴대폰인증 테스트모드
+define('HANDLE_STATES', 'real');
+
+// 이메일인증 테스트모드
+define('EMAIL_STATES', 'real');
 
 
 

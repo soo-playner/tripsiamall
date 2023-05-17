@@ -1,6 +1,8 @@
 <?php
 include_once('./_common.php');
 include_once(G5_THEME_PATH.'/_include/wallet.php');
+
+include_once(G5_LIB_PATH.'/Telegram/telegram_api.php');
 include_once(G5_PLUGIN_PATH.'/Encrypt/rule.php');
 
 
@@ -38,6 +40,9 @@ if($select_coin == 'hja') {
 $bank_name = trim($_POST['bank_name']);
 $bank_account = trim($_POST['bank_account']);
 $account_name = trim($_POST['account_name']);
+
+
+$mb_name = $member['mb_name'];
 
 // $debug = 1;
 
@@ -188,7 +193,7 @@ if($debug){
 
 // 출금알림 텔레그램 API
 if(TELEGRAM_ALERT_USE){
-	curl_tele_sent('[HWAJO][출금요청] '.$mb_id.'('.$bank_account.') 님의 '.shift_auto($fixed_amt, $select_coin). ' ' . $select_coin . ' 출금요청이 있습니다.');
+	curl_tele_sent('[HWAJO][출금요청] '.$mb_id.'('.$mb_name.') 님의 '.shift_auto($fixed_amt, $select_coin). ' ' . $select_coin . ' 출금요청이 있습니다.');
 }
 
 if($rst && $amt_result){
