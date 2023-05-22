@@ -676,7 +676,7 @@ function ordered_items($mb_id, $table=null){
 	$item = get_shop_item($table);
 	$upgrade_array = array();
 
-	for($i = 1; $i < count($item); $i++){
+	for($i = 0; $i < count($item); $i++){
 
 		if($table != null){
 			$name_lower = $table;
