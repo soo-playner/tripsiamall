@@ -109,8 +109,8 @@ $result = sql_query($sql);
 									$start_pack = 1;
 									$max_count = count($row);
 								} else {
-									$start_pack = $member['rank'];
-									$max_count = $member['rank'];
+									$start_pack = 1;
+									$max_count = count($row);
 								}
 
 								for ($i = $start_pack; $i <= $max_count; $i++) {
@@ -211,7 +211,7 @@ $result = sql_query($sql);
 
 					<div class="mt20">
 						<button id="purchase" class="btn wd main_btn b_blue b_darkblue round">구매</button>
-						<!-- <button id="upgrade" class="btn wd main_btn b_blue b_darkblue round">업그레이드</button> -->
+						<button id="upgrade" class="btn wd main_btn round" style="background:#ff555d !important;">패키지 업그레이드</button>
 						<button id="go_wallet_btn" class="btn wd main_btn b_green b_skyblue round">입금</button>
 					</div>
 
@@ -253,8 +253,9 @@ $result = sql_query($sql);
 								<!-- <span class='hist_sub_price'><?= shift_auto($row['od_cash'], $od_settle_case) ?> <?= $od_settle_case ?></span> -->
 
 								<?php if($od_name != "P0" || $od_name != "P8"){?>
-									<!-- <button class="btn upgradeBtn" style="margin: 0 0 0 auto" data-od_id="<?= $row['od_id'] ?>">업그레이드</button> -->
+									<button class="btn upgradeBtn" style="margin: 0 0 0 auto" data-od_id="<?= $row['od_id'] ?>">UPGRADE</button>
 								<?php } ?>
+
 							</div>
 						</div>
 					</div>
@@ -467,35 +468,43 @@ $result = sql_query($sql);
 
 		// 상품 업그레이드
 		$('.upgradeBtn').on('click', function() {
+
 			od_id = $(this).data('od_id');
 			prev_goods_price = this.dataset.price;
 			it_name = $(this).siblings('.pack_name').html();
 			upgrade_price_calc = '<?= shift_auto($available_fund, $curencys[1]) ?>';
-			$.post("/util/next_package_info.php", {
-					od_id
-				},
-				function(data) {
-					res = JSON.parse(data);
-					if (res.result == 'success') {
-						$('.change_title').text('PACKAGE 업그레이드');
-						$('#trade_total').val(res.it_cust_price + ' <?= $curencys[1] ?>')
-						$('#shift_dollor').val(Price(parseFloat(upgrade_price_calc.replace(/,/g , '')) - parseFloat(res.diff_price.replace(/,/g , ''))));
-						$('#shift_won').text('VAT 포함 : ' + Price(res.it_cust_price) + ' <?= $curencys[1] ?>');
-						$('#upgrade').show().attr("disabled", false);
-						$('#purchase').hide().attr("disabled", true);
-						$('#total_coin_val').val(upgrade_price_calc);
-						it_price = res.it_cust_price
-					} else {
-						dialogModal('Package 업그레이드 확인', res.message, 'warning');
-						return false;
-					}
 
-				}
-			);
-			var scrollPosition = $('#pakage_sale').offset().top;
-			window.scrollTo({
-				top: scrollPosition,
-				behavior: 'smooth'
+			dialogModal("패키지 구매", "패키지 업그레이드 실행시 해당패키지에서 상위패키지로 차액만큼 차감되며, 상위패키지가 적용됩니다.", "confirm")
+
+			$('#modal_confirm').on('click', function() {
+			
+				
+				$.post("/util/next_package_info.php", {
+						od_id
+					},
+					function(data) {
+						res = JSON.parse(data);
+						if (res.result == 'success') {
+							$('.change_title').text('PACKAGE 업그레이드');
+							$('#trade_total').val(res.it_cust_price + ' <?= $curencys[1] ?>')
+							$('#shift_dollor').val(Price(parseFloat(upgrade_price_calc.replace(/,/g , '')) - parseFloat(res.diff_price.replace(/,/g , ''))));
+							$('#shift_won').text('VAT 포함 : ' + Price(res.it_cust_price) + ' <?= $curencys[1] ?>');
+							$('#upgrade').show().attr("disabled", false);
+							$('#purchase').hide().attr("disabled", true);
+							$('#total_coin_val').val(upgrade_price_calc);
+							it_price = res.it_cust_price
+						} else {
+							dialogModal('Package 업그레이드 확인', res.message, 'warning');
+							return false;
+						}
+
+					}
+				);
+				var scrollPosition = $('#pakage_sale').offset().top;
+				window.scrollTo({
+					top: scrollPosition,
+					behavior: 'smooth'
+				});
 			});
 		});
 

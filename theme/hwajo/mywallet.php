@@ -194,7 +194,7 @@ function curency_txt($value,$kind = 'deposit'){
         $result = 'EtheriumClassic (ETC)';
         break;
       case 'usdt':
-        $result = 'USDT (TetherUS)';
+        $result = 'USDT (TetherUS BEP-20)';
         break;
       case 'hja':
         $result = 'Hwajo-asset (HJA)';
@@ -209,7 +209,7 @@ function curency_txt($value,$kind = 'deposit'){
         $result = 'EtheriumClassic (ETC)';
         break;
       case 'usdt':
-        $result = 'USDT (TetherUS)';
+        $result = 'USDT (TetherUS BEP-20)';
         break;
       case 'hja':
         $result = 'Hwajo-asset (HJA)';

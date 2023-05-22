@@ -666,7 +666,7 @@ $rank_result = sql_fetch($rank_sql);
 		</style>
 		
 		<td colspan="3">
-		<!-- <div style="display: flex; margin-left: 21%;padding: 2px 0px;">
+		<div style="display: flex; margin-left: 21%;padding: 2px 0px;">
 			<div style="display: flex;width: 15%;justify-content: space-between;">
 				<span>
 					<input type="radio" id="purchase" name="purchase_upgrade" value="purchase" checked/>
@@ -677,7 +677,7 @@ $rank_result = sql_fetch($rank_sql);
 					<label for="upgrade">상품업그레이드</label>
 				</span>
 			</div>
-		</div> -->
+		</div>
 			최고보유 패키지 :
 			<!-- <span class='badge t_white color<?= max_item_level_array($mb['mb_id'], 'number') ?>' style='padding:15px;'><?= max_item_level_array($mb['mb_id']) ?></span> -->
 			<span class='badge t_white <?= rank_return($mb['rank'], 'color') ?>' style='padding:15px;'><?= rank_return($mb['rank']) ?></span>
@@ -842,6 +842,11 @@ $rank_result = sql_fetch($rank_sql);
 							location.reload();
 
 						} else {
+
+							if(data.message == undefined){
+								data.message = "상품을 확인해주세요";
+								
+							}
 							alert(data.message);
 							// location.reload();
 
