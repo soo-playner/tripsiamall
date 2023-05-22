@@ -389,7 +389,24 @@ function curency_txt($value,$kind = 'deposit'){
             <div class="hist_con_row1">
               <div class="row">
                 <span class="hist_date"><?= $row['create_dt'] ?></span>
-                <span class="hist_value"><?= shift_auto($row['amt']) ?> <?= $row['coin'] ?></span>
+                <?php 
+                switch(strtolower($row['coin'])){
+                  case 'eth':
+                    $result = '(ERC-20)';
+                    break;
+                  case 'etc':
+                    $result = '(ETC)';
+                    break;
+                  case 'usdt':
+                    $result = '(TetherUS)';
+                    break;
+                  case 'hja':
+                    $result = '(HJA)';
+                    break;
+                }
+                ?>
+                <span class="hist_value"><?= shift_auto($row['amt']) ?> <?= $row['coin'] . ' ' . $result ?></span>
+
               </div>
 
               <div class="row">
@@ -494,12 +511,28 @@ function curency_txt($value,$kind = 'deposit'){
             <div class="hist_con_row1">
               <div class="row">
                 <span class="hist_date"><?= $row['create_dt'] ?></span>
-                <span class="hist_value "> <?= shift_auto($row['amt_total']) ?> <?= $row['coin'] ?></span>
+                <?php 
+                switch(strtolower($row['coin'])){
+                  case 'eth':
+                    $result = '(BEP-20)';
+                    break;
+                  case 'etc':
+                    $result = '(ETC)';
+                    break;
+                  case 'usdt':
+                    $result = '(TetherUS)';
+                    break;
+                  case 'hja':
+                    $result = '(HJA)';
+                    break;
+                }
+                ?>
+                <span class="hist_value "> <?= shift_auto($row['amt_total']) ?> <?= $row['coin'] . ' ' . $result ?></span>
               </div>
 
               <div class="row">
                 <span class="hist_withval"> <?= shift_auto($row['amt']) ?> <?= $row['coin'] ?> / <label>Fee : </label> <?= shift_auto($row['fee']) ?> <?= $row['coin'] ?></span>
-                <span class="hist_value status"><?= shift_auto($row['out_amt']) ?> <?= $curencys[1] ?></span>
+                <span class="hist_value status"><?= shift_auto($row['out_amt']) ?> <?= $curencys[1] . ' ' . $result ?></span>
               </div>
 
               <!-- <div class="row">
