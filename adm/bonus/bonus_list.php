@@ -93,18 +93,18 @@ if ($stx) {
 $sql_common = " from {$g5['bonus']} where (1) ";
 $sql_order='order by day desc';
 
-
 $sql = " select count(*) as cnt
 		{$sql_common}
 		{$sql_search}
 		{$sql_order} ";
 		
 $row = sql_fetch($sql);
+
 $total_count = $row['cnt'];
 
 $colspan = 7;
 if($_REQUEST['view'] == 'all'){
-	$rows = 1000;
+	$rows = 5000;
 }else{
 	$rows = $config['cf_page_rows'];
 }
@@ -114,26 +114,32 @@ $total_page  = ceil($total_count / $rows);  // 전체 페이지 계산
 if ($page < 1) $page = 1; // 페이지가 없으면 첫 페이지 (1 페이지)
 $from_record = ($page - 1) * $rows; // 시작 열을 구함
 
-
-
 $sql = "select * 
 	{$sql_common}
 	{$sql_search}
 	{$sql_order}
 	limit {$from_record}, {$rows} ";
 
-
 $excel_sql = urlencode($sql);
 $result = sql_query($sql);
 $send_sql = $sql;
 
-$listall = '<a href="'.$_SERVER['PHP_SELF'].'" class="ov_listall">전체목록</a>';
+$listall = '<a href="'.$_SERVER['PHP_SELF'].'?view=all" class="ov_listall">전체목록</a>';
 
 $qstr.='&fr_date='.$fr_date.'&to_date='.$to_date.'&chkc='.$chkc.'&chkm='.$chkm.'&chkr='.$chkr.'&chkd='.$chkd.'&chke='.$chke.'&chki='.$chki;
 $qstr.='&diviradio='.$diviradio.'&r='.$r;
 $qstr.='&stx='.$stx.'&sfl='.$sfl;
 $qstr.='&aaa='.$aaa;
 
+$max_day_sql = "SELECT 
+IFNULL((SELECT SUM(benefit) FROM soodang_pay WHERE allowance_name = 'booster' and day =(select MAX(day) FROM soodang_pay)),0) AS booster,
+IFNULL((SELECT SUM(benefit) FROM soodang_pay WHERE allowance_name = 'daily' and day =(select MAX(day) FROM soodang_pay)),0) AS daily,
+IFNULL((SELECT SUM(benefit) FROM soodang_pay WHERE allowance_name = 'sales' and day =(select MAX(day) FROM soodang_pay)),0) AS sales,
+IFNULL((SELECT SUM(benefit) FROM soodang_pay WHERE allowance_name = 'grade' and day =(select MAX(day) FROM soodang_pay)),0) AS grade,
+IFNULL((SELECT SUM(benefit) FROM soodang_pay WHERE day =(select MAX(day) FROM soodang_pay)),0) AS total
+from soodang_pay AS s LIMIT 0,1";
+
+$max_day_row = sql_fetch($max_day_sql);
 
 include_once(G5_PLUGIN_PATH.'/jquery-ui/datepicker.php');
 
@@ -256,7 +262,12 @@ include_once(G5_PLUGIN_PATH.'/jquery-ui/datepicker.php');
 <input type="hidden" name="token" value="<?php echo $token ?>">
 <div class="local_ov01 ">
     <?php echo $listall ?>
-    전체 <?php echo number_format($total_count) ?> 건 
+    <span class="ov_listall">전체 <?php echo number_format($total_count) ?> 건 </span>
+	<span class="ov_listall">당일 총지급 : <?=shift_auto($max_day_row['total'],$curencys[1])?></span>
+	<span class="ov_listall">데일리 : <?=shift_auto($max_day_row['daily'],$curencys[1])?></span>
+	<span class="ov_listall">부스터 : <?=shift_auto($max_day_row['booster'],$curencys[1])?></span>
+	<span class="ov_listall">세일즈 : <?=shift_auto($max_day_row['sales'],$curencys[1])?></span>
+	<span>직급 수당(월 1회) : <?=shift_auto($max_day_row['grade'],$curencys[1])?></span>
 </div>
 <div class="tbl_head01 tbl_wrap">
     <table id='table'>

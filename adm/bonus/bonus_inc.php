@@ -391,14 +391,27 @@ function shift_coin($val){
 }
 
 // 달러 , ETH 코인 표시
-function shift_auto($val,$coin = '원'){
-	if($coin == '$'){
-		return shift_doller($val);
-	}else if($coin == '원'){
-		return shift_kor($val);
+// function shift_auto($val,$coin = '원'){
+// 	if($coin == '$'){
+// 		return shift_doller($val);
+// 	}else if($coin == '원'){
+// 		return shift_kor($val);
+// 	}else{
+// 		return shift_coin($val);
+// 	}
+// }
+
+function shift_auto($val,$type = 'eth'){
+	if($type == 'eth'){
+		$decimal = ASSETS_NUMBER_POINT;
+	}else if($type == 'krw'){
+		$decimal = KRW_NUMBER_POINT;
+	}else if($type == 'usdt'){
+		$decimal = BONUS_NUMBER_POINT;
 	}else{
-		return shift_coin($val);
+		$decimal = COIN_NUMBER_POINT;
 	}
+	return clean_number_format($val,$decimal);
 }
 
 function clean_coin_format($val, $decimal = ASSETS_NUMBER_POINT){

@@ -913,7 +913,6 @@ function curency_txt($value,$kind = 'deposit'){
         type: "POST",
         url: "./util/withdrawal_proc.php",
         cache: false,
-        async: false,
         dataType: "json",
         data: {
           mb_id: mb_id,
