@@ -11,16 +11,19 @@ auth_check($auth[$sub_menu], 'r');
 
 
 // 기간설정
-if (empty($fr_date)) $fr_date = date("Y-m-d", strtotime(date("Y-m-d")."-7 day"));
+if (empty($fr_date)) $fr_date = date("Y-m-d", strtotime(date("Y-m-d")));
 if (empty($to_date)) $to_date = G5_TIME_YMD;
+
+$max_date = "select MAX(day) FROM soodang_pay";
 
 if($_GET['start_dt']){
 	$fr_date = $_GET['start_dt'];
+	$max_date = "'{$fr_date}'";
 }
-if($_GET['end_dt']){
-	$to_date = $_GET['end_dt'];
-}
-
+// if($_GET['end_dt']){
+	$to_date = $fr_date;
+	// $to_date = $_GET['end_dt'];
+// }
 
 $sql = "select * from {$g5['bonus_config']} where used > 0 order by no asc";
 $list = sql_query($sql);
@@ -132,11 +135,11 @@ $qstr.='&stx='.$stx.'&sfl='.$sfl;
 $qstr.='&aaa='.$aaa;
 
 $max_day_sql = "SELECT 
-IFNULL((SELECT SUM(benefit) FROM soodang_pay WHERE allowance_name = 'booster' and day =(select MAX(day) FROM soodang_pay)),0) AS booster,
-IFNULL((SELECT SUM(benefit) FROM soodang_pay WHERE allowance_name = 'daily' and day =(select MAX(day) FROM soodang_pay)),0) AS daily,
-IFNULL((SELECT SUM(benefit) FROM soodang_pay WHERE allowance_name = 'sales' and day =(select MAX(day) FROM soodang_pay)),0) AS sales,
-IFNULL((SELECT SUM(benefit) FROM soodang_pay WHERE allowance_name = 'grade' and day =(select MAX(day) FROM soodang_pay)),0) AS grade,
-IFNULL((SELECT SUM(benefit) FROM soodang_pay WHERE day =(select MAX(day) FROM soodang_pay)),0) AS total
+IFNULL((SELECT SUM(benefit) FROM soodang_pay WHERE allowance_name = 'booster' and day =({$max_date})),0) AS booster,
+IFNULL((SELECT SUM(benefit) FROM soodang_pay WHERE allowance_name = 'daily' and day =({$max_date})),0) AS daily,
+IFNULL((SELECT SUM(benefit) FROM soodang_pay WHERE allowance_name = 'sales' and day =({$max_date})),0) AS sales,
+IFNULL((SELECT SUM(benefit) FROM soodang_pay WHERE allowance_name = 'grade' and day =({$max_date})),0) AS grade,
+IFNULL((SELECT SUM(benefit) FROM soodang_pay WHERE day =({$max_date})),0) AS total
 from soodang_pay AS s LIMIT 0,1";
 
 $max_day_row = sql_fetch($max_day_sql);
@@ -242,7 +245,7 @@ include_once(G5_PLUGIN_PATH.'/jquery-ui/datepicker.php');
 			<label for="stx" class="sound_only">검색어<strong class="sound_only"> 필수</strong></label>
 			<input type="text" name="stx" value="<?php echo $stx ?>" id="stx" class="frm_input" style='padding:0 5px;'>
 			| 검색 기간 : <input type="text" name="start_dt" id="start_dt" placeholder="From" class="frm_input" value="<?=$fr_date?>" style='padding:0 5px;width:80px;'/> 
-			~ <input type="text" name="end_dt" id="end_dt" placeholder="To" class="frm_input" value="<?=$to_date?>" style='padding:0 5px;width:80px;'/>
+			<!-- ~ <input type="text" name="end_dt" id="end_dt" placeholder="To" class="frm_input" value="<?=$to_date?>" style='padding:0 5px;width:80px;'/> -->
 			
 			<?=$html?>
 		
