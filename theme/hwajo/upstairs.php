@@ -80,6 +80,15 @@ $result = sql_query($sql);
 		box-shadow: inset 1px 1px 2px rgb(0 0 0 / 80%), 1px 1px 1px rgb(255 255 255 / 30%);
 		text-align: center;
 	}
+
+	.dark .pack_name{
+		background: #1a1a1a;
+    	padding: 2px 10px;
+    	display: block;
+    	border-radius: 8px;
+		width:auto;
+
+	}
 </style>
 
 <? include_once(G5_THEME_PATH . '/_include/breadcrumb.php'); ?>
@@ -474,7 +483,7 @@ $result = sql_query($sql);
 			it_name = $(this).siblings('.pack_name').html();
 			upgrade_price_calc = '<?= shift_auto($available_fund, $curencys[1]) ?>';
 
-			dialogModal("패키지 구매", "패키지 업그레이드 실행시 해당패키지에서 상위패키지로 차액만큼 차감되며, 상위패키지가 적용됩니다.", "confirm")
+			dialogModal("패키지 구매", "패키지 업그레이드를 누르면 해당패키지에서 상위패키지로 차액만큼 차감되며, 상위패키지가 적용됩니다.", "confirm")
 
 			$('#modal_confirm').on('click', function() {
 			

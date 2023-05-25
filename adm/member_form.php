@@ -346,6 +346,7 @@ $rank_result = sql_fetch($rank_sql);
 		<p>
 			<!-- - 센터지정시 체크시 센터명 등록 : 회원레벨 자동변경 (체크해제시 회원레벨은 수동)<br> -->
 			- 별도관리지정은 <strong>보너스 출금요청이 불가</strong>하며 아이디가 <strong>구분표시(아이디 붉은색 처리)</strong> 처리되며 회원차단은 로그인불가 처리됩니다. (각 해제시 입력된 날짜제거후 저장)
+			- 패키지 업그레이드는 업그레이드 선택후 해당 패키지 클릭시 +1단계 업그레이드 처리
 		</p>
 	</div>
 
@@ -666,15 +667,16 @@ $rank_result = sql_fetch($rank_sql);
 		</style>
 		
 		<td colspan="3">
-		<div style="display: flex; margin-left: 21%;padding: 2px 0px;">
-			<div style="display: flex;width: 15%;justify-content: space-between;">
-				<span>
+		<div style="display: flex; margin-left: 200px; padding: 2px 0px;">
+			<div style="display: flex;width: auto;justify-content: space-between;">
+				<span style="width:80px;">
 					<input type="radio" id="purchase" name="purchase_upgrade" value="purchase" checked/>
-					<label for="purchase">상품구매</label>
+					<label for="purchase">신규구매</label>
 				</span>
-				<span>
+
+				<span style="width:250px;">
 					<input type="radio" id="upgrade" name="purchase_upgrade" value="upgrade"/>
-					<label for="upgrade">상품업그레이드</label>
+					<label for="upgrade">패키지 업그레이드</label>
 				</span>
 			</div>
 		</div>

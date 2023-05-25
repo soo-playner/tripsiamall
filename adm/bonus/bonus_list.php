@@ -150,6 +150,13 @@ include_once(G5_PLUGIN_PATH.'/jquery-ui/datepicker.php');
 
 ?>   
 
+<style>
+	#benefitlist strong{
+		color:red;
+		font-weight:bold;
+	}
+
+</style>
 
 <link href="<?=G5_ADMIN_URL?>/css/scss/bonus/bonus_list.css" rel="stylesheet">
 <script src="../../excel/tabletoexcel/xlsx.core.min.js"></script>
@@ -266,11 +273,12 @@ include_once(G5_PLUGIN_PATH.'/jquery-ui/datepicker.php');
 <div class="local_ov01 ">
     <?php echo $listall ?>
     <span class="ov_listall">전체 <?php echo number_format($total_count) ?> 건 </span>
-	<span class="ov_listall">당일 총지급 : <?=shift_auto($max_day_row['total'],$curencys[1])?></span>
-	<span class="ov_listall">데일리 : <?=shift_auto($max_day_row['daily'],$curencys[1])?></span>
-	<span class="ov_listall">부스터 : <?=shift_auto($max_day_row['booster'],$curencys[1])?></span>
-	<span class="ov_listall">세일즈 : <?=shift_auto($max_day_row['sales'],$curencys[1])?></span>
-	<span>직급 수당(월 1회) : <?=shift_auto($max_day_row['grade'],$curencys[1])?></span>
+	<strong><?=$max_day_row['lastday']?></strong>
+	<span class="ov_listall">총지급 : <strong><?=shift_auto($max_day_row['total'],$curencys[1])?></strong></span>
+	<span class="ov_listall">데일리 : <strong><?=shift_auto($max_day_row['daily'],$curencys[1])?></strong></span>
+	<span class="ov_listall">부스터 : <strong><?=shift_auto($max_day_row['booster'],$curencys[1])?></strong></span>
+	<span class="ov_listall">세일즈 : <strong><?=shift_auto($max_day_row['sales'],$curencys[1])?></strong></span>
+	<span>직급 수당(월 해당일) : <strong><?=shift_auto($max_day_row['grade'],$curencys[1])?></strong></span>
 </div>
 <div class="tbl_head01 tbl_wrap">
     <table id='table'>
