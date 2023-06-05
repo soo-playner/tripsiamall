@@ -1,7 +1,7 @@
 <?php
 include_once('./_common.php');
 
-print_R($_POST);
+// print_R($_POST);
 $now_datetime = G5_TIME_YMDHIS;
 
 $sql = "SELECT * FROM g5_write_kyc WHERE wr_id = '{$_POST['id']}'";
@@ -21,8 +21,10 @@ if ($pre_result) {
 
     $mb_update .= " WHERE mb_id = '{$pre_result['mb_id']}' ";
 
-    print_R($mb_update);
+    // print_R($mb_update);
     $update_result = sql_query($mb_update);
+
+   
 
     if ($update_result) {
         echo json_encode(array("code" => "00001","result" => "success"));

@@ -139,7 +139,8 @@ IFNULL((SELECT SUM(benefit) FROM soodang_pay WHERE allowance_name = 'booster' an
 IFNULL((SELECT SUM(benefit) FROM soodang_pay WHERE allowance_name = 'daily' and day =({$max_date})),0) AS daily,
 IFNULL((SELECT SUM(benefit) FROM soodang_pay WHERE allowance_name = 'sales' and day =({$max_date})),0) AS sales,
 IFNULL((SELECT SUM(benefit) FROM soodang_pay WHERE allowance_name = 'grade' and day =({$max_date})),0) AS grade,
-IFNULL((SELECT SUM(benefit) FROM soodang_pay WHERE day =({$max_date})),0) AS total
+IFNULL((SELECT SUM(benefit) FROM soodang_pay WHERE day =({$max_date})),0) AS total, 
+{$max_date} as last_day
 from soodang_pay AS s LIMIT 0,1";
 
 $max_day_row = sql_fetch($max_day_sql);
@@ -166,7 +167,7 @@ include_once(G5_PLUGIN_PATH.'/jquery-ui/datepicker.php');
 <div class="local_desc01 local_desc">
     <p>
 		공통 : 보너스기준일자로 각 보너스지급버튼 클릭<br>
-		<!-- <strong>직급승급 : </strong>① 마이닝 수당 전체 지급후 마지막에 승급 실행(데이터 기록)<br> -->
+		<strong>지급량 합계 :</strong>검색기간 날짜 선택후 검색시 지급량 합계표시 - 단위 USDT<br>
 		<!-- <span style='margin-left:155px;'></span>② 21일~ 말일 실행시 - 이번달 2분기(15~말일) 매출로 정산<br>
 		<span style='margin-left:155px;'></span>③  1일 ~ 13일 실행시 - 지난달 2분기(15~말일) 매출로 정산
  -->
@@ -273,7 +274,7 @@ include_once(G5_PLUGIN_PATH.'/jquery-ui/datepicker.php');
 <div class="local_ov01 ">
     <?php echo $listall ?>
     <span class="ov_listall">전체 <?php echo number_format($total_count) ?> 건 </span>
-	<strong><?=$max_day_row['lastday']?></strong>
+	<strong><?=$max_day_row['last_day']?> </strong>
 	<span class="ov_listall">총지급 : <strong><?=shift_auto($max_day_row['total'],$curencys[1])?></strong></span>
 	<span class="ov_listall">데일리 : <strong><?=shift_auto($max_day_row['daily'],$curencys[1])?></strong></span>
 	<span class="ov_listall">부스터 : <strong><?=shift_auto($max_day_row['booster'],$curencys[1])?></strong></span>

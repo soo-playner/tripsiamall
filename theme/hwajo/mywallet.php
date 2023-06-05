@@ -188,7 +188,7 @@ function curency_txt($value,$kind = 'deposit'){
   if($kind == 'deposit'){
     switch(strtolower($value)){
       case 'eth':
-        $result = 'Etherium (ERC-20)';
+        $result = 'Etherium (BEP-20)';
         break;
       case 'etc':
         $result = 'EtheriumClassic (ETC)';
@@ -197,7 +197,7 @@ function curency_txt($value,$kind = 'deposit'){
         $result = 'USDT (TetherUS BEP-20)';
         break;
       case 'hja':
-        $result = 'Hwajo-asset (HJA)';
+        $result = 'Hwajo-asset (HJA BEP-20)';
         break;
     }
   }else{
@@ -212,7 +212,7 @@ function curency_txt($value,$kind = 'deposit'){
         $result = 'USDT (TetherUS BEP-20)';
         break;
       case 'hja':
-        $result = 'Hwajo-asset (HJA)';
+        $result = 'Hwajo-asset (HJA BEP-20)';
         break;
     }
   }
@@ -347,7 +347,7 @@ function curency_txt($value,$kind = 'deposit'){
           </div>
 
           <div class='txt-box deposit_alert col-12'>
-            선택된 입금코인은 ETH (ERC-20) 입니다.<br> ETH (BEP-20) 입금시 처리되지 않으니 반드시 확인후 입금하시기 바랍니다.
+            선택된 입금코인은 ETH (BEP-20) 입니다.<br> ETH (ERC-20) 입금시 처리되지 않으니 반드시 확인후 입금하시기 바랍니다.
           </div>
           
 

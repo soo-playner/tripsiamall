@@ -24,7 +24,7 @@ $query_string = $qstr ? '?' . $qstr : '';
 
 $sql_common = "FROM g5_shop_order";
 $sql_search = " WHERE mb_id = '{$member['mb_id']}' ";
-$sql_search .= " AND od_date between '{$fr_date}' and '{$to_date}' ";
+// $sql_search .= " AND od_date between '{$fr_date}' and '{$to_date}' ";
 
 $sql = " select count(*) as cnt
 {$sql_common}
@@ -44,6 +44,7 @@ $sql = "SELECT mb_id, od_id, od_cart_price, od_receipt_time, od_name, od_cash, o
 {$sql_search} ";
 
 $sql .= "order by od_receipt_time desc limit {$from_record}, {$rows} ";
+
 $result = sql_query($sql);
 ?>
 

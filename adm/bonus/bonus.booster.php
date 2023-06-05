@@ -67,7 +67,7 @@ echo "<div class='btn' onclick='bonus_url();'>돌아가기</div>";
         
         <?php
 
-$member_for_paying_sql = "select mb_id as id, mb_name, mb_no, mb_level, grade, mb_balance, mb_index,mb_balance_ignore, mb_deposit_point, (select count(*) from g5_member where mb_recommend = id) as cnt from g5_member where mb_save_point > 0";
+$member_for_paying_sql = "select mb_id as id, mb_name, mb_no, mb_level, grade, mb_balance, mb_index,mb_balance_ignore, mb_deposit_point, (select count(*) from g5_member where mb_recommend = id) as cnt from g5_member where mb_save_point >= 0";
 
 if($debug){echo "<code>{$member_for_paying_sql}</code>";}
 
@@ -152,7 +152,11 @@ for($i = 0; $i < $row = sql_fetch_array($member_for_paying_result); $i++){
         $clean_over_benefit = clean_number_format($over_benefit);
         $over_benefit_log = " (over benefit : {$clean_over_benefit} / {$clean_number_mb_index})";
     }
-    
+
+    if($add_benefit < 0){
+        $add_benefit = 0;
+    }
+
     echo "<div style='color:orange;'>발생 수당 : {$origin_benefit}</div><div style='color:red;'>▶ 수당 지급: {$add_benefit}</div><br><br>";
 
     if($update_mb_balance_sql == "") {$update_mb_balance_sql .= "mb_balance = case mb_id ";}

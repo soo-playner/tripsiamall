@@ -1,6 +1,7 @@
 <?php
 include_once('./_common.php');
 include_once(G5_PLUGIN_PATH.'/Encrypt/rule.php');
+include_once(G5_LIB_PATH.'/Telegram/telegram_api.php');
 
 $g5['title'] = '파일 저장';
 
@@ -377,5 +378,12 @@ if ($file_upload_msg)
     
 else
     ob_clean();
+	
+ 	// KYC 인증 API
+	if(TELEGRAM_ALERT_USE){
+		curl_tele_sent("[HWAJO][KYC인증] ".$member['mb_id']." 님이 KYC 인증 등록을 요청했습니다.",2);
+	}
     echo (json_encode(array("result" => "success",  "code" => "0000", "sql" => 'kyc upload success')));
+
+	
 ?>

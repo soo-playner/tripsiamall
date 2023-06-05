@@ -246,7 +246,7 @@
 					</ul>
 				</div> -->
 
-				<div class='col-sm-12 col-12 profile-box'>
+				<!-- <div class='col-sm-12 col-12 profile-box'>
 					<h3 class='title b_line'>
 						<i class="p3"><img src="<?=G5_THEME_URL?>/img/recommendation_information.png" alt=""></i>
 						<span >추천인 정보</span>
@@ -258,13 +258,13 @@
 						</li>
 					</ul>
 
-					<!-- <ul class='row'>
+					<ul class='row'>
 						<li class='col-sm-12 col-12'>
 							<label >나의 센터</label>
 							<p ><?=get_name($member['mb_center'])?></p>
 						</li>
-					</ul> -->
-				</div>
+					</ul>
+				</div> -->
 
 				<div class='col-sm-12 col-12 profile-box'>
 					

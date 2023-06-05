@@ -516,7 +516,7 @@ var gradeMap = {
 		<div class="container nopadding nomargin">
 			<section class="structure_wrap">
 				<!--<p>데이터 크기로 인해 한번에 5대씩 화면에 나타납니다</p>-->
-				<div class="btn_input_wrap" style='background:white'>
+				<!-- <div class="btn_input_wrap" style='background:white'>
 					<div class="bin_top">회원 검색</div>
 					<ul class="row align-items-center">
 						<li class="col-9 user_search_wrap">
@@ -536,7 +536,7 @@ var gradeMap = {
 						</div>
 					</div>
 				</div>
-				
+				 -->
 				<!-- <div class="desc font_red" style='font-size:11px'>[ 금액단위 : 만원 ]</div> -->
 				<div class="main-container content-box tree-container nomargin">
 					<div class="bin_top">추천 등록 코드</div>					
