@@ -202,11 +202,11 @@ if($bonus_row['limited'] > 0){
 $bonus_limit_tx = bonus_limit_tx($bonus_limit);
 
 
-if(strpos($bonus_row['rate'],',')>0){
+/* if(strpos($bonus_row['rate'],',')>0){
     $bonus_rates = explode(',',$bonus_row['rate']);
 }else{
     $bonus_rate = $bonus_row['rate']*0.01;
-}
+} */
 
 $bonus_condition = $bonus_row['source'];
 $bonus_condition_tx = bonus_condition_tx($bonus_condition);

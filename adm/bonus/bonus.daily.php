@@ -7,7 +7,7 @@ include_once('./bonus_inc.php');
 auth_check($auth[$sub_menu], 'r');
 
 // 데일리수당
-// $debug = 1;
+$debug = 1;
 $bonus_row = bonus_pick($code);
 
 $bonus_rate = explode(",",$bonus_row['layer']);
@@ -40,7 +40,7 @@ if($debug){
 }
 
 // 설정로그 
-echo "<strong>".strtoupper($code)." 지급비율 : ". $daily_bonus_rate."%   </strong> |    지급조건 :".$pre_condition."  |    지급한계 : ".$bonus_row['limited']."% <br>";
+echo "<strong>".strtoupper($code)." 지급비율 : ". $daily_bonus_rate."%   </strong> | 지급한계 : ".$bonus_row['limited']."% <br>";
 echo "<strong>".$bonus_day."</strong><br><br>";
 echo "<div class='btn' onclick='bonus_url();'>돌아가기</div>";
 

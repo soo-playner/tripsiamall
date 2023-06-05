@@ -1,20 +1,55 @@
 <?php
+$debug = false;
 
-$sub_menu = "600200";
-include_once('./_common.php');
-include_once('./bonus_inc.php');
+function bonus_pick($val){    
+    global $conn;
+    $pick_sql = "select * from wallet_bonus_config where code = '{$val}' ";
+    $pick_result = mysqli_query($conn, $pick_sql);
+    $list = mysqli_fetch_array($pick_result);
+    return $list;
+}
 
-// $debug = 1;
+function clean_coin_format($val, $decimal = 8){
+	$_num = (int)str_pad("1",$decimal+1,"0",STR_PAD_RIGHT);
+	return floor($val*$_num)/$_num;
+}
 
-auth_check($auth[$sub_menu], 'r');
+function clean_number_format($val, $decimal = 2){
+	$_decimal = $decimal <= 0 ? 1 : $decimal;
+	$_num = number_format(clean_coin_format($val,$decimal), $_decimal);
+    $_num = rtrim($_num, 0);
+    $_num= rtrim($_num, '.');
 
-$check_bonus_day_sql = "select count(day) as cnt from soodang_pay where day = '{$bonus_day}'";
-$check_bonus_day = sql_fetch($check_bonus_day_sql)['cnt'];
+    return $_num;
+}
 
-if(!$check_bonus_day){
-    echo "<script>alert('{$bonus_day} DAILY 보너스 기록이 없습니다.');
-    history.back();</script>";
-    return false;
+$code = "booster";
+$bonus_day = date('Y-m-d');
+
+$host_name = 'localhost';
+$user_name = 'root';
+$user_pwd = 'wizclass235689!@';
+$database = 'hwajo';
+$conn = mysqli_connect($host_name,$user_name,$user_pwd,$database);
+
+$check_bonus_day_sql = "select count(day) as cnt from soodang_pay where day = '{$bonus_day}' and allowance_name = 'daily'";
+$check_bonus_day_result  = mysqli_query($conn,$check_bonus_day_sql);
+$check_bonus_day = mysqli_fetch_array($check_bonus_day_result)['cnt'];
+
+if($check_bonus_day <= 0){
+    echo "<code>{$check_bonus_day_sql}</code><br>";
+    echo "{$bonus_day} DAILY 보너스 기록이 없습니다.";
+    die;
+}
+
+$check_booster_today_sql = "select count(day) as cnt from soodang_pay where day = '{$bonus_day}' and allowance_name = '{$code}'";
+$check_booster_today_result  = mysqli_query($conn,$check_booster_today_sql);
+$check_booster_today = mysqli_fetch_array($check_booster_today_result)['cnt'];
+
+if($check_booster_today > 0){
+    echo "<code>{$check_booster_today_sql}</code><br>";
+    echo "{$bonus_day} {$code} 는 이미 지급되었습니다.";
+    die;
 }
 
 
@@ -54,7 +89,7 @@ if($debug){
 }
 
 // 설정로그 
-echo "<strong>".strtoupper($code)." 지급비율 : ". $rate_text."   </strong>     <br>지급조건 :".$pre_condition."  |    지급한계 : ".$bonus_row['limited']."% <br>";
+echo "<strong>".strtoupper($code)." 지급비율 : ". $rate_text."   </strong> | 지급한계 : ".$bonus_row['limited']."% <br>";
 echo "<strong>".$bonus_day."</strong><br><br>";
 echo "<div class='btn' onclick='bonus_url();'>돌아가기</div>";
 ?>
@@ -71,7 +106,7 @@ $member_for_paying_sql = "select mb_id as id, mb_name, mb_no, mb_level, grade, m
 
 if($debug){echo "<code>{$member_for_paying_sql}</code>";}
 
-$member_for_paying_result = sql_query($member_for_paying_sql);
+$member_for_paying_result = mysqli_query($conn, $member_for_paying_sql);
 
 $mem_list = array();
 
@@ -83,7 +118,7 @@ $update_where_sql = " where mb_id in(";
 $log_start_sql = "insert into soodang_pay(`allowance_name`,`day`,`mb_id`,`mb_no`,`benefit`,`mb_level`,`grade`,`mb_name`,`rec`,`rec_adm`,`origin_balance`,`origin_deposit`,`datetime`) values";
 $log_values_sql = "";
 
-for($i = 0; $i < $row = sql_fetch_array($member_for_paying_result); $i++){
+for($i = 0; $i < $row = mysqli_fetch_array($member_for_paying_result); $i++){
     
     $mb_id = $row['id'];
     $recommended_cnt = $row['cnt'];
@@ -99,8 +134,6 @@ for($i = 0; $i < $row = sql_fetch_array($member_for_paying_result); $i++){
     $recom_sales = array_int_sum($recom_member, 'mb_save_point', 'int');
     
     
-    
-
     if (!$recom_sales) {
         $recom_sales = 0;
     }
@@ -188,9 +221,9 @@ for($i = 0; $i < $row = sql_fetch_array($member_for_paying_result); $i++){
         echo "<code>{$log_sql}</code>";
     }else{
         
-        $result = sql_query($log_sql);
+        $result = mysqli_query($conn, $log_sql);
         if($result){
-            $result = sql_query($update_sql);
+            $result = mysqli_query($conn, $update_sql);
             if(!$result){
                 echo "<code>ERROR:: MEMBER SQL -> {$update_sql}</code>";
             }
@@ -212,44 +245,41 @@ function get_bonus_rate($depth){
 
 /* 추천하부매니저 검색 */
 function return_down_manager($mb_no,$cnt=0){
-	global $config,$g5,$mem_list;
+	global $conn, $mem_list;
 
-	$mb_result = sql_fetch("SELECT mb_id,mb_name,mb_level,grade,mb_rate,mb_save_point,rank,recom_sales,mb_my_sales from g5_member WHERE mb_no = '{$mb_no}' ");
+    $mb_sql = "SELECT mb_id,mb_name,mb_level,grade,mb_rate,mb_save_point,rank,recom_sales,mb_my_sales from g5_member WHERE mb_no = '{$mb_no}' ";
+	$mb_result = mysqli_query($conn, $mb_sql);
+    $mb_row = mysqli_fetch_array($mb_result);
 	$list = [];
-	$list['mb_id'] = $mb_result['mb_id'];
-	$list['mb_name'] = $mb_result['mb_name'];
-	$list['mb_level'] = $mb_result['mb_level'];
-    $list['mb_save_point'] = $mb_result['mb_save_point'];
-	$list['grade'] = $mb_result['grade'];
+	$list['mb_id'] = $mb_row['mb_id'];
+	$list['mb_name'] = $mb_row['mb_name'];
+	$list['mb_level'] = $mb_row['mb_level'];
+    $list['mb_save_point'] = $mb_row['mb_save_point'];
+	$list['grade'] = $mb_row['grade'];
 	$list['depth'] = 0;
-	$list['mb_rate'] = $mb_result['mb_rate'];
-	$list['recom_sales'] = $mb_result['recom_sales'];
-	$list['rank'] = $mb_result['rank'];
-	$list['mb_my_sales'] = $mb_result['mb_my_sales'];
-	
-	// $mb_add = sql_fetch("SELECT COUNT(mb_id) as cnt,IFNULL( (SELECT noo  from  recom_bonus_noo WHERE mb_id = '{$mb_result['mb_id']}' ) ,0) AS noo FROM g5_member WHERE mb_recommend = '{$mb_result['mb_id']}' ");
-	
-	// $list['cnt'] = $mb_add['cnt'];
-	// $list['noo'] = $mb_add['noo'];
+	$list['mb_rate'] = $mb_row['mb_rate'];
+	$list['recom_sales'] = $mb_row['recom_sales'];
+	$list['rank'] = $mb_row['rank'];
+	$list['mb_my_sales'] = $mb_row['mb_my_sales'];
 
 	$mem_list = [$list];
-	$result = recommend_downtree($mb_result['mb_id'],0,$cnt);
+	$result = recommend_downtree($mb_row['mb_id'],0,$cnt);
 
 	return $result;
 }
 
 
 function recommend_downtree($mb_id,$count=0,$cnt = 0){
-	global $mem_list;
+	global $conn, $mem_list;
 
 	if($cnt == 0 || ($cnt !=0 && $count < $cnt)){
 		
-		$recommend_tree_result = sql_query("SELECT mb_id,mb_name,mb_level,grade,mb_rate,mb_save_point,rank,recom_sales,mb_my_sales from g5_member WHERE mb_recommend = '{$mb_id}' ");
-		$recommend_tree_cnt = sql_num_rows($recommend_tree_result);
+		$recommend_tree_result = mysqli_query($conn, "SELECT mb_id,mb_name,mb_level,grade,mb_rate,mb_save_point,rank,recom_sales,mb_my_sales from g5_member WHERE mb_recommend = '{$mb_id}' ");
+		$recommend_tree_cnt = mysqli_num_rows($recommend_tree_result);
 		if($recommend_tree_cnt > 0 ){
 			++$count;
 
-			while($row = sql_fetch_array($recommend_tree_result)){
+			while($row = mysqli_fetch_array($recommend_tree_result)){
 				$list['mb_id'] = $row['mb_id'];
 				$list['mb_name'] = $row['mb_name'];
 				$list['mb_level'] = $row['mb_level'];
@@ -275,13 +305,54 @@ function array_int_sum($list, $key){
 }
 ?>
 
+
+</div>
+<footer > 정산 완료</footer>
+
+<div class='btn' onclick="bonus_url('<?=$category?>');">돌아가기</div>
+
+<body>
+</html>
+
+<style>
+	body{font-size:14px;line-height:18px;letter-spacing:0px;}
+	code{color:green;display:block;margin-bottom:5px;font-size:11px;}
+    .red{color:red;font-weight:600;}
+    .blue{color:blue;font-weight:600;}
+	.big {font-size:16px;font-weight:600;}
+	.title{font-weight:800;color:black;font-size:16px;display:block;}
+	.box{background:ghostwhite;margin-top:30px;border-bottom:1px solid #eee;padding-left:5px;width:100%;display:block;}
+	.block{font-size:26px; background: turquoise;display: block;height: 30px;line-height: 30px;}
+	.block.coral{background:lightcoral}
+	.indent{text-indent:20px;display: inline-block;}
+	.btn{background:black; padding:5px 20px; display:inline-block;color:white;font-weight:600;cursor:pointer;margin-bottom:20px;}
+	footer,header{margin:20px 0; background:black;color:white;text-align:center}
+	.error{display:block;width:100%;text-align:center;height:150px;line-height:150px}
+	.hidden{display:none;}
+	.desc{font-size:11px;color:#777;}
+	.subtitle{font-size:20px;}
+	.sys_log{margin-bottom:30px;}
+</style>
+
+
+<script>
+ function bonus_url($val){
+	 if($val == 'mining'){
+		location.href = '/adm/bonus/bonus_mining.php?to_date=<?=$bonus_day?>';
+	 }else{
+		location.href = '/adm/bonus/bonus_list.php?to_date=<?=$bonus_day?>';
+	 }
+     
+ }
+</script>
+
+
 <?php
-include_once('./bonus_footer.php');
 //로그 기록
 if($debug){}else{
     $html = ob_get_contents();
     //ob_end_flush();
-    $logfile = G5_PATH.'/data/log/'.$code.'/'.$code.'_'.$bonus_day.'.html';
+    $logfile = '/var/www/html/hwajo/theme/hwajo/data/log/'.$code.'/'.$code.'_'.$bonus_day.'.html';
     fopen($logfile, "w");
     file_put_contents($logfile, ob_get_contents());
 }
