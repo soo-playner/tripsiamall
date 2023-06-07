@@ -1,4 +1,5 @@
 <?php
+ob_start();
 $debug = false;
 
 function bonus_pick($val){    
@@ -28,7 +29,7 @@ $bonus_day = date('Y-m-d');
 
 $host_name = 'localhost';
 $user_name = 'root';
-$user_pwd = 'wizclass235689!@';
+$user_pwd = 'willsoft0780!@';
 $database = 'hwajo';
 $conn = mysqli_connect($host_name,$user_name,$user_pwd,$database);
 
@@ -352,7 +353,7 @@ function array_int_sum($list, $key){
 if($debug){}else{
     $html = ob_get_contents();
     //ob_end_flush();
-    $logfile = '/var/www/html/hwajo/theme/hwajo/data/log/'.$code.'/'.$code.'_'.$bonus_day.'.html';
+    $logfile = '/var/www/html/hwajo/data/log/'.$code.'/'.$code.'_'.$bonus_day.'.html';
     fopen($logfile, "w");
     file_put_contents($logfile, ob_get_contents());
 }
