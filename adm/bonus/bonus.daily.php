@@ -7,7 +7,7 @@ include_once('./bonus_inc.php');
 auth_check($auth[$sub_menu], 'r');
 
 // 데일리수당
-$debug = 1;
+$debug = false;
 $bonus_row = bonus_pick($code);
 
 $bonus_rate = explode(",",$bonus_row['layer']);

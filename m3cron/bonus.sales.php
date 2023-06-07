@@ -1,10 +1,106 @@
 <?php
-include_once('./_common.php');
-include_once(G5_ADMIN_PATH.'/bonus/bonus_inc.php');
+$debug = false;
 
-// $debug = 1;
+function bonus_pick($val){    
+    global $conn;
+    $pick_sql = "select * from wallet_bonus_config where code = '{$val}' ";
+    $pick_result = mysqli_query($conn, $pick_sql);
+    $list = mysqli_fetch_array($pick_result);
+    return $list;
+}
 
+function bonus_condition_tx($bonus_condition){
+    $bonus_condition_tx = "";
+    if($bonus_condition == 1){
+        $bonus_condition_tx = '추천 계보';
+    }else if($bonus_condition == 2){
+        $bonus_condition_tx = '후원(바이너리) 계보';
+    }else if($bonus_condition == 3){
+        $bonus_condition_tx='후원2(바이너리) 계보';
+    }
+    return $bonus_condition_tx;
+}
+
+function bonus_layer_tx($bonus_layer){
+    $bonus_layer_tx = $bonus_layer.'단계까지 지급';
+    if($bonus_layer == '' || $bonus_layer == '0'){
+        $bonus_layer_tx = '전체지급';
+    }
+    return $bonus_layer_tx;
+}
+
+function clean_coin_format($val, $decimal = 8){
+	$_num = (int)str_pad("1",$decimal+1,"0",STR_PAD_RIGHT);
+	return floor($val*$_num)/$_num;
+}
+
+function clean_number_format($val, $decimal = 2){
+	$_decimal = $decimal <= 0 ? 1 : $decimal;
+	$_num = number_format(clean_coin_format($val,$decimal), $_decimal);
+    $_num = rtrim($_num, 0);
+    $_num= rtrim($_num, '.');
+
+    return $_num;
+}
+
+function soodang_record($mb_id, $code, $bonus_val,$rec,$rec_adm,$bonus_day,$mb_no='',$mb_level = ''){
+    global $debug,$now_datetime,$conn;
+
+    $soodang_sql = " insert soodang_pay set day='".$bonus_day."'";
+    $soodang_sql .= " ,mb_id			= '".$mb_id."'";
+    $soodang_sql .= " ,allowance_name	= '".$code."'";
+    $soodang_sql .= " ,benefit		=  ".$bonus_val;	
+    $soodang_sql .= " ,rec			= '".$rec."'";
+    $soodang_sql .= " ,rec_adm		= '".$rec_adm."'";
+    $soodang_sql .= " ,datetime		= '".$now_datetime."'";
+
+    if($mb_no != ''){
+        $soodang_sql .= " ,mb_no		= '".$mb_no."'";
+    }
+    if($mb_level != ''){
+        $soodang_sql .= " ,mb_level		= '".$mb_level."'";
+    }
+
+    // 수당 푸시 메시지 설정
+    /* $mb_push_data = sql_fetch("SELECT fcm_token,mb_sms from g5_member WHERE mb_id = '{$mb_id}' ");
+    $push_agree = $mb_push_data['mb_sms'];
+    $push_token = $mb_push_data['fcm_token'];
+
+    $push_images = G5_URL.'/img/marker.png';
+    if($push_token != '' && $push_agree == 1){
+        setPushData("[DFINE] - ".$mb_id." 수당 지급 ", $code.' =  +'.$bonus_val.' ETH', $push_token,$push_images);
+    } */
+    
+    if($debug){
+        echo "<code>";
+        print_r($soodang_sql);
+        echo "</code>";
+        return true;
+    }else{
+        return mysqli_query($conn, $soodang_sql);
+    }
+}
+
+$code = "sales";
+
+$host_name = 'localhost';
+$user_name = 'root';
+$user_pwd = 'wizclass235689!@';
+$database = 'hwajo';
+$conn = mysqli_connect($host_name,$user_name,$user_pwd,$database);
+
+
+$bonus_day = date('Y-m-d');
+$timestr        = strtotime($bonus_day);
 $yesterday = date('Y-m-d', $timestr);
+
+$dupl_check_sql = "select count(mb_id) as cnt from soodang_pay where day='{$bonus_day}' and allowance_name = '{$code}' ";
+$dupl_check_result = mysqli_query($conn, $dupl_check_sql);
+$get_today = mysqli_fetch_array($dupl_check_result)['cnt'];
+if($get_today > 0){
+	echo "{$bonus_day} {$code} 수당은 이미 지급되었습니다.";
+	die;
+}
 
 // 직급 수당
 $bonus_row = bonus_pick($code);
@@ -29,8 +125,9 @@ $company_sales = $bonus_row['layer'];
 
 //어제 매출 합계 
 $total_order_query = "SELECT SUM(od_cash) AS hap FROM g5_shop_order WHERE od_date = '{$yesterday}'";
-$total_order_reult = sql_fetch($total_order_query);
-$total_order = $total_order_reult['hap'];
+$total_order_reult = mysqli_query($conn, $total_order_query);
+$total_order_row = mysqli_fetch_array($total_order_reult);
+$total_order = $total_order_row['hap'];
 
 $sales_order = ($total_order * ($company_sales * 0.01));
 
@@ -59,8 +156,8 @@ ob_start();
 echo "<strong>세일즈 수당 지급비율 : ";
 print_R(rate_txt($company_sales));
 echo "   </strong> |    지급조건 : <span class='blue big'>".$bonus_condition."</span><br>";
-echo "<br><strong> 현재일 : ".$bonus_day." |  ".$half."(매출산정기준) : <span class='red'>".$yesterday."</span> | ".$half." PV 합계 : <span class='blue big'>".Number_format($total_order).' '.$curencys[1]."</span>  </strong><br>";
-echo "<br> 세일즈수당 대상금액 : <span class='blue big'>".$company_sales."% = ".Number_format($sales_order).' '.$curencys[1]."</span>";
+echo "<br><strong> 현재일 : ".$bonus_day." |  매출산정기준 : <span class='red'>".$yesterday."</span> | PV 합계 : <span class='blue big'>".Number_format($total_order)." usdt </span>  </strong><br>";
+echo "<br> 세일즈수당 대상금액 : <span class='blue big'>".$company_sales."% = ".Number_format($sales_order)." usdt</span>";
 echo "<br><br>";
 echo "<div class='btn' onclick='bonus_url();'>돌아가기</div>";
 ?>
@@ -78,13 +175,13 @@ if($sales_order > 0){
 
 function  excute(){
 
-    global $g5,$admin_condition,$pre_condition;
+    global $admin_condition,$pre_condition,$conn;
     global $bonus_day, $bonus_condition, $bonus_rate_array_cnt, $code, $bonus_rate,$bonus_limit,$total_order,$Khan_order,$sales_order,$cnt_arr,$cnt_arr2;
     global $debug,$prev_m,$yesterday;
 
     
-        $sql = "SELECT * FROM {$g5['member_table']} WHERE mb_id in ('{$bonus_condition}') " ;
-        $result = sql_query($sql);
+        $sql = "SELECT * FROM g5_member WHERE mb_id in ('{$bonus_condition}') " ;
+        $result = mysqli_query($conn, $sql);
 
         $star_rate = $bonus_rate*0.01;
         $star_rate_tx = $bonus_rate."%";
@@ -99,7 +196,7 @@ function  excute(){
             echo "</code><br>";
         }
        
-        while($row = sql_fetch_array($result)){
+        while($row = mysqli_fetch_array($result)){
         
             $mb_no=$row['mb_no'];
             $mb_id=$row['mb_id'];
@@ -124,7 +221,7 @@ function  excute(){
                 $rec= $code.' Bonus from '.$yesterday .' PV';
                 $rec_adm= $yesterday." | ".$benefit_tx;
                 
-                $benefit = shift_auto($benefit,'$');
+                $benefit = clean_number_format($benefit);
 
                 echo "<span class=blue> ▶▶ 수당 지급 : ".$benefit."</span><br>";
         
@@ -143,7 +240,7 @@ function  excute(){
                             print_R($balance_up);
                             echo "</code>";
                         }else{
-                            sql_query($balance_up);
+                            mysqli_query($conn, $balance_up);
                         }
                     }
                     
@@ -156,13 +253,55 @@ function  excute(){
         $rec='';
 ?>
 
-<?include_once(G5_ADMIN_PATH.'/bonus/bonus_footer.php');?>
+
+</div>
+<footer > 정산 완료</footer>
+
+<div class='btn' onclick="bonus_url('<?=$category?>');">돌아가기</div>
+
+<body>
+</html>
+
+<style>
+	body{font-size:14px;line-height:18px;letter-spacing:0px;}
+	code{color:green;display:block;margin-bottom:5px;font-size:11px;}
+    .red{color:red;font-weight:600;}
+    .blue{color:blue;font-weight:600;}
+	.big {font-size:16px;font-weight:600;}
+	.title{font-weight:800;color:black;font-size:16px;display:block;}
+	.box{background:ghostwhite;margin-top:30px;border-bottom:1px solid #eee;padding-left:5px;width:100%;display:block;}
+	.block{font-size:26px; background: turquoise;display: block;height: 30px;line-height: 30px;}
+	.block.coral{background:lightcoral}
+	.indent{text-indent:20px;display: inline-block;}
+	.btn{background:black; padding:5px 20px; display:inline-block;color:white;font-weight:600;cursor:pointer;margin-bottom:20px;}
+	footer,header{margin:20px 0; background:black;color:white;text-align:center}
+	.error{display:block;width:100%;text-align:center;height:150px;line-height:150px}
+	.hidden{display:none;}
+	.desc{font-size:11px;color:#777;}
+	.subtitle{font-size:20px;}
+	.sys_log{margin-bottom:30px;}
+</style>
+
+
+<script>
+ function bonus_url($val){
+	 if($val == 'mining'){
+		location.href = '/adm/bonus/bonus_mining.php?to_date=<?=$bonus_day?>';
+	 }else{
+		location.href = '/adm/bonus/bonus_list.php?to_date=<?=$bonus_day?>';
+	 }
+     
+ }
+</script>
+
+
+
 
 <?
 if($debug){}else{
     $html = ob_get_contents();
     //ob_end_flush();
-    $logfile = G5_PATH.'/data/log/'.$code.'/'.$code.'_'.$bonus_day.'.html';
+    $logfile = '/var/www/html/hwajo/theme/hwajo/data/log/'.$code.'/'.$code.'_'.$bonus_day.'.html';
     fopen($logfile, "w");
     file_put_contents($logfile, ob_get_contents());
 }

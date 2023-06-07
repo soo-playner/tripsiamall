@@ -7,7 +7,7 @@ include_once('./bonus_inc.php');
 auth_check($auth[$sub_menu], 'r');
 
 
-$debug = 1;
+$debug = false;
 
 $yesterday = date('Y-m-d', $timestr);
 
@@ -129,7 +129,7 @@ function  excute(){
                 $rec= $code.' Bonus from '.$yesterday .' PV';
                 $rec_adm= $yesterday." | ".$benefit_tx;
                 
-                $benefit = shift_auto($benefit,'$');
+                $benefit = shift_auto($benefit,'usdt');
 
                 echo "<span class=blue> ▶▶ 수당 지급 : ".$benefit."</span><br>";
         
