@@ -133,8 +133,7 @@ function array_index_cherry_pick_diff($list, $keys, $average)
         $new_row = [];
         foreach ($keys as $key) $new_row[$key] = $row[$key];
         $rows[$i] = $new_row;
-
-        if($new_row[$master_key] > $average ){
+        if($new_row[$master_key] >= $average ){
             array_push($cherry_pick_list,$new_row);
         }
     }
@@ -382,7 +381,7 @@ echo "<div class='btn' onclick='bonus_url();'>돌아가기</div>";
                             }
                         } else {
                             // 하부 직급 확인
-                            $cherry_pick_array = array_index_cherry_pick_diff($mem_result, array('grade', 'line'), 0);
+                            $cherry_pick_array = array_index_cherry_pick_diff($mem_result, array('grade', 'line'), $i);
                             $mem_cnt = $cherry_pick_array[1];
                             $limit_array = limit_conditions($lvlimit_cnt[$i]);
 
