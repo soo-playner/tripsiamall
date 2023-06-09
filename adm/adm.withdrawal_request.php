@@ -335,9 +335,7 @@ $ord_rev = $ord_array[($ord_key + 1) % 2]; // 내림차순→오름차순, 오�
 						<input type="hidden" value="<?= $row['addr'] ?>" name="addr[]">
 						<td class="td_amt">
 							<!-- <input type="hidden" value="<?= $row['coin'] ?>" name="coin[]" class='coin'> -->
-							<?= $row['coin'] ?> <? if ($row['coin'] == $minings[$now_mining_coin]) {
-													echo "<br><span class='badge'>MININNG</span>";
-												} ?>
+							<?= $row['coin'] ?> 
 						</td>
 
 					
