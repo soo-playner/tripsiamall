@@ -103,7 +103,7 @@ echo "<div class='btn' onclick='bonus_url();'>돌아가기</div>";
         
         <?php
 
-$member_for_paying_sql = "select mb_id as id, mb_name, mb_no, mb_level, grade, mb_balance, mb_index,mb_balance_ignore, mb_deposit_point, (select count(*) from g5_member where mb_recommend = id) as cnt from g5_member where mb_save_point >= 0";
+$member_for_paying_sql = "select mb_id as id, mb_name, mb_no, mb_level, grade, mb_balance, mb_index,mb_balance_ignore, mb_deposit_point, (select count(*) from g5_member where mb_recommend = id and mb_my_sales > 0) as cnt from g5_member where mb_save_point >= 0";
 
 if($debug){echo "<code>{$member_for_paying_sql}</code>";}
 
@@ -273,10 +273,15 @@ function return_down_manager($mb_no,$cnt=0){
 function recommend_downtree($mb_id,$count=0,$cnt = 0){
 	global $conn, $mem_list;
 
+    $mb_my_sales_sql = "";
+    if($count == 0){
+        $mb_my_sales_sql = " and mb_my_sales > 0";
+    }
+
 	if($cnt == 0 || ($cnt !=0 && $count < $cnt)){
 		
-		$recommend_tree_result = mysqli_query($conn, "SELECT mb_id,mb_name,mb_level,grade,mb_rate,mb_save_point,rank,recom_sales,mb_my_sales from g5_member WHERE mb_recommend = '{$mb_id}' ");
-		$recommend_tree_cnt = mysqli_num_rows($recommend_tree_result);
+		$recommend_tree_result = mysqli_query($conn, "SELECT mb_id,mb_name,mb_level,grade,mb_rate,mb_save_point,rank,recom_sales,mb_my_sales from g5_member WHERE mb_recommend = '{$mb_id}' {$mb_my_sales_sql} ");
+        $recommend_tree_cnt = mysqli_num_rows($recommend_tree_result);
 		if($recommend_tree_cnt > 0 ){
 			++$count;
 

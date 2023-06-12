@@ -243,9 +243,14 @@ function return_down_manager($mb_no,$cnt=0){
 function recommend_downtree($mb_id,$count=0,$cnt = 0){
 	global $mem_list;
 
+    $mb_my_sales_sql = "";
+    if($count == 0){
+        $mb_my_sales_sql = " and mb_my_sales > 0";
+    }
+
 	if($cnt == 0 || ($cnt !=0 && $count < $cnt)){
 		
-		$recommend_tree_result = sql_query("SELECT mb_id,mb_name,mb_level,grade,mb_rate,mb_save_point,rank,recom_sales,mb_my_sales from g5_member WHERE mb_recommend = '{$mb_id}' and mb_my_sales > 0 ");
+		$recommend_tree_result = sql_query("SELECT mb_id,mb_name,mb_level,grade,mb_rate,mb_save_point,rank,recom_sales,mb_my_sales from g5_member WHERE mb_recommend = '{$mb_id}' {$mb_my_sales_sql} ");
 		$recommend_tree_cnt = sql_num_rows($recommend_tree_result);
 		if($recommend_tree_cnt > 0 ){
 			++$count;
