@@ -37,6 +37,8 @@ $company_wallet = wallet_config('wallet_addr')['wallet_addr'];
 
 $wallet_addr1 = Decrypt($member['mb_wallet'], $member['mb_id'], 'x'); // erc20
 $wallet_addr2 = Decrypt($member['eth_my_wallet'], $member['mb_id'], 'x'); // eth
+$wallet_addr3 = Decrypt($member['etc_my_wallet'], $member['mb_id'], 'x'); // etc
+$wallet_addr4 = Decrypt($member['usdt_my_wallet'], $member['mb_id'], 'x'); // usdt
 
 // 수수료제외 실제 출금가능금액
 $withdrwal_total = $total_withraw;
@@ -421,7 +423,7 @@ function curency_txt($value,$kind = 'deposit'){
             <input type="text" id="withdrawal_account_name" class="b_ghostwhite " placeholder="예금주" value="<?= $member['account_name'] ?>">
           </div> -->
           <div class='col-12'>
-            <input type="text" id="withdrawal_bank_account" class="b_ghostwhite " placeholder="출금 지갑주소를 입력해주세요" value="<?= $wallet_addr1 ?>">
+            <input type="text" id="withdrawal_bank_account" class="b_ghostwhite " placeholder="출금 지갑주소를 입력해주세요" value="<?= Decrypt($member['eth_my_wallet'], $member['mb_id'], 'x'); ?>">
           </div>
         </div>
         <div class="input_shift_value mb10 pb5">
@@ -564,7 +566,7 @@ function curency_txt($value,$kind = 'deposit'){
     } */
 
     /* 출금*/
-    var curency_tmp = '<?= $curencys[3] ?>';
+    var curency_tmp = '<?= $curencys[0] ?>';
     var usdt_curency = '<?= $curencys[1] ?>';
     var eth_curency = '<?= $curencys[0] ?>';
     var etc_curency = '<?= $curencys[4] ?>';
@@ -653,7 +655,15 @@ function curency_txt($value,$kind = 'deposit'){
 
     document.querySelector('#select_coin').addEventListener('change', (e) => {
       curency_tmp = e.target.value;
-      let wallet_addr = curency_tmp == erc20_curency ? '<?= $wallet_addr1 ?>' : '<?= $wallet_addr2 ?>';
+      let wallet_addr = '<?= $wallet_addr2 ?>';
+      if (curency_tmp == erc20_curency) {
+        wallet_addr = '<?= $wallet_addr1?>';
+      } else if (curency_tmp == etc_curency) {
+        wallet_addr = '<?= $wallet_addr3?>';
+      } else if (curency_tmp == usdt_curency) {
+        wallet_addr = '<?= $wallet_addr4?>';
+      }
+       
       $('#withdrawal_bank_account').val(wallet_addr);
       $('.fee').css('display', 'none');
       document.querySelector('#sendValue').value = "";
