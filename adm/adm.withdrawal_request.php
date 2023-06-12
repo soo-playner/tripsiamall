@@ -315,7 +315,18 @@ $ord_rev = $ord_array[($ord_key + 1) % 2]; // 내림차순→오름차순, 오�
 								<?= $row['bank_name'] ?> | <span id="bank_account" style='font-weight:600;font-size:13px;'><?= $row['bank_account'] ?></span>(<?= $row['account_name'] ?>)
 								<button type="button" class="btn inline_btn copybutton f_right" style='margin-right:10px;vertical-align:top;'>계좌복사</button>
 							<?php } else { 
-								$wallet_addr = $row['coin'] == $curencys[0] ? $mb['eth_my_wallet'] : $mb['mb_wallet'];
+
+								$wallet_addr = "";
+								if($row['coin'] == $curencys[0]){
+									$wallet_addr = $mb['eth_my_wallet'];
+								}else if($row['coin'] == $curencys[1]){
+									$wallet_addr = $mb['usdt_my_wallet'];
+								}else if($row['coin'] == $curencys[3]){
+									$wallet_addr = $mb['mb_wallet'];
+								}else if($row['coin'] == $curencys[4]){
+									$wallet_addr = $mb['etc_my_wallet'];
+								}
+
 								$wallet_addr1 = Decrypt($row['addr'],$secret_key,$secret_iv);
 								$wallet_addr2 = Decrypt($wallet_addr,$row['mb_id'],'x');
 								if($wallet_addr1 == $wallet_addr2){ ?>

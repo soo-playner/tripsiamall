@@ -67,7 +67,7 @@ echo "<div class='btn' onclick='bonus_url();'>돌아가기</div>";
         
         <?php
 
-$member_for_paying_sql = "select mb_id as id, mb_name, mb_no, mb_level, grade, mb_balance, mb_index,mb_balance_ignore, mb_deposit_point, (select count(*) from g5_member where mb_recommend = id) as cnt from g5_member where mb_save_point >= 0";
+$member_for_paying_sql = "select mb_id as id, mb_name, mb_no, mb_level, grade, mb_balance, mb_index,mb_balance_ignore, mb_deposit_point, (select count(*) from g5_member where mb_recommend = id and mb_my_sales > 0) as cnt from g5_member where mb_save_point >= 0";
 
 if($debug){echo "<code>{$member_for_paying_sql}</code>";}
 
@@ -214,7 +214,8 @@ function get_bonus_rate($depth){
 function return_down_manager($mb_no,$cnt=0){
 	global $config,$g5,$mem_list;
 
-	$mb_result = sql_fetch("SELECT mb_id,mb_name,mb_level,grade,mb_rate,mb_save_point,rank,recom_sales,mb_my_sales from g5_member WHERE mb_no = '{$mb_no}' ");
+	$mb_result = sql_fetch("SELECT count(*) as cnt, mb_id,mb_name,mb_level,grade,mb_rate,mb_save_point,rank,recom_sales,mb_my_sales from g5_member WHERE mb_no = '{$mb_no}' ");
+
 	$list = [];
 	$list['mb_id'] = $mb_result['mb_id'];
 	$list['mb_name'] = $mb_result['mb_name'];
@@ -226,7 +227,7 @@ function return_down_manager($mb_no,$cnt=0){
 	$list['recom_sales'] = $mb_result['recom_sales'];
 	$list['rank'] = $mb_result['rank'];
 	$list['mb_my_sales'] = $mb_result['mb_my_sales'];
-	
+
 	// $mb_add = sql_fetch("SELECT COUNT(mb_id) as cnt,IFNULL( (SELECT noo  from  recom_bonus_noo WHERE mb_id = '{$mb_result['mb_id']}' ) ,0) AS noo FROM g5_member WHERE mb_recommend = '{$mb_result['mb_id']}' ");
 	
 	// $list['cnt'] = $mb_add['cnt'];
@@ -244,7 +245,7 @@ function recommend_downtree($mb_id,$count=0,$cnt = 0){
 
 	if($cnt == 0 || ($cnt !=0 && $count < $cnt)){
 		
-		$recommend_tree_result = sql_query("SELECT mb_id,mb_name,mb_level,grade,mb_rate,mb_save_point,rank,recom_sales,mb_my_sales from g5_member WHERE mb_recommend = '{$mb_id}' ");
+		$recommend_tree_result = sql_query("SELECT mb_id,mb_name,mb_level,grade,mb_rate,mb_save_point,rank,recom_sales,mb_my_sales from g5_member WHERE mb_recommend = '{$mb_id}' and mb_my_sales > 0 ");
 		$recommend_tree_cnt = sql_num_rows($recommend_tree_result);
 		if($recommend_tree_cnt > 0 ){
 			++$count;

@@ -874,9 +874,11 @@ $rank_result = sql_fetch($rank_sql);
 			&nbsp 예금주 : &nbsp<input type="text" name="account_name" value="<?php echo $mb['account_name'] ?>" id="account_name" class="frm_input wide" size="15" style="">
 		</td>
 		<?}else{?>
-		<td colspan="3">
-			<?= $curencys[3] ?> 지갑주소 : &nbsp<input type="text" name="mb_wallet" value="<?php echo $mb['mb_wallet'] ?>" id="mb_wallet" class="frm_input wide" size="15" style="width:300px; margin-bottom: 12px;"><br>
-			<?= $curencys[0] ?>  지갑주소 : &nbsp<input type="text" name="eth_my_wallet" value="<?php echo $mb['eth_my_wallet'] ?>" id="eth_my_wallet" class="frm_input wide" size="15" style="width:300px; margin-left: 17px;">
+			<td colspan="3">
+			<?= $curencys[0] ?> 지갑주소 : <input type="text" name="eth_my_wallet" value="<?php echo Decrypt($mb['eth_my_wallet'], $mb['mb_id'], 'x') ?>" id="eth_my_wallet" class="frm_input wide" size="15" style="width:300px; margin-left: 15px;">
+			&nbsp<?= $curencys[4] ?> 지갑주소 : <input type="text" name="etc_my_wallet" value="<?php echo Decrypt($mb['etc_my_wallet'], $mb['mb_id'], 'x') ?>" id="etc_my_wallet" class="frm_input wide" size="15" style="width:300px; margin-left: 15px;">
+			&nbsp<?= $curencys[3] ?> 지갑주소 : <input type="text" name="mb_wallet" value="<?php echo Decrypt($mb['mb_wallet'], $mb['mb_id'], 'x') ?>" id="mb_wallet" class="frm_input wide" size="15" style="width:300px; margin-left: 15px;">
+			&nbsp<?= $curencys[1] ?> 지갑주소 : <input type="text" name="usdt_my_wallet" value="<?php echo Decrypt($mb['usdt_my_wallet'], $mb['mb_id'], 'x') ?>" id="usdt_my_wallet" class="frm_input wide" size="15" style="width:300px; margin-left: 15px;">
 		</td>
 		<?}?>
 	</tr>
