@@ -1123,6 +1123,11 @@ this.form.mb_intercept_date.value=this.form.mb_intercept_date.defaultValue; }">
 	</tr>
 
 	<tr>
+		<th scope="row"><label for="hja_addr">HJA BEP-20 주소</label></th>
+		<td colspan="3"><input type="text" name="hja_addr" id="hja_addr" class="frm_input wide" size="100" style="font-weight:600;color:black" placeholder="<?=$mb['hja_addr']?>" readonly></input></td>
+	</tr>
+
+	<tr>
 		<th scope="row"><label for="mb_memo">메모</label></th>
 		<td colspan="3"><textarea name="mb_memo" id="mb_memo" style="height:30px;"><?php echo $mb['mb_memo'] ?></textarea></td>
 	</tr>
