@@ -47,6 +47,7 @@ $result = sql_query($sql);
 $total_arr = array();
 $total_count = 0;
 $total_out = 0;
+
 for($i = 0; $i < $row = sql_fetch_array($result); $i++){
 	$total_count += $row['cnt'];
 	$total_out += $row['outamt'];
@@ -229,7 +230,7 @@ function return_status_tx($val)
 <input type="button" class="btn_submit excel" id="btnExport"  data-name='hwajo_bonus_withdrawal' value="엑셀 다운로드" />
 
 <div class="local_ov01 local_ov">
-	<a href="./adm.withdrawal_request.php?<?= $qstr ?>" class="ov_listall"> 결과통계 <?= $total_count ?> 건 = <strong><?= shift_auto($total_out,$curencys[1]) ?> <?= $curencys[1] ?> </strong></a>
+	<a href="./adm.withdrawal_request.php?<?= $qstr ?>&view=all" class="ov_listall"> 결과통계 <?= $total_count ?> 건 = <strong><?= shift_auto($total_out,$curencys[1]) ?> <?= $curencys[1] ?> </strong></a>
 	<?
 	// 현재 통계치
 	$stats_sql = "SELECT status, sum(out_amt)  as hap, count(out_amt) as cnt from {$g5['withdrawal']} as A WHERE 1=1 " . $sql_condition . " GROUP BY status";
@@ -245,7 +246,8 @@ function return_status_tx($val)
 
 <div class="local_desc01 local_desc">
 	<p>
-		- 기본값 : 요청 | <strong>승인 : </strong> 수동송금처리후 변경 | <strong>취소 : </strong> 취소시 반환처리하면 차감금액 반환
+		- 기본값 : 요청 | <strong>승인 : </strong> 수동송금처리후 변경 | <strong>취소 : </strong> 취소시 반환처리하면 차감금액 반환<br>
+		- <strong>결과통계</strong> 클릭시 기간별 전체 내역 확인(페이징없이) | <strong>엑셀다운로드</strong>시 전체내역 내려받기 가능
 		<!-- <i class="ri-checkbox-blank-fill" style="color:green;border:1px solid #ccc;font-size:20px;"></i> : 마이닝출금 <i class="ri-checkbox-blank-fill" style="color:#4556ff;border:1px solid #ccc;font-size:20px;"></i> : 수당출금<br> -->
 	</p>
 </div>
@@ -271,7 +273,7 @@ $ord_rev = $ord_array[($ord_key + 1) % 2]; // 내림차순→오름차순, 오�
 				<th style="width:auto">출금정보</th>
 
 				<th style="width:5%;">출금전잔고</th>
-				<th style="width:4%;">출금단위</th>
+				<th style="width:4%;">출금통화</th>
 				<th style="width:7%;">출금요청액</th>
 				<th style="width:7%;">출금수수료</th>
 
@@ -357,14 +359,14 @@ $ord_rev = $ord_array[($ord_key + 1) % 2]; // 내림차순→오름차순, 오�
 						<!-- <td class="gray" style='line-height:18px;'>
 							<?= shift_auto($row['amt'], $row['coin']) ?>
 						</td> -->
-
+						
 						<!-- 수수료 -->
-						<td><span style='display:block;font-size:11px;'><?= shift_auto($row['fee'], $row['coin']) . ' ' . $row['coin']?></span></td>
+						<td><span style='display:block;font-size:11px;'><?= shift_auto($row['fee'], $row['coin'])?></span></td>
 
 
 						<td class="td_amt" style="color:red">
 							<!-- <input type="hidden" value="<?= shift_auto($row['out_amt']) ?>" name="out_amt[]"> -->
-							<?= shift_auto($row['amt'], $row['coin']) . ' ' . $row['coin']?> 
+							<?= shift_auto($row['amt'], $row['coin'])?> 
 						</td>
 
 						<!-- 출금시세 -->

@@ -433,9 +433,9 @@ if(!sql_query(" select mb_id from {$g5['g5_shop_order_delete_table']} limit 1 ",
 			<?php echo $row['od_status']; ?>
         </td>
         <td class="td_numsum " ><span class='badge t_white color<?=od_name_return_rank($row['od_name'])?>' ><?=$row['od_name']?></span></td>
-        <td class="td_numsum" style='text-align:right'><?= shift_auto($row['od_cart_price'],$od_settle_case)?> <?=$od_settle_case?></td>
+        <td class="td_numsum" style='text-align:right'><?= shift_auto($row['od_cart_price'],$od_settle_case)?> </td>
         <td style="text-align:center"><?php echo $row['od_settle_case'] ?></td>
-		<td style="text-align:right;font-weight:600"><?=shift_auto($row['od_cash'],$od_settle_case)?> <?=$od_settle_case?></td>
+		<td style="text-align:right;font-weight:600"><?=shift_auto($row['od_cash'],$od_settle_case)?> </td>
 		<td style="text-align:right"><?=number_format($row['upstair'])?> </td>
         <!-- <td > <?php echo $row['pv']; ?></td> -->
         <td style="text-align:center"><input type='button' class='btn od_cancle' value='구매취소' data-id="<?=$row['od_id']?>"></td>
