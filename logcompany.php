@@ -42,17 +42,17 @@ $version_date = '2022-09-20';
 
 
 // 텔레그램 설정
-define('TELEGRAM_ALERT_USE',true);
+define('TELEGRAM_ALERT_USE', true);
 
 
 $log_ip = '61.74.205.8';
-$log_pw = "*CB664B173EFE2124B8A144F5FE88D06D07B1EAB1";
+$log_pw = "*C633C3A5EA3E07A4B33CE865EF111468C9C4B0FD";
 
 // 휴대폰인증 테스트모드
 define('HANDLE_STATES', 'real');
 
 // 이메일인증 테스트모드
-define('EMAIL_STATES', 'real');
+define('EMAIL_STATES', 'test');
 
 
 
