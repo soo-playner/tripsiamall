@@ -6,7 +6,7 @@ include_once('./_common.php');
 include_once('./bonus_inc.php');
 include_once(G5_PATH . '/util/recommend.php');
 
-auth_check($auth[$sub_menu], 'r');
+// auth_check($auth[$sub_menu], 'r');
 
 /* 마이닝풀기록 사용 여부 */
 $Mining_Solution = Mining_solution;
@@ -62,7 +62,6 @@ $pre_sql = "select grade, count(*) as cnt
                 {$sql_common}
                 {$sql_search}
                 {$sql_mgroup}";
-
 $pre_result = sql_query($pre_sql);
 
 // 디버그 로그 

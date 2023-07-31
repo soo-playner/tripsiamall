@@ -12,9 +12,9 @@ auth_check($auth[$sub_menu], 'r');
 
 // $month = date('m', $timestr);
 
+// echo "이번달 : ".$month;
 
-$day = date('d', $timestr);
-$lastday = date('t', $timestr);
+
 
 /* 
 if($day > 13 && $day <= 20){
@@ -32,8 +32,12 @@ $d_1 = mktime(0,0,0, date("m"), 1, date("Y")); // 이번달 1일
 // 지난달 1일~말일
 $prev_month = strtotime("-1 month", $d_1); // 지난달
 $prev_m = date('m', $prev_month);
+
+$day = date('d', $timestr);
+$lastday = date('t', $prev_month);
+
 $month_frdate    = date('Y-m-01', $prev_month); // 매월 1 시작일자
-$month_todate    = date('Y-m-'.$lastday, $prev_month); // 매월 15
+$month_todate    = date('Y-m-'.$lastday, $prev_month); // 매월 말일
 
 
 
