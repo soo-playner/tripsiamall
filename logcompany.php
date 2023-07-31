@@ -7,7 +7,7 @@ define('CONFIG_SUB_TITLE','Hwajo Global asset');
 
 // 메일설정
 define('CONFIG_MAIL_ACCOUNT','hwajoasset');
-define('CONFIG_MAIL_PW','fqendcfluafulcyp');
+define('CONFIG_MAIL_PW','elqeritlyovmksmp');
 define('CONFIG_MAIL_ADDR','hwajoasset@gmail.com');
 
 
@@ -36,20 +36,23 @@ $before_mining_amt_target = $before_mining_target.'_amt';
 $now_mining_coin = 2;
 $mining_target = 'mb_mining_'.$now_mining_coin;
 $mining_amt_target = $mining_target.'_amt';
-
+ 
 $secret_key = "wizclass0780";
 $version_date = '2022-09-20';
 
 
 // 텔레그램 설정
-define('TELEGRAM_ALERT_USE',false);
+define('TELEGRAM_ALERT_USE', true);
 
-// 휴대폰인증 테스트모드
-define('HANDLE_STATES', 'real');
 
 $log_ip = '61.74.205.8';
-$log_pw = "*CB664B173EFE2124B8A144F5FE88D06D07B1EAB1";
+$log_pw = "*C633C3A5EA3E07A4B33CE865EF111468C9C4B0FD";
 
+// 휴대폰인증 테스트모드
+define('HANDLE_STATES', 'test');
+
+// 이메일인증 테스트모드
+define('EMAIL_STATES', 'test');
 
 
 

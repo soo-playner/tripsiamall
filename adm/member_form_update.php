@@ -3,6 +3,7 @@ $sub_menu = "200100";
 include_once("./_common.php");
 include_once(G5_THEME_PATH.'/_include/wallet.php');
 include_once(G5_LIB_PATH."/register.lib.php");
+include_once(G5_PLUGIN_PATH . '/Encrypt/rule.php');
 
 if ($w == 'u')
 	check_demo();
@@ -88,6 +89,12 @@ $_POST['account_name'] != "" ? $account_name = $_POST['account_name'] : $account
 $temp_mp_9 = $_POST['temp_mb_9'];
 $_POST['mb_week_dividend'] != "" ? $mb_week_dividend = $_POST['mb_week_dividend'] : $mb_week_dividen = '0';
 
+$mb_wallet = $_POST['mb_wallet'] != "" ? Encrypt($_POST['mb_wallet'],$mb['mb_id'],"x") : '';
+$eth_my_wallet = $_POST['eth_my_wallet'] != "" ? Encrypt($_POST['eth_my_wallet'],$mb['mb_id'],"x") : '';
+$etc_my_wallet = $_POST['etc_my_wallet'] != "" ? Encrypt($_POST['etc_my_wallet'],$mb['mb_id'],"x") : '';
+$usdt_my_wallet = $_POST['usdt_my_wallet'] != "" ? Encrypt($_POST['usdt_my_wallet'],$mb['mb_id'],"x") : '';
+
+
 $use_limit_paid = 0;
 
 if(isset($_POST['b_autopack'])){
@@ -145,8 +152,10 @@ $sql_common = "  mb_name = '{$_POST['mb_name']}',
 				 kyc_cert = {$kyc_admin},
 				 kyc_regdt = '{$kyc_admin_time}',
 				 mb_week_dividend = '{$mb_week_dividend}',
-				 mb_wallet = '{$_POST['mb_wallet']}',
-				 eth_my_wallet = '{$_POST['eth_my_wallet']}',
+				 mb_wallet = '{$mb_wallet}',
+				 eth_my_wallet = '{$eth_my_wallet}',
+				 etc_my_wallet = '{$etc_my_wallet}',
+				 usdt_my_wallet = '{$usdt_my_wallet}',
 				 {$mb_index},
 				 b_autopack = {$use_limit_paid},
 				 q_autopack = {$limited}";

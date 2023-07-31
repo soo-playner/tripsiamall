@@ -432,7 +432,7 @@ $(function() {
 				"value" : dataval
 			},
 			success: function(res) {
-				if (res.result == "OK") {
+				if (res.result == "success") {
                     location.reload();
 				} else {
                     alert("처리되지 않았습니다.\n문제가 지속되면 관리자에게 연락주세요");

@@ -13,11 +13,14 @@ login_check($member['mb_id']);
 $title = 'Mywallet';
 
 $company = sql_fetch("select * from wallet_coin_price where idx = 1");
-$withdrawal_price = $company['current_cost'] * $coin['usdt_krw'];
+$withdrawal_price = $company['current_cost'];
 
-if($company['used'] > 0){
+if($company['used'] <= 0){
   // 거래소 시세로 화조 코인 불러오는 부분
+$withdrawal_price = $coin['hja'];
 }
+
+$withdrawal_price *= $coin['usdt_krw'];
 
 // 입금설정
 $deposit_setting = wallet_config('deposit');
@@ -187,16 +190,16 @@ function curency_txt($value,$kind = 'deposit'){
   if($kind == 'deposit'){
     switch(strtolower($value)){
       case 'eth':
-        $result = 'Etherium (ERC-20)';
+        $result = 'Etherium (BEP-20)';
         break;
       case 'etc':
         $result = 'EtheriumClassic (ETC)';
         break;
       case 'usdt':
-        $result = 'USDT (TetherUS)';
+        $result = 'USDT (TetherUS BEP-20)';
         break;
       case 'hja':
-        $result = 'Hwajoglobalasset (HJA)';
+        $result = 'Hwajo-asset (HJA BEP-20)';
         break;
     }
   }else{
@@ -208,10 +211,10 @@ function curency_txt($value,$kind = 'deposit'){
         $result = 'EtheriumClassic (ETC)';
         break;
       case 'usdt':
-        $result = 'USDT (TetherUS)';
+        $result = 'USDT (TetherUS BEP-20)';
         break;
       case 'hja':
-        $result = 'Hwajoglobalasset (HJA)';
+        $result = 'Hwajo-asset (HJA BEP-20)';
         break;
     }
   }
@@ -253,6 +256,17 @@ function curency_txt($value,$kind = 'deposit'){
   .dark .checkbox-tile{color:rgba(255,255,255,0.75);}
 
   #curency_usdt_eth{display:inline;}
+
+  #select_deposit_coin,#select_coin{height:44px;border:2px solid #1f9df5}
+  .txt-box{
+    font-size:12px;color:red;
+  }
+
+  .dark .txt-box{
+    color:#fac707;
+  }
+  .in_coin i{font-size:16px;}
+  .in_coin{margin-top:-10px;font-size:13px;}
 </style>
 
 <main>
@@ -333,6 +347,10 @@ function curency_txt($value,$kind = 'deposit'){
               <option value="<?= $curencys[1] ?>"><?= curency_txt($curencys[1]) ?></option>
             </select>
           </div>
+
+          <div class='txt-box deposit_alert col-12'>
+            선택된 입금코인은 ETH (BEP-20) 입니다.<br> ETH (ERC-20) 입금시 처리되지 않으니 반드시 확인후 입금하시기 바랍니다.
+          </div>
           
 
           <div class="btn_ly qrBox_right "></div>
@@ -341,7 +359,16 @@ function curency_txt($value,$kind = 'deposit'){
 
             <input type="text" id="deposit_value" class='b_ghostwhite' placeholder="입금수량을 입력해주세요">
             <label class='currency-right' id="deposit-currency-right"><?= $curencys[0] ?></label>
+            <div class="row in_coin hidden" style='width:initial;'>
+              <div class="col-12" style="display: flex;justify-content: end;">
+                <i class="ri-exchange-fill"></i>
+                <span id="active_in">0</span>
+              </div>
+            </div>
           </div>
+
+   
+   
 
           <div class='col-sm-12 col-12 '>
             <button class="btn btn_wd font_white deposit_request" data-currency="<?= $curencys[0] ?>">
@@ -415,6 +442,11 @@ function curency_txt($value,$kind = 'deposit'){
               <option value="<?= $curencys[1] ?>"><?= curency_txt($curencys[1],'withdraw') ?></option>
             </select>
           </div>
+
+          <div class='txt-box withrawal_alert col-12 mb10'>
+            선택된 출금코인은 ETH (BEP-20) 입니다.<br> ETH (ERC-20) 주소 기재시 정상출금 되지 않으니 반드시 주소 확인후 기재 바랍니다.
+          </div>
+
           <div class='col-12'><label class="sub_title">- 출금정보 (최초 1회입력)</label></div>
           <!-- <div class='col-6'>
             <input type="text" id="withdrawal_bank_name" class="b_ghostwhite " placeholder="은행명" value="<?= $member['bank_name'] ?>">
@@ -439,6 +471,7 @@ function curency_txt($value,$kind = 'deposit'){
               <i class="ri-exchange-fill"></i>
               <span id="active_amt">0</span>
             </div>
+            
             <div class="col-12">
               <label class="fees">- 수수료(<?= $withdrwal_fee ?>%) :</label>
               <i class="ri-coins-line"></i>
@@ -615,7 +648,7 @@ function curency_txt($value,$kind = 'deposit'){
         swap_coin_price = real_withdraw_val;
         swap_fee_val = real_fee_val;
       }
-
+      console.log(swap_coin_price)
       fixed_amt = Number(swap_coin_price).toFixed(shift_coin_value);
       fixed_fee = Number(swap_fee_val).toFixed(shift_coin_value);
 
@@ -635,11 +668,44 @@ function curency_txt($value,$kind = 'deposit'){
       input_change('sendValue');
     });
 
+    function number_with_commas(x) {
+	    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	  }
+
     //이더 입금
     document.querySelector('#deposit_value').addEventListener('keyup', (e) => {
       input_change_eth(e.target);
+        let symbol = $('#deposit-currency-right').text();
+        let deposit_amount = e.target.value;
+
+        let swap_coin_price = deposit_amount * <?= $withdrawal_price ?>;
+
+        if (symbol == eth_curency) {
+          swap_coin_price = deposit_amount * <?= $coin['eth_krw'] ?>;
+        } else if (symbol == etc_curency) {
+          swap_coin_price = deposit_amount * <?= $coin['etc_krw'] ?>;
+        } else if (symbol == usdt_curency) {
+          swap_coin_price = deposit_amount * <?= $coin['usdt_krw'] ?>;
+        }
+
+        fixed_amt = Number(swap_coin_price).toFixed(0);
+        $('.in_coin').css('display', 'block');
+        $('#active_in').text(`${number_with_commas(fixed_amt)} 원`);
+
+
+    });
+    $('#select_deposit_coin').on('change',function(){
+      if(this.value == 'eth'){
+        $('.deposit_alert').css('display','block');
+      }else{
+        $('.deposit_alert').css('display','none');
+      }
     });
 
+    /* $('#select_coin').on('change',function(){
+      
+    }); */
+    
     function input_change_eth(obj) {
       let pattern = /^\d+(\.)?(\d{0,8})?$/;
       let korean_check_pattern = /[가-힣ㄱ-ㅎㅏ-ㅣ\x20]/g;
@@ -651,7 +717,7 @@ function curency_txt($value,$kind = 'deposit'){
         obj.value = obj.value.slice(0, -1);
         return false;
       }
-    };
+    }
 
     document.querySelector('#select_coin').addEventListener('change', (e) => {
       curency_tmp = e.target.value;
@@ -668,12 +734,25 @@ function curency_txt($value,$kind = 'deposit'){
       $('.fee').css('display', 'none');
       document.querySelector('#sendValue').value = "";
       $('#Withdrawal_btn').attr('data-currency', curency_tmp);
+      
+
+      if($('#select_coin').val() == 'eth'){
+        $('.withrawal_alert').css('display','block');
+      }else{
+        $('.withrawal_alert').css('display','none');
+      }
     });
 
     document.querySelector('#select_deposit_coin').addEventListener('change', (e) => {
       currency_tmp = e.target.value;
       $('#deposit-currency-right').text(currency_tmp);
       $('.deposit_request').attr('data-currency', currency_tmp);
+
+      // 코인 원화로 변경된 부분 초기화 
+   
+        $('#deposit_value').val('');
+        $('.in_coin').css('display', 'none');
+      
     });
 
     /*핀 입력*/
@@ -844,7 +923,6 @@ function curency_txt($value,$kind = 'deposit'){
         type: "POST",
         url: "./util/withdrawal_proc.php",
         cache: false,
-        async: false,
         dataType: "json",
         data: {
           mb_id: mb_id,

@@ -14,6 +14,7 @@ $mb_id = $_POST['mb_id'];
 $txhash = $_POST['hash'];
 $coin = $_POST['coin'];
 $d_price = $_POST['d_price'];
+$mb_name = $member['mb_name'];
 
 /*기존건 확인*/
 $pre_result = sql_fetch("SELECT count(*) as cnt from wallet_deposit_request 
@@ -46,7 +47,7 @@ if($pre_result['cnt'] < 1){
 
   // 입금알림 텔레그램 API
   if(TELEGRAM_ALERT_USE){
-    curl_tele_sent('[HWAJO][입금요청] '.$mb_id.'('.$txhash.') 님의 '.shift_auto($point, $curencys[1]).'입금요청이 있습니다.');
+    curl_tele_sent('[HWAJO][입금요청] '.$mb_id.'('.$mb_name.') 님의 '.shift_auto($point, $curencys[1]).' '.$curencys[1].'입금요청이 있습니다.');
   }
   
   if($result){

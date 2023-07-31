@@ -884,7 +884,7 @@ button.caret:hover {
 }
 input[type="text"] + .currency-right {
   position: absolute;
-  margin-top: 16px;
+  margin-top: 12px;
   color: #666;
   font-size: 14px;
   font-weight: bold;

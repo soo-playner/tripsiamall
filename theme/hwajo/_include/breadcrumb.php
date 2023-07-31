@@ -207,24 +207,24 @@ $title = 'Dashboard';
 						<li class="rank_title">다음승급조건달성</li>
 
 						<li class="col-4">
-							<dt class="title">본인매출</dt>
-							<dd class="value">
-								<?=check_value($member['mb_5'])?>
-							</dd>
-						</li>
-
-						<li class="col-4">
 							<dt class="title">구매등급</dt>
 							<dd class="value">
 								<?=check_value($member['mb_5'])?>
 							</dd>
 						</li>
 
-
 						<li class="col-4">
 							<dt class="title">승급대상포인트</dt>
 							<dd class="value">
 								<?=check_value($member['mb_7'])?>
+							</dd>
+						</li>
+
+
+						<li class="col-4">
+							<dt class="title">승급기준</dt>
+							<dd class="value">
+								<?=check_value($member['mb_9'])?>
 							</dd>
 						</li>
 					</ul>

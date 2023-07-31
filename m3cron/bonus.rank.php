@@ -3,7 +3,7 @@
 $sub_menu = "600200";
 include_once('./_common.php');
 // $debug = 1;
-include_once('./bonus_inc.php');
+include_once('../adm/bonus/bonus_inc.php');
 include_once(G5_PATH . '/util/recommend.php');
 
 // auth_check($auth[$sub_menu], 'r');
@@ -11,26 +11,8 @@ include_once(G5_PATH . '/util/recommend.php');
 /* 마이닝풀기록 사용 여부 */
 $Mining_Solution = Mining_solution;
 
+$bonus_day = date('Y-m-d');
 
-if (!$debug) {
-    $dupl_check_sql = "select mb_id from rank where rank_day='" . $bonus_day . "'";
-    $get_today = sql_fetch($dupl_check_sql);
-
-    if ($get_today['mb_id']) {
-        alert($bonus_day . " 해당일 승급이 이미 완료 되었습니다.");
-        die;
-    }
-
-    if ($Mining_Solution) {
-        $record_check_sql = "select mb_id from g5_member_info where date='" . $bonus_day . "'";
-        $get_record = sql_fetch($record_check_sql);
-
-        if ($get_record['mb_id']) {
-            $record_delete = "DELETE FROM g5_member_info WHERE date = '{$bonus_day}' ";
-            sql_query($record_delete);
-        }
-    }
-}
 
 // 직급 승급
 $grade_cnt = 7;
@@ -476,7 +458,7 @@ echo "<div class='btn' onclick='bonus_url();'>돌아가기</div>";
         } //function
         ?>
 
-        <? include_once('./bonus_footer.php'); ?>
+        <? include_once('../adm/bonus/bonus_footer.php'); ?>
 
         <?
         if ($debug) {

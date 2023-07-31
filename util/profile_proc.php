@@ -15,7 +15,6 @@ if(empty($_POST)){
 	return false;
 }
 
-
 $category = $_POST['category'];
 
 if($category == 'email'){
@@ -136,5 +135,26 @@ if($category == 'name'){
 	}
 
 }
+
+if($category == 'addr'){
+
+	if($_POST['hja_addr'] != ''){
+		$addr_sql = "UPDATE g5_member set hja_addr = '{$_POST['hja_addr']}' WHERE mb_id = '{$member['mb_id']}'";
+		$addr_result = sql_query($addr_sql);
+
+		if( $addr_result ){
+			echo (json_encode(array("result" => "success",  "code" => "0000", "sql" => '지갑 주소 변경이 완료되었습니다.')));
+		}else{
+			echo (json_encode(array("result" => "error",  "code" => "0003", "sql" => '죄송합니다. 문제가 발생하였습니다. 나중에 다시 시도해주세요.')));
+			return false;
+		}
+
+	}else{
+		echo (json_encode(array("result" => "error",  "code" => "0002", "sql" => '주소를 정확히 입력해주세요')));
+		return false;
+	}
+
+}
+
 
 ?>

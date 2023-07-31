@@ -346,6 +346,7 @@ $rank_result = sql_fetch($rank_sql);
 		<p>
 			<!-- - 센터지정시 체크시 센터명 등록 : 회원레벨 자동변경 (체크해제시 회원레벨은 수동)<br> -->
 			- 별도관리지정은 <strong>보너스 출금요청이 불가</strong>하며 아이디가 <strong>구분표시(아이디 붉은색 처리)</strong> 처리되며 회원차단은 로그인불가 처리됩니다. (각 해제시 입력된 날짜제거후 저장)
+			- 패키지 업그레이드는 업그레이드 선택후 해당 패키지 클릭시 +1단계 업그레이드 처리
 		</p>
 	</div>
 
@@ -379,8 +380,8 @@ $rank_result = sql_fetch($rank_sql);
 
 					<th scope="row"><label for="mb_id">이름<?php echo $sound_only ?></label></th>
 					<td>
-						<input type="hidden" name="mb_name" value="<?= $mb['mb_name'] ?>" />
-						<span class="td_id"><?= $mb['mb_name'] ?></span>
+						<input type="text" name="mb_name" class="frm_input wide" value="<?= $mb['mb_name'] ?>" />
+						<!-- <span class="td_id"><?= $mb['mb_name'] ?></span> -->
 					</td>
 
 				</tr>
@@ -666,18 +667,19 @@ $rank_result = sql_fetch($rank_sql);
 		</style>
 		
 		<td colspan="3">
-		<!-- <div style="display: flex; margin-left: 21%;padding: 2px 0px;">
-			<div style="display: flex;width: 15%;justify-content: space-between;">
-				<span>
+		<div style="display: flex; margin-left: 200px; padding: 2px 0px;">
+			<div style="display: flex;width: auto;justify-content: space-between;">
+				<span style="width:80px;">
 					<input type="radio" id="purchase" name="purchase_upgrade" value="purchase" checked/>
-					<label for="purchase">상품구매</label>
+					<label for="purchase">신규구매</label>
 				</span>
-				<span>
+
+				<span style="width:250px;">
 					<input type="radio" id="upgrade" name="purchase_upgrade" value="upgrade"/>
-					<label for="upgrade">상품업그레이드</label>
+					<label for="upgrade">패키지 업그레이드</label>
 				</span>
 			</div>
-		</div> -->
+		</div>
 			최고보유 패키지 :
 			<!-- <span class='badge t_white color<?= max_item_level_array($mb['mb_id'], 'number') ?>' style='padding:15px;'><?= max_item_level_array($mb['mb_id']) ?></span> -->
 			<span class='badge t_white <?= rank_return($mb['rank'], 'color') ?>' style='padding:15px;'><?= rank_return($mb['rank']) ?></span>
@@ -842,6 +844,11 @@ $rank_result = sql_fetch($rank_sql);
 							location.reload();
 
 						} else {
+
+							if(data.message == undefined){
+								data.message = "상품을 확인해주세요";
+								
+							}
 							alert(data.message);
 							// location.reload();
 
@@ -867,9 +874,11 @@ $rank_result = sql_fetch($rank_sql);
 			&nbsp 예금주 : &nbsp<input type="text" name="account_name" value="<?php echo $mb['account_name'] ?>" id="account_name" class="frm_input wide" size="15" style="">
 		</td>
 		<?}else{?>
-		<td colspan="3">
-			<?= $curencys[3] ?> 지갑주소 : &nbsp<input type="text" name="mb_wallet" value="<?php echo $mb['mb_wallet'] ?>" id="mb_wallet" class="frm_input wide" size="15" style="width:300px; margin-bottom: 12px;"><br>
-			<?= $curencys[0] ?>  지갑주소 : &nbsp<input type="text" name="eth_my_wallet" value="<?php echo $mb['eth_my_wallet'] ?>" id="eth_my_wallet" class="frm_input wide" size="15" style="width:300px; margin-left: 17px;">
+			<td colspan="3">
+			<?= $curencys[0] ?> 지갑주소 : <input type="text" name="eth_my_wallet" value="<?php echo Decrypt($mb['eth_my_wallet'], $mb['mb_id'], 'x') ?>" id="eth_my_wallet" class="frm_input wide" size="15" style="width:300px; margin-left: 15px;">
+			&nbsp<?= $curencys[4] ?> 지갑주소 : <input type="text" name="etc_my_wallet" value="<?php echo Decrypt($mb['etc_my_wallet'], $mb['mb_id'], 'x') ?>" id="etc_my_wallet" class="frm_input wide" size="15" style="width:300px; margin-left: 15px;">
+			&nbsp<?= $curencys[3] ?> 지갑주소 : <input type="text" name="mb_wallet" value="<?php echo Decrypt($mb['mb_wallet'], $mb['mb_id'], 'x') ?>" id="mb_wallet" class="frm_input wide" size="15" style="width:300px; margin-left: 15px;">
+			&nbsp<?= $curencys[1] ?> 지갑주소 : <input type="text" name="usdt_my_wallet" value="<?php echo Decrypt($mb['usdt_my_wallet'], $mb['mb_id'], 'x') ?>" id="usdt_my_wallet" class="frm_input wide" size="15" style="width:300px; margin-left: 15px;">
 		</td>
 		<?}?>
 	</tr>
@@ -1111,6 +1120,11 @@ this.form.mb_intercept_date.value=this.form.mb_intercept_date.defaultValue; }">
 			<input type="checkbox" id="kyc_admin_0" name="kyc_admin" class="kyc_admin_btn" <?= checkerble(0, $mb['kyc_cert']); ?> onclick='checkOnlyOne(this)' value="0">
 			<label for="kyc_admin_0">등록대기</label>
 		</td>
+	</tr>
+
+	<tr>
+		<th scope="row"><label for="hja_addr">HJA BEP-20 주소</label></th>
+		<td colspan="3"><input type="text" name="hja_addr" id="hja_addr" class="frm_input wide" size="100" style="font-weight:600;color:black" placeholder="<?=$mb['hja_addr']?>" readonly></input></td>
 	</tr>
 
 	<tr>
