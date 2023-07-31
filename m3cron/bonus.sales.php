@@ -86,7 +86,7 @@ $code = "sales";
 
 $host_name = 'localhost';
 $user_name = 'root';
-$user_pwd = 'willsoft0780!@';
+$user_pwd = 'wizclass.inc@gmail.com';
 $database = 'hwajo';
 $conn = mysqli_connect($host_name,$user_name,$user_pwd,$database);
 
