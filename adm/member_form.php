@@ -380,8 +380,8 @@ $rank_result = sql_fetch($rank_sql);
 
 					<th scope="row"><label for="mb_id">이름<?php echo $sound_only ?></label></th>
 					<td>
-						<input type="hidden" name="mb_name" value="<?= $mb['mb_name'] ?>" />
-						<span class="td_id"><?= $mb['mb_name'] ?></span>
+						<input type="text" name="mb_name" class="frm_input wide" value="<?= $mb['mb_name'] ?>" />
+						<!-- <span class="td_id"><?= $mb['mb_name'] ?></span> -->
 					</td>
 
 				</tr>

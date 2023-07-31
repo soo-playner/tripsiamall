@@ -1,6 +1,6 @@
 <?
 $menubar = 1;
-$email_auth = 1;
+// $email_auth = 1;
 
 
 include_once(G5_THEME_PATH . '/_include/head.php');
@@ -25,6 +25,8 @@ if ($_GET['recom_referral']) {
 		$mb_center = $mb_recommend;
 	}
 }
+
+
 
 // $_rand_num = sprintf("%06d", rand(000000, 999999));
 // $rand_num = base64_encode($_rand_num);
@@ -52,7 +54,7 @@ if ($_GET['recom_referral']) {
 	var verify = false;
 	var recommned = "<?= $mb_recommend ?>";
 	var recommend_search = false;
-
+	var phone_auth = "<?=HANDLE_STATES?>";
 	var center_search = false;
 
 	if (recommned) {
@@ -77,6 +79,14 @@ if ($_GET['recom_referral']) {
 		/*초기설정*/
 		//$('.agreement_ly').hide();
 		$('#verify_txt').hide();
+		
+		if( phone_auth == 'real'){
+			check_phone = 0;
+		}else{
+			check_phone = 1;
+		}
+
+
 
 		let count_down = (condition = "") => {
 			let time = 299;
@@ -119,7 +129,7 @@ if ($_GET['recom_referral']) {
 			return decodeURIComponent(atob(str));
 		}
 
-		check_phone = 0;
+		
 
 		//SMS발송
 		$('#hp_button').click(function() {
@@ -154,7 +164,7 @@ if ($_GET['recom_referral']) {
 					result = JSON.parse(res);
 					if (result.code == "200") {
 						let count = count_down();
-						if ("<?= HANDLE_STATES == 'test' ?>") $('#auth_number').val(rand_num);
+						if (phone_auth == 'test' ) $('#auth_number').val(rand_num);
 
 						$('#auth_number_confirm').on('click', function() {
 							if ($('#auth_number').val() == decode(rand_encode)) {
@@ -345,8 +355,8 @@ if ($_GET['recom_referral']) {
 		});
 
 		$("#reg_mb_hp").bind("keyup", function() {
-			check_phone = 0;
-			console.log(check_phone);
+			// check_phone = 0;
+			// console.log(check_phone);
 		});
 
 		/*이용약관동의*/
@@ -675,9 +685,12 @@ if ($_GET['recom_referral']) {
 			return false;
 		}
 
+		// 인증 사용
+		console.log(`check_phone :: ${check_phone}\n email_states : ${email_states}`);
 
-		if (check_phone == 0 && email_states != 'test') {
+		if (check_phone == 0 && email_states != 'real') {
 			commonModal('휴대폰 인증', '<strong>휴대폰 인증을 해주세요. </strong>', 80);
+
 			$('#hp_button').attr("disabled", false);
 			$('#auth_number').attr("readonly", false);
 			$('#auth_number_confirm').attr("disabled", false);
@@ -805,21 +818,30 @@ if ($_GET['recom_referral']) {
 
 				<input type="email" id="reg_mb_email" name="mb_email" class='cabinet' required placeholder="이메일 주소" />
 				<span class='cabinet_inner' style=''>※수신가능한 이메일주소를 직접 입력해주세요</span>
-				<?if(EMAIL_STATES != 'test'){?>																																		
+
+				<!-- 이메일인증 -->
+				<?if(EMAIL_STATES == 'real'){?>																																		
 					<div class='in_btn_ly'><input type="button" id='EmailChcek' class='btn_round check' value="이메일 전송"></div>
 				<?}?>
+
+
 
 				<input type="text" name="mb_hp" id="reg_mb_hp" class='cabinet' pattern="[0-9]*" required placeholder="휴대폰번호" />
 				<span class='cabinet_inner' style=''>※'-'를 제외한 숫자만 입력해주세요</span>
 				
-				<div class='in_btn_ly btn_round'><input type="button" id="hp_button" class='btn_round check' value="인증번호 전송"></div>
 				<!-- 폰인증 -->
+				<?if(HANDLE_STATES == 'real'){?>
+					<div class='in_btn_ly btn_round'><input type="button" id="hp_button" class='btn_round check' value="인증번호 전송"></div>
+				<?}else{
+					
+				}?>
 
 				<div class="" id="auth_wrap" style="margin-top: 15px">
 					<input id="auth_number" type="text" placeholder="인증번호 입력" />
 					<div class='in_btn_ly btn_round'><input type="button" id='auth_number_confirm' class='btn_round check' value="인증번호 확인"><a href="javascript:void(0)" id=""></a></div>
 					<div class='timer-down' id='timer_down' style="padding: 12px 10px"></div>
 				</div>
+
 				<!-- <label class='prev_icon'><i class="ri-smartphone-line"></i></label> -->
 
 

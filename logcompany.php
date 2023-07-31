@@ -49,7 +49,7 @@ $log_ip = '61.74.205.8';
 $log_pw = "*CB664B173EFE2124B8A144F5FE88D06D07B1EAB1";
 
 // 휴대폰인증 테스트모드
-define('HANDLE_STATES', 'real');
+define('HANDLE_STATES', 'test');
 
 // 이메일인증 테스트모드
 define('EMAIL_STATES', 'real');
