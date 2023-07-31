@@ -285,7 +285,7 @@ $result = sql_query($sql);
 
 		var it_name = '';
 		var od_id = '';
-
+		var prev_goods_price = 0;
 		var mb_id = "<?= $member['mb_id'] ?>";
 		var mb_no = "<?= $member['mb_no'] ?>";
 
@@ -386,11 +386,11 @@ $result = sql_query($sql);
 			}
 
 			// 잔고 확인 
-			if (price_calc < 0) {
-				dialogModal('구매 가능 잔고 확인', '<strong>구매 가능 잔고가 부족합니다.</strong>', 'warning');
-				if (debug) console.log('error : 4');
-				return false;
-			}
+			// if (price_calc < 0) {
+			// 	dialogModal('구매 가능 잔고 확인', '<strong>구매 가능 잔고가 부족합니다.</strong>', 'warning');
+			// 	if (debug) console.log('error : 4');
+			// 	return false;
+			// }
 
 			/* if (confirm(it_name + '팩을 구매 하시겠습니까?')) {
 				} else {
@@ -426,7 +426,14 @@ $result = sql_query($sql);
 							processing = false;
 							$('#purchase').attr("disabled", true);
 
-							dialogModal('패키지 구매 처리', '<strong>패키지 상품 구매처리가 정상 처리되었습니다.</strong>', 'success');
+							let alert = "패키지 상품 구매처리가 정상 처리되었습니다.";
+							let state = "success";
+							if(data.code == "0001"){
+								alert = data.sql;
+								state = "failed";
+							}
+							
+							dialogModal('패키지 구매 처리', `<strong>${alert}</strong>`, state);
 
 							$('.closed').on('click', function() {
 								location.href = "<?= G5_URL ?>/page.php?id=upstairs";
@@ -460,9 +467,10 @@ $result = sql_query($sql);
 
 		// 상품 업그레이드
 		$('.upgradeBtn').on('click', function() {
-			od_id = $(this).data('od_id')
+			od_id = $(this).data('od_id');
+			prev_goods_price = this.dataset.price;
 			it_name = $(this).siblings('.pack_name').html();
-			upgrade_price_calc = '<?= shift_auto($total_withraw, $curencys[1]) ?>';
+			upgrade_price_calc = '<?= shift_auto($available_fund, $curencys[1]) ?>';
 			$.post("/util/next_package_info.php", {
 					od_id
 				},
@@ -470,7 +478,7 @@ $result = sql_query($sql);
 					res = JSON.parse(data);
 					if (res.result == 'success') {
 						$('.change_title').text('PACKAGE 업그레이드');
-						$('#trade_total').val(res.it_cust_price + '<?= $curencys[1] ?>')
+						$('#trade_total').val(res.it_cust_price + ' <?= $curencys[1] ?>')
 						$('#shift_dollor').val(Price(parseFloat(upgrade_price_calc.replace(/,/g , '')) - parseFloat(res.diff_price.replace(/,/g , ''))));
 						$('#shift_won').text('VAT 포함 : ' + Price(res.it_cust_price) + ' <?= $curencys[1] ?>');
 						$('#upgrade').show().attr("disabled", false);
@@ -502,7 +510,7 @@ $result = sql_query($sql);
 			}
 
 			// 잔고 확인 
-			if (parseFloat(upgrade_price_calc.replace(/,/g , '')) < it_price) {
+			if (parseFloat(upgrade_price_calc.replace(/,/g , '')) < it_price-prev_goods_price) {
 				dialogModal('구매 가능 잔고 확인', '<strong>구매 가능 잔고가 부족합니다.</strong>', 'warning');
 				return false;
 			}
@@ -529,7 +537,7 @@ $result = sql_query($sql);
 							processing = false;
 							$('#upgrade').attr("disabled", true);
 
-							dialogModal('Package 업그레이드 확인', '<strong>패키지 상품 업그레이드가 정상 처리되었습니다.</strong>', 'success');
+							dialogModal('Package 업그레이드 확인', `<strong>${data.message}</strong>`, `${data.result}`);
 
 							$('.closed').on('click', function() {
 								location.href="<?= G5_URL ?>/page.php?id=upstairs";

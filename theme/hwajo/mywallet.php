@@ -37,6 +37,8 @@ $company_wallet = wallet_config('wallet_addr')['wallet_addr'];
 
 $wallet_addr1 = Decrypt($member['mb_wallet'], $member['mb_id'], 'x'); // erc20
 $wallet_addr2 = Decrypt($member['eth_my_wallet'], $member['mb_id'], 'x'); // eth
+$wallet_addr3 = Decrypt($member['etc_my_wallet'], $member['mb_id'], 'x'); // etc
+$wallet_addr4 = Decrypt($member['usdt_my_wallet'], $member['mb_id'], 'x'); // usdt
 
 // 수수료제외 실제 출금가능금액
 $withdrwal_total = $total_withraw;
@@ -338,11 +340,11 @@ function curency_txt($value,$kind = 'deposit'){
             <input type="text" id="deposit_name" class='b_ghostwhite' placeholder="TXID를 입력해주세요">
 
             <input type="text" id="deposit_value" class='b_ghostwhite' placeholder="입금수량을 입력해주세요">
-            <label class='currency-right' id="deposit-currency-right"><?= $curencys[3] ?></label>
+            <label class='currency-right' id="deposit-currency-right"><?= $curencys[0] ?></label>
           </div>
 
           <div class='col-sm-12 col-12 '>
-            <button class="btn btn_wd font_white deposit_request" data-currency="<?= $curencys[3] ?>">
+            <button class="btn btn_wd font_white deposit_request" data-currency="<?= $curencys[0] ?>">
               <span>입금확인요청</span>
             </button>
           </div>
@@ -362,7 +364,24 @@ function curency_txt($value,$kind = 'deposit'){
             <div class="hist_con_row1">
               <div class="row">
                 <span class="hist_date"><?= $row['create_dt'] ?></span>
-                <span class="hist_value"><?= shift_auto($row['amt']) ?> <?= $row['coin'] ?></span>
+                <?php 
+                switch(strtolower($row['coin'])){
+                  case 'eth':
+                    $result = '(ERC-20)';
+                    break;
+                  case 'etc':
+                    $result = '(ETC)';
+                    break;
+                  case 'usdt':
+                    $result = '(TetherUS)';
+                    break;
+                  case 'hja':
+                    $result = '(HJA)';
+                    break;
+                }
+                ?>
+                <span class="hist_value"><?= shift_auto($row['amt']) ?> <?= $row['coin'] . ' ' . $result ?></span>
+
               </div>
 
               <div class="row">
@@ -404,7 +423,7 @@ function curency_txt($value,$kind = 'deposit'){
             <input type="text" id="withdrawal_account_name" class="b_ghostwhite " placeholder="예금주" value="<?= $member['account_name'] ?>">
           </div> -->
           <div class='col-12'>
-            <input type="text" id="withdrawal_bank_account" class="b_ghostwhite " placeholder="출금 지갑주소를 입력해주세요" value="<?= $wallet_addr1 ?>">
+            <input type="text" id="withdrawal_bank_account" class="b_ghostwhite " placeholder="출금 지갑주소를 입력해주세요" value="<?= Decrypt($member['eth_my_wallet'], $member['mb_id'], 'x'); ?>">
           </div>
         </div>
         <div class="input_shift_value mb10 pb5">
@@ -461,12 +480,28 @@ function curency_txt($value,$kind = 'deposit'){
             <div class="hist_con_row1">
               <div class="row">
                 <span class="hist_date"><?= $row['create_dt'] ?></span>
-                <span class="hist_value "> <?= shift_auto($row['amt_total']) ?> <?= $row['coin'] ?></span>
+                <?php 
+                switch(strtolower($row['coin'])){
+                  case 'eth':
+                    $result = '(BEP-20)';
+                    break;
+                  case 'etc':
+                    $result = '(ETC)';
+                    break;
+                  case 'usdt':
+                    $result = '(TetherUS)';
+                    break;
+                  case 'hja':
+                    $result = '(HJA)';
+                    break;
+                }
+                ?>
+                <span class="hist_value "> <?= shift_auto($row['amt_total']) ?> <?= $row['coin'] . ' ' . $result ?></span>
               </div>
 
               <div class="row">
                 <span class="hist_withval"> <?= shift_auto($row['amt']) ?> <?= $row['coin'] ?> / <label>Fee : </label> <?= shift_auto($row['fee']) ?> <?= $row['coin'] ?></span>
-                <span class="hist_value status"><?= shift_auto($row['out_amt']) ?> <?= $curencys[1] ?></span>
+                <span class="hist_value status"><?= shift_auto($row['out_amt']) ?> <?= $curencys[1] . ' ' . $result ?></span>
               </div>
 
               <!-- <div class="row">
@@ -531,7 +566,7 @@ function curency_txt($value,$kind = 'deposit'){
     } */
 
     /* 출금*/
-    var curency_tmp = '<?= $curencys[3] ?>';
+    var curency_tmp = '<?= $curencys[0] ?>';
     var usdt_curency = '<?= $curencys[1] ?>';
     var eth_curency = '<?= $curencys[0] ?>';
     var etc_curency = '<?= $curencys[4] ?>';
@@ -620,7 +655,15 @@ function curency_txt($value,$kind = 'deposit'){
 
     document.querySelector('#select_coin').addEventListener('change', (e) => {
       curency_tmp = e.target.value;
-      let wallet_addr = curency_tmp == erc20_curency ? '<?= $wallet_addr1 ?>' : '<?= $wallet_addr2 ?>';
+      let wallet_addr = '<?= $wallet_addr2 ?>';
+      if (curency_tmp == erc20_curency) {
+        wallet_addr = '<?= $wallet_addr1?>';
+      } else if (curency_tmp == etc_curency) {
+        wallet_addr = '<?= $wallet_addr3?>';
+      } else if (curency_tmp == usdt_curency) {
+        wallet_addr = '<?= $wallet_addr4?>';
+      }
+       
       $('#withdrawal_bank_account').val(wallet_addr);
       $('.fee').css('display', 'none');
       document.querySelector('#sendValue').value = "";

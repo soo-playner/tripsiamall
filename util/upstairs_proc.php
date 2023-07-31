@@ -68,6 +68,18 @@ if($debug){
 	echo "구매내역 Invoice 생성<br>";
 	echo $sql."<br><br>";
 }else{
+
+	$member_bucks_check_sql = "select sum(mb_deposit_point+mb_deposit_calc) as deposit , sum(mb_balance-mb_shift_amt) as balance from g5_member where mb_id = '{$mb_id}'";
+	$member_bucks_check_row = sql_fetch($member_bucks_check_sql);
+
+	$deposit = floor($member_bucks_check_row['deposit']);
+	$balance = floor($member_bucks_check_row['balance']);
+
+	if($deposit + $balance < $it_point){
+		echo json_encode(array("result" => "failed",  "code" => "0001", "sql" => "잔고가 부족합니다."));
+		return false;
+	}
+
 	$rst = sql_query($sql);
 }
 
@@ -84,7 +96,17 @@ if($func == "new"){
 
 if($rst && $logic){
 
-	$update_point = " UPDATE g5_member set $target = ($target - $input_val) ";
+	$update_mb_bucks = "";
+	if($deposit > 0){
+		$bucks_calc = $deposit - $it_point;
+		if($bucks_calc < 0){
+			$update_mb_bucks .= ",mb_fee = mb_fee + abs({$bucks_calc})";
+		}
+	}else{
+		$update_mb_bucks .= ",mb_fee = mb_fee + {$it_point}";
+	}
+
+	$update_point = " UPDATE g5_member set $target = ($target - $input_val){$update_mb_bucks} ";
 
 	if($member['mb_level'] == 0){
 		$update_point .= ", mb_level = 1 " ;

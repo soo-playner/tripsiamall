@@ -31,10 +31,10 @@ $total_fund = $total_bonus;
 // $shop_point = $total_bonus*0.1;
 
 // 출금가능금액 :: 총보너스 - 기출금
-$total_withraw = $total_bonus - $total_shift_amt;
+$total_withraw = $total_bonus - $total_shift_amt - $member['mb_fee'];
 
 // 구매가능잔고 :: 입금액 - 구매금액 = 남은금액
-$available_fund = $total_deposit;
+$available_fund = $total_deposit + $total_bonus - $total_shift_amt;
 
 // 마이닝합계
 /* $mining_acc = $member[$mining_target];

@@ -28,6 +28,8 @@ if($pre_result['cnt'] < 1){
     $usdt = $result['used'] == '1' ? $result['current_cost'] : 1;
   } else if ($coin == 'eth') {
     $usdt = $get_coins_price['usdt_eth'];
+  } else if ($coin == 'usdt') {
+    $usdt = 1;
   } else {
     $usdt = null;
   }

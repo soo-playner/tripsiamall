@@ -169,8 +169,18 @@ if($debug){
 // 회원정보업데이트
 // 출금시 선차감
 if($rst){
+
 	$Enc_wallet_addr2 = Encrypt($bank_account,$mb_id,'x');
-	$column = $select_coin == $curencys[0] ? "eth_my_wallet = '{$Enc_wallet_addr2}'" : "mb_wallet = '{$Enc_wallet_addr2}'";
+
+	if($select_coin == 'hja') {
+		$column = "mb_wallet = '{$Enc_wallet_addr2}'";
+	} else if ($select_coin == 'etc') {
+		$column = "etc_my_wallet = '{$Enc_wallet_addr2}'";
+	} else if ($select_coin == 'usdt') {
+		$column = "usdt_my_wallet = '{$Enc_wallet_addr2}'";
+	} else {
+		$column = "eth_my_wallet = '{$Enc_wallet_addr2}'";
+	}
 
 	$amt_query = "UPDATE g5_member set 
 	mb_shift_amt = mb_shift_amt + {$total_amt}
